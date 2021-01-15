@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ken's Timeline</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+        <script src="timeline.js"></script>
+
+        <script>
+            $(function() {
+
+                                
+                var people = [];
+
+                $.getJSON('timelines/timeline.json', function(data) {
+                    $.each(data.person, function(i, f) {
+                    var tblRow = "<tr>" + "<td>" + f.category + "</td>" + "</tr>"
+                        $(tblRow).appendTo("#mainTable tbody");
+                });
+
+                });
+
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="mainSection">
+            <h1>Ken's Timeline</h1>
+
+            <div id="mainTable"></div>
+            <button type="button" onClick=myfunc()>Test</button>    
+        </div>
+     
+    </body>
+</html>

@@ -1,0 +1,307 @@
+{
+ 
+	"category" : "Prehistory",
+	"colorString" : "#aaaaaa55",
+	"tags" : ["prehistory", "geology"],
+	"eventlist" : [
+
+
+		{
+			"title" : "Hadean",
+			"dateString" : "4600000000 BC",
+			"endDateString" : "4000000000 BC",
+			"maxScale" : 50000000000,
+			"type" : "era",
+			"tags" : ["geologic eons"]
+		},	
+		{
+			"title" : "Archean",
+			"dateString" : "4000000000 BC",
+			"endDateString" : "2500000000 BC",
+			"maxScale" : 50000000000,
+			"type" : "era",
+			"tags" : ["geologic eons"]
+		},
+		{
+			"title" : "Proterozoic",
+			"dateString" : "2500000000 BC",
+			"endDateString" : "541000000 BC",
+			"minScale" : 1000000000,
+			"maxScale" : 50000000000,
+			"type" : "era",
+			"tags" : ["geologic eons"]
+		},
+		{
+			"title" : "Phanerozoic",
+			"dateString" : "541000000 BC",
+			"endDateString" : "2019",
+			"minScale" : 1000000000,
+			"maxScale" : 50000000000,
+			"type" : "era",
+			"tags" : ["geologic eons"]
+		},
+
+		{
+			"title" : "Paleoproterozoic",
+			"dateString" : "2500000000 BC",
+			"endDateString" : "1600000000 BC",
+			"maxScale" : 1000000000,
+			"type" : "era",
+			"tags" : ["geologic eras"]
+		},
+		{
+			"title" : "Mesoproterozoic",
+			"dateString" : "1600000000 BC",
+			"endDateString" : "1000000000 BC",
+			"maxScale" : 1000000000,
+			"type" : "era",
+			"tags" : ["geologic eras"]
+		},
+		{
+			"title" : "Neoproterozoic",
+			"dateString" : "1000000000 BC",
+			"endDateString" : "541000000 BC",
+			"maxScale" : 1000000000,
+			"type" : "era",
+			"tags" : ["geologic eras"]
+		},
+
+
+		{
+			"title" : "Paleozoic",
+			"dateString" : "542000000 BC",
+			"endDateString" : "253170000 BC",
+			"minScale" : 500000000,
+			"maxScale" : 1000000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Mesozoic",
+			"dateString" : "253170000 BC",
+			"endDateString" : "66038000 BC",
+			"minScale" : 500000000,
+			"maxScale" : 1000000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Cenozoic",
+			"dateString" : "66038000 BC",
+			"endDateString" : "2019",
+			"minScale" : 500000000,
+			"maxScale" : 1000000000,
+			"type" : "era"
+		},
+
+		{
+			"title" : "Cambrian",
+			"dateString" : "541000000 BC",
+			"endDateString" : "485000000 BC",
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Ordovician",
+			"dateString" : "485000000 BC",
+			"endDateString" : "443000000 BC",
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Silurian",
+			"dateString" : "443000000 BC",
+			"endDateString" : "416000000 BC",
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Devonian",
+			"nickname" : "Age of the Fish",
+			"dateString" : "416000000 BC",
+			"endDateString" : "358900000 BC",
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Carboniferous",
+			"dateString" : "358900000 BC",
+			"endDateString" : "298900000 BC",
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Permian",
+			"dateString" : "298900000 BC",
+			"endDateString" : "252170000 BC",
+			"maxScale" : 500000000,
+			"type" : "era"
+		},		
+		{
+			"title" : "Triassic",
+			"dateString" : "251900000 BC",
+			"endDateString" : "201300000 BC",
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Jurassic",
+			"dateString" : "201300000 BC",
+			"endDateString" : "145000000 BC",
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Cretaceous",
+			"dateString" : "145000000 BC",
+			"endDateString" : "66000000 BC",
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Paleogene",
+			"dateString" : "66000000 BC",
+			"endDateString" : "23030000 BC",
+			"minScale" : 50000000,
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Neogene",
+			"dateString" : "23030000 BC",
+			"endDateString" : "2580000 BC",
+			"minScale" : 50000000,
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Quaternary",
+			"dateString" : "2580000 BC",
+			"endDateString" : "2019",
+			"minScale" : 50000000,
+			"maxScale" : 500000000,
+			"type" : "era"
+		},
+		
+
+
+		{
+			"title" : "Oceans form on Earth",
+			"searchstring" : "Origin of water on Earth",
+			"dateString" : "4410000000 BC"
+		},
+		{
+			"title" : "Continents form on Earth",
+			"searchstring" : "Continental crust",
+			"dateString" : "3600000000 BC"
+		},
+		{
+			"title" : "Earliest life",
+			"searchstring" : "Earliest known life forms",
+			"maxScale" : 5000000000,
+			"dateString" : "3430000000 BC"
+		},
+		{
+			"title" : "Stromatolites",
+			"searchstring" : "Stromatolite",
+			"maxScale" : 5000000000,
+			"dateString" : "1250000000 BC"
+		},
+		{
+			"title" : "Great Dividing Range (Australia) forms",
+			"searchstring" : "Great Dividing Range",
+			"maxScale" : 500000000,
+			"dateString" : "300000000 BC"
+		},
+		{
+			"title" : "Oxygen Crisis",
+			"searchstring" : "Great Oxidation Event",
+			"dateString" : "2450000000 BC"
+		},
+		{
+			"title" : "Snowball Earth",
+			"maxScale" : 1000000000,
+			"dateString" : "700000000 BC"
+		},
+		{
+			"title" : "Earliest animals",
+			"searchstring" : "Ediacaran biota",
+			"maxScale" : 1000000000,
+			"dateString" : "635000000 BC"
+		},
+		{
+			"title" : "Cambrian Explosion",
+			"searchstring" : "Cambrian explosion",
+			"maxScale" : 5000000000,
+			"dateString" : "541000000 BC"
+		},
+		{
+			"title" : "Coelophysis",
+			"dateString" : "216000000 BC",
+			"maxScale" : 500000000,
+			"tags" : ["dinosaurs"]
+		},
+		{
+			"title" : "Stegosaurus",
+			"dateString" : "155000000 BC",
+			"maxScale" : 500000000,
+			"tags" : ["dinosaurs"]
+		},
+		{
+			"title" : "Iguanodon",
+			"dateString" : "126000000 BC",
+			"maxScale" : 500000000,
+			"tags" : ["dinosaurs"]
+		},
+		{
+			"title" : "Velociraptor",
+			"dateString" : "75000000 BC",
+			"maxScale" : 500000000,
+			"tags" : ["dinosaurs"]
+		},
+		{
+			"title" : "Tyrannosaurus",
+			"dateString" : "68000000 BC",
+			"maxScale" : 100000000,
+			"tags" : ["dinosaurs"]
+		},
+		{
+			"title" : "Terror bird",
+			"searchstring" : "Phorusrhacidae",
+			"dateString" : "62000000 BC",
+			"maxScale" : 100000000
+		},
+		{
+			"title" : "Marsupials reach Australia",
+			"searchstring" : "Australidelphia",
+			"dateString" : "50000000 BC",
+			"maxScale" : 100000000,
+			"tags" : ["australia"]
+		},
+		{
+			"title" : "Permian–Triassic extinction event",
+			"dateString" : "252000000 BC",
+			"maxScale" : 5000000000,
+			"tags" : ["dinosaurs"]
+		},
+		{
+			"title" : "Extinction of dinosaurs",
+			"searchstring" : "Cretaceous–Paleogene extinction event",
+			"dateString" : "66000000 BC",
+			"maxScale" : 5000000000,
+			"tags" : ["dinosaurs"]
+		},
+		{
+			"title" : "Himalayas form",
+			"searchstring" : "Himalayas",
+			"dateString" : "45000000 BC",
+			"maxScale" : 500000000,
+			"tags" : ["continents"]
+		},
+		{
+			"title" : "Land plants",
+			"searchstring" : "Embryophyte",
+			"dateString" : "450000000 BC",
+			"maxScale" : 5000000000
+		}
+	
+
+] }

@@ -1,0 +1,359 @@
+{
+ 
+	"category" : "Recent history",
+	"colorString" : "#22aadd55",
+	"tags" : ["history"],
+	"eventlist" : [
+
+		{
+			"title" : "Current Era",
+			"searchstring" : "21st century",
+			"dateString" : "2001",
+			"endDateString" : "2019",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "Post-Cold War",
+			"searchstring" : "Post–Cold War era",
+			"dateString" : "1991",
+			"endDateString" : "2001",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "Cold War",
+			"dateString" : "1945",
+			"endDateString" : "1991",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "World War II",
+			"dateString" : "1939",
+			"endDateString" : "1945",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "Great Depression",
+			"dateString" : "1929",
+			"endDateString" : "1939",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "Roaring Twenties",
+			"dateString" : "1918",
+			"endDateString" : "1929",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "World War I",
+			"dateString" : "1914",
+			"endDateString" : "1918",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "Belle Époque",
+			"dateString" : "1871",
+			"endDateString" : "1914",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "Industrial Revolution",
+			"dateString" : "1815",
+			"endDateString" : "1871",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "Napoleonic Age",
+			"searchstring" : "Napoleonic era",
+			"dateString" : "1799",
+			"endDateString" : "1815",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "French Revolution",
+			"dateString" : "1789",
+			"endDateString" : "1799",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+		{
+			"title" : "Age of Enlightenment",
+			"dateString" : "1715",
+			"endDateString" : "1789",
+			"minScale" : 1,
+			"maxScale" : 101,
+			"type" : "era"
+		},
+
+
+
+		{
+			"title" : "European Migrant Crisis",
+			"searchstring" : "European migrant crisis",
+			"dateString" : "2015",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Arab Spring",
+			"dateString" : "2011",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Global Financial Crisis",
+			"searchstring" : "Financial crisis of 2007–2008",
+			"dateString" : "2008",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "9/11",
+			"searchstring" : "September 11 attacks",
+			"dateString" : "2001",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "First web browser",
+			"searchstring" : "Web browser",
+			"dateString" : "1990",
+
+			"comment" : "No min or max scale for this"
+		},
+		{
+			"title" : "Dissolution of the Soviet Union",
+			"dateString" : "1991",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Fall of the Berlin Wall",
+			"searchstring" : "Berlin Wall",
+			"dateString" : "1989",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Iranian Revolution",
+			"dateString" : "1979",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Nixon Resigns",
+			"searchstring" : "Watergate scandal",
+			"dateString" : "1974",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Apollo 11",
+			"dateString" : "1969",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "JFK Assassination",
+			"dateString" : "1963",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Cuban Missile Crisis",
+			"dateString" : "1962",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Suez Crisis",
+			"dateString" : "1956",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "USSR nuclear test",
+			"searchstring" : "RDS-1",
+			"dateString" : "1949",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Surrender of Axis powers",
+			"dateString" : "1945",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Battle of Stalingrad",
+			"dateString" : "1942",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Pearl Harbor",
+			"dateString" : "1941",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "WWII begins",
+			"dateString" : "1939",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Japan invades China",
+			"dateString" : "1937",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Nazis take power",
+			"dateString" : "1933",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Wall St. Crash",
+			"searchstring" : "Wall Street Crash of 1929",
+			"dateString" : "1929",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Russian Revolution",
+			"dateString" : "1917",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Battle of the Somme",
+			"dateString" : "1916",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "WWI breaks out",
+			"dateString" : "1914",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Sinking of Titanic",
+			"dateString" : "1912",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Second Boer War",
+			"dateString" : "1899",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Scramble for Africa",
+			"dateString" : "1881",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Paris Commune",
+			"dateString" : "1871",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "American Civil War",
+			"dateString" : "1861",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Indian Mutiny",
+			"searchstring" : "Indian Rebellion of 1857",
+			"dateString" : "1857",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Crimean War",
+			"dateString" : "1853",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Great Exhibition",
+			"dateString" : "1851",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Irish Famine",
+			"searchstring" : "Great Famine (Ireland)",
+			"dateString" : "1845",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "July Revolution",
+			"dateString" : "1830",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Spanish America Independence",
+			"searchstring" : "Spanish American wars of independence",
+			"dateString" : "1820",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "War of 1812",
+			"dateString" : "1812",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "US Decl. of Independence",
+			"searchstring" : "United States Declaration of Independence",
+			"dateString" : "1776",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Seven Years' War",
+			"dateString" : "1756",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Jacobite Rising",
+			"searchstring" : "Jacobite rising of 1745",
+			"dateString" : "1745",
+			"minScale" : 1,
+			"maxScale" : 200
+		}
+	
+
+] }

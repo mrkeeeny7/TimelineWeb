@@ -1,0 +1,339 @@
+{
+ 
+	"category" : "Rome",
+	"colorString" : "#ff00dd55",
+	"tags" : ["rome"],
+	"eventlist" : [
+
+	
+	
+	{
+		"title" : "Roman Republic",
+		"dateString" : "509 BC",
+		"endDateString" : "27 BC",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Roman Empire",
+		"dateString" : "27 BC",
+		"endDateString" : "476 AD",
+		"minScale" : 501,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Rome",
+		"dateString" : "509 BC",
+		"endDateString" : "476 AD",
+		"minScale" : 5000,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Principate",
+		"dateString" : "27 BC",
+		"endDateString" : "235 AD",
+		"minScale" : 151,
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "Crisis of the Third Century",
+		"dateString" : "235",
+		"endDateString" : "284",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "Dominate",
+		"dateString" : "284",
+		"endDateString" : "476",
+		"minScale" : 151,
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "Julio-Claudian Dynasty",
+		"dateString" : "27 BC",
+		"endDateString" : "69 AD",
+		"maxScale" : 151,
+		"type" : "era"
+	},
+	{
+		"title" : "Flavian Dynasty",
+		"dateString" : "69 AD",
+		"endDateString" : "96 AD",
+		"maxScale" : 151,
+		"type" : "era"
+	},
+	{
+		"title" : "Nerva-Antonine Dynasty",
+		"dateString" : "96 AD",
+		"endDateString" : "192 AD",
+		"maxScale" : 151,
+		"type" : "era"
+	},
+	{
+		"title" : "Severan Dynasty",
+		"dateString" : "193 AD",
+		"endDateString" : "235 AD",
+		"maxScale" : 151,
+		"type" : "era"
+	},
+	{
+		"title" : "Tetrarchy",
+		"dateString" : "290 AD",
+		"endDateString" : "313 AD",
+		"maxScale" : 151,
+		"type" : "era"
+	},
+	{
+		"title" : "Constantinian Dynasty",
+		"dateString" : "313 AD",
+		"endDateString" : "363 AD",
+		"maxScale" : 151,
+		"type" : "era"
+	},
+	{
+		"title" : "Valentinian Dynasty",
+		"dateString" : "364 AD",
+		"endDateString" : "392 AD",
+		"maxScale" : 151,
+		"type" : "era"
+	},
+	{
+		"title" : "Theodosian Dynasty",
+		"dateString" : "392 AD",
+		"endDateString" : "455 AD",
+		"maxScale" : 151,
+		"type" : "era"
+	},
+	
+
+	{
+		"title" : "Roman Republic begins",
+		"searchstring" : "Roman Republic",
+		"dateString" : "509 BC",
+		"maxScale" : 500
+	},	
+	{
+		"title" : "First Punic War",
+		"dateString" : "264 BC",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Hannibal",
+		"dateString" : "218 BC",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Gaius Marius",
+		"dateString" : "107 BC",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Sulla",
+		"dateString" : "81 BC",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Julius Caesar",
+		"dateString" : "49 BC",
+		"maxScale" : 50000,
+		"tags" : ["egypt"]
+	},
+	{
+		"title" : "Augustus",
+		"dateString" : "27 BC",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Tiberius",
+		"dateString" : "14 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Caligula",
+		"dateString" : "37 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Claudius",
+		"dateString" : "41 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Nero",
+		"dateString" : "54 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Vespasian",
+		"dateString" : "69 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Titus",
+		"dateString" : "79 AD",
+		"maxScale" : 50
+	},
+	{
+		"title" : "Domitian",
+		"dateString" : "81 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Nerva",
+		"dateString" : "96 AD",
+		"maxScale" : 50
+	},
+	{
+		"title" : "Trajan",
+		"dateString" : "98 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Hadrian",
+		"dateString" : "117 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Antoninus Pius",
+		"dateString" : "138 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Marcus Aurelius",
+		"dateString" : "161 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Commodus",
+		"dateString" : "180 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Septimius Severus",
+		"dateString" : "193 AD",
+		"maxScale" : 500
+	},
+
+	{
+		"title" : "Caracalla",
+		"dateString" : "211 AD",
+		"maxScale" : 500
+	},
+
+	{
+		"title" : "Macrinus",
+		"dateString" : "217 AD",
+		"maxScale" : 50
+	},
+
+	{
+		"title" : "Elagabalus",
+		"dateString" : "218 AD",
+		"maxScale" : 500
+	},		
+
+	{
+		"title" : "Severus Alexander",
+		"dateString" : "222 AD",
+		"maxScale" : 500
+	},
+
+	{
+		"title" : "Crisis of the Third Century",
+		"dateString" : "235 AD",
+		"minScale" : 501,
+		"maxScale" : 5000
+	},
+
+	{
+		"title" : "Diocletian",
+		"dateString" : "284 AD",
+		"maxScale" : 500
+	},
+
+	{
+		"title" : "Constantine the Great",
+		"dateString" : "311 AD",
+		"maxScale" : 500
+	},
+		
+
+	{
+		"title" : "Julian the Apostate",
+		"dateString" : "360 AD",
+		"maxScale" : 500
+	},
+	
+
+	{
+		"title" : "Valentinian I / Valens",
+		"dateString" : "364 AD",
+		"maxScale" : 500
+	},
+
+	{
+		"title" : "Battle of Adrianople",
+		"dateString" : "378 AD",
+		"maxScale" : 5000
+	},
+
+	{
+		"title" : "Theodosius I",
+		"dateString" : "379 AD",
+		"maxScale" : 500
+	},
+
+
+	{
+		"title" : "Honorius",
+		"dateString" : "393 AD",
+		"maxScale" : 500
+	},
+
+
+
+	{
+		"title" : "Sack of Rome",
+		"searchstring" : "Sack of Rome (410)",
+		"dateString" : "410 AD",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Attila the Hun",
+		"searchstring" : "Attila",
+		"dateString" : "450 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Fall of the Western Empire",
+		"searchstring" : "Fall of the Western Roman Empire",
+		"dateString" : "476 AD",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Boudicca's Revolt",
+		"searchstring" : "Boudica",
+		"dateString" : "60 AD",
+		"maxScale" : 5000,
+		"tags" : ["britain"]
+	},
+	{
+		"title" : "Justinian",
+		"dateString" : "527 AD",
+		"maxScale" : 500,
+		"tags" : ["byzantium"]
+	},
+	{
+		"title" : "Plague of Justinian",
+		"dateString" : "541 AD",
+		"maxScale" : 5000,
+		"tags" : ["europe", "byzantium", "pandemic"]
+	}
+
+] }

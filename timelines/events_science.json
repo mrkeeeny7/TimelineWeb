@@ -1,0 +1,32 @@
+{
+ 
+	"category" : "Science",
+	"colorString" : "#22ddbb55",
+	"tags" : ["science"],
+	"eventlist" : [
+			
+		{
+			"title" : "Isaac Newton born",
+			"searchstring" : "Isaac Newton",
+			"dateString" : "1642",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Newton's Principia",
+			"searchstring" : "Philosophiæ Naturalis Principia Mathematica",
+			"dateString" : "1687",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+		{
+			"title" : "Halley predicts comet return",
+			"searchstring" : "Edmond Halley",
+			"dateString" : "1705",
+			"minScale" : 1,
+			"maxScale" : 100
+		}
+	
+	
+
+] }

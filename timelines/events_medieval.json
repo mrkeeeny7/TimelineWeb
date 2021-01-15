@@ -1,0 +1,98 @@
+{
+ 
+	"category" : "Medieval and Renaissance",
+	"colorString" : "#22bbdd55",
+	"tags" : ["history"],
+	"eventlist" : [
+			
+		{
+			"title" : "Marco Polo",
+			"dateString" : "1271",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Black Death",
+			"dateString" : "1348",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Fall of Constantinople",
+			"dateString" : "1453",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Columbus' Voyage",
+			"searchstring" : "Voyages of Christopher Columbus",
+			"dateString" : "1492",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Mona Lisa",
+			"dateString" : "1503",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Sistine Chapel",
+			"searchstring" : "sistine Chapel ceiling",
+			"dateString" : "1512",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Reformation",
+			"dateString" : "1517",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Spanish Armada",
+			"dateString" : "1588",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Gunpowder Plot",
+			"dateString" : "1605",
+			"minScale" : 1,
+			"maxScale" : 200
+		},	
+		{
+			"title" : "Plymouth Colony",
+			"dateString" : "1620",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Beaver Wars",
+			"dateString" : "1629",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Louis XIV",
+			"searchstring" : "Louis XIV of France",
+			"dateString" : "1638",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Great Fire of London",
+			"dateString" : "1666",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Salem witch trials",
+			"dateString" : "1692",
+			"minScale" : 1,
+			"maxScale" : 100
+		}
+	
+	
+
+] }

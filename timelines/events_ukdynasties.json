@@ -1,0 +1,236 @@
+{
+ 
+	"category" : "UK Dynasties",
+	"colorString" : "#ff335555",
+	"tags" : ["ukdynasty"],
+	"eventlist" : [
+
+	{
+		"title" : "Heptarchy",
+		"dateString" : "455 AD",
+		"endDateString" : "927 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Kingdom of England",
+		"dateString" : "927 AD",
+		"endDateString" : "1707",
+		"minScale" : 1001,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "United Kingdom",
+		"dateString" : "1707",
+		"endDateString" : "2019",
+		"minScale" : 1001,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	
+	{
+		"title" : "House of Wessex",
+		"dateString" : "927",
+		"endDateString" : "1066",
+		"maxScale" : 1000,
+		"type" : "era",
+
+		"comment" : "House of Wessex dates from 829, but Kingdom of England from 927; hence later date is used"
+	},
+	
+	{
+		"title" : "House of Normandy",
+		"dateString" : "1066",
+		"endDateString" : "1154",
+		"maxScale" : 1000,
+		"type" : "era"
+	},
+	{
+		"title" : "House of Plantagenet",
+		"dateString" : "1154",
+		"endDateString" : "1485",
+		"minScale" : 501,
+		"maxScale" : 1000,
+		"type" : "era"
+	},
+	{
+		"title" : "Angevins",
+		"dateString" : "1154",
+		"endDateString" : "1216",
+		"minScale" : 1,
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "Plantagenets",
+		"dateString" : "1216",
+		"endDateString" : "1399",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "Lancastrians",
+		"dateString" : "1399",
+		"endDateString" : "1471",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "Yorkists",
+		"dateString" : "1461",
+		"endDateString" : "1485",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+
+	{
+		"title" : "House of Tudor",
+		"dateString" : "1485",
+		"endDateString" : "1603",
+		"maxScale" : 1000,
+		"type" : "era"
+	},
+	{
+		"title" : "House of Stuart",
+		"dateString" : "1603",
+		"endDateString" : "1714",
+		"minScale" : 501,
+		"maxScale" : 1000,
+		"type" : "era",
+		"comments": "Large scale"
+	},
+	{
+		"title" : "House of Stuart",
+		"dateString" : "1603",
+		"endDateString" : "1649",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "Commonwealth",
+		"searchstring" : "Commonwealth of England",
+		"dateString" : "1649",
+		"endDateString" : "1660",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "Stuart Restoration",
+		"searchstring" : "The Restoration",
+		"dateString" : "1660",
+		"endDateString" : "1714",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "House of Hanover",
+		"dateString" : "1714",
+		"endDateString" : "1901",
+		"minScale" : 101,
+		"maxScale" : 1000,
+		"type" : "era"
+	},
+	{
+		"title" : "House of Saxe-Coburg and Gotha",
+		"dateString" : "1901",
+		"endDateString" : "1917",
+		"minScale" : 101,
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "House of Windsor",
+		"dateString" : "1917",
+		"endDateString" : "2019",
+		"minScale" : 101,
+		"maxScale" : 1000,
+		"type" : "era"
+	},
+
+	{
+		"title" : "Augustine of Canterbury",
+		"dateString" : "597 AD",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Offa of Mercia",
+		"dateString" : "757 AD",
+		"maxScale" : 5000
+	},
+
+
+	{
+		"title" : "Alfred the Great",
+		"dateString" : "871 AD",
+		"maxScale" : 5000
+	},
+
+
+	{
+		"title" : "Norman Conquest",
+		"dateString" : "1066",
+		"maxScale" : 5000
+	},
+		
+
+	{
+		"title" : "Richard the Lionheart",
+		"searchstring" : "Richard I of England",
+		"dateString" : "1189",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Magna Carta",
+		"dateString" : "1215",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Henry III",
+		"searchstring" : "Henry III of England",
+		"dateString" : "1216",
+		"maxScale" : 100
+	},
+
+	{
+		"title" : "Wars of the Roses",
+		"dateString" : "1455",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Henry VIII",
+		"searchstring" : "Henry VIII of England",
+		"dateString" : "1509",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Elizabeth I",
+		"searchstring" : "Elizabeth I of England",
+		"dateString" : "1558",
+		"maxScale" : 500
+	},
+
+
+	{
+		"title" : "Execution of Charles I",
+		"dateString" : "1649",
+		"maxScale" : 500
+	},
+
+	{
+		"title" : "Glorious Revolution",
+		"dateString" : "1688",
+		"maxScale" : 5000
+	},
+
+	{
+		"title" : "Victoria",
+		"dateString" : "1837",
+		"maxScale" : 5000
+	}
+	
+	
+	
+
+] }

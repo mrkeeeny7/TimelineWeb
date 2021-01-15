@@ -1,0 +1,189 @@
+{
+ 
+	"category" : "Ice Age",
+	"colorString" : "#00990ff55",
+	"tags" : ["ice age"],
+
+	"eventlist" : [
+
+
+		{
+			"title" : "Paleocene",
+			"dateString" : "66000000 BC",
+			"endDateString" : "56000000 BC",
+			"minScale" : 500000,
+			"maxScale" : 50000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Eocene",
+			"dateString" : "56000000 BC",
+			"endDateString" : "33900000 BC",
+			"minScale" : 500000,
+			"maxScale" : 50000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Oligocene",
+			"dateString" : "33900000 BC",
+			"endDateString" : "23030000 BC",
+			"minScale" : 500000,
+			"maxScale" : 50000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Miocene",
+			"dateString" : "23030000 BC",
+			"endDateString" : "5333000 BC",
+			"minScale" : 500000,
+			"maxScale" : 50000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Pliocene",
+			"dateString" : "5333000 BC",
+			"endDateString" : "2580000 BC",
+			"minScale" : 500000,
+			"maxScale" : 50000000,
+			"type" : "era"
+		},
+		{
+			"title" : "Pleistocene",
+			"dateString" : "2586000 BC",
+			"endDateString" : "9700 BC",
+			"minScale" : 500000,
+			"maxScale" : 50000000,
+			"type" : "era",
+			"tags" : ["geological epochs"]
+		},
+		{
+			"title" : "Holocene",
+			"dateString" : "9700 BC",
+			"endDateString" : "2019",
+			"minScale" : 50000,
+			"maxScale" : 500000,
+			"type" : "era",
+			"tags" : ["geological epochs"]
+		},
+
+		{
+			"title" : "Last Glacial Period",
+			"dateString" : "113000 BC",
+			"endDateString" : "9700 BC",
+			"minScale" : 5000,
+			"maxScale" : 500000,
+			"type" : "era",
+			"tags" : ["climate"]
+		},
+
+		{
+			"title" : "First Mammoths",
+			"searchstring" : "Mammoth",
+			"dateString" : "5000000 BC",
+			"maxScale" : 50000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Early sabre-tooths",
+			"searchstring" : "Nimravidae",
+			"dateString" : "40400000 BC",
+			"maxScale" : 50000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Stone Tools",
+			"searchstring" : "Stone Age",
+			"dateString" : "3400000 BC",
+			"maxScale" : 50000000,
+			"tags" : ["iceage"]
+		},
+
+		{
+			"title" : "North and South America joined",
+			"searchstring" : "Isthmus of Panama",
+			"dateString" : "2800000 BC",
+			"maxScale" : 5000000,
+			"tags" : ["continents"]
+		},
+	
+		{
+			"title" : "Homo habilis",
+			"dateString" : "2100000 BC",
+			"maxScale" : 5000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Homo erectus",
+			"dateString" : "1800000 BC",
+			"maxScale" : 1000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Control of fire",
+			"searchstring" : "Control of fire by early humans",
+			"dateString" : "1700000 BC",
+			"maxScale" : 5000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Cooking",
+			"dateString" : "1000000 BC",
+			"maxScale" : 5000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Clothing",
+			"searchstring" : "History of clothing and textiles",
+			"dateString" : "100000 BC",
+			"maxScale" : 5000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Neanderthal",
+			"dateString" : "400000 BC",
+			"maxScale" : 50000000,
+			"tags" : ["iceage"]
+		},
+
+		{
+			"title" : "Homo sapiens",
+			"dateString" : "350000 BC",
+			"maxScale" : 1000000,
+			"tags" : ["iceage"]
+		},
+
+		{
+			"title" : "Glyptodon",
+			"dateString" : "2500000 BC",
+			"maxScale" : 5000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Humans in Australia",
+			"searchstring" : "History of Indigenous Australians",
+			"dateString" : "47000 BC",
+			"maxScale" : 1000000,
+			"tags" : ["australia"]
+		},
+		{
+			"title" : "Last Glacial Maximum",
+			"dateString" : "20000 BC",
+			"maxScale" : 50000,
+			"tags" : ["america", "europe", "continents"]
+		},
+		{
+			"title" : "Humans arrive in Americas",
+			"searchstring" : "Settlement of the Americas",
+			"dateString" : "18000 BC",
+			"maxScale" : 1000000,
+			"tags" : ["america"]
+		},
+		{
+			"title" : "Sabre-toothed Cats Extinct",
+			"searchstring" : "Saber-toothed cat",
+			"dateString" : "9000 BC",
+			"maxScale" : 100000
+		}
+
+
+] }

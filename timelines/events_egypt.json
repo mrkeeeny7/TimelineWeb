@@ -1,0 +1,106 @@
+{
+ 
+	"category" : "Egypt",
+	"colorString" : "#ffff0055",
+	"tags" : ["egypt"],
+
+	"eventlist" : [
+
+	
+	{
+		"title" : "Egypt Old Kingdom",
+		"searchstring": "Old Kingdom of Egypt",
+		"dateString" : "2686   BC",
+		"endDateString" : " 2181 BC",
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Egypt Middle Kingdom",
+		"searchstring": "Middle Kingdom of Egypt",
+		"dateString" : "2050 BC",
+		"endDateString" : "1710 BC",
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+
+	{
+		"title" : "Egypt New Kingdom",
+		"searchstring": "New Kingdom of Egypt",
+		"dateString" : "1550 BC",
+		"endDateString" : "1069 BC",
+		"minScale" : 500,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+
+	{
+		"title" : "18th Dynasty",
+		"searchstring": "Eighteenth Dynasty of Egypt",
+		"dateString" : "1549 BC",
+		"endDateString" : "1292 BC",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+
+	{
+		"title" : "19th Dynasty",
+		"searchstring": "Nineteenth Dynasty of Egypt",
+		"dateString" : "1292 BC",
+		"endDateString" : "1189 BC",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "20th Dynasty",
+		"searchstring": "Twentieth Dynasty of Egypt",
+		"dateString" : "1189 BC",
+		"endDateString" : "1077 BC",
+		"maxScale" : 500,
+		"type" : "era"
+	},
+
+
+	{
+		"title" : "Great Pyramid",
+		"searchstring": "Great Pyramid of Giza",
+		"dateString" : "2560 BC",
+		"maxScale" : 500000
+	},
+
+	{
+		"title" : "Hatshepsut",
+		"dateString" : "1479 BC",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Akhenaten",
+		"dateString" : "1353 BC",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Tutankhamun",
+		"dateString" : "1332 BC",
+		"maxScale" : 500
+	},
+
+	{
+		"title" : "Seti I",
+		"dateString" : "1290 BC",
+		"maxScale" : 500
+	},
+
+	{
+		"title" : "Ramesses II",
+		"dateString" : "1220 BC",
+		"maxScale" : 5000
+	},
+
+	{
+		"title" : "Late Bronze Age Collapse",
+		"searchstring" : "Late Bronze Age collapse",
+		"dateString" : "1200 BC",
+		"maxScale" : 500
+	}
+
+] }

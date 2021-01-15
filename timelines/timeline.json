@@ -1,0 +1,1063 @@
+{
+ 
+	"category" : "General",
+	"eventlist" : [
+
+	{
+		"title" : "Triassic",
+		"date" : {
+			"yearGregorian" : 251900000,
+			"isBC" : true
+		},
+		"endDate" : {
+			"yearGregorian" : 201300000,
+			"isBC" : true
+		},
+		"type" : "era",
+		"tags" : ["prehistory"]
+	},
+	{
+		"title" : "Jurassic",
+		"date" : {
+			"yearGregorian" : 201300000,
+			"isBC" : true
+		},
+		"endDate" : {
+			"yearGregorian" : 145000000,
+			"isBC" : true
+		},
+		"type" : "era",
+		"tags" : ["prehistory"]
+	},
+	{
+		"title" : "Cretaceous",
+		"date" : {
+			"yearGregorian" : 145000000,
+			"isBC" : true
+		},
+		"endDate" : {
+			"yearGregorian" : 66000000,
+			"isBC" : true
+		},
+		"type" : "era",
+		"tags" : ["prehistory"]
+	},
+
+	{
+		"title" : "Pleistocene",
+		"date" : {
+			"yearGregorian" : 2586000,
+			"isBC" : true
+		},
+		"endDate" : {
+			"yearGregorian" : 9700,
+			"isBC" : true
+		},
+		"type" : "era",
+		"tags" : ["prehistory"]
+	},	
+
+	
+	{
+		"title" : "Old Kingdom",
+		"date" : {
+			"yearGregorian" : 2686,
+			"isBC" : true
+		},
+		"endDate" : {
+			"yearGregorian" : 2181,
+			"isBC" : true
+		},
+		"maxScale" : 5000000,
+		"type" : "era",
+		"tags" : ["egypt"]
+	},
+	{
+		"title" : "Middle Kingdom",
+		"date" : {
+			"yearGregorian" : 2050,
+			"isBC" : true
+		},
+		"maxScale" : 5000000,
+		"endDate" : {
+			"yearGregorian" : 1710,
+			"isBC" : true
+		},
+		"type" : "era",
+		"tags" : ["egypt"]
+	},
+
+	{
+		"title" : "New Kingdom",
+		"date" : {
+			"yearGregorian" : 1550,
+			"isBC" : true
+		},
+		"minScale" : 500,
+		"maxScale" : 5000000,
+		"endDate" : {
+			"yearGregorian" : 1069,
+			"isBC" : true
+		},
+		"type" : "era",
+		"tags" : ["egypt"]
+	},
+
+	{
+		"title" : "18th Dynasty",
+		"date" : {
+			"yearGregorian" : 1549,
+			"isBC" : true
+		},
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 1292,
+			"isBC" : true
+		},
+		"type" : "era",
+		"tags" : ["egypt"]
+	},
+
+	{
+		"title" : "19th Dynasty",
+		"date" : {
+			"yearGregorian" : 1292,
+			"isBC" : true
+		},
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 1189,
+			"isBC" : true
+		},
+		"type" : "era",
+		"tags" : ["egypt"]
+	},
+	{
+		"title" : "20th Dynasty",
+		"date" : {
+			"yearGregorian" : 1189,
+			"isBC" : true
+		},
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 1077,
+			"isBC" : true
+		},
+		"type" : "era",
+		"tags" : ["egypt"]
+	},
+
+
+	
+	{
+		"title" : "Roman Republic",
+		"date" : {
+			"yearGregorian" : 509,
+			"isBC" : true
+		},
+		"endDate" : {
+			"yearGregorian" : 27,
+			"isBC" : true
+		},
+		"maxScale" : 5000000,
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Roman Empire",
+		"date" : {
+			"yearGregorian" : 27,
+			"isBC" : true
+		},
+		"endDate" : {
+			"yearGregorian" : 476,
+			"isBC" : false
+		},
+		"minScale" : 501,
+		"maxScale" : 5000000,
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Principate",
+		"date" : {
+			"yearGregorian" : 27,
+			"isBC" : true
+		},
+		"minScale" : 151,
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 235,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Crisis of the Third Century",
+		"date" : {
+			"yearGregorian" : 235,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 284,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Dominate",
+		"date" : {
+			"yearGregorian" : 284,
+			"isBC" : false
+		},
+		"minScale" : 151,
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 476,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+
+
+	{
+		"title" : "Julio-Claudian Dynasty",
+		"date" : {
+			"yearGregorian" : 27,
+			"isBC" : true
+		},
+		"maxScale" : 151,
+		"endDate" : {
+			"yearGregorian" : 69,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Flavian Dynasty",
+		"date" : {
+			"yearGregorian" : 69,
+			"isBC" : false
+		},
+		"maxScale" : 151,
+		"endDate" : {
+			"yearGregorian" : 96,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Nerva-Antonine Dynasty",
+		"date" : {
+			"yearGregorian" : 96,
+			"isBC" : false
+		},
+		"maxScale" : 151,
+		"endDate" : {
+			"yearGregorian" : 192,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Severan Dynasty",
+		"date" : {
+			"yearGregorian" : 193,
+			"isBC" : false
+		},
+		"maxScale" : 151,
+		"endDate" : {
+			"yearGregorian" : 235,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Tetrarchy",
+		"date" : {
+			"yearGregorian" : 290,
+			"isBC" : false
+		},
+		"maxScale" : 151,
+		"endDate" : {
+			"yearGregorian" : 313,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Constantinian Dynasty",
+		"date" : {
+			"yearGregorian" : 313,
+			"isBC" : false
+		},
+		"maxScale" : 151,
+		"endDate" : {
+			"yearGregorian" : 363,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Valentinian Dynasty",
+		"date" : {
+			"yearGregorian" : 364,
+			"isBC" : false
+		},
+		"maxScale" : 151,
+		"endDate" : {
+			"yearGregorian" : 392,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Theodosian Dynasty",
+		"date" : {
+			"yearGregorian" : 392,
+			"isBC" : false
+		},
+		"maxScale" : 151,
+		"endDate" : {
+			"yearGregorian" : 455,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["rome"]
+	},
+	
+	
+	{
+		"title" : "Hundred Years' War",
+		"date" : {
+			"yearGregorian" : 1337,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 1453,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["france", "britain"]
+	},
+
+	{
+		"title" : "Napoleonic Wars",
+		"date" : {
+			"yearGregorian" : 1803,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 1815,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["france", "europe"]
+	},
+
+	{
+		"title" : "Victorian Age",
+		"date" : {
+			"yearGregorian" : 1837,
+			"isBC" : false
+		},
+		"endDate" : {
+			"yearGregorian" : 1901,
+			"isBC" : false
+		},
+		"maxScale" : 5000000,
+		"type" : "era",
+		"tags" : ["prehistory", "australia"]
+	},
+	{
+		"title" : "World War I",
+		"date" : {
+			"yearGregorian" : 1914,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 1918,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["america", "europe"]
+	},
+	{
+		"title" : "World War II",
+		"date" : {
+			"yearGregorian" : 1939,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 1945,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["america", "europe"]
+	},
+	{
+		"title" : "Cold War",
+		"date" : {
+			"yearGregorian" : 1945,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"endDate" : {
+			"yearGregorian" : 1989,
+			"isBC" : false
+		},
+		"type" : "era",
+		"tags" : ["america", "europe"]
+	},
+
+	{
+		"title" : "Humans in Australia",
+		"date" : {
+			"yearGregorian" : 47000,
+			"isBC" : true
+		},
+		"maxScale" : 5000000,
+		"tags" : ["prehistory", "australia"]
+	},
+	{
+		"title" : "Humans arrive in Americas",
+		"date" : {
+			"yearGregorian" : 18000,
+			"isBC" : true
+		},
+		"maxScale" : 5000000,
+		"tags" : ["prehistory", "america"]
+	},
+	{
+		"title" : "Sabre-tooted Cats Extinct",
+		"date" : {
+			"yearGregorian" : 9000,
+			"isBC" : true
+		},
+		"maxScale" : 5000000,
+		"tags" : ["prehistory"]
+	},
+	{
+		"title" : "Stonehenge",
+		"date" : {
+			"yearGregorian" : 3000,
+			"isBC" : true
+		},
+		"maxScale" : 5000,
+		"tags" : ["britain", "prehistory"]
+	},
+	{
+		"title" : "Great Pyramid",
+		"date" : {
+			"yearGregorian" : 2560,
+			"isBC" : true
+		},
+		"maxScale" : 500000,
+		"tags" : ["egypt"]
+	},
+
+	{
+		"title" : "Hatshepsut",
+		"date" : {
+			"yearGregorian" : 1479,
+			"isBC" : true
+		},
+		"maxScale" : 500,
+		"tags" : ["egypt"]
+	},
+	{
+		"title" : "Akhenaten",
+		"date" : {
+			"yearGregorian" : 1353,
+			"isBC" : true
+		},
+		"maxScale" : 500,
+		"tags" : ["egypt"]
+	},
+	{
+		"title" : "Tutankhamun",
+		"date" : {
+			"yearGregorian" : 1332,
+			"isBC" : true
+		},
+		"maxScale" : 500,
+		"tags" : ["egypt"]
+	},
+
+	{
+		"title" : "Seti I",
+		"date" : {
+			"yearGregorian" : 1290,
+			"isBC" : true
+		},
+		"maxScale" : 500,
+		"tags" : ["egypt"]
+	},
+
+	{
+		"title" : "Rameses II",
+		"date" : {
+			"yearGregorian" : 1220,
+			"isBC" : true
+		},
+		"maxScale" : 5000,
+		"tags" : ["egypt"]
+	},
+
+	{
+		"title" : "Late Bronze Age Collapse",
+		"date" : {
+			"yearGregorian" : 1200,
+			"isBC" : true
+		},
+		"maxScale" : 100,
+		"tags" : ["egypt"]
+	},
+
+	{
+		"title" : "Pythagoras",
+		"date" : {
+			"yearGregorian" : 530,
+			"isBC" : true
+		},
+		"maxScale" : 5000,
+		"tags" : ["greece"]
+	},
+
+	{
+		"title" : "Roman Republic begins",
+		"date" : {
+			"yearGregorian" : 509,
+			"isBC" : true
+		},
+		"maxScale" : 5000,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Battle of Thermopylae",
+		"date" : {
+			"yearGregorian" : 480,
+			"isBC" : true
+		},
+		"maxScale" : 5000,
+		"tags" : ["greece"]
+	},
+
+
+	{
+		"title" : "Peleponnesian War",
+		"date" : {
+			"yearGregorian" : 430,
+			"isBC" : true
+		},
+		"maxScale" : 5000,
+		"tags" : ["greece"]
+	},
+	{
+		"title" : "Hannibal",
+		"date" : {
+			"yearGregorian" : 218,
+			"isBC" : true
+		},
+		"maxScale" : 5000,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Julius Caesar",
+		"date" : {
+			"yearGregorian" : 49,
+			"isBC" : true
+		},
+		"maxScale" : 50000,
+		"tags" : ["rome", "egypt"]
+	},
+	{
+		"title" : "Augustus",
+		"date" : {
+			"yearGregorian" : 27,
+			"isBC" : true
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Tiberius",
+		"date" : {
+			"yearGregorian" : 14,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Caligula",
+		"date" : {
+			"yearGregorian" : 37,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Claudius",
+		"date" : {
+			"yearGregorian" : 41,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Nero",
+		"date" : {
+			"yearGregorian" : 54,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Vespasian",
+		"date" : {
+			"yearGregorian" : 69,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Titus",
+		"date" : {
+			"yearGregorian" : 79,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Domitian",
+		"date" : {
+			"yearGregorian" : 81,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Nerva",
+		"date" : {
+			"yearGregorian" : 96,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Trajan",
+		"date" : {
+			"yearGregorian" : 98,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Hadrian",
+		"date" : {
+			"yearGregorian" : 117,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Antoninus Pius",
+		"date" : {
+			"yearGregorian" : 138,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Marcus Aurelius",
+		"date" : {
+			"yearGregorian" : 161,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Commodus",
+		"date" : {
+			"yearGregorian" : 180,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Septimius Severus",
+		"date" : {
+			"yearGregorian" : 193,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Caracalla",
+		"date" : {
+			"yearGregorian" : 211,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Macrinus",
+		"date" : {
+			"yearGregorian" : 217,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Elegabalus",
+		"date" : {
+			"yearGregorian" : 218,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},		
+
+	{
+		"title" : "Severus Alexander",
+		"date" : {
+			"yearGregorian" : 222,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Crisis of the Third Century",
+		"date" : {
+			"yearGregorian" : 235,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Diocletian",
+		"date" : {
+			"yearGregorian" : 284,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Constantine the Great",
+		"date" : {
+			"yearGregorian" : 311,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+		
+
+	{
+		"title" : "Julian the Apostate",
+		"date" : {
+			"yearGregorian" : 360,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	
+
+	{
+		"title" : "Valentinian I / Valens",
+		"date" : {
+			"yearGregorian" : 364,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Battle of Adrianople",
+		"date" : {
+			"yearGregorian" : 378,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["rome"]
+	},
+
+	{
+		"title" : "Theodosius I",
+		"date" : {
+			"yearGregorian" : 379,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+
+
+	{
+		"title" : "Honorius",
+		"date" : {
+			"yearGregorian" : 393,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+
+
+
+	{
+		"title" : "Sack of Rome",
+		"date" : {
+			"yearGregorian" : 410,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Attila the Hun",
+		"date" : {
+			"yearGregorian" : 450,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Fall of the Western Empire",
+		"date" : {
+			"yearGregorian" : 476,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["rome"]
+	},
+	{
+		"title" : "Boudicca's Revolt",
+		"date" : {
+			"yearGregorian" : 60,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["rome", "britain"]
+	},
+	{
+		"title" : "Justinian",
+		"date" : {
+			"yearGregorian" : 527,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["rome", "byzantium"]
+	},
+	{
+		"title" : "Plague of Justinian",
+		"date" : {
+			"yearGregorian" : 541,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["europe", "byzantium", "pandemic"]
+	},
+	{
+		"title" : "Umayyad Caliphate",
+		"date" : {
+			"yearGregorian" : 661,
+			"isBC" : false
+		},
+		"endDate" : {
+			"yearGregorian" : 750,
+			"isBC" : false
+		},
+		"type" : "era",
+		"maxScale" : 5000,
+		"tags" : ["islam"]
+	},
+	{
+		"title" : "Abbasid Caliphate",
+		"date" : {
+			"yearGregorian" : 750,
+			"isBC" : false
+		},
+		"endDate" : {
+			"yearGregorian" : 945,
+			"isBC" : false
+		},
+		"type" : "era",
+		"maxScale" : 5000,
+		"tags" : ["islam"]
+	},
+	{
+		"title" : "Charlemagne",
+		"date" : {
+			"yearGregorian" : 800,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["france", "europe", "germany"]
+	},
+
+	{
+		"title" : "Alfred the Great",
+		"date" : {
+			"yearGregorian" : 890,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["britain"]
+	},
+
+	{
+		"title" : "First Crusade",
+		"date" : {
+			"yearGregorian" : 1095,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["britain", "europe", "medieval"]
+	},
+
+	{
+		"title" : "Black Death",
+		"date" : {
+			"yearGregorian" : 1347,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["britain", "europe", "medieval", "pandemic"]
+	},
+	{
+		"title" : "Columbus' Voyage",
+		"date" : {
+			"yearGregorian" : 1492,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["america"]
+	},
+	{
+		"title" : "Spanish Armada",
+		"date" : {
+			"yearGregorian" : 1588,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["britain"]
+	},
+
+	{
+		"title" : "Great Fire of London",
+		"date" : {
+			"yearGregorian" : 1666,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["britain"]
+	},
+
+	{
+		"title" : "French Revolution",
+		"date" : {
+			"yearGregorian" : 1789,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["france"]
+	},
+
+	{
+		"title" : "American Civil War",
+		"date" : {
+			"yearGregorian" : 1861,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["america"]
+	},
+
+	{
+		"title" : "Winston Churchill",
+		"date" : {
+			"yearGregorian" : 1940,
+			"isBC" : false
+		},
+		"maxScale" : 500000,
+		"tags" : ["america", "europe"]
+	},
+	{
+		"title" : "Elizabeth II",
+		"date" : {
+			"yearGregorian" : 1952,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["britain", "europe"]
+	},
+
+	{
+		"title" : "Kennedy Assassination",
+		"date" : {
+			"yearGregorian" : 1963,
+			"isBC" : false
+		},
+		"maxScale" : 500,
+		"tags" : ["america"]
+	},
+
+	{
+		"title" : "9/11",
+		"date" : {
+			"yearGregorian" : 2001,
+			"isBC" : false
+		},
+		"maxScale" : 5000,
+		"tags" : ["america"]
+	}
+
+] }

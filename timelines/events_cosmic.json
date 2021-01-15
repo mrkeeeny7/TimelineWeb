@@ -1,0 +1,33 @@
+{
+ 
+	"category" : "Cosmic Eras",
+	"colorString" : "#aa22ff55",
+	"eventlist" : [
+
+		{
+			"title" : "Late Heavy Bombardment",
+			"dateString" : "4100000000 BC",
+			"endDateString" : "3800000000 BC",
+			"minScale" : 500000000,
+			"maxScale" : 50000000000,
+			"type" : "era",
+			"tags" : ["prehistory"]
+		},	
+
+
+
+
+	{
+		"title" : "Big Bang",
+		"dateString" : "13800000000 BC",
+		"tags" : ["prehistory"]
+	},
+	{
+		"title" : "Solar System forms",
+		"searchstring": "Formation and evolution of the Solar System",
+		"dateString" : "4600000000 BC",
+		"tags" : ["prehistory"]
+	}
+	
+
+] }

@@ -1,0 +1,100 @@
+{
+ 
+	"category" : "Iron Age",
+	"colorString" : "#ff990055",
+
+	"eventlist" : [
+
+	
+	{
+		"title" : "Neo-Assyrian Empire",
+		"dateString" : "911 BC",
+		"endDateString" : "609 BC",
+		"maxScale" : 5000,
+		"type" : "era",
+		"tags" : ["assyria"]
+	},
+	{
+		"title" : "Neo-Babylonian Empire",
+		"dateString" : "626 BC",
+		"endDateString" : "539 BC",
+		"maxScale" : 5000,
+		"type" : "era",
+		"tags" : ["babylon"]
+	},
+
+	{
+		"title" : "Ashurbanipal",
+		"dateString" : "668 BC",
+		"maxScale" : 5000,
+		"tags" : ["assyria"]
+	},
+
+	{
+		"title" : "Minoan Eruption",
+		"searchstring" : "Minoan eruption",
+		"dateString" : "1500 BC",
+		"maxScale" : 1000,
+		"tags" : ["greece"]
+	},
+
+	{
+		"title" : "King Solomon",
+		"searchstring" : "Solomon",
+		"dateString" : "970 BC",
+		"maxScale" : 5000,
+		"tags" : ["biblical"]
+	},
+
+	{
+		"title" : "Carthage Founded",
+		"searchstring" : "Carthage",
+		"dateString" : "814 BC",
+		"maxScale" : 1000,
+		"tags" : ["carthage"]
+	},
+
+	{
+		"title" : "Nebuchadnezzar II",
+		"dateString" : "605 BC",
+		"maxScale" : 500,
+		"tags" : ["babylon"]
+	},
+
+	{
+		"title" : "Cyrus the Great",
+		"dateString" : "559 BC",
+		"maxScale" : 500,
+		"tags" : ["persia"]
+	},
+
+	{
+		"title" : "Battle of Thermopylae",
+		"dateString" : "480 BC",
+		"maxScale" : 500,
+		"tags" : ["greece"]
+	},
+
+	{
+		"title" : "Peloponnesian War",
+		"dateString" : "431 BC",
+		"maxScale" : 1000,
+		"tags" : ["greece"]
+	},
+
+	{
+		"title" : "Death of Socrates",
+		"searchstring" : "Socrates",
+		"dateString" : "399 BC",
+		"maxScale" : 500,
+		"tags" : ["greece"]
+	},
+
+	{
+		"title" : "Alexander the Great",
+		"dateString" : "336 BC",
+		"maxScale" : 500,
+		"tags" : ["greece"]
+	}
+
+] }
