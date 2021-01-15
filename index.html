@@ -8,22 +8,6 @@
 
         <script src="timeline.js"></script>
 
-        <script>
-            $(function() {
-
-                                
-                var people = [];
-
-                $.getJSON('timelines/timeline.json', function(data) {
-                    $.each(data.person, function(i, f) {
-                    var tblRow = "<tr>" + "<td>" + f.category + "</td>" + "</tr>"
-                        $(tblRow).appendTo("#mainTable tbody");
-                });
-
-                });
-
-            });
-        </script>
     </head>
 
     <body>
@@ -32,6 +16,7 @@
 
             <div id="mainTable"></div>
             <button type="button" onClick=myfunc()>Test</button>    
+            <button type="button" onClick=parseJSON()>JSON</button>    
         </div>
      
     </body>
