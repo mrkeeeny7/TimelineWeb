@@ -10,18 +10,30 @@ function parseJSON()
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var myObj = JSON.parse(this.responseText);
-            var eventsString = "";
-            eventsString += myObj.category + ": ";
-            for(var i=0; i<myObj.eventlist.length; i++)
-            {
-                eventsString += myObj.eventlist[i].title + ", ";
-            }
-            document.getElementById("mainTable").innerHTML = eventsString;
+            var jsonObj = JSON.parse(this.responseText);    //TODO try adding the reviver function here
+            createEventBubbles(jsonObj);
         }
     };
     xmlhttp.open("GET", "timelines/timeline.json", true);
     xmlhttp.send();
+}
+
+function createEventBubbles(jsonObj)
+{
+    var eventsString = "";
+    eventsString += jsonObj.category + ": ";
+
+    for(var i=0; i<jsonObj.eventlist.length; i++)
+    {
+        //eventsString += jsonObj.eventlist[i].title + ", ";
+
+        eventsString += "<div class=\"eventBubble\" startDate=\"" + jsonObj.eventlist[i].date + "\">"
+        
+        + jsonObj.eventlist[i].title    + "  " +   + jsonObj.eventlist[i].date   
+        + "</div>";
+    }
+    document.getElementById("mainTable").innerHTML = eventsString;
+
 }
 
 
