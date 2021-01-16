@@ -14,7 +14,7 @@ function parseJSON()
             createEventBubbles(jsonObj);
         }
     };
-    xmlhttp.open("GET", "timelines/timeline.json", true);
+    xmlhttp.open("GET", "timelines/events_rome.json", true);
     xmlhttp.send();
 }
 
@@ -29,7 +29,7 @@ function createEventBubbles(jsonObj)
 
         eventsString += "<div class=\"eventBubble\" startDate=\"" + jsonObj.eventlist[i].date + "\">"
         
-        + jsonObj.eventlist[i].title    + "  " +   + jsonObj.eventlist[i].date   
+        + jsonObj.eventlist[i].title    + "  " + jsonObj.eventlist[i].dateString  //TODO this needs to convert to BigInt when parsing JSON  
         + "</div>";
     }
     document.getElementById("mainTable").innerHTML = eventsString;
