@@ -1,4 +1,7 @@
 
+
+
+// Test function
 function myfunc()
 {
     document.getElementById("mainTable")
@@ -29,11 +32,24 @@ function createEventBubbles(jsonObj)
 
         eventsString += "<div class=\"eventBubble\" startDate=\"" + jsonObj.eventlist[i].date + "\">"
         
-        + jsonObj.eventlist[i].title    + "  " + jsonObj.eventlist[i].dateString  //TODO this needs to convert to BigInt when parsing JSON  
+        + jsonObj.eventlist[i].title    + "  " + dateIntGregorian(jsonObj.eventlist[i].dateString) 
         + "</div>";
     }
     document.getElementById("mainTable").innerHTML = eventsString;
 
+}
+
+function dateIntGregorian(dateString)
+{
+    var tokens = dateString.split(" ");
+    if(tokens[1] && tokens[1].toLowerCase() == "bc")
+    {
+        return tokens[0] * -1; //TODO this is temprary - it will cause an off by 1 error when calculating date differences
+    }
+    else
+    {
+        return tokens[0]
+    }
 }
 
 
