@@ -1,4 +1,14 @@
 
+//current timeline variables
+var currentMin; //min year
+var currentMax; //max year
+var currentScale;
+var currentMinScale;    // scope of visible events
+var currentMaxScale;    // scope of visible events
+var currentYear;
+
+//html elements
+var eventBubbles = [];
 
 
 // Test function
@@ -26,16 +36,29 @@ function createEventBubbles(jsonObj)
     var eventsString = "";
     eventsString += jsonObj.category + ": ";
 
+    //clear exisiting stuff
+    document.getElementById("mainTable").innerHTML="";
+
     for(var i=0; i<jsonObj.eventlist.length; i++)
     {
-        //eventsString += jsonObj.eventlist[i].title + ", ";
+        var eventDate = dateIntGregorian(jsonObj.eventlist[i].dateString) ;
 
-        eventsString += "<div class=\"eventBubble\" startDate=\"" + jsonObj.eventlist[i].date + "\">"
-        
-        + jsonObj.eventlist[i].title    + "  " + dateIntGregorian(jsonObj.eventlist[i].dateString) 
-        + "</div>";
+    //    eventsString += jsonObj.eventlist[i].title + ", ";
+
+    //    eventsString += "<div class=\"eventBubble\" startDate=\"" + jsonObj.eventlist[i].date + "\">"        
+    //    + jsonObj.eventlist[i].title    + "  " + eventDate
+    //    + "</div>";
+
+        var newEvent = document.createElement("div");
+        newEvent.setAttribute("class", "eventBubble");
+        newEvent.setAttribute("startDate", eventDate);
+        newEvent.appendChild(document.createTextNode(jsonObj.eventlist[i].title    + "  " + eventDate));
+        document.getElementById("mainTable").appendChild(newEvent);
+
+        //save a reference
+        eventBubbles.push(newEvent);
     }
-    document.getElementById("mainTable").innerHTML = eventsString;
+    //document.getElementById("mainTable").innerHTML = eventsString;
 
 }
 
