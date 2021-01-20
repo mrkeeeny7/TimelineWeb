@@ -15,6 +15,15 @@ h1 {
     padding-top: 24px;
 }
 
+/*debug*/
+/*#mainSection, #headerBar, #mainBar, #mainTable {
+    
+    border-width: 2px;
+    border-style: solid;
+    border-color: blue;
+}*/
+
+
 #mainSection {
     background-color: rgb(255, 255, 255);
     margin-left: 100px;
@@ -22,24 +31,31 @@ h1 {
     margin-top: 24px;
 
     width: auto;
-    overflow:scroll;
     height: 90%;
 }
 
+#headerBar {
+
+    width: 100%;
+    height: 15%;
+}
+#mainBar {
+    
+    width: 100%;
+    height: 85%;
+}
+
 #mainTable {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: auto;
+
     background-color: wheat;
     color: chocolate;
     size: 16px;
 
-    width: auto;
-    height: auto;
+    overflow:scroll;
+    width: 90%;
+    height: 90%;
 
-    /*debug*/
-    border-width: 2px;
-    border-style: solid;
-    border-color: blue;
 }
 
 .eventBubble {
