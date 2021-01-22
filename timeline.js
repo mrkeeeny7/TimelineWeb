@@ -1,14 +1,22 @@
 
 //current timeline variables
-var currentMin; //min year
-var currentMax; //max year
+var currentMin = -50; //min year
+var currentMax = 50; //max year
 var currentScale;
 var currentMinScale;    // scope of visible events
 var currentMaxScale;    // scope of visible events
-var currentYear;
+var currentYear = 0;    //TODO this is a placeholder for 1BC
 
-//html elements
-var eventBubbles = [];
+var tlEvents = [];
+
+class TimelineEvent {
+    constructor(domElement, date)
+    {
+        this.domElement = domElement; //html element
+        this.date = date;
+    }
+}
+
 
 
 // Test function
@@ -49,16 +57,19 @@ function createEventBubbles(jsonObj)
     //    + jsonObj.eventlist[i].title    + "  " + eventDate
     //    + "</div>";
 
-        var newEvent = document.createElement("div");
-        newEvent.setAttribute("class", "eventBubble");
-        newEvent.setAttribute("startDate", eventDate);
-        newEvent.appendChild(document.createTextNode(jsonObj.eventlist[i].title    + "  " + eventDate));
-        document.getElementById("mainTable").appendChild(newEvent);
+        var newEventDomElement = document.createElement("div");
+        newEventDomElement.setAttribute("class", "eventBubble");
+        newEventDomElement.setAttribute("startDate", eventDate);
+        newEventDomElement.appendChild(document.createTextNode(jsonObj.eventlist[i].title    + "  " + eventDate));
+        document.getElementById("mainTable").appendChild(newEventDomElement);
 
+        var newEvent = new TimelineEvent(newEventDomElement, eventDate);
+        //setPosition(newEvent, 0.5);
         //save a reference
-        eventBubbles.push(newEvent);
+        tlEvents.push(newEvent);
     }
     //document.getElementById("mainTable").innerHTML = eventsString;
+    refresh();
 
 }
 
@@ -85,4 +96,20 @@ function appendData(data) {
     }
 }
 
+function setPosition(tlEvent, heightFactor) {
+    tlEvent.domElement.style.top = (heightFactor*100) + "%";
+}
+
+function refresh() {
+    //position all events correctly on the timeline
+    for(var i=0; i<tlEvents.length; i++)
+    {
+        //1. determine offset from current year
+
+        var scalefactor = 1.0/(currentMax - currentMin);
+        var offset = (tlEvents[i].date - currentYear) * scalefactor + 0.5;
+        setPosition(tlEvents[i], offset);
+        console.log("offset: " + offset);
+    }
+}
 

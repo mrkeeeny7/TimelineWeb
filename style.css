@@ -52,6 +52,8 @@ h1 {
     color: chocolate;
     size: 16px;
 
+    position: relative;
+
     overflow:scroll;
     width: 90%;
     height: 90%;
@@ -64,8 +66,8 @@ h1 {
     margin-bottom: 10px;
     padding: 10px;
 
-    /*position: fixed;
-    top: 90%;*/
+    position: absolute;
+    top: 90%;
     
     width: max-content;
     background-color: coral;
