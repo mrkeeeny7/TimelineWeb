@@ -156,3 +156,47 @@ function TimelineScaleToSliderScale(timelineVal)
 
     return sliderVal;
 }
+
+//handle timeline dragging
+var isDragging = false;
+var mouseDownY;
+var oldCurrentYear=currentYear;
+
+function timelineMouseDown(event)
+{
+    mouseDownY = event.pageY;
+    isDragging = true;
+}
+
+function timelineMouseMove(event)
+{
+    if(isDragging)
+    {        
+		var dragAmount = (event.pageY - mouseDownY);
+		DragTimeline (dragAmount);
+    }
+}
+
+function timelineMouseUp(event)
+{
+    FinishDrag();
+}
+
+function DragTimeline(dragAmount){
+    var dragScale = currentScale / 500.0; //scale the dragging speed with the timeline scale
+
+    var draggedYearsAmount = dragScale * dragAmount;
+
+    currentYear = oldCurrentYear - draggedYearsAmount ;
+
+
+    console.log("Dragged " + draggedYearsAmount + " years");
+    console.log("Curent year: " + currentYear);
+    refresh();
+
+}
+
+function FinishDrag(){
+    oldCurrentYear = currentYear;
+    isDragging = false;
+}

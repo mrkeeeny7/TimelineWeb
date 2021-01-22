@@ -6,6 +6,8 @@ html, body {
     background-color: wheat;
     height: 100%;
     width: 100%;
+
+    overflow: hidden;   /*stop page scrolling */
 }
 
 h1 {
@@ -29,6 +31,9 @@ h1 {
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 24px;
+
+    /*position: fixed;
+    width: 80%;*/
 
     width: auto;
     height: 90%;
