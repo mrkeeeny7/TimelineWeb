@@ -2,12 +2,19 @@
 //current timeline variables
 var currentMin = -50; //min year
 var currentMax = 50; //max year
-var currentScale;
+var currentScale = 100;
 var currentMinScale;    // scope of visible events
 var currentMaxScale;    // scope of visible events
 var currentYear = 0;    //TODO this is a placeholder for 1BC
 
 var tlEvents = [];
+
+var sliderScale;
+var minScale = 10; //years
+var maxScale = 1e10;    //years
+var minZoom = Math.log(minScale / 500.0);
+var maxZoom = Math.log(maxScale / 500.0);
+
 
 class TimelineEvent {
     constructor(domElement, date)
@@ -17,6 +24,9 @@ class TimelineEvent {
     }
 }
 
+
+//magic numbers
+var mousewheelscrollfactor = 0.003;
 
 
 // Test function
@@ -101,15 +111,48 @@ function setPosition(tlEvent, heightFactor) {
 }
 
 function refresh() {
+    currentMin = currentYear - currentScale/2;
+    currentMax = currentYear + currentScale/2;
+
     //position all events correctly on the timeline
     for(var i=0; i<tlEvents.length; i++)
     {
         //1. determine offset from current year
 
-        var scalefactor = 1.0/(currentMax - currentMin);
+        var scalefactor = 1.0/currentScale;
         var offset = (tlEvents[i].date - currentYear) * scalefactor + 0.5;
         setPosition(tlEvents[i], offset);
-        console.log("offset: " + offset);
+        //console.log("offset: " + offset);
     }
 }
 
+
+
+//handle mousewheel scaling
+function myWheelHandler(event)
+{   
+    var y = event.deltaY;
+    sliderScale = TimelineScaleToSliderScale(currentScale);
+    sliderScale += y * mousewheelscrollfactor;
+    currentScale = SliderScaleToTimelineScale(sliderScale);
+
+    console.log("New scale: " + currentScale);
+    refresh();
+}
+
+function SliderScaleToTimelineScale(sliderVal)
+{
+    var zoomlevel = sliderVal * (maxZoom - minZoom) + minZoom;
+    var timelineVal = 500.0 * Math.exp (zoomlevel);
+
+    return timelineVal;
+}
+
+
+function TimelineScaleToSliderScale(timelineVal)
+{
+    var zoomlevel = Math.log (timelineVal / 500.0);
+    var sliderVal = ((zoomlevel - minZoom) / (maxZoom - minZoom));
+
+    return sliderVal;
+}

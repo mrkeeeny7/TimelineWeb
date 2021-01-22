@@ -54,7 +54,7 @@ h1 {
 
     position: relative;
 
-    overflow:scroll;
+    overflow:hidden;
     width: 90%;
     height: 90%;
 
