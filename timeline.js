@@ -10,8 +10,8 @@ var currentYear = 0;    //TODO this is a placeholder for 1BC
 var tlEvents = [];
 
 var sliderScale;
-var minScale = 10; //years
-var maxScale = 1e10;    //years
+const minScale = 10;        //years
+const maxScale = 1e10;      //years
 var minZoom = Math.log(minScale / 500.0);
 var maxZoom = Math.log(maxScale / 500.0);
 
@@ -51,8 +51,8 @@ function parseJSON()
 
 function createEventBubbles(jsonObj)
 {
-    var eventsString = "";
-    eventsString += jsonObj.category + ": ";
+    //var eventsString = "";
+    //eventsString += jsonObj.category + ": ";
 
     //clear exisiting stuff
     document.getElementById("mainTable").innerHTML="";
@@ -74,7 +74,7 @@ function createEventBubbles(jsonObj)
         document.getElementById("mainTable").appendChild(newEventDomElement);
 
         var newEvent = new TimelineEvent(newEventDomElement, eventDate);
-        //setPosition(newEvent, 0.5);
+        
         //save a reference
         tlEvents.push(newEvent);
     }
@@ -106,8 +106,11 @@ function appendData(data) {
     }
 }
 
-function setPosition(tlEvent, heightFactor) {
+// heightFactor should be a fraction in the range [0,1]
+function setPosition(tlEvent, heightFactor)
+{
     tlEvent.domElement.style.top = (heightFactor*100) + "%";
+    //TODO to center the element vertically will have to offset 1/2 of the element's height
 }
 
 function refresh() {
@@ -135,10 +138,14 @@ function myWheelHandler(event)
     sliderScale = TimelineScaleToSliderScale(currentScale);
     sliderScale += y * mousewheelscrollfactor;
     currentScale = SliderScaleToTimelineScale(sliderScale);
+    //clamp scale
+    currentScale = Math.min(currentScale, maxScale);
+    currentScale = Math.max(currentScale, minScale);
 
     console.log("New scale: " + currentScale);
     refresh();
 }
+
 
 function SliderScaleToTimelineScale(sliderVal)
 {
@@ -156,6 +163,8 @@ function TimelineScaleToSliderScale(timelineVal)
 
     return sliderVal;
 }
+
+
 
 //handle timeline dragging
 var isDragging = false;
