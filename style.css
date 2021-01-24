@@ -1,9 +1,19 @@
+:root {
+    --darkTextColor: chocolate;
+    --lightTextColor: oldlace;
+    --darkBG: coral;
+    --mediumBG: wheat;
+    --lightBG: white;
+}
+
 * {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--darkTextColor);
+    size: 12px;
 }
 
 html, body {
-    background-color: wheat;
+    background-color: var(--mediumBG);
     height: 100%;
     width: 100%;
 
@@ -11,23 +21,24 @@ html, body {
 }
 
 h1 {
-    color: chocolate;
+    color: var(--darkTextColor);
     text-align: center;
     size: 24px;
     padding-top: 24px;
 }
 
 /*debug*/
-/*#mainSection, #headerBar, #mainBar, #mainTable {
+/*#mainSection, #headerBar, #mainBar, #mainTable {*/
+/*#controls {
     
     border-width: 2px;
     border-style: solid;
     border-color: blue;
-}*/
-
+}
+*/
 
 #mainSection {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--lightBG);
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 24px;
@@ -53,8 +64,8 @@ h1 {
 #mainTable {
     margin: auto;
 
-    background-color: wheat;
-    color: chocolate;
+    background-color: var(--mediumBG);
+    color: var(--darkTextColor);
     size: 16px;
 
     position: relative;
@@ -63,6 +74,12 @@ h1 {
     width: 90%;
     height: 90%;
 
+}
+
+#controls {
+
+    margin: auto;
+    width: 90%;
 }
 
 .eventBubble {
@@ -75,7 +92,7 @@ h1 {
     top: 90%;
     
     width: max-content;
-    background-color: coral;
-    color: oldlace;
+    background-color: var(--darkBG);
+    color: var(--lightTextColor);
     size: 16px;
 }

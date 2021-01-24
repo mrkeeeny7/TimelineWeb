@@ -106,8 +106,13 @@ function appendData(data) {
     }
 }
 
-// heightFactor should be a fraction in the range [0,1]
+/**
+ * 
+ * @param {TimelineEvent} tlEvent the timeline event to move
+ * @param {number} heightFactor the y-position to set as a fraction of the overall range, in the range [0,1]
+ */
 function setPosition(tlEvent, heightFactor)
+
 {
     tlEvent.domElement.style.top = (heightFactor*100) + "%";
     //TODO to center the element vertically will have to offset 1/2 of the element's height

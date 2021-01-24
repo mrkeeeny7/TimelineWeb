@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
-    <meta charset="UTF-8">
+<html lang="en">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <head>
         <title>Ken's Timeline</title>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -19,15 +20,26 @@
                 <h1>Ken's Timeline</h1>
             </div>
 
-            <div id="mainBar">
+            <div id="mainBar"> 
+
+                <div id="controls">                        
+                    <label for="timelineSelect">Select timeline:</label>
+                    <select id="timelineSelect" name="timelineSelect">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                    </select> 
+                    <button type="button" onClick=myfunc()>Test</button>    
+                    <button type="button" onClick=parseJSON()>JSON</button>  
+                </div>
+
                 <div id="mainTable" onwheel="myWheelHandler(event)" onmousedown="timelineMouseDown(event)" onmousemove="timelineMouseMove(event)"
                 onmouseup="timelineMouseUp(event)">
                     <div class="eventBubble">Placeholder Event</div>
                     <div class="eventBubble">Placeholder Event</div>
                     <div class="eventBubble">Placeholder Event</div>
-                </div>
-                <button type="button" onClick=myfunc()>Test</button>    
-                <button type="button" onClick=parseJSON()>JSON</button>    
+                </div>  
             </div>
         </div>
      
