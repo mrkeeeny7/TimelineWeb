@@ -12,7 +12,7 @@
 
     </head>
 
-    <body>
+    <body onload=loadSelectorOptions()>
 
         <div id="mainSection">
             
@@ -24,14 +24,14 @@
 
                 <div id="controls">                        
                     <label for="timelineSelect">Select timeline:</label>
-                    <select id="timelineSelect" name="timelineSelect">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
+                    <select id="timelineSelect" name="timelineSelect" onchange="timelineSelectorChanged()">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="fiat">Fiat</option>
+                        <option value="audi">Audi</option>
                     </select> 
                     <button type="button" onClick=myfunc()>Test</button>    
-                    <button type="button" onClick=parseJSON()>JSON</button>  
+                    <button type="button" onClick="loadTimeline('timelines/events_rome.json')">JSON</button>  
                 </div>
 
                 <div id="mainTable" onwheel="myWheelHandler(event)" onmousedown="timelineMouseDown(event)" onmousemove="timelineMouseMove(event)"

@@ -1,0 +1,14 @@
+{
+    "timelinelist" : [
+
+        {
+            "title" : "Rome",
+            "filename" : "timelines/events_rome.json"
+        },
+
+        {
+            "title" : "Egypt",
+            "filename" : "timelines/events_egypt.json"
+        }
+    ]
+}

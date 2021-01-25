@@ -10,10 +10,12 @@ var currentYear = 0;    //TODO this is a placeholder for 1BC
 var tlEvents = [];
 
 var sliderScale;
-const minScale = 10;        //years
-const maxScale = 1e10;      //years
-var minZoom = Math.log(minScale / 500.0);
-var maxZoom = Math.log(maxScale / 500.0);
+const MIN_SCALE = 10;        //years
+const MAX_SCALE = 1e10;      //years
+var minZoom = Math.log(MIN_SCALE / 500.0);
+var maxZoom = Math.log(MAX_SCALE / 500.0);
+
+const TIMELINES_SELECTOR_FILE = "timelines/timeline_list.json";
 
 
 class TimelineEvent {
@@ -26,7 +28,7 @@ class TimelineEvent {
 
 
 //magic numbers
-var mousewheelscrollfactor = 0.003;
+const MWHEEL_SCROLL_FACTOR = 0.003;
 
 
 // Test function
@@ -36,18 +38,55 @@ function myfunc()
     .innerHTML = "Testing";
 }
 
-function parseJSON()
+function loadSelectorOptions()
+{
+    console.log("Loading selector options");
+    loadJSON(TIMELINES_SELECTOR_FILE, createSelectorOptions);
+}
+
+function createSelectorOptions(jsonObj)
+{    
+    var selectorDOM = document.getElementById("timelineSelect");
+
+    //clear existing options
+    selectorDOM.innerHTML="";
+    for(var i=0; i<jsonObj.timelinelist.length; i++)
+    {        
+        var newSelectorOption = document.createElement("option");
+        newSelectorOption.setAttribute("value", jsonObj.timelinelist[i].filename);      //set the value as filename so we can use it when selecting
+        //newSelectorOption.setAttribute("value", jsonObj.timelinelist[i].title);
+        newSelectorOption.appendChild(document.createTextNode(jsonObj.timelinelist[i].title));
+        selectorDOM.appendChild(newSelectorOption);
+    }
+
+}
+
+function timelineSelectorChanged()
+{    
+    var selectorDOM = document.getElementById("timelineSelect");
+    loadTimeline(selectorDOM.value);
+}
+
+function loadTimeline(timelineFile) //TODO add option to recentre/scale timeline
+{
+    console.log("Loading from " + timelineFile);
+    loadJSON(timelineFile, createEventBubbles);
+}
+
+function loadJSON(jsonfile, onFinishCallback)
 {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var jsonObj = JSON.parse(this.responseText);    //TODO try adding the reviver function here
-            createEventBubbles(jsonObj);
+            //createEventBubbles(jsonObj);
+            onFinishCallback(jsonObj);
         }
     };
-    xmlhttp.open("GET", "timelines/events_rome.json", true);
+    xmlhttp.open("GET", jsonfile, true);
     xmlhttp.send();
 }
+
 
 function createEventBubbles(jsonObj)
 {
@@ -141,11 +180,11 @@ function myWheelHandler(event)
 {   
     var y = event.deltaY;
     sliderScale = TimelineScaleToSliderScale(currentScale);
-    sliderScale += y * mousewheelscrollfactor;
+    sliderScale += y * MWHEEL_SCROLL_FACTOR;
     currentScale = SliderScaleToTimelineScale(sliderScale);
     //clamp scale
-    currentScale = Math.min(currentScale, maxScale);
-    currentScale = Math.max(currentScale, minScale);
+    currentScale = Math.min(currentScale, MAX_SCALE);
+    currentScale = Math.max(currentScale, MIN_SCALE);
 
     console.log("New scale: " + currentScale);
     refresh();

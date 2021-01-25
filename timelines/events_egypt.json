@@ -10,7 +10,7 @@
 	{
 		"title" : "Egypt Old Kingdom",
 		"searchstring": "Old Kingdom of Egypt",
-		"dateString" : "2686   BC",
+		"dateString" : "2686 BC",
 		"endDateString" : " 2181 BC",
 		"maxScale" : 5000,
 		"type" : "era"
