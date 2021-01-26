@@ -6,14 +6,7 @@
 
 	"eventlist" : [
 
-		{
-			"title" : "Jeesus",
-			"searchstring": "Old Kingdom of Egypt",
-			"dateString" : "1",
-			"endDateString" : " 1900 BC",
-			"maxScale" : 5000,
-			"type" : "era"
-		},
+
 
 	{
 		"title" : "Egypt Old Kingdom",

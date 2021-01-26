@@ -82,10 +82,22 @@ function loadJSON(jsonfile, onFinishCallback, recentre)
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() 
     {
-        if (this.readyState == 4 && this.status == 200)
-         {
-            var jsonObj = JSON.parse(this.responseText);    //TODO try adding the reviver function here
-            onFinishCallback(jsonObj);
+        if (this.readyState == 4) {     //response ready
+            if( this.status == 200)     //"OK"
+            {
+                var jsonObj = JSON.parse(this.responseText);    //TODO try adding the reviver function here
+                onFinishCallback(jsonObj);
+            }
+            else if(this.status == 404)
+            {
+                console.log("Resource not found: " + jsonfile);
+                //TODO put another callback to display on the page
+                //TODO add a waiting icon to show timeline is loading
+            }
+            else
+            {
+                console.log("Error loading resource " + jsonfile + ": " + this.statusText);
+            }
         }
     };
     xmlhttp.open("POST", jsonfile, true); //currently using POST to avoid caching; TODO look into best options for this
@@ -100,7 +112,16 @@ function createEventBubbles(jsonObj)
 
     //clear exisiting stuff
     tlEvents = [];
-    document.getElementById("mainTable").innerHTML="";
+    //document.getElementById("mainTable").innerHTML="";
+
+    //remove existing eventBubbles
+    var bubbles = document.getElementsByClassName("eventBubble");
+    for(i=bubbles.length-1; i>=0; i--) //go from the end backwards to avoid weird iteration bugs
+    {
+        bubbles[i].remove();
+    }
+    
+
 
     for(var i=0; i<jsonObj.eventlist.length; i++)
     {
@@ -191,8 +212,7 @@ function recentreTimeline()
     console.log("Dates from " + date0 + " to " +  date1) ;
 
     var midpoint = (date0 + date1) /2;
-    currentYear = midpoint;
-    console.log("Curent year: " +  currentYear);
+    SetCurrentYear(midpoint);
 
     var newScale = (date1 - date0);
     SetCurrentScale(newScale);
@@ -221,6 +241,14 @@ function SetCurrentScale(newScale)
     refresh();
 
     console.log("New scale: " + currentScale);
+}
+
+function SetCurrentYear(newYear)
+{
+    currentYear = newYear;
+    document.getElementById("currentYearLabel").innerHTML = Math.floor(currentYear); //TODO use a method to convert to string BC/AD/Ma etc
+    console.log("Curent year: " +  currentYear);
+
 }
 
 
@@ -274,7 +302,7 @@ function DragTimeline(dragAmount){
 
     var draggedYearsAmount = dragScale * dragAmount;
 
-    currentYear = oldCurrentYear - draggedYearsAmount ;
+    SetCurrentYear(oldCurrentYear - draggedYearsAmount);
 
 
     console.log("Dragged " + draggedYearsAmount + " years");
@@ -287,3 +315,8 @@ function FinishDrag(){
     oldCurrentYear = currentYear;
     isDragging = false;
 }
+
+
+//TODO
+// 'People alive' table - for current year, list living persons of significance + their ages
+// 'current year' info window - link to wikipedia info
