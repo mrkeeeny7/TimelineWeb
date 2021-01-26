@@ -22,10 +22,13 @@ class TimelineEvent {
     constructor(domElement, date)
     {
         this.domElement = domElement; //html element
-        this.date = date;
+        this.date = Number(date);
     }
 }
-
+function compareTimelineEvents(a,b)
+{
+    return a.date - b.date;
+}
 
 //magic numbers
 const MWHEEL_SCROLL_FACTOR = 0.003;
@@ -64,26 +67,28 @@ function createSelectorOptions(jsonObj)
 function timelineSelectorChanged()
 {    
     var selectorDOM = document.getElementById("timelineSelect");
-    loadTimeline(selectorDOM.value);
+    loadTimeline(selectorDOM.value, true);
 }
 
 function loadTimeline(timelineFile) //TODO add option to recentre/scale timeline
 {
     console.log("Loading from " + timelineFile);
-    loadJSON(timelineFile, createEventBubbles);
+    loadJSON(timelineFile, createEventBubbles, true);
+
 }
 
-function loadJSON(jsonfile, onFinishCallback)
+function loadJSON(jsonfile, onFinishCallback, recentre)
 {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (this.readyState == 4 && this.status == 200)
+         {
             var jsonObj = JSON.parse(this.responseText);    //TODO try adding the reviver function here
-            //createEventBubbles(jsonObj);
             onFinishCallback(jsonObj);
         }
     };
-    xmlhttp.open("GET", jsonfile, true);
+    xmlhttp.open("POST", jsonfile, true); //currently using POST to avoid caching; TODO look into best options for this
     xmlhttp.send();
 }
 
@@ -94,6 +99,7 @@ function createEventBubbles(jsonObj)
     //eventsString += jsonObj.category + ": ";
 
     //clear exisiting stuff
+    tlEvents = [];
     document.getElementById("mainTable").innerHTML="";
 
     for(var i=0; i<jsonObj.eventlist.length; i++)
@@ -118,13 +124,16 @@ function createEventBubbles(jsonObj)
         tlEvents.push(newEvent);
     }
     //document.getElementById("mainTable").innerHTML = eventsString;
+    tlEvents.sort(compareTimelineEvents);
+    recentreTimeline();
     refresh();
 
 }
 
 function dateIntGregorian(dateString)
 {
-    var tokens = dateString.split(" ");
+//    var tokens = dateString.split(" ");
+    var tokens = dateString.match(/\S+/g);
     if(tokens[1] && tokens[1].toLowerCase() == "bc")
     {
         return tokens[0] * -1; //TODO this is temprary - it will cause an off by 1 error when calculating date differences
@@ -173,6 +182,24 @@ function refresh() {
     }
 }
 
+function recentreTimeline()
+{
+    tlEvents.sort(compareTimelineEvents);
+    var date0 = tlEvents[0].date;
+    var date1 = tlEvents[tlEvents.length-1].date;
+    console.log("Num events: " + tlEvents.length);
+    console.log("Dates from " + date0 + " to " +  date1) ;
+
+    var midpoint = (date0 + date1) /2;
+    currentYear = midpoint;
+    console.log("Curent year: " +  currentYear);
+
+    var newScale = (date1 - date0);
+    SetCurrentScale(newScale);
+
+    //refresh();
+}
+
 
 
 //handle mousewheel scaling
@@ -181,13 +208,19 @@ function myWheelHandler(event)
     var y = event.deltaY;
     sliderScale = TimelineScaleToSliderScale(currentScale);
     sliderScale += y * MWHEEL_SCROLL_FACTOR;
-    currentScale = SliderScaleToTimelineScale(sliderScale);
+    SetCurrentScale(SliderScaleToTimelineScale(sliderScale));
+
+}
+
+function SetCurrentScale(newScale)
+{
+    currentScale = newScale;
     //clamp scale
     currentScale = Math.min(currentScale, MAX_SCALE);
     currentScale = Math.max(currentScale, MIN_SCALE);
+    refresh();
 
     console.log("New scale: " + currentScale);
-    refresh();
 }
 
 
@@ -213,11 +246,12 @@ function TimelineScaleToSliderScale(timelineVal)
 //handle timeline dragging
 var isDragging = false;
 var mouseDownY;
-var oldCurrentYear=currentYear;
+var oldCurrentYear;
 
 function timelineMouseDown(event)
 {
     mouseDownY = event.pageY;
+    oldCurrentYear=currentYear;
     isDragging = true;
 }
 

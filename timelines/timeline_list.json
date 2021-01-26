@@ -9,6 +9,11 @@
         {
             "title" : "Egypt",
             "filename" : "timelines/events_egypt.json"
+        },
+
+        {
+            "title" : "Medieval",
+            "filename" : "timelines/events_medieval.json"
         }
     ]
 }
