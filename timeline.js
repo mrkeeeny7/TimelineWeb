@@ -16,6 +16,8 @@ var minZoom = Math.log(MIN_SCALE / 500.0);
 var maxZoom = Math.log(MAX_SCALE / 500.0);
 
 const TIMELINES_SELECTOR_FILE = "timelines/timeline_list.json";
+const MEGA_ANNUM = 1000000; //1 million yrs = 1 Ma
+const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 
 class TimelineEvent {
@@ -161,21 +163,34 @@ function dateIntGregorian(dateString)
     }
     else
     {
-        return tokens[0]
+        return tokens[0];
     }
 }
 
 function dateString(dateNumber)
 {
+    //if(currentScale > MEGA_ANNUM_THRESHOLD)
+    if(Math.abs(Number(dateNumber)) > MEGA_ANNUM_THRESHOLD)
+    {
+        return dateMegaAnnum(dateNumber);
+    }
+    else
+    {
+        return dateGregorian(dateNumber);
+    }
+}
+
+function dateGregorian(dateNumber)
+{   
     var date = Number(dateNumber);
-    var str 
+    var str;
     if(date <= 0)
     {
-        str = Math.ceil(-date) + " BC"; //so 0, -0.1 becomes '1 BC'
+        str = Math.ceil(-date) + " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
     }
     else if(date < 1000)
     {
-        str = Math.ceil(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'
+        str = Math.ceil(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
     }
     else
     {
@@ -183,6 +198,19 @@ function dateString(dateNumber)
     }
 
     return str;
+
+}
+
+function dateMegaAnnum(dateNumber)
+{
+    var date = Number(dateNumber);
+   // var str = (date / MEGA_ANNUM).toFixed(2) + " Ma";
+   var options = {
+       maximumFractionDigits: 2
+   }
+   var str = (date/MEGA_ANNUM).toLocaleString("en-GB", options) + " Ma";
+
+   return str;
 }
 
 
@@ -211,16 +239,20 @@ function refresh() {
     currentMin = currentYear - currentScale/2;
     currentMax = currentYear + currentScale/2;
 
+    var scalefactor = 1.0/currentScale;
     //position all events correctly on the timeline
     for(var i=0; i<tlEvents.length; i++)
     {
         //1. determine offset from current year
 
-        var scalefactor = 1.0/currentScale;
         var offset = (tlEvents[i].date - currentYear) * scalefactor + 0.5;
         setPosition(tlEvents[i], offset);
         //console.log("offset: " + offset);
     }
+
+    
+    document.getElementById("currentYearLabel").innerHTML = dateString(currentYear); //refresh the year label
+    //TODO other labels
 }
 
 function recentreTimeline()
