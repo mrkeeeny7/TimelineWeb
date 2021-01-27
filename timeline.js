@@ -136,7 +136,7 @@ function createEventBubbles(jsonObj)
         var newEventDomElement = document.createElement("div");
         newEventDomElement.setAttribute("class", "eventBubble");
         newEventDomElement.setAttribute("startDate", eventDate);
-        newEventDomElement.appendChild(document.createTextNode(jsonObj.eventlist[i].title    + "  " + eventDate));
+        newEventDomElement.appendChild(document.createTextNode(jsonObj.eventlist[i].title    + "  " + dateString(eventDate)));
         document.getElementById("mainTable").appendChild(newEventDomElement);
 
         var newEvent = new TimelineEvent(newEventDomElement, eventDate);
@@ -163,6 +163,26 @@ function dateIntGregorian(dateString)
     {
         return tokens[0]
     }
+}
+
+function dateString(dateNumber)
+{
+    var date = Number(dateNumber);
+    var str 
+    if(date <= 0)
+    {
+        str = Math.ceil(-date) + " BC"; //so 0, -0.1 becomes '1 BC'
+    }
+    else if(date < 1000)
+    {
+        str = Math.ceil(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'
+    }
+    else
+    {
+        str = Math.ceil(date) + ""; //so 1000 becomes '1000'
+    }
+
+    return str;
 }
 
 
@@ -246,7 +266,7 @@ function SetCurrentScale(newScale)
 function SetCurrentYear(newYear)
 {
     currentYear = newYear;
-    document.getElementById("currentYearLabel").innerHTML = Math.floor(currentYear); //TODO use a method to convert to string BC/AD/Ma etc
+    document.getElementById("currentYearLabel").innerHTML = dateString(currentYear);
     console.log("Curent year: " +  currentYear);
 
 }

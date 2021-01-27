@@ -66,7 +66,7 @@ h1 {
 
     background-color: var(--mediumBG);
     color: var(--darkTextColor);
-    size: 16px;
+    font-size: 16px;
 
     position: relative;
 
@@ -80,6 +80,7 @@ h1 {
     margin: auto;
 
     background-color: red;
+    opacity: 0.5;
 
     position: absolute;
     top: 50%;
@@ -87,6 +88,11 @@ h1 {
 
     width: 100%;
     height: 5px;
+   
+   /* border-width: 2px;
+    border-style: solid;
+    border-color: blue;
+    */
 
 }
 #currentYearLabel {
@@ -94,17 +100,24 @@ h1 {
 
     background-color: rgba(0,0,0,0);
     color: red;
-    size: 20px;
+    font-size: 24px;
     text-align: right;
+    opacity: 1.0;
     
 
     position: absolute;
-    top: 45%;
+    top: 0;
+    right: 20px;
     z-index: 1;
 
     overflow:visible;
-    width: 100%;
-    height: 5px;
+    width: max-content;
+    height: max-content;
+
+ /*   border-width: 2px;
+    border-style: solid;
+    border-color: blue;
+    */
 
 }
 
