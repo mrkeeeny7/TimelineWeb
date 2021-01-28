@@ -1,8 +1,11 @@
 :root {
     --darkTextColor: chocolate;
     --lightTextColor: oldlace;
+
     --bubbleColor: coral;
     --bubbleHighlightColor: rgb(253, 158, 33);
+    --bubbleClickColor: rgb(251, 255, 0);
+
     --mediumBG: wheat;
     --lightBG: white;
 }
@@ -149,4 +152,11 @@ h1 {
 
 .eventBubble:hover {
     background-color: var(--bubbleHighlightColor);
+    z-index: 1;
 }
+.eventBubble:active {
+    background-color: var(--bubbleClickColor);
+    z-index: 1;
+}
+
+/* TODO eventBubble selected */

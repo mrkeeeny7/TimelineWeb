@@ -139,18 +139,27 @@ function createEventBubbles(jsonObj)
         newEventDomElement.setAttribute("class", "eventBubble");
         newEventDomElement.setAttribute("startDate", eventDate);
         newEventDomElement.appendChild(document.createTextNode(jsonObj.eventlist[i].title    + "  " + dateString(eventDate)));
-        document.getElementById("mainTable").appendChild(newEventDomElement);
 
         var newEvent = new TimelineEvent(newEventDomElement, eventDate);
+        newEventDomElement.addEventListener("click", onEventClick);
         
         //save a reference
         tlEvents.push(newEvent);
+
+        // add to the document
+        document.getElementById("mainTable").appendChild(newEventDomElement);
     }
     //document.getElementById("mainTable").innerHTML = eventsString;
     tlEvents.sort(compareTimelineEvents);
     recentreTimeline();
     refresh();
 
+}
+
+function onEventClick() //event handler for eventBubble DOM element
+{
+    console.log("Event clicked");
+    SetCurrentYear(this.getAttribute("startDate"));
 }
 
 function dateIntGregorian(dateString)
@@ -298,8 +307,11 @@ function SetCurrentScale(newScale)
 function SetCurrentYear(newYear)
 {
     currentYear = newYear;
-    document.getElementById("currentYearLabel").innerHTML = dateString(currentYear);
+   // document.getElementById("currentYearLabel").innerHTML = dateString(currentYear);
+    refresh();
     console.log("Curent year: " +  currentYear);
+
+    //TODO animation
 
 }
 
@@ -353,13 +365,13 @@ function DragTimeline(dragAmount){
     var dragScale = currentScale / 500.0; //scale the dragging speed with the timeline scale
 
     var draggedYearsAmount = dragScale * dragAmount;
+    console.log("Dragged " + draggedYearsAmount + " years");
 
     SetCurrentYear(oldCurrentYear - draggedYearsAmount);
 
 
-    console.log("Dragged " + draggedYearsAmount + " years");
-    console.log("Curent year: " + currentYear);
-    refresh();
+  //  console.log("Curent year: " + currentYear);
+  //  refresh();
 
 }
 
