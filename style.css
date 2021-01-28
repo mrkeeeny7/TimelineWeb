@@ -1,7 +1,8 @@
 :root {
     --darkTextColor: chocolate;
     --lightTextColor: oldlace;
-    --darkBG: coral;
+    --bubbleColor: coral;
+    --bubbleHighlightColor: rgb(253, 158, 33);
     --mediumBG: wheat;
     --lightBG: white;
 }
@@ -138,7 +139,14 @@ h1 {
     z-index: 0;
     
     width: max-content;
-    background-color: var(--darkBG);
+    background-color: var(--bubbleColor);
     color: var(--lightTextColor);
-    size: 16px;
+
+    /* text */
+    font-size: 16px;
+    user-select: none; /* prevent selecting of text */
+}
+
+.eventBubble:hover {
+    background-color: var(--bubbleHighlightColor);
 }
