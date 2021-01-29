@@ -156,11 +156,6 @@ function createEventBubbles(jsonObj)
 
 }
 
-function onEventClick() //event handler for eventBubble DOM element
-{
-    console.log("Event clicked");
-    SetCurrentYear(this.getAttribute("startDate"));
-}
 
 function dateIntGregorian(dateString)
 {
@@ -384,3 +379,49 @@ function FinishDrag(){
 //TODO
 // 'People alive' table - for current year, list living persons of significance + their ages
 // 'current year' info window - link to wikipedia info
+
+function onEventClick() //event handler for eventBubble DOM element
+{
+    console.log("Event clicked");
+    //SetCurrentYear(this.getAttribute("startDate"));
+    ZoomToDate(this.getAttribute("startDate"));
+}
+
+// Handle timeline animation
+var animTargetDate;
+const ANIMATION_TIME = 500.0; //milliseconds
+const ANIMATION_INTERVAL = 50.0; //milliseconds
+const ANIMATION_NUMFRAMES = ANIMATION_TIME / ANIMATION_INTERVAL;
+var progress;
+var animID;
+
+function ZoomToDate(date)
+{
+    animTargetDate = Number(date);
+    animationTimeLeft = ANIMATION_TIME;	//reset anim clock
+    animID = setInterval(AnimateMove, ANIMATION_INTERVAL);
+    progress = 0.0;
+}
+
+function myLerp(x,y, a)
+{
+    return x*(1-a) + y*a;
+}
+
+function AnimateMove()
+{
+    progress += ANIMATION_INTERVAL/ANIMATION_TIME;
+    if (progress < 1.0) {
+        //lerp between old date and new date...
+        var newYear = myLerp( oldCurrentYear, animTargetDate, progress);
+        SetCurrentYear(newYear);
+    }
+    else
+    {
+        // end 
+
+        SetCurrentYear(animTargetDate);
+        oldCurrentYear = animTargetDate;
+        clearInterval(animID);
+    }
+}
