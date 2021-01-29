@@ -133,7 +133,7 @@ h1 {
 
 .eventBubble {
     margin-left: 20px;
-    margin-top: -15px; /* account for padding+height */
+    margin-top: -22px; /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
     margin-bottom: 10px;
     padding: 10px;
 
