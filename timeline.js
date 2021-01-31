@@ -22,11 +22,12 @@ const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 
 class TimelineEvent {
-    constructor(title, domElement, date)
+    constructor(title, date, searchstring, domElement)
     {
         this.title = title;
-        this.domElement = domElement; //html element
         this.date = Number(date);
+        this.searchstring = searchstring;
+        this.domElement = domElement; //html element
     }
 }
 function compareTimelineEvents(a,b)
@@ -129,7 +130,8 @@ function createEventBubbles(jsonObj)
 
     for(var i=0; i<jsonObj.eventlist.length; i++)
     {
-        var eventDate = dateIntGregorian(jsonObj.eventlist[i].dateString) ;
+        var jsonEventObj = jsonObj.eventlist[i];
+        var eventDate = dateIntGregorian(jsonEventObj.dateString) ; //convert to numerical (so can sort, among other things)
         var eventIndex = i;
 
     //    eventsString += jsonObj.eventlist[i].title + ", ";
@@ -143,9 +145,9 @@ function createEventBubbles(jsonObj)
         newEventDomElement.setAttribute("startDate", eventDate);
         newEventDomElement.setAttribute("selected", false);
         newEventDomElement.setAttribute("eventIndex", eventIndex);
-        newEventDomElement.appendChild(document.createTextNode(jsonObj.eventlist[i].title    + "  " + dateString(eventDate)));
+        newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
 
-        var newEvent = new TimelineEvent(jsonObj.eventlist[i].title, newEventDomElement, eventDate);
+        var newEvent = new TimelineEvent(jsonEventObj.title, eventDate, jsonEventObj.searchstring, newEventDomElement);
         newEventDomElement.addEventListener("click", onEventClick);
         
         //save a reference
@@ -254,6 +256,41 @@ function setPosition(tlEvent, heightFactor)
     //TODO to center the element vertically will have to offset 1/2 of the element's height
 }
 
+/*
+function UpdateInfoPanel()
+{
+    var requestString = tlEvents[currentSelectedEvent].searchstring;
+    var xmlhttp = new XMLHttpRequest();
+    
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (this.readyState == 4) {     //response ready
+            if( this.status == 200)     //"OK"
+            {
+                var result = this.responseText;    //TODO try adding the reviver function here
+                setInfoPanel(result);
+            }
+            else if(this.status == 404)
+            {
+                console.log("Resource not found: " + jsonfile);
+                //TODO put another callback to display on the page
+                //TODO add a waiting icon to show timeline is loading
+            }
+            else
+            {
+                console.log("Error loading resource " + jsonfile + ": " + this.statusText);
+            }
+        }
+    };
+    xmlhttp.open("POST", jsonfile, true); //currently using POST to avoid caching; TODO look into best options for this
+    xmlhttp.send();
+}*/
+
+function setInfoPanel(content)
+{
+    document.getElementById("infoPanel").innerHTML = content;
+}
+
 function refresh() {
     currentMin = currentYear - currentScale/2;
     currentMax = currentYear + currentScale/2;
@@ -276,7 +313,7 @@ function refresh() {
 
 function recentreTimeline()
 {
-    tlEvents.sort(compareTimelineEvents);
+    SortEventsList();
     var date0 = tlEvents[0].date;
     var date1 = tlEvents[tlEvents.length-1].date;
     console.log("Num events: " + tlEvents.length);
@@ -405,7 +442,7 @@ function onEventClick() //event handler for eventBubble DOM element
 
 function SelectEvent(eventIndex)
 {
-    if(currentSelectedEvent != undefined)
+    if(currentSelectedEvent != undefined) //TODO placeholder for 'no selection'
     {
         var oldSelection = tlEvents[currentSelectedEvent];
         oldSelection.domElement.setAttribute("selected", false);
