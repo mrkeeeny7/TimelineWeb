@@ -8,6 +8,7 @@ var currentMaxScale;    // scope of visible events
 var currentYear = 0;    //TODO this is a placeholder for 1BC
 
 var tlEvents = [];
+var currentSelectedEvent;
 
 var sliderScale;
 const MIN_SCALE = 10;        //years
@@ -21,8 +22,9 @@ const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 
 class TimelineEvent {
-    constructor(domElement, date)
+    constructor(title, domElement, date)
     {
+        this.title = title;
         this.domElement = domElement; //html element
         this.date = Number(date);
     }
@@ -128,6 +130,7 @@ function createEventBubbles(jsonObj)
     for(var i=0; i<jsonObj.eventlist.length; i++)
     {
         var eventDate = dateIntGregorian(jsonObj.eventlist[i].dateString) ;
+        var eventIndex = i;
 
     //    eventsString += jsonObj.eventlist[i].title + ", ";
 
@@ -138,9 +141,11 @@ function createEventBubbles(jsonObj)
         var newEventDomElement = document.createElement("div");
         newEventDomElement.setAttribute("class", "eventBubble");
         newEventDomElement.setAttribute("startDate", eventDate);
+        newEventDomElement.setAttribute("selected", false);
+        newEventDomElement.setAttribute("eventIndex", eventIndex);
         newEventDomElement.appendChild(document.createTextNode(jsonObj.eventlist[i].title    + "  " + dateString(eventDate)));
 
-        var newEvent = new TimelineEvent(newEventDomElement, eventDate);
+        var newEvent = new TimelineEvent(jsonObj.eventlist[i].title, newEventDomElement, eventDate);
         newEventDomElement.addEventListener("click", onEventClick);
         
         //save a reference
@@ -150,12 +155,22 @@ function createEventBubbles(jsonObj)
         document.getElementById("mainTable").appendChild(newEventDomElement);
     }
     //document.getElementById("mainTable").innerHTML = eventsString;
-    tlEvents.sort(compareTimelineEvents);
+    SortEventsList();
     recentreTimeline();
     refresh();
 
 }
 
+function SortEventsList()
+{
+    tlEvents.sort(compareTimelineEvents);
+    //re-index the list
+    for(i=0; i<tlEvents.length; i++)
+    {
+        tlEvents[i].domElement.setAttribute("eventIndex", i);
+    }
+
+}
 
 function dateIntGregorian(dateString)
 {
@@ -384,7 +399,24 @@ function onEventClick() //event handler for eventBubble DOM element
 {
     console.log("Event clicked");
     //SetCurrentYear(this.getAttribute("startDate"));
+    SelectEvent(this.getAttribute("eventIndex"));
     ZoomToDate(this.getAttribute("startDate"));
+}
+
+function SelectEvent(eventIndex)
+{
+    if(currentSelectedEvent != undefined)
+    {
+        var oldSelection = tlEvents[currentSelectedEvent];
+        oldSelection.domElement.setAttribute("selected", false);
+    }
+
+    var newSelection = tlEvents[eventIndex];
+    newSelection.domElement.setAttribute("selected", true);
+
+    console.log("Selected " + newSelection.title);
+    currentSelectedEvent = eventIndex;
+
 }
 
 // Handle timeline animation

@@ -179,6 +179,12 @@ h1 {
 .eventBubble:active {
     background-color: var(--bubbleClickColor);
     z-index: 1;
+    box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
+}
+.eventBubble[selected=true] {
+    background-color: var(--bubbleHighlightColor);
+    z-index: 1;
+    box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 /* TODO eventBubble selected */
