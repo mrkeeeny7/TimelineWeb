@@ -77,6 +77,9 @@ function timelineSelectorChanged()
 
 function loadTimeline(timelineFile) //TODO add option to recentre/scale timeline
 {
+    //clear current selection
+    DeselectEvent();
+
     console.log("Loading from " + timelineFile);
     loadJSON(timelineFile, createEventBubbles, true);
 
@@ -256,10 +259,31 @@ function setPosition(tlEvent, heightFactor)
     //TODO to center the element vertically will have to offset 1/2 of the element's height
 }
 
-/*
+
 function UpdateInfoPanel()
 {
+    var tlEvent = tlEvents[currentSelectedEvent];
+    //create content for info panel
+    var newDiv = document.createElement("div");
+    //newDiv.setAttribute("class", "eventBubble");
+
+    var titleDOM = document.createElement("h2");
+    titleDOM.innerText = tlEvent.title;
+
+    var dateDOM = document.createElement("p");
+    dateDOM.innerText = dateString(tlEvent.date);
+
+    newDiv.appendChild(titleDOM);
+    newDiv.appendChild(dateDOM);
+    document.getElementById("infoPanel").innerHTML = "";
+    document.getElementById("infoPanel").appendChild(newDiv);
+
+}
+
+function UpdateInfoPanelWikpedia()
+{
     var requestString = tlEvents[currentSelectedEvent].searchstring;
+    var url = "https://en.wikipedia.org/w/api.php?";
     var xmlhttp = new XMLHttpRequest();
     
     xmlhttp.onreadystatechange = function() 
@@ -268,23 +292,38 @@ function UpdateInfoPanel()
             if( this.status == 200)     //"OK"
             {
                 var result = this.responseText;    //TODO try adding the reviver function here
-                setInfoPanel(result);
+                requestWikipediaContent(result);
             }
             else if(this.status == 404)
             {
-                console.log("Resource not found: " + jsonfile);
+                console.log("Page not found: " + url);
                 //TODO put another callback to display on the page
                 //TODO add a waiting icon to show timeline is loading
             }
             else
             {
-                console.log("Error loading resource " + jsonfile + ": " + this.statusText);
+                console.log("Error loading page " + url + ": " + this.statusText);
             }
         }
     };
-    xmlhttp.open("POST", jsonfile, true); //currently using POST to avoid caching; TODO look into best options for this
-    xmlhttp.send();
-}*/
+
+    
+	/*		form.AddField ("title", page_title);
+			form.AddField ("action", "parse");
+			form.AddField ("prop", "wikitext");
+			//form.AddField ("section", 0);
+            form.AddField ("format", "json");
+      */      
+    xmlhttp.open("GET", url, true); //currently using POST to avoid caching; TODO look into best options for this
+  //  xmlhttp.send("title="+requestString+"&origin='https://www.mediawiki.org'&action=parse&prop=wikitext&section=0&format=json");
+    xmlhttp.send("title="+requestString+"&origin='https://www.mediawiki.org'&action=query&format=jsonp");
+}
+
+function requestWikipediaContent(searchResult)
+{
+    console.log(searchResult);
+
+}
 
 function setInfoPanel(content)
 {
@@ -440,9 +479,21 @@ function onEventClick() //event handler for eventBubble DOM element
     ZoomToDate(this.getAttribute("startDate"));
 }
 
+function DeselectEvent()
+{    
+    if(currentSelectedEvent != undefined && currentSelectedEvent >=0) //TODO placeholder for 'no selection'
+    {
+        tlEvents[currentSelectedEvent].domElement.setAttribute("selected", false);
+        console.log("Deselected");
+        currentSelectedEvent = -1;
+    }
+}
+
+//TODO use a GetSelectedEvent to clean this up
+
 function SelectEvent(eventIndex)
 {
-    if(currentSelectedEvent != undefined) //TODO placeholder for 'no selection'
+    if(currentSelectedEvent != undefined && currentSelectedEvent >=0) //TODO placeholder for 'no selection'
     {
         var oldSelection = tlEvents[currentSelectedEvent];
         oldSelection.domElement.setAttribute("selected", false);
@@ -453,6 +504,9 @@ function SelectEvent(eventIndex)
 
     console.log("Selected " + newSelection.title);
     currentSelectedEvent = eventIndex;
+
+    //get info from wikipedia
+    UpdateInfoPanel();
 
 }
 
