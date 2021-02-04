@@ -283,7 +283,19 @@ function setPosition(tlEvent, heightFactor)
 
 {
     tlEvent.domElement.style.top = (heightFactor*100) + "%";
-    //TODO to center the element vertically will have to offset 1/2 of the element's height
+    //CSS will adjust veritcal offset to centre the bubble
+}
+
+/**
+ * 
+ * @param {TimelineEvent} tlEvent the timeline event to move
+ * @param {number} heightFactor the y-position to set as a fraction of the overall range, in the range [0,1]
+ * 
+ * Used for era bubbles that stretch multiple years
+ */
+function setBottomPosition(tlEvent, heightFactor)
+{
+    tlEvent.domElement.style.bottom = ((1-heightFactor)*100) + "%";
 }
 
 
@@ -383,6 +395,13 @@ function refresh() {
         var offset = (tlEvents[i].date - currentYear) * scalefactor + 0.5;
         setPosition(tlEvents[i], offset);
         //console.log("offset: " + offset);
+
+        if(tlEvents[i].type=="era")
+        {
+            //set bottom position by end date
+            offset = (tlEvents[i].endDate - currentYear) * scalefactor + 0.5;
+            setBottomPosition(tlEvents[i], offset);
+        }
     }
 
     
