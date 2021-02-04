@@ -22,10 +22,11 @@ const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 
 class TimelineEvent {
-    constructor(title, date, searchstring, domElement)
+    constructor(title, date, endDate, searchstring, domElement)
     {
         this.title = title;
         this.date = Number(date);
+        this.endDate = Number(endDate);
         this.searchstring = searchstring;
         this.domElement = domElement; //html element
     }
@@ -135,6 +136,15 @@ function createEventBubbles(jsonObj)
     {
         var jsonEventObj = jsonObj.eventlist[i];
         var eventDate = dateIntGregorian(jsonEventObj.dateString) ; //convert to numerical (so can sort, among other things)
+        var eventEndDate;
+        if(jsonEventObj.endDateString == undefined)
+        {
+            eventEndDate = eventDate;
+        }
+        else
+        {
+            eventEndDate = dateIntGregorian(jsonEventObj.endDateString) ; //convert to numerical (so can sort, among other things)
+        }
         var eventIndex = i;
 
     //    eventsString += jsonObj.eventlist[i].title + ", ";
@@ -148,9 +158,10 @@ function createEventBubbles(jsonObj)
         newEventDomElement.setAttribute("startDate", eventDate);
         newEventDomElement.setAttribute("selected", false);
         newEventDomElement.setAttribute("eventIndex", eventIndex);
-        newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
+       // newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
+        newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title));
 
-        var newEvent = new TimelineEvent(jsonEventObj.title, eventDate, jsonEventObj.searchstring, newEventDomElement);
+        var newEvent = new TimelineEvent(jsonEventObj.title, eventDate, eventEndDate, jsonEventObj.searchstring, newEventDomElement);
         newEventDomElement.addEventListener("click", onEventClick);
         
         //save a reference
@@ -262,21 +273,34 @@ function setPosition(tlEvent, heightFactor)
 
 function UpdateInfoPanel()
 {
-    var tlEvent = tlEvents[currentSelectedEvent];
-    //create content for info panel
-    var newDiv = document.createElement("div");
-    //newDiv.setAttribute("class", "eventBubble");
-
-    var titleDOM = document.createElement("h2");
-    titleDOM.innerText = tlEvent.title;
-
-    var dateDOM = document.createElement("p");
-    dateDOM.innerText = dateString(tlEvent.date);
-
-    newDiv.appendChild(titleDOM);
-    newDiv.appendChild(dateDOM);
     document.getElementById("infoPanel").innerHTML = "";
-    document.getElementById("infoPanel").appendChild(newDiv);
+    if(currentSelectedEvent != undefined && currentSelectedEvent > 0)
+    {
+        var tlEvent = tlEvents[currentSelectedEvent];
+        //create content for info panel
+        var newDiv = document.createElement("div");
+        //newDiv.setAttribute("class", "eventBubble");
+
+        var titleDOM = document.createElement("h2");
+        titleDOM.innerText = tlEvent.title;
+
+        var dateDOM = document.createElement("p");
+        if(tlEvent.endDate != tlEvent.date)
+        {
+            dateDOM.innerText = dateString(tlEvent.date) + " - " + dateString(tlEvent.endDate);
+        }
+        else
+        {
+            dateDOM.innerText = dateString(tlEvent.date);
+        }
+
+        newDiv.appendChild(titleDOM);
+        newDiv.appendChild(dateDOM);
+        document.getElementById("infoPanel").appendChild(newDiv);
+    }
+
+
+    //TODO just add a link to wikpedia page? e.g. wikiURL: https://en.wikipedia.org/page_name
 
 }
 
@@ -487,6 +511,8 @@ function DeselectEvent()
         console.log("Deselected");
         currentSelectedEvent = -1;
     }
+
+    UpdateInfoPanel();
 }
 
 //TODO use a GetSelectedEvent to clean this up
