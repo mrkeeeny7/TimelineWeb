@@ -173,19 +173,19 @@ h1 {
 }
 
 .eventBubble {
-    margin-left: 20px;
+    margin-left: 100px;
     margin-top: -22px; /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
     margin-bottom: 10px;
     padding: 10px;
 
     position: absolute;
-    top: 90%;
-    z-index: 0;
+    z-index: 1;
     
     width: max-content;
     height: 20px;
     background-color: var(--bubbleColor);
     color: var(--lightTextColor);
+    opacity: 0.8;
 
     /* text */
     font-size: 16px;
@@ -196,20 +196,35 @@ h1 {
     border-color: blue;
 }
 
+.eventBubble[eventType='era'] {
+    margin-left: 20px;
+    margin-top: 0;
+
+    width: 300px;
+
+    background-color: rgb(88, 88, 88);
+    opacity: 0.5;
+    z-index: 0;
+
+    border-width: 0px;
+    border-style: solid;
+    border-color: blue;
+}
+
 .eventBubble:hover {
     background-color: var(--bubbleHighlightColor);
-    z-index: 1;
+    z-index: 2;
     
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
 }
 .eventBubble:active {
     background-color: var(--bubbleClickColor);
-    z-index: 1;
+    z-index: 2;
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
 }
 .eventBubble[selected=true] {
     background-color: var(--bubbleHighlightColor);
-    z-index: 1;
+    z-index: 2;
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
 }
 

@@ -22,12 +22,13 @@ const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 
 class TimelineEvent {
-    constructor(title, date, endDate, searchstring, domElement)
+    constructor(title, date, endDate, searchstring, type, domElement)
     {
         this.title = title;
         this.date = Number(date);
         this.endDate = Number(endDate);
         this.searchstring = searchstring;
+        this.type = type;
         this.domElement = domElement; //html element
     }
 }
@@ -134,17 +135,31 @@ function createEventBubbles(jsonObj)
 
     for(var i=0; i<jsonObj.eventlist.length; i++)
     {
-        var jsonEventObj = jsonObj.eventlist[i];
-        var eventDate = dateIntGregorian(jsonEventObj.dateString) ; //convert to numerical (so can sort, among other things)
-        var eventEndDate;
+        var jsonEventObj = jsonObj.eventlist[i];        
+        var eventDate, eventEndDate, eventType;
+
+        eventDate = dateIntGregorian(jsonEventObj.dateString) ; //convert to numerical (so can sort, among other things)
+        
         if(jsonEventObj.endDateString == undefined)
         {
             eventEndDate = eventDate;
         }
         else
         {
-            eventEndDate = dateIntGregorian(jsonEventObj.endDateString) ; //convert to numerical (so can sort, among other things)
+            eventEndDate = dateIntGregorian(jsonEventObj.endDateString);
         }
+
+        if(jsonEventObj.type == undefined)
+        {
+            eventType = "basic";
+        }
+        else
+        {
+            eventType = jsonEventObj.type;
+        }
+
+
+
         var eventIndex = i;
 
     //    eventsString += jsonObj.eventlist[i].title + ", ";
@@ -158,10 +173,11 @@ function createEventBubbles(jsonObj)
         newEventDomElement.setAttribute("startDate", eventDate);
         newEventDomElement.setAttribute("selected", false);
         newEventDomElement.setAttribute("eventIndex", eventIndex);
+        newEventDomElement.setAttribute("eventType", eventType);
        // newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
         newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title));
 
-        var newEvent = new TimelineEvent(jsonEventObj.title, eventDate, eventEndDate, jsonEventObj.searchstring, newEventDomElement);
+        var newEvent = new TimelineEvent(jsonEventObj.title, eventDate, eventEndDate, jsonEventObj.searchstring, eventType, newEventDomElement);
         newEventDomElement.addEventListener("click", onEventClick);
         
         //save a reference
