@@ -199,7 +199,7 @@ h1 {
 .eventBubble[eventType='era'] {
     margin-left: 20px;
     margin-top: 0;
-    margin-bottom: 0px;
+    margin-bottom: 1px;
 
     width: 300px;
     height: auto;
@@ -209,9 +209,11 @@ h1 {
     z-index: 0;
 
     border-width: 0px;
-    border-radius: 10px;
+    border-radius: 5px 20px 5px;
     border-style: solid;
     border-color: blue;
+
+    display: none;
 }
 
 .eventBubble:hover {
@@ -220,6 +222,13 @@ h1 {
     
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
 }
+.eventBubble[eventType='era']:hover {
+    background-color: var(--bubbleHighlightColor);
+    z-index: 0;
+    
+    box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 .eventBubble:active {
     background-color: var(--bubbleClickColor);
     z-index: 2;

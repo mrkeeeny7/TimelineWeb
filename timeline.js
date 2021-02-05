@@ -22,13 +22,15 @@ const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 
 class TimelineEvent {
-    constructor(title, date, endDate, searchstring, type, domElement)
+    constructor(title, date, endDate, searchstring, type, minScale, maxScale, domElement)
     {
         this.title = title;
         this.date = Number(date);
         this.endDate = Number(endDate);
         this.searchstring = searchstring;
         this.type = type;
+        this.minScale = Number(minScale);
+        this.maxScale = Number(maxScale);
         this.domElement = domElement; //html element
     }
 }
@@ -177,7 +179,10 @@ function createEventBubbles(jsonObj)
        // newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
         newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title));
 
-        var newEvent = new TimelineEvent(jsonEventObj.title, eventDate, eventEndDate, jsonEventObj.searchstring, eventType, newEventDomElement);
+        var newEvent = new TimelineEvent(
+            jsonEventObj.title, eventDate, eventEndDate,
+            jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
+            newEventDomElement);
         newEventDomElement.addEventListener("click", onEventClick);
         
         //save a reference
@@ -298,11 +303,23 @@ function setBottomPosition(tlEvent, heightFactor)
     tlEvent.domElement.style.bottom = ((1-heightFactor)*100) + "%";
 }
 
+function setVisibility(tlEvent, isVisible)
+{    
+    if(isVisible)
+    {
+        tlEvent.domElement.style.display =  "block";
+    }
+    else
+    {
+      //  console.log("hiding: " + tlEvent.title);
+        tlEvent.domElement.style.display =  "none";
+    }
+}
 
 function UpdateInfoPanel()
 {
     document.getElementById("infoPanel").innerHTML = "";
-    if(currentSelectedEvent != undefined && currentSelectedEvent > 0)
+    if(currentSelectedEvent != undefined && currentSelectedEvent >= 0)
     {
         var tlEvent = tlEvents[currentSelectedEvent];
         //create content for info panel
@@ -390,7 +407,20 @@ function refresh() {
     //position all events correctly on the timeline
     for(var i=0; i<tlEvents.length; i++)
     {
-        //1. determine offset from current year
+        //1. determine visibility
+        var withinVisibleScale=true;
+        if(tlEvents[i].maxScale > 0 && currentScale > tlEvents[i].maxScale){
+			withinVisibleScale = false;
+		}
+		if(tlEvents[i].minScale > 0 && currentScale < tlEvents[i].minScale){
+			withinVisibleScale = false;
+        }
+    
+        setVisibility(tlEvents[i], withinVisibleScale);
+       // setVisibility(tlEvents[i], false);
+
+
+        //2. determine offset from current year
 
         var offset = (tlEvents[i].date - currentYear) * scalefactor + 0.5;
         setPosition(tlEvents[i], offset);
@@ -446,7 +476,7 @@ function SetCurrentScale(newScale)
     currentScale = Math.max(currentScale, MIN_SCALE);
     refresh();
 
-    console.log("New scale: " + currentScale);
+  //  console.log("New scale: " + currentScale);
 }
 
 function SetCurrentYear(newYear)

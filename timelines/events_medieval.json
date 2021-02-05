@@ -4,6 +4,71 @@
 	"colorString" : "#22bbdd55",
 	"tags" : ["history"],
 	"eventlist" : [
+	
+		{
+			"title" : "Dark Ages",
+			"dateString" : "476 AD",
+			"endDateString" : "630",
+			
+			"maxScale" : 5000,
+			"type" : "era"
+		},	
+		{
+			"title" : "Early Medieval",
+			"dateString" : "631",
+			"endDateString" : "792",
+			
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Viking Age",
+			"dateString" : "793",
+			"endDateString" : "1066",
+			
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "High Middle Ages",
+			"dateString" : "1067",
+			"endDateString" : "1348",
+			
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Late Middle Ages",
+			"dateString" : "1349",
+			"endDateString" : "1492",
+			
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Early Modern",
+			"dateString" : "1493",
+			"endDateString" : "1789",
+			
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+		{
+			"title" : "Modern",
+			"dateString" : "1790",
+			"endDateString" : "2021",
+			
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+		{
+			"title" : "Middle Ages",
+			"dateString" : "476 AD",
+			"endDateString" : "1492",
+			"minScale" : 5000,
+			"maxScale" : 50000,
+			"type" : "era"
+		},
 			
 		{
 			"title" : "Marco Polo",
@@ -15,7 +80,7 @@
 			"title" : "Black Death",
 			"dateString" : "1348",
 			"minScale" : 1,
-			"maxScale" : 200
+			"maxScale" : 5000
 		},
 		{
 			"title" : "Fall of Constantinople",
@@ -28,7 +93,7 @@
 			"searchstring" : "Voyages of Christopher Columbus",
 			"dateString" : "1492",
 			"minScale" : 1,
-			"maxScale" : 200
+			"maxScale" : 5000
 		},
 		{
 			"title" : "Mona Lisa",
@@ -91,6 +156,12 @@
 			"dateString" : "1692",
 			"minScale" : 1,
 			"maxScale" : 100
+		},
+		{
+			"title" : "French Revolution",
+			"dateString" : "1789",
+			"minScale" : 1,
+			"maxScale" : 5000
 		}
 	
 	
