@@ -9,7 +9,15 @@
 
 
 	{
-		"title" : "Egypt Old Kingdom",
+		"title" : "Early Dynastic Period",
+		"searchstring": "Early Dynastic Period of Egypt",
+		"dateString" : "3150 BC",
+		"endDateString" : " 2686 BC",
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Old Kingdom",
 		"searchstring": "Old Kingdom of Egypt",
 		"dateString" : "2686 BC",
 		"endDateString" : " 2181 BC",
@@ -17,20 +25,60 @@
 		"type" : "era"
 	},
 	{
-		"title" : "Egypt Middle Kingdom",
+		"title" : "First Intermediate Period",
+		"searchstring": "First Intermediate Period of Egypt",
+		"dateString" : "2181 BC",
+		"endDateString" : " 2055 BC",
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Middle Kingdom",
 		"searchstring": "Middle Kingdom of Egypt",
-		"dateString" : "2050 BC",
-		"endDateString" : "1710 BC",
+		"dateString" : "2055 BC",
+		"endDateString" : "1650 BC",
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Second Intermediate Period",
+		"searchstring": "Second Intermediate Period of Egypt",
+		"dateString" : "1650 BC",
+		"endDateString" : " 1550 BC",
 		"maxScale" : 5000,
 		"type" : "era"
 	},
 
 	{
-		"title" : "Egypt New Kingdom",
+		"title" : "New Kingdom",
 		"searchstring": "New Kingdom of Egypt",
 		"dateString" : "1550 BC",
 		"endDateString" : "1069 BC",
 		"minScale" : 500,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Third Intermediate Period",
+		"searchstring": "Third Intermediate Period of Egypt",
+		"dateString" : "1069 BC",
+		"endDateString" : "664 BC",
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Late Period",
+		"searchstring": "Late Period of ancient Egypt",
+		"dateString" : "664 BC",
+		"endDateString" : "332 BC",
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Ptolemaic Kingdom",
+		"searchstring": "Ptolemaic Kingdom",
+		"dateString" : "305 BC",
+		"endDateString" : "30 BC",
 		"maxScale" : 5000,
 		"type" : "era"
 	},
@@ -72,29 +120,58 @@
 	{
 		"title" : "Hatshepsut",
 		"dateString" : "1479 BC",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Akhenaten",
 		"dateString" : "1353 BC",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Tutankhamun",
 		"dateString" : "1332 BC",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 	{
 		"title" : "Seti I",
 		"dateString" : "1290 BC",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 	{
 		"title" : "Ramesses II",
 		"dateString" : "1220 BC",
-		"maxScale" : 5000
+		"maxScale" : 5000,
+		"type" : "person"
+	},
+	{
+		"title" : "Cambyses II",
+		"dateString" : "525 BC",
+		"maxScale" : 5000,
+		"type" : "person"
+	},
+	{
+		"title" : "Alexander the Great",
+		"dateString" : "332 BC",
+		"maxScale" : 5000,
+		"type" : "person"
+	},
+	{
+		"title" : "Ptolemy I",
+		"dateString" : "305 BC",
+		"maxScale" : 5000,
+		"type" : "person"
+	},
+	{
+		"title" : "Cleopatra VII",
+		"dateString" : "51 BC",
+		"maxScale" : 5000,
+		"type" : "person"
 	},
 
 	{

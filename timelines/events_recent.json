@@ -4,6 +4,23 @@
 	"colorString" : "#22aadd55",
 	"tags" : ["history"],
 	"eventlist" : [
+		{
+			"title" : "Modern",
+			"dateString" : "1790",
+			"endDateString" : "2021",
+			
+			"minScale" : 501,
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+		{
+			"title" : "Middle Ages",
+			"dateString" : "476 AD",
+			"endDateString" : "1492",
+			"minScale" : 501,
+			"maxScale" : 50000,
+			"type" : "era"
+		},
 
 		{
 			"title" : "Current Era",
@@ -11,7 +28,7 @@
 			"dateString" : "2001",
 			"endDateString" : "2019",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -20,7 +37,7 @@
 			"dateString" : "1991",
 			"endDateString" : "2001",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -28,7 +45,7 @@
 			"dateString" : "1945",
 			"endDateString" : "1991",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -36,7 +53,7 @@
 			"dateString" : "1939",
 			"endDateString" : "1945",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -44,7 +61,7 @@
 			"dateString" : "1929",
 			"endDateString" : "1939",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -52,7 +69,7 @@
 			"dateString" : "1918",
 			"endDateString" : "1929",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -60,7 +77,7 @@
 			"dateString" : "1914",
 			"endDateString" : "1918",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -68,7 +85,7 @@
 			"dateString" : "1871",
 			"endDateString" : "1914",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -76,7 +93,7 @@
 			"dateString" : "1815",
 			"endDateString" : "1871",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -85,7 +102,7 @@
 			"dateString" : "1799",
 			"endDateString" : "1815",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -93,7 +110,7 @@
 			"dateString" : "1789",
 			"endDateString" : "1799",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -101,7 +118,7 @@
 			"dateString" : "1715",
 			"endDateString" : "1789",
 			"minScale" : 1,
-			"maxScale" : 101,
+			"maxScale" : 500,
 			"type" : "era"
 		},
 

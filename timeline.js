@@ -435,7 +435,9 @@ function refresh() {
     }
 
     
-    document.getElementById("currentYearLabel").innerHTML = dateString(currentYear); //refresh the year label
+    document.getElementById("currentYearLabel").innerHTML = dateString(currentYear); //refresh the year labels
+    document.getElementById("minYearLabel").innerHTML = dateString(currentMin); 
+    document.getElementById("maxYearLabel").innerHTML = dateString(currentMax); 
     //TODO other labels
 }
 
