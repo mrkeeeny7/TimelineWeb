@@ -264,16 +264,21 @@ h1 {
 .lifelineMarker 
 {
     width: 20px;
-    height: 200px;
+    height: auto;
 
     z-index: 1;
     position: absolute;
-    left: 50%;
-    margin-left: -20px; /* width+lborder+rborder / 2 */
+   
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 200px;
+
+   /* left: 50%;
+    margin-left: -20px; 
+    */
+    /* width+lborder+rborder / 2 */
     top: -100px;
 
-    /*left:300px;*/
-    /*background-color: var(--bubbleClickColor);*/
     
     border: 10px solid transparent;
     border-image: url(images/column.png) round;
@@ -291,7 +296,7 @@ h1 {
     
     width: max-content;
     height: 20px;
-    background-color: rgba(184, 184, 184, 0.5);
+    background-color: rgba(245, 197, 65, 0.829);
     color: var(--lightTextColor);
     opacity: 0.8;
 

@@ -22,7 +22,8 @@ const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 
 class TimelineEvent {
-    constructor(title, date, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale, domElement)
+    constructor(title, date, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
+         domElement, lifelineDomElement)
     {
         this.title = title;
         this.date = Number(date);
@@ -33,7 +34,9 @@ class TimelineEvent {
         this.type = type;
         this.minScale = Number(minScale);
         this.maxScale = Number(maxScale);
+        
         this.domElement = domElement; //html element
+        this.lifelineDomElement = lifelineDomElement; //html element
     }
 }
 function compareTimelineEvents(a,b)
@@ -205,18 +208,22 @@ function createEventBubbles(jsonObj)
        // newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
         newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title));
 
+        var lifelineDomElement = undefined;
         if(eventType=="person")
         {
             //add a lifeline
-            var newEventLifeline = document.createElement("div");
-            newEventLifeline.setAttribute("class", " lifelineMarker");
-            newEventDomElement.appendChild(newEventLifeline);
+            lifelineDomElement = document.createElement("div");
+            lifelineDomElement.setAttribute("class", " lifelineMarker");
+            //lifelineDomElement.appendChild(newEventLifeline);
+        
+            //add to document
+            document.getElementById("mainTable").appendChild(lifelineDomElement);
         }
 
         var newEvent = new TimelineEvent(
             jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
             jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
-            newEventDomElement);
+            newEventDomElement, lifelineDomElement);
         newEventDomElement.addEventListener("click", onEventClick);
         
         //save a reference
@@ -315,26 +322,26 @@ function appendData(data) {
 
 /**
  * 
- * @param {TimelineEvent} tlEvent the timeline event to move
+ * @param {DOM element} domElement the timeline event to move
  * @param {number} heightFactor the y-position to set as a fraction of the overall range, in the range [0,1]
  */
-function setPosition(tlEvent, heightFactor)
+function setPosition(domElement, heightFactor)
 
 {
-    tlEvent.domElement.style.top = (heightFactor*100) + "%";
+    domElement.style.top = (heightFactor*100) + "%";
     //CSS will adjust veritcal offset to centre the bubble
 }
 
 /**
  * 
- * @param {TimelineEvent} tlEvent the timeline event to move
+ * @param {DOM element} tlEvent the timeline event to move
  * @param {number} heightFactor the y-position to set as a fraction of the overall range, in the range [0,1]
  * 
  * Used for era bubbles that stretch multiple years
  */
-function setBottomPosition(tlEvent, heightFactor)
+function setBottomPosition(domElement, heightFactor)
 {
-    tlEvent.domElement.style.bottom = ((1-heightFactor)*100) + "%";
+    domElement.style.bottom = ((1-heightFactor)*100) + "%";
 }
 
 function setVisibility(tlEvent, isVisible)
@@ -457,14 +464,24 @@ function refresh() {
         //2. determine offset from current year
 
         var offset = (tlEvents[i].date - currentYear) * scalefactor + 0.5;
-        setPosition(tlEvents[i], offset);
+        setPosition(tlEvents[i].domElement, offset);
         //console.log("offset: " + offset);
+
+        //set lifline positions for persons
+        if(tlEvents[i].type=="person")
+        {
+            offset = (tlEvents[i].birthDate - currentYear) * scalefactor + 0.5;
+            setPosition(tlEvents[i].lifelineDomElement, offset);
+
+            offset = (tlEvents[i].deathDate - currentYear) * scalefactor + 0.5;
+            setBottomPosition(tlEvents[i].lifelineDomElement, offset);
+        }
 
         if(tlEvents[i].type=="era")
         {
             //set bottom position by end date
             offset = (tlEvents[i].endDate - currentYear) * scalefactor + 0.5;
-            setBottomPosition(tlEvents[i], offset);
+            setBottomPosition(tlEvents[i].domElement, offset);
         }
     }
 
