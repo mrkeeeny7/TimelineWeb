@@ -216,8 +216,10 @@ function createEventBubbles(jsonObj)
             lifelineDomElement.setAttribute("class", " lifelineMarker");
             //lifelineDomElement.appendChild(newEventLifeline);
         
+
             //add to document
             document.getElementById("mainTable").appendChild(lifelineDomElement);
+            setVisibility(lifelineDomElement, false); //hide until mouse over evetn bubble
         }
 
         var newEvent = new TimelineEvent(
@@ -225,6 +227,8 @@ function createEventBubbles(jsonObj)
             jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
             newEventDomElement, lifelineDomElement);
         newEventDomElement.addEventListener("click", onEventClick);
+        newEventDomElement.addEventListener("mouseover", onEventMouseOver);
+        newEventDomElement.addEventListener("mouseout", onEventMouseOut);
         
         //save a reference
         tlEvents.push(newEvent);
@@ -344,16 +348,16 @@ function setBottomPosition(domElement, heightFactor)
     domElement.style.bottom = ((1-heightFactor)*100) + "%";
 }
 
-function setVisibility(tlEvent, isVisible)
+function setVisibility(domElement, isVisible)
 {    
     if(isVisible)
     {
-        tlEvent.domElement.style.display =  "block";
+        domElement.style.display =  "block";
     }
     else
     {
       //  console.log("hiding: " + tlEvent.title);
-        tlEvent.domElement.style.display =  "none";
+        domElement.style.display =  "none";
     }
 }
 
@@ -457,8 +461,8 @@ function refresh() {
 			withinVisibleScale = false;
         }
     
-        setVisibility(tlEvents[i], withinVisibleScale);
-       // setVisibility(tlEvents[i], false);
+        setVisibility(tlEvents[i].domElement, withinVisibleScale);
+       // setVisibility(tlEvents[i].domElement, false);
 
 
         //2. determine offset from current year
@@ -619,6 +623,19 @@ function onEventClick() //event handler for eventBubble DOM element
     //SetCurrentYear(this.getAttribute("startDate"));
     SelectEvent(this.getAttribute("eventIndex"));
     ZoomToDate(this.getAttribute("startDate"));
+}
+
+
+function onEventMouseOver()
+{
+    var tlEvent = tlEvents[this.getAttribute("eventIndex")];
+    setVisibility(tlEvent.lifelineDomElement, true);
+}
+
+function onEventMouseOut()
+{
+    var tlEvent = tlEvents[this.getAttribute("eventIndex")];
+    setVisibility(tlEvent.lifelineDomElement, false);
 }
 
 function DeselectEvent()
