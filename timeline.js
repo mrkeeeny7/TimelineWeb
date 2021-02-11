@@ -22,11 +22,13 @@ const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 
 class TimelineEvent {
-    constructor(title, date, endDate, searchstring, type, minScale, maxScale, domElement)
+    constructor(title, date, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale, domElement)
     {
         this.title = title;
         this.date = Number(date);
         this.endDate = Number(endDate);
+        this.birthDate = Number(birthDate);
+        this.deathDate = Number(deathDate);
         this.searchstring = searchstring;
         this.type = type;
         this.minScale = Number(minScale);
@@ -116,6 +118,25 @@ function loadJSON(jsonfile, onFinishCallback, recentre)
     xmlhttp.send();
 }
 
+/**
+ * 
+ * Convert input string to a Gregorian date number
+ * 
+ * @param {string} dateString the input string to try
+ * @param {number} backup the date to use if input is undefined
+ */
+function dateIntIfDefined(dateString, backup)
+{
+    if(dateString == undefined)
+    {
+        return backup;
+    }
+    else
+    {
+        return dateIntGregorian(dateString);
+    }
+}
+
 
 function createEventBubbles(jsonObj)
 {
@@ -138,18 +159,23 @@ function createEventBubbles(jsonObj)
     for(var i=0; i<jsonObj.eventlist.length; i++)
     {
         var jsonEventObj = jsonObj.eventlist[i];        
-        var eventDate, eventEndDate, eventType;
+        var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
 
         eventDate = dateIntGregorian(jsonEventObj.dateString) ; //convert to numerical (so can sort, among other things)
         
-        if(jsonEventObj.endDateString == undefined)
+        /*if(jsonEventObj.endDateString == undefined)
         {
             eventEndDate = eventDate;
         }
         else
         {
             eventEndDate = dateIntGregorian(jsonEventObj.endDateString);
-        }
+        }  */      
+        eventEndDate = dateIntIfDefined(jsonEventObj.endDateString, eventDate);
+        eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, eventDate);
+        eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, eventEndDate);
+        
+
 
         if(jsonEventObj.type == undefined)
         {
@@ -179,8 +205,16 @@ function createEventBubbles(jsonObj)
        // newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
         newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title));
 
+        if(eventType=="person")
+        {
+            //add a lifeline
+            var newEventLifeline = document.createElement("div");
+            newEventLifeline.setAttribute("class", " lifelineMarker");
+            newEventDomElement.appendChild(newEventLifeline);
+        }
+
         var newEvent = new TimelineEvent(
-            jsonEventObj.title, eventDate, eventEndDate,
+            jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
             jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
             newEventDomElement);
         newEventDomElement.addEventListener("click", onEventClick);

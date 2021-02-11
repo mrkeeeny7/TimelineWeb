@@ -119,18 +119,23 @@
 
 	{
 		"title" : "Hatshepsut",
+		"birthDateString" : "1507 BC",
+		"deathDateString" : "1458 BC",
 		"dateString" : "1479 BC",
 		"maxScale" : 500,
 		"type" : "person"
 	},
 	{
 		"title" : "Akhenaten",
+		"deathDateString" : "1336 BC",
 		"dateString" : "1353 BC",
 		"maxScale" : 500,
 		"type" : "person"
 	},
 	{
 		"title" : "Tutankhamun",
+		"birthDateString" : "1342 BC",
+		"deathDateString" : "1325 BC",
 		"dateString" : "1332 BC",
 		"maxScale" : 500,
 		"type" : "person"
@@ -138,6 +143,7 @@
 
 	{
 		"title" : "Seti I",
+		"deathDateString" : "1279 BC",
 		"dateString" : "1290 BC",
 		"maxScale" : 500,
 		"type" : "person"
@@ -145,30 +151,39 @@
 
 	{
 		"title" : "Ramesses II",
+		"birthDateString" : "1303 BC",
+		"deathDateString" : "1213 BC",
 		"dateString" : "1220 BC",
 		"maxScale" : 5000,
 		"type" : "person"
 	},
 	{
 		"title" : "Cambyses II",
+		"deathDateString" : "522 BC",
 		"dateString" : "525 BC",
 		"maxScale" : 5000,
 		"type" : "person"
 	},
 	{
 		"title" : "Alexander the Great",
+		"birthDateString" : "356 BC",
+		"deathDateString" : "323 BC",
 		"dateString" : "332 BC",
 		"maxScale" : 5000,
 		"type" : "person"
 	},
 	{
 		"title" : "Ptolemy I",
+		"birthDateString" : "367 BC",
+		"deathDateString" : "282 BC",
 		"dateString" : "305 BC",
 		"maxScale" : 5000,
 		"type" : "person"
 	},
 	{
 		"title" : "Cleopatra VII",
+		"birthDateString" : "69 BC",
+		"deathDateString" : "30 BC",
 		"dateString" : "51 BC",
 		"maxScale" : 5000,
 		"type" : "person"

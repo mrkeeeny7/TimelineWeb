@@ -199,7 +199,7 @@ h1 {
     padding: 10px;
 
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     
     width: max-content;
     height: 20px;
@@ -238,7 +238,7 @@ h1 {
 
 .eventBubble:hover {
     background-color: var(--bubbleHighlightColor);
-    z-index: 2;
+    z-index: 3;
     
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -251,13 +251,56 @@ h1 {
 
 .eventBubble:active {
     background-color: var(--bubbleClickColor);
-    z-index: 2;
+    z-index: 3;
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
 }
 .eventBubble[selected=true] {
     background-color: var(--bubbleHighlightColor);
-    z-index: 2;
+    z-index: 3;
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* TODO eventBubble selected */
+
+.lifelineMarker 
+{
+    width: 20px;
+    height: 200px;
+
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px; /* width+lborder+rborder / 2 */
+    top: -100px;
+
+    /*left:300px;*/
+    /*background-color: var(--bubbleClickColor);*/
+    
+    border: 10px solid transparent;
+    border-image: url(images/column.png) round;
+    border-image-slice: 10% 0% fill;
+}
+
+.eventBubble[eventType='person'] {
+    margin-left: 200px;
+    margin-top: -22px; /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
+    margin-bottom: 10px;
+    padding: 10px;
+
+    position: absolute;
+    z-index: 2;
+    
+    width: max-content;
+    height: 20px;
+    background-color: rgba(184, 184, 184, 0.5);
+    color: var(--lightTextColor);
+    opacity: 0.8;
+
+    /* text */
+    font-size: 16px;
+    font-style: italic;
+    user-select: none; /* prevent selecting of text */
+    
+    border-width: 2px;
+    border-style: none;
+    border-color: blue;
+}
