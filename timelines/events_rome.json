@@ -126,122 +126,145 @@
 	{
 		"title" : "Hannibal",
 		"dateString" : "218 BC",
-		"maxScale" : 5000
+		"maxScale" : 5000,
+		"type" : "person"
 	},
 	{
 		"title" : "Gaius Marius",
 		"dateString" : "107 BC",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Sulla",
 		"dateString" : "81 BC",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Julius Caesar",
 		"dateString" : "49 BC",
 		"maxScale" : 50000,
+		"type" : "person",
 		"tags" : ["egypt"]
 	},
 	{
 		"title" : "Augustus",
 		"dateString" : "27 BC",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Tiberius",
 		"dateString" : "14 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Caligula",
 		"dateString" : "37 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Claudius",
 		"dateString" : "41 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Nero",
 		"dateString" : "54 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Vespasian",
 		"dateString" : "69 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Titus",
 		"dateString" : "79 AD",
-		"maxScale" : 50
+		"maxScale" : 50,
+		"type" : "person"
 	},
 	{
 		"title" : "Domitian",
 		"dateString" : "81 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Nerva",
 		"dateString" : "96 AD",
-		"maxScale" : 50
+		"maxScale" : 50,
+		"type" : "person"
 	},
 	{
 		"title" : "Trajan",
 		"dateString" : "98 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Hadrian",
 		"dateString" : "117 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Antoninus Pius",
 		"dateString" : "138 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Marcus Aurelius",
 		"dateString" : "161 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Commodus",
 		"dateString" : "180 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Septimius Severus",
 		"dateString" : "193 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 	{
 		"title" : "Caracalla",
 		"dateString" : "211 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 	{
 		"title" : "Macrinus",
 		"dateString" : "217 AD",
-		"maxScale" : 50
+		"maxScale" : 50,
+		"type" : "person"
 	},
 
 	{
 		"title" : "Elagabalus",
 		"dateString" : "218 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},		
 
 	{
 		"title" : "Severus Alexander",
 		"dateString" : "222 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 	{
@@ -254,27 +277,31 @@
 	{
 		"title" : "Diocletian",
 		"dateString" : "284 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 	{
 		"title" : "Constantine the Great",
 		"dateString" : "311 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 		
 
 	{
 		"title" : "Julian the Apostate",
 		"dateString" : "360 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	
 
 	{
 		"title" : "Valentinian I / Valens",
 		"dateString" : "364 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 	{
@@ -286,14 +313,16 @@
 	{
 		"title" : "Theodosius I",
 		"dateString" : "379 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 
 	{
 		"title" : "Honorius",
 		"dateString" : "393 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 
@@ -308,7 +337,8 @@
 		"title" : "Attila the Hun",
 		"searchstring" : "Attila",
 		"dateString" : "450 AD",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Fall of the Western Empire",
@@ -327,6 +357,7 @@
 		"title" : "Justinian",
 		"dateString" : "527 AD",
 		"maxScale" : 500,
+		"type" : "person",
 		"tags" : ["byzantium"]
 	},
 	{
