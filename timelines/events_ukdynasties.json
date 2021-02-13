@@ -152,19 +152,22 @@
 	{
 		"title" : "Augustine of Canterbury",
 		"dateString" : "597 AD",
-		"maxScale" : 5000
+		"maxScale" : 5000,
+		"type" : "person"
 	},
 	{
 		"title" : "Offa of Mercia",
 		"dateString" : "757 AD",
-		"maxScale" : 5000
+		"maxScale" : 5000,
+		"type" : "person"
 	},
 
 
 	{
 		"title" : "Alfred the Great",
 		"dateString" : "871 AD",
-		"maxScale" : 5000
+		"maxScale" : 5000,
+		"type" : "person"
 	},
 
 
@@ -179,7 +182,8 @@
 		"title" : "Richard the Lionheart",
 		"searchstring" : "Richard I of England",
 		"dateString" : "1189",
-		"maxScale" : 5000
+		"maxScale" : 5000,
+		"type" : "person"
 	},
 	{
 		"title" : "Magna Carta",
@@ -190,7 +194,8 @@
 		"title" : "Henry III",
 		"searchstring" : "Henry III of England",
 		"dateString" : "1216",
-		"maxScale" : 100
+		"maxScale" : 100,
+		"type" : "person"
 	},
 
 	{
@@ -202,13 +207,15 @@
 		"title" : "Henry VIII",
 		"searchstring" : "Henry VIII of England",
 		"dateString" : "1509",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 	{
 		"title" : "Elizabeth I",
 		"searchstring" : "Elizabeth I of England",
 		"dateString" : "1558",
-		"maxScale" : 500
+		"maxScale" : 500,
+		"type" : "person"
 	},
 
 
@@ -227,7 +234,8 @@
 	{
 		"title" : "Victoria",
 		"dateString" : "1837",
-		"maxScale" : 5000
+		"maxScale" : 5000,
+		"type" : "person"
 	}
 	
 	
