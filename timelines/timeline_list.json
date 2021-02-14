@@ -17,6 +17,11 @@
         },
 
         {
+            "title" : "UK",
+            "filename" : "timelines/events_ukdynasties.json"
+        },
+
+        {
             "title" : "Modern",
             "filename" : "timelines/events_recent.json"
         }

@@ -314,7 +314,7 @@ function dateMegaAnnum(dateNumber)
    return str;
 }
 
-
+/*
 function appendData(data) {
     var mainContainer = document.getElementById("mainTable");
     for (var i = 0; i < data.length; i++) {
@@ -322,7 +322,7 @@ function appendData(data) {
         div.innerHTML = 'Name: ' + data[i].firstName + ' ' + data[i].lastName;
         mainContainer.appendChild(div);
     }
-}
+}*/
 
 /**
  * 
@@ -629,13 +629,21 @@ function onEventClick() //event handler for eventBubble DOM element
 function onEventMouseOver()
 {
     var tlEvent = tlEvents[this.getAttribute("eventIndex")];
-    setVisibility(tlEvent.lifelineDomElement, true);
+    console.log("mouse over " + tlEvent.title);
+
+    if(tlEvent.type=="person")
+    {
+        setVisibility(tlEvent.lifelineDomElement, true);
+    }
 }
 
 function onEventMouseOut()
 {
     var tlEvent = tlEvents[this.getAttribute("eventIndex")];
-    setVisibility(tlEvent.lifelineDomElement, false);
+    if(tlEvent.type=="person")
+    {
+        setVisibility(tlEvent.lifelineDomElement, false);
+    }
 }
 
 function DeselectEvent()
