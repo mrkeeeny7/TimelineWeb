@@ -7,8 +7,9 @@ var currentMinScale;    // scope of visible events
 var currentMaxScale;    // scope of visible events
 var currentYear = 0;    //TODO this is a placeholder for 1BC
 
-var tlEvents = [];
-var currentSelectedEvent;
+//var tlEvents = [];
+//var currentSelectedEvent;
+var mainTimeline = undefined;
 
 var sliderScale;
 const MIN_SCALE = 10;        //years
@@ -20,6 +21,249 @@ const TIMELINES_SELECTOR_FILE = "timelines/timeline_list.json";
 const MEGA_ANNUM = 1000000; //1 million yrs = 1 Ma
 const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
+class Timeline {
+    currentSelectedEventIndex = undefined;
+    tlEvents = [];
+
+    constructor(tableDom)
+    {
+        this.tableDom = tableDom; //TODO replace all references to getElementbyID("mainTable")
+    }
+
+    get currentSelectedEvent()
+    {
+        if(this.currentSelectedEventIndex != undefined && this.currentSelectedEventIndex >= 0)
+        {
+            return this.tlEvents[this.currentSelectedEventIndex];
+        }
+        else
+        {
+            return undefined;
+        }
+    }
+    
+    DeselectEvent()
+    {    
+        if(this.currentSelectedEventIndex != undefined) //TODO placeholder for 'no selection'
+        {
+            this.currentSelectedEvent.domElement.setAttribute("selected", false);
+            console.log("Deselected");
+            this.currentSelectedEventIndex = -1;
+        }
+
+        UpdateInfoPanel();
+    }
+
+    //TODO use a GetSelectedEvent to clean this up
+
+    SelectEvent(eventIndex)
+    {
+        if(this.currentSelectedEvent != undefined) //TODO placeholder for 'no selection'
+        {
+            var oldSelection = this.currentSelectedEvent;
+            oldSelection.domElement.setAttribute("selected", false);
+        }
+
+
+        this.currentSelectedEventIndex = eventIndex;
+        var newSelection = this.currentSelectedEvent;
+        newSelection.domElement.setAttribute("selected", true);
+
+        console.log("Selected " + newSelection.title);
+
+        //get info from wikipedia
+        UpdateInfoPanel();
+
+    }
+
+
+
+    createEventBubbles(jsonObj)
+    {
+        //var eventsString = "";
+        //eventsString += jsonObj.category + ": ";
+    
+        //clear exisiting stuff
+        this.tlEvents = [];
+
+        //document.getElementById("mainTable").innerHTML="";
+    
+        //remove existing eventBubbles
+        var bubbles = document.getElementsByClassName("eventBubble");
+        for(let i=bubbles.length-1; i>=0; i--) //go from the end backwards to avoid weird iteration bugs
+        {
+            bubbles[i].remove();
+        }
+        
+    
+    
+        for(let i=0; i<jsonObj.eventlist.length; i++)
+        {
+            var jsonEventObj = jsonObj.eventlist[i];        
+            var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
+    
+            eventDate = dateIntGregorian(jsonEventObj.dateString) ; //convert to numerical (so can sort, among other things)
+            
+            /*if(jsonEventObj.endDateString == undefined)
+            {
+                eventEndDate = eventDate;
+            }
+            else
+            {
+                eventEndDate = dateIntGregorian(jsonEventObj.endDateString);
+            }  */      
+            eventEndDate = dateIntIfDefined(jsonEventObj.endDateString, eventDate);
+            eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, eventDate);
+            eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, eventEndDate);
+            
+    
+    
+            if(jsonEventObj.type == undefined)
+            {
+                eventType = "basic";
+            }
+            else
+            {
+                eventType = jsonEventObj.type;
+            }
+    
+    
+    
+            var eventIndex = i;
+    
+        //    eventsString += jsonObj.eventlist[i].title + ", ";
+    
+        //    eventsString += "<div class=\"eventBubble\" startDate=\"" + jsonObj.eventlist[i].date + "\">"        
+        //    + jsonObj.eventlist[i].title    + "  " + eventDate
+        //    + "</div>";
+    
+            var newEventDomElement = document.createElement("div");
+            newEventDomElement.setAttribute("class", "eventBubble");
+            newEventDomElement.setAttribute("startDate", eventDate);
+            newEventDomElement.setAttribute("selected", false);
+            newEventDomElement.setAttribute("eventIndex", eventIndex);
+            newEventDomElement.setAttribute("eventType", eventType);
+           // newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
+            newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title));
+    
+            var lifelineDomElement = undefined;
+            if(eventType=="person")
+            {
+                //add a lifeline
+                lifelineDomElement = document.createElement("div");
+                lifelineDomElement.setAttribute("class", " lifelineMarker");
+                //lifelineDomElement.appendChild(newEventLifeline);
+            
+    
+                //add to document
+                document.getElementById("mainTable").appendChild(lifelineDomElement);
+                setVisibility(lifelineDomElement, false); //hide until mouse over evetn bubble
+            }
+    
+            var newEvent = new TimelineEvent(
+                jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
+                jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
+                newEventDomElement, lifelineDomElement);
+            newEventDomElement.addEventListener("click", onEventClick);
+            newEventDomElement.addEventListener("mouseover", onEventMouseOver);
+            newEventDomElement.addEventListener("mouseout", onEventMouseOut);
+            
+            //save a reference
+            this.tlEvents.push(newEvent);
+    
+            // add to the document
+            document.getElementById("mainTable").appendChild(newEventDomElement);
+        }
+        //document.getElementById("mainTable").innerHTML = eventsString;
+        this.SortEventsList();
+        this.recentreTimeline();
+        this.refresh();
+    
+    }
+
+    
+    SortEventsList()
+    {
+        this.tlEvents.sort(compareTimelineEvents);
+        //re-index the list
+        for(let i=0; i<this.tlEvents.length; i++)
+        {
+            this.tlEvents[i].domElement.setAttribute("eventIndex", i);
+        }
+
+    }
+
+    refresh() {
+        currentMin = currentYear - currentScale/2;
+        currentMax = currentYear + currentScale/2;
+    
+        var scalefactor = 1.0/currentScale;
+        //position all events correctly on the timeline
+        for(let i=0; i<this.tlEvents.length; i++)
+        {
+            let _tlevent = this.tlEvents[i];
+
+            //1. determine visibility
+            let withinVisibleScale=true;
+            if(_tlevent.maxScale > 0 && currentScale > _tlevent.maxScale){
+                withinVisibleScale = false;
+            }
+            if(_tlevent.minScale > 0 && currentScale < _tlevent.minScale){
+                withinVisibleScale = false;
+            }
+        
+            setVisibility(_tlevent.domElement, withinVisibleScale);
+           // setVisibility(tlEvents[i].domElement, false);
+    
+    
+            //2. determine offset from current year
+    
+            let offset = (_tlevent.date - currentYear) * scalefactor + 0.5;
+            setPosition(_tlevent.domElement, offset);
+            //console.log("offset: " + offset);
+    
+            //set lifline positions for persons
+            if(_tlevent.type=="person")
+            {
+                offset = (_tlevent.birthDate - currentYear) * scalefactor + 0.5;
+                setPosition(_tlevent.lifelineDomElement, offset);
+    
+                offset = (_tlevent.deathDate - currentYear) * scalefactor + 0.5;
+                setBottomPosition(_tlevent.lifelineDomElement, offset);
+            }
+    
+            if(_tlevent.type=="era")
+            {
+                //set bottom position by end date
+                offset = (_tlevent.endDate - currentYear) * scalefactor + 0.5;
+                setBottomPosition(_tlevent.domElement, offset);
+            }
+        }
+    
+        
+        document.getElementById("currentYearLabel").innerHTML = dateString(currentYear); //refresh the year labels
+        document.getElementById("minYearLabel").innerHTML = dateString(currentMin); 
+        document.getElementById("maxYearLabel").innerHTML = dateString(currentMax); 
+        //TODO other labels
+    }
+    
+    recentreTimeline()
+    {
+        this.SortEventsList();
+        var date0 = this.tlEvents[0].date;
+        var date1 = this.tlEvents[this.tlEvents.length-1].date;
+        console.log("Num events: " + this.tlEvents.length);
+        console.log("Dates from " + date0 + " to " +  date1) ;
+    
+        var midpoint = (date0 + date1) /2;
+        SetCurrentYear(midpoint);
+    
+        var newScale = (date1 - date0);
+        SetCurrentScale(newScale);
+    
+        //refresh();
+    }
+}
 
 class TimelineEvent {
     constructor(title, date, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
@@ -67,7 +311,7 @@ function createSelectorOptions(jsonObj)
 
     //clear existing options
     selectorDOM.innerHTML="";
-    for(var i=0; i<jsonObj.timelinelist.length; i++)
+    for(let i=0; i<jsonObj.timelinelist.length; i++)
     {        
         var newSelectorOption = document.createElement("option");
         newSelectorOption.setAttribute("value", jsonObj.timelinelist[i].filename);      //set the value as filename so we can use it when selecting
@@ -84,14 +328,29 @@ function timelineSelectorChanged()
     loadTimeline(selectorDOM.value, true);
 }
 
+function initTimeline()
+{
+    mainTimeline = new Timeline(document.getElementById("mainTable"));
+}
+
 function loadTimeline(timelineFile) //TODO add option to recentre/scale timeline
 {
+    if(mainTimeline==undefined)
+    {
+        initTimeline();
+    }
+
     //clear current selection
-    DeselectEvent();
+    mainTimeline.DeselectEvent();
 
     console.log("Loading from " + timelineFile);
-    loadJSON(timelineFile, createEventBubbles, true);
+    loadJSON(timelineFile, createEventBubblesMain, true);
 
+}
+
+function createEventBubblesMain(jsonObj)
+{
+    mainTimeline.createEventBubbles(jsonObj);
 }
 
 function loadJSON(jsonfile, onFinishCallback, recentre)
@@ -141,118 +400,6 @@ function dateIntIfDefined(dateString, backup)
 }
 
 
-function createEventBubbles(jsonObj)
-{
-    //var eventsString = "";
-    //eventsString += jsonObj.category + ": ";
-
-    //clear exisiting stuff
-    tlEvents = [];
-    //document.getElementById("mainTable").innerHTML="";
-
-    //remove existing eventBubbles
-    var bubbles = document.getElementsByClassName("eventBubble");
-    for(i=bubbles.length-1; i>=0; i--) //go from the end backwards to avoid weird iteration bugs
-    {
-        bubbles[i].remove();
-    }
-    
-
-
-    for(var i=0; i<jsonObj.eventlist.length; i++)
-    {
-        var jsonEventObj = jsonObj.eventlist[i];        
-        var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
-
-        eventDate = dateIntGregorian(jsonEventObj.dateString) ; //convert to numerical (so can sort, among other things)
-        
-        /*if(jsonEventObj.endDateString == undefined)
-        {
-            eventEndDate = eventDate;
-        }
-        else
-        {
-            eventEndDate = dateIntGregorian(jsonEventObj.endDateString);
-        }  */      
-        eventEndDate = dateIntIfDefined(jsonEventObj.endDateString, eventDate);
-        eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, eventDate);
-        eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, eventEndDate);
-        
-
-
-        if(jsonEventObj.type == undefined)
-        {
-            eventType = "basic";
-        }
-        else
-        {
-            eventType = jsonEventObj.type;
-        }
-
-
-
-        var eventIndex = i;
-
-    //    eventsString += jsonObj.eventlist[i].title + ", ";
-
-    //    eventsString += "<div class=\"eventBubble\" startDate=\"" + jsonObj.eventlist[i].date + "\">"        
-    //    + jsonObj.eventlist[i].title    + "  " + eventDate
-    //    + "</div>";
-
-        var newEventDomElement = document.createElement("div");
-        newEventDomElement.setAttribute("class", "eventBubble");
-        newEventDomElement.setAttribute("startDate", eventDate);
-        newEventDomElement.setAttribute("selected", false);
-        newEventDomElement.setAttribute("eventIndex", eventIndex);
-        newEventDomElement.setAttribute("eventType", eventType);
-       // newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
-        newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title));
-
-        var lifelineDomElement = undefined;
-        if(eventType=="person")
-        {
-            //add a lifeline
-            lifelineDomElement = document.createElement("div");
-            lifelineDomElement.setAttribute("class", " lifelineMarker");
-            //lifelineDomElement.appendChild(newEventLifeline);
-        
-
-            //add to document
-            document.getElementById("mainTable").appendChild(lifelineDomElement);
-            setVisibility(lifelineDomElement, false); //hide until mouse over evetn bubble
-        }
-
-        var newEvent = new TimelineEvent(
-            jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
-            jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
-            newEventDomElement, lifelineDomElement);
-        newEventDomElement.addEventListener("click", onEventClick);
-        newEventDomElement.addEventListener("mouseover", onEventMouseOver);
-        newEventDomElement.addEventListener("mouseout", onEventMouseOut);
-        
-        //save a reference
-        tlEvents.push(newEvent);
-
-        // add to the document
-        document.getElementById("mainTable").appendChild(newEventDomElement);
-    }
-    //document.getElementById("mainTable").innerHTML = eventsString;
-    SortEventsList();
-    recentreTimeline();
-    refresh();
-
-}
-
-function SortEventsList()
-{
-    tlEvents.sort(compareTimelineEvents);
-    //re-index the list
-    for(i=0; i<tlEvents.length; i++)
-    {
-        tlEvents[i].domElement.setAttribute("eventIndex", i);
-    }
-
-}
 
 function dateIntGregorian(dateString)
 {
@@ -364,9 +511,9 @@ function setVisibility(domElement, isVisible)
 function UpdateInfoPanel()
 {
     document.getElementById("infoPanel").innerHTML = "";
-    if(currentSelectedEvent != undefined && currentSelectedEvent >= 0)
+    if(mainTimeline.currentSelectedEvent != undefined)
     {
-        var tlEvent = tlEvents[currentSelectedEvent];
+        var tlEvent = mainTimeline.currentSelectedEvent;
         //create content for info panel
         var newDiv = document.createElement("div");
         //newDiv.setAttribute("class", "eventBubble");
@@ -396,7 +543,7 @@ function UpdateInfoPanel()
 
 function UpdateInfoPanelWikpedia()
 {
-    var requestString = tlEvents[currentSelectedEvent].searchstring;
+    var requestString = mainTimeline.currentSelectedEvent.searchstring;
     var url = "https://en.wikipedia.org/w/api.php?";
     var xmlhttp = new XMLHttpRequest();
     
@@ -444,74 +591,6 @@ function setInfoPanel(content)
     document.getElementById("infoPanel").innerHTML = content;
 }
 
-function refresh() {
-    currentMin = currentYear - currentScale/2;
-    currentMax = currentYear + currentScale/2;
-
-    var scalefactor = 1.0/currentScale;
-    //position all events correctly on the timeline
-    for(var i=0; i<tlEvents.length; i++)
-    {
-        //1. determine visibility
-        var withinVisibleScale=true;
-        if(tlEvents[i].maxScale > 0 && currentScale > tlEvents[i].maxScale){
-			withinVisibleScale = false;
-		}
-		if(tlEvents[i].minScale > 0 && currentScale < tlEvents[i].minScale){
-			withinVisibleScale = false;
-        }
-    
-        setVisibility(tlEvents[i].domElement, withinVisibleScale);
-       // setVisibility(tlEvents[i].domElement, false);
-
-
-        //2. determine offset from current year
-
-        var offset = (tlEvents[i].date - currentYear) * scalefactor + 0.5;
-        setPosition(tlEvents[i].domElement, offset);
-        //console.log("offset: " + offset);
-
-        //set lifline positions for persons
-        if(tlEvents[i].type=="person")
-        {
-            offset = (tlEvents[i].birthDate - currentYear) * scalefactor + 0.5;
-            setPosition(tlEvents[i].lifelineDomElement, offset);
-
-            offset = (tlEvents[i].deathDate - currentYear) * scalefactor + 0.5;
-            setBottomPosition(tlEvents[i].lifelineDomElement, offset);
-        }
-
-        if(tlEvents[i].type=="era")
-        {
-            //set bottom position by end date
-            offset = (tlEvents[i].endDate - currentYear) * scalefactor + 0.5;
-            setBottomPosition(tlEvents[i].domElement, offset);
-        }
-    }
-
-    
-    document.getElementById("currentYearLabel").innerHTML = dateString(currentYear); //refresh the year labels
-    document.getElementById("minYearLabel").innerHTML = dateString(currentMin); 
-    document.getElementById("maxYearLabel").innerHTML = dateString(currentMax); 
-    //TODO other labels
-}
-
-function recentreTimeline()
-{
-    SortEventsList();
-    var date0 = tlEvents[0].date;
-    var date1 = tlEvents[tlEvents.length-1].date;
-    console.log("Num events: " + tlEvents.length);
-    console.log("Dates from " + date0 + " to " +  date1) ;
-
-    var midpoint = (date0 + date1) /2;
-    SetCurrentYear(midpoint);
-
-    var newScale = (date1 - date0);
-    SetCurrentScale(newScale);
-
-    //refresh();
-}
 
 
 
@@ -531,7 +610,7 @@ function SetCurrentScale(newScale)
     //clamp scale
     currentScale = Math.min(currentScale, MAX_SCALE);
     currentScale = Math.max(currentScale, MIN_SCALE);
-    refresh();
+    mainTimeline.refresh();
 
   //  console.log("New scale: " + currentScale);
 }
@@ -540,7 +619,7 @@ function SetCurrentYear(newYear)
 {
     currentYear = newYear;
    // document.getElementById("currentYearLabel").innerHTML = dateString(currentYear);
-    refresh();
+    mainTimeline.refresh();
     console.log("Curent year: " +  currentYear);
 
     //TODO animation
@@ -621,14 +700,14 @@ function onEventClick() //event handler for eventBubble DOM element
 {
     console.log("Event clicked");
     //SetCurrentYear(this.getAttribute("startDate"));
-    SelectEvent(this.getAttribute("eventIndex"));
+    mainTimeline.SelectEvent(this.getAttribute("eventIndex"));
     ZoomToDate(this.getAttribute("startDate"));
 }
 
 
 function onEventMouseOver()
 {
-    var tlEvent = tlEvents[this.getAttribute("eventIndex")];
+    var tlEvent = mainTimeline.tlEvents[this.getAttribute("eventIndex")];
     console.log("mouse over " + tlEvent.title);
 
     if(tlEvent.type=="person")
@@ -639,44 +718,11 @@ function onEventMouseOver()
 
 function onEventMouseOut()
 {
-    var tlEvent = tlEvents[this.getAttribute("eventIndex")];
+    var tlEvent = mainTimeline.tlEvents[this.getAttribute("eventIndex")];
     if(tlEvent.type=="person")
     {
         setVisibility(tlEvent.lifelineDomElement, false);
     }
-}
-
-function DeselectEvent()
-{    
-    if(currentSelectedEvent != undefined && currentSelectedEvent >=0) //TODO placeholder for 'no selection'
-    {
-        tlEvents[currentSelectedEvent].domElement.setAttribute("selected", false);
-        console.log("Deselected");
-        currentSelectedEvent = -1;
-    }
-
-    UpdateInfoPanel();
-}
-
-//TODO use a GetSelectedEvent to clean this up
-
-function SelectEvent(eventIndex)
-{
-    if(currentSelectedEvent != undefined && currentSelectedEvent >=0) //TODO placeholder for 'no selection'
-    {
-        var oldSelection = tlEvents[currentSelectedEvent];
-        oldSelection.domElement.setAttribute("selected", false);
-    }
-
-    var newSelection = tlEvents[eventIndex];
-    newSelection.domElement.setAttribute("selected", true);
-
-    console.log("Selected " + newSelection.title);
-    currentSelectedEvent = eventIndex;
-
-    //get info from wikipedia
-    UpdateInfoPanel();
-
 }
 
 // Handle timeline animation
