@@ -238,9 +238,6 @@ h1 {
     font-size: 16px;
     user-select: none; /* prevent selecting of text */
     
-    border-width: 2px;
-    border-style: solid;
-    border-color: blue;
 }
 
 .eventBubble[eventType='era'] {
@@ -255,12 +252,30 @@ h1 {
     opacity: 0.5;
     z-index: 0;
 
-    border-width: 0px;
     border-radius: 5px 20px 5px;
-    border-style: solid;
-    border-color: blue;
 
     display: none;
+}
+.eventBubble[eventType='person'] {
+    margin-left: 200px;
+    margin-top: -22px; /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
+    margin-bottom: 10px;
+    padding: 10px;
+
+    position: absolute;
+    z-index: 2;
+    
+    width: max-content;
+    height: 20px;
+    background-color: rgba(245, 197, 65, 0.829);
+    color: var(--lightTextColor);
+    opacity: 0.8;
+
+    /* text */
+    font-size: 16px;
+    font-style: italic;
+    user-select: none; /* prevent selecting of text */
+    
 }
 
 .eventBubble:hover {
@@ -285,6 +300,10 @@ h1 {
     background-color: var(--bubbleHighlightColor);
     z-index: 3;
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--markerLineColor);
 }
 
 
@@ -310,29 +329,4 @@ h1 {
     border: 10px solid transparent;
     border-image: url(images/column.png) round;
     border-image-slice: 10% 0% fill;
-}
-
-.eventBubble[eventType='person'] {
-    margin-left: 200px;
-    margin-top: -22px; /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
-    margin-bottom: 10px;
-    padding: 10px;
-
-    position: absolute;
-    z-index: 2;
-    
-    width: max-content;
-    height: 20px;
-    background-color: rgba(245, 197, 65, 0.829);
-    color: var(--lightTextColor);
-    opacity: 0.8;
-
-    /* text */
-    font-size: 16px;
-    font-style: italic;
-    user-select: none; /* prevent selecting of text */
-    
-    border-width: 2px;
-    border-style: none;
-    border-color: blue;
 }
