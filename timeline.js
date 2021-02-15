@@ -58,7 +58,7 @@ class Timeline {
     
     deselectEvent()
     {    
-        if(this.currentSelectedEventIndex != undefined) //TODO placeholder for 'no selection'
+        if(this.currentSelectedEvent != undefined) //TODO placeholder for 'no selection'
         {
             this.currentSelectedEvent.domElement.setAttribute("selected", false);
             console.log("Deselected");
