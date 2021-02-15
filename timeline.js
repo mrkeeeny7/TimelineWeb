@@ -1,18 +1,10 @@
 
-//current timeline variables
-var currentMin = -50; //min year
-var currentMax = 50; //max year
-var currentScale = 100;
-var currentMinScale;    // scope of visible events
-var currentMaxScale;    // scope of visible events
-var currentYear = 0;    //TODO this is a placeholder for 1BC
 
 //var tlEvents = [];
 //var currentSelectedEvent;
 var mainTimeline = undefined;
 var secondTimeline = undefined;
 
-var sliderScale;
 const MIN_SCALE = 10;        //years
 const MAX_SCALE = 1e10;      //years
 var minZoom = Math.log(MIN_SCALE / 500.0);
@@ -22,13 +14,30 @@ const TIMELINES_SELECTOR_FILE = "timelines/timeline_list.json";
 const MEGA_ANNUM = 1000000; //1 million yrs = 1 Ma
 const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
+//magic numbers
+const MWHEEL_SCROLL_FACTOR = 0.003;
+
+const ANIMATION_TIME = 500.0; //milliseconds
+const ANIMATION_INTERVAL = 50.0; //milliseconds
+const ANIMATION_NUMFRAMES = ANIMATION_TIME / ANIMATION_INTERVAL;
+
 class Timeline {
     currentSelectedEventIndex = undefined;
     tlEvents = [];
 
-    constructor(tableDom)
+    //current timeline variables
+    currentMin = -50; //min year
+    currentMax = 50; //max year
+    currentScale = 100;
+    currentMinScale;    // scope of visible events
+    currentMaxScale;    // scope of visible events
+    currentYear = 0;    //TODO this is a placeholder for 1BC
+    sliderScale;
+
+    constructor(tableDom, timelineIndex)
     {
         this.tableDom = tableDom; //TODO replace all references to getElementbyID("mainTable")
+        this.timelineIndex = timelineIndex;
     }
 
     get currentSelectedEvent()
@@ -196,10 +205,10 @@ class Timeline {
     }
 
     refresh() {
-        currentMin = currentYear - currentScale/2;
-        currentMax = currentYear + currentScale/2;
+        this.currentMin = this.currentYear - this.currentScale/2;
+        this.currentMax = this.currentYear + this.currentScale/2;
     
-        var scalefactor = 1.0/currentScale;
+        var scalefactor = 1.0/this.currentScale;
         //position all events correctly on the timeline
         for(let i=0; i<this.tlEvents.length; i++)
         {
@@ -207,10 +216,10 @@ class Timeline {
 
             //1. determine visibility
             let withinVisibleScale=true;
-            if(_tlevent.maxScale > 0 && currentScale > _tlevent.maxScale){
+            if(_tlevent.maxScale > 0 && this.currentScale > _tlevent.maxScale){
                 withinVisibleScale = false;
             }
-            if(_tlevent.minScale > 0 && currentScale < _tlevent.minScale){
+            if(_tlevent.minScale > 0 && this.currentScale < _tlevent.minScale){
                 withinVisibleScale = false;
             }
         
@@ -220,32 +229,32 @@ class Timeline {
     
             //2. determine offset from current year
     
-            let offset = (_tlevent.date - currentYear) * scalefactor + 0.5;
+            let offset = (_tlevent.date - this.currentYear) * scalefactor + 0.5;
             setPosition(_tlevent.domElement, offset);
             //console.log("offset: " + offset);
     
             //set lifline positions for persons
             if(_tlevent.type=="person")
             {
-                offset = (_tlevent.birthDate - currentYear) * scalefactor + 0.5;
+                offset = (_tlevent.birthDate - this.currentYear) * scalefactor + 0.5;
                 setPosition(_tlevent.lifelineDomElement, offset);
     
-                offset = (_tlevent.deathDate - currentYear) * scalefactor + 0.5;
+                offset = (_tlevent.deathDate - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.lifelineDomElement, offset);
             }
     
             if(_tlevent.type=="era")
             {
                 //set bottom position by end date
-                offset = (_tlevent.endDate - currentYear) * scalefactor + 0.5;
+                offset = (_tlevent.endDate - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.domElement, offset);
             }
         }
     
         
-        document.getElementById("currentYearLabel").innerHTML = dateString(currentYear); //refresh the year labels
-        document.getElementById("minYearLabel").innerHTML = dateString(currentMin); 
-        document.getElementById("maxYearLabel").innerHTML = dateString(currentMax); 
+        document.getElementById("currentYearLabel").innerHTML = dateString(this.currentYear); //refresh the year labels
+        document.getElementById("minYearLabel").innerHTML = dateString(this.currentMin); 
+        document.getElementById("maxYearLabel").innerHTML = dateString(this.currentMax); 
         //TODO other labels
     }
     
@@ -258,14 +267,74 @@ class Timeline {
         console.log("Dates from " + date0 + " to " +  date1) ;
     
         var midpoint = (date0 + date1) /2;
-        SetCurrentYear(midpoint);
+        this.setCurrentYear(midpoint);
     
         var newScale = (date1 - date0);
-        SetCurrentScale(newScale);
+        this.setCurrentScale(newScale);
     
         //refresh();
     }
+
+    
+    setCurrentScale(newScale)
+    {
+        this.currentScale = newScale;
+        //clamp scale
+        this.currentScale = Math.min(this.currentScale, MAX_SCALE);
+        this.currentScale = Math.max(this.currentScale, MIN_SCALE);
+        this.refresh();
+
+    //  console.log("New scale: " + currentScale);
+    }
+
+    setCurrentYear(newYear)
+    {
+        this.currentYear = newYear;
+    // document.getElementById("currentYearLabel").innerHTML = dateString(currentYear);
+        this.refresh();
+        console.log("Curent year: " +  this.currentYear);
+
+
+    }
+
+        
+    // Handle timeline animation
+    animTargetDate;
+    animProgress;
+    animID;
+
+    ZoomToDate(date)
+    {
+        this.animTargetDate = Number(date);
+        this.animProgress = 0.0;
+        this.animID = setInterval(
+            function(){ AnimateMove(this.timelineIndex); }, 
+            ANIMATION_INTERVAL);
+    }
+
+
+
 }
+
+function AnimateMove(timelineIndex)
+{
+    var targetTimeline = getTimeline(timelineIndex);
+    targetTimeline.animProgress += ANIMATION_INTERVAL/ANIMATION_TIME;
+    if (targetTimeline.animProgress < 1.0) {
+        //lerp between old date and new date...
+        var newYear = myLerp( oldCurrentYear, targetTimeline.animTargetDate, targetTimeline.animProgress);
+        targetTimeline.setCurrentYear(newYear);
+    }
+    else
+    {
+        // end 
+
+        targetTimeline.setCurrentYear(targetTimeline.animTargetDate);
+        oldCurrentYear = targetTimeline.animTargetDate;
+        clearInterval(targetTimeline.animID);
+    }
+}
+
 
 class TimelineEvent {
     constructor(title, date, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
@@ -290,9 +359,18 @@ function compareTimelineEvents(a,b)
     return a.date - b.date;
 }
 
-//magic numbers
-const MWHEEL_SCROLL_FACTOR = 0.003;
 
+function getTimeline(timelineIndex)
+{
+    if(timelineIndex==1)
+    {
+        return secondTimeline;
+    }
+    else
+    {
+        return mainTimeline;
+    }
+}
 
 // Test function
 function myfunc()
@@ -349,8 +427,8 @@ function timelineSelectorChanged(timelineIndex, value)
 
 function initTimelines()
 {
-    mainTimeline = new Timeline(document.getElementById("mainTable"));
-    secondTimeline = new Timeline(document.getElementById("secondTable"));
+    mainTimeline = new Timeline(document.getElementById("mainTable"), 0);
+    secondTimeline = new Timeline(document.getElementById("secondTable"), 1);
 }
 
 function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentre/scale timeline
@@ -611,36 +689,16 @@ function setInfoPanel(content)
 
 
 //handle mousewheel scaling
-function myWheelHandler(event)
+function myWheelHandler(event, timelineIndex)
 {   
+    var targetTimeline = getTimeline(timelineIndex);
     var y = event.deltaY;
-    sliderScale = TimelineScaleToSliderScale(currentScale);
-    sliderScale += y * MWHEEL_SCROLL_FACTOR;
-    SetCurrentScale(SliderScaleToTimelineScale(sliderScale));
+    targetTimeline.sliderScale = TimelineScaleToSliderScale(targetTimeline.currentScale);
+    targetTimeline.sliderScale += y * MWHEEL_SCROLL_FACTOR;
+    targetTimeline.setCurrentScale(SliderScaleToTimelineScale(targetTimeline.sliderScale));
 
 }
 
-function SetCurrentScale(newScale)
-{
-    currentScale = newScale;
-    //clamp scale
-    currentScale = Math.min(currentScale, MAX_SCALE);
-    currentScale = Math.max(currentScale, MIN_SCALE);
-    mainTimeline.refresh();
-
-  //  console.log("New scale: " + currentScale);
-}
-
-function SetCurrentYear(newYear)
-{
-    currentYear = newYear;
-   // document.getElementById("currentYearLabel").innerHTML = dateString(currentYear);
-    mainTimeline.refresh();
-    console.log("Curent year: " +  currentYear);
-
-    //TODO animation
-
-}
 
 
 function SliderScaleToTimelineScale(sliderVal)
@@ -667,34 +725,36 @@ var isDragging = false;
 var mouseDownY;
 var oldCurrentYear;
 
-function timelineMouseDown(event)
+function timelineMouseDown(event, timelineIndex)
 {
     mouseDownY = event.pageY;
-    oldCurrentYear=currentYear;
+    oldCurrentYear=getTimeline(timelineIndex).currentYear;
     isDragging = true;
 }
 
-function timelineMouseMove(event)
+function timelineMouseMove(event, timelineIndex)
 {
     if(isDragging)
     {        
 		var dragAmount = (event.pageY - mouseDownY);
-		DragTimeline (dragAmount);
+		DragTimeline (dragAmount, timelineIndex);
     }
 }
 
-function timelineMouseUp(event)
+function timelineMouseUp(timelineIndex)
 {
-    FinishDrag();
+    FinishDrag(timelineIndex);
 }
 
-function DragTimeline(dragAmount){
-    var dragScale = currentScale / 500.0; //scale the dragging speed with the timeline scale
+function DragTimeline(dragAmount, timelineIndex)
+{
+    var targetTimeline = getTimeline(timelineIndex);
+    var dragScale = targetTimeline.currentScale / 500.0; //scale the dragging speed with the timeline scale
 
     var draggedYearsAmount = dragScale * dragAmount;
     console.log("Dragged " + draggedYearsAmount + " years");
 
-    SetCurrentYear(oldCurrentYear - draggedYearsAmount);
+    targetTimeline.setCurrentYear(oldCurrentYear - draggedYearsAmount);
 
 
   //  console.log("Curent year: " + currentYear);
@@ -702,8 +762,8 @@ function DragTimeline(dragAmount){
 
 }
 
-function FinishDrag(){
-    oldCurrentYear = currentYear;
+function FinishDrag(timelineIndex){
+    oldCurrentYear = getTimeline(timelineIndex).currentYear;
     isDragging = false;
 }
 
@@ -712,12 +772,14 @@ function FinishDrag(){
 // 'People alive' table - for current year, list living persons of significance + their ages
 // 'current year' info window - link to wikipedia info
 
-function onEventClick() //event handler for eventBubble DOM element
+function onEventClick(timelineIndex) //event handler for eventBubble DOM element
 {
     console.log("Event clicked");
+    var targetTimeline = getTimeline(timelineIndex);
+
     //SetCurrentYear(this.getAttribute("startDate"));
-    mainTimeline.selectEvent(this.getAttribute("eventIndex"));
-    ZoomToDate(this.getAttribute("startDate"));
+    targetTimeline.selectEvent(this.getAttribute("eventIndex"));
+    targetTimeline.ZoomToDate(this.getAttribute("startDate"));
 }
 
 
@@ -741,41 +803,7 @@ function onEventMouseOut()
     }
 }
 
-// Handle timeline animation
-var animTargetDate;
-const ANIMATION_TIME = 500.0; //milliseconds
-const ANIMATION_INTERVAL = 50.0; //milliseconds
-const ANIMATION_NUMFRAMES = ANIMATION_TIME / ANIMATION_INTERVAL;
-var progress;
-var animID;
-
-function ZoomToDate(date)
-{
-    animTargetDate = Number(date);
-    animationTimeLeft = ANIMATION_TIME;	//reset anim clock
-    animID = setInterval(AnimateMove, ANIMATION_INTERVAL);
-    progress = 0.0;
-}
-
 function myLerp(x,y, a)
 {
     return x*(1-a) + y*a;
-}
-
-function AnimateMove()
-{
-    progress += ANIMATION_INTERVAL/ANIMATION_TIME;
-    if (progress < 1.0) {
-        //lerp between old date and new date...
-        var newYear = myLerp( oldCurrentYear, animTargetDate, progress);
-        SetCurrentYear(newYear);
-    }
-    else
-    {
-        // end 
-
-        SetCurrentYear(animTargetDate);
-        oldCurrentYear = animTargetDate;
-        clearInterval(animID);
-    }
 }
