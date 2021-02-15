@@ -139,14 +139,16 @@ h1 {
      */
 }
 
-#currentYearMarker {
+.yearMarkerLine[timelinePosition='middle'] {
     top: 50%;
 }
-#minYearMarker {
+
+.yearMarkerLine[timelinePosition='top']  {
     top: 0%;
     margin-top: 0px; /* move down to fit in window */
 }
-#maxYearMarker {
+
+.yearMarkerLine[timelinePosition='bottom']  {
     top: 100%;
     margin-top: -10px; /* move up to fit in window */
 }
@@ -178,7 +180,7 @@ h1 {
 
 }
 
-#maxYearLabel{
+#maxYearLabel0, #maxYearLabel1{
     
     position: absolute;
     margin-top: -34px; /* text height + 10px */

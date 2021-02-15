@@ -38,6 +38,10 @@ class Timeline {
     {
         this.tableDom = tableDom; //TODO replace all references to getElementbyID("mainTable")
         this.timelineIndex = timelineIndex;
+
+        this.currentYearLabelDom = document.getElementById("currentYearLabel" + timelineIndex);
+        this.minYearLabelDom = document.getElementById("minYearLabel" + timelineIndex);
+        this.maxYearLabelDom = document.getElementById("maxYearLabel" + timelineIndex);
     }
 
     get currentSelectedEvent()
@@ -254,9 +258,9 @@ class Timeline {
         }
     
         
-        document.getElementById("currentYearLabel").innerHTML = dateString(this.currentYear); //refresh the year labels
-        document.getElementById("minYearLabel").innerHTML = dateString(this.currentMin); 
-        document.getElementById("maxYearLabel").innerHTML = dateString(this.currentMax); 
+        this.currentYearLabelDom.innerHTML = dateString(this.currentYear); //refresh the year labels
+        this.minYearLabelDom.innerHTML = dateString(this.currentMin); 
+        this.maxYearLabelDom.innerHTML = dateString(this.currentMax); 
         //TODO other labels
     }
     
@@ -695,6 +699,7 @@ function setInfoPanel(content)
 //handle mousewheel scaling
 function myWheelHandler(event, timelineIndex)
 {   
+    console.log("scaling timeline " + timelineIndex);
     var targetTimeline = getTimeline(timelineIndex);
     var y = event.deltaY;
     targetTimeline.sliderScale = TimelineScaleToSliderScale(targetTimeline.currentScale);

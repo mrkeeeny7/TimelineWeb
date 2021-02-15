@@ -57,19 +57,31 @@
 
                     <div class="lifelineMarker">Some test stuff</div>
              
-                    <div class="yearMarkerLine" id="currentYearMarker">
-                        <div class="yearLabel" id="currentYearLabel"></div>
+                    <div class="yearMarkerLine" id="currentYearMarker0" timelinePosition="middle">
+                        <div class="yearLabel" id="currentYearLabel0"></div>
                     </div>
-                    <div class="yearMarkerLine" id="minYearMarker">
-                        <div class="yearLabel" id="minYearLabel"></div>
+                    <div class="yearMarkerLine" id="minYearMarker0" timelinePosition="top">
+                        <div class="yearLabel" id="minYearLabel0"></div>
                     </div>
-                    <div class="yearMarkerLine" id="maxYearMarker">
-                        <div class="yearLabel" id="maxYearLabel"></div>
+                    <div class="yearMarkerLine" id="maxYearMarker0" timelinePosition="bottom">
+                        <div class="yearLabel" id="maxYearLabel0"></div>
                     </div>
                 </div>
+
                 <div id="infoPanel"> <iframe id="wikiFrame" src="https://en.wikipedia.org" title="Wikipedia"> </iframe></div> 
+               
                 <div id="secondTable" class="timelineTable" onwheel="myWheelHandler(event, 1)" onmousedown="timelineMouseDown(event, 1)" onmousemove="timelineMouseMove(event, 1)"
-                onmouseup="timelineMouseUp(1)">info info</div>
+                onmouseup="timelineMouseUp(1)">            
+                    <div class="yearMarkerLine" id="currentYearMarker1" timelinePosition="middle">
+                        <div class="yearLabel" id="currentYearLabel1"></div>
+                    </div>
+                    <div class="yearMarkerLine" id="minYearMarker1" timelinePosition="top">
+                        <div class="yearLabel" id="minYearLabel1"></div>
+                    </div>
+                    <div class="yearMarkerLine" id="maxYearMarker1" timelinePosition="bottom">
+                        <div class="yearLabel" id="maxYearLabel1"></div>
+                    </div>
+                </div>
  
             </div>
         </div>
