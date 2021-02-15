@@ -175,9 +175,11 @@ class Timeline {
                 jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
                 jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
                 newEventDomElement, lifelineDomElement);
-            newEventDomElement.addEventListener("click", onEventClick);
-            newEventDomElement.addEventListener("mouseover", onEventMouseOver);
-            newEventDomElement.addEventListener("mouseout", onEventMouseOut);
+                
+            let tlIndex = this.timelineIndex;
+            newEventDomElement.addEventListener("click", function() { onEventClick(tlIndex, this.getAttribute("eventIndex"), this.getAttribute("startDate")); });
+            newEventDomElement.addEventListener("mouseover", function() { onEventMouseOver(tlIndex, this.getAttribute("eventIndex")); });
+            newEventDomElement.addEventListener("mouseout", function() { onEventMouseOut(tlIndex, this.getAttribute("eventIndex")); });
             
             //save a reference
             this.tlEvents.push(newEvent);
@@ -298,42 +300,44 @@ class Timeline {
     }
 
         
-    // Handle timeline animation
-    animTargetDate;
-    animProgress;
-    animID;
-
-    ZoomToDate(date)
-    {
-        this.animTargetDate = Number(date);
-        this.animProgress = 0.0;
-        this.animID = setInterval(
-            function(){ AnimateMove(this.timelineIndex); }, 
-            ANIMATION_INTERVAL);
-    }
 
 
 
-}
+}  
+// Handle timeline animation
+var animTargetDate;
+var animProgress;
+var animID;
+var animTimeline;
 
-function AnimateMove(timelineIndex)
+function AnimateMove()
 {
-    var targetTimeline = getTimeline(timelineIndex);
-    targetTimeline.animProgress += ANIMATION_INTERVAL/ANIMATION_TIME;
-    if (targetTimeline.animProgress < 1.0) {
+    animProgress += ANIMATION_INTERVAL/ANIMATION_TIME;
+    if (animProgress < 1.0) {
         //lerp between old date and new date...
-        var newYear = myLerp( oldCurrentYear, targetTimeline.animTargetDate, targetTimeline.animProgress);
-        targetTimeline.setCurrentYear(newYear);
+        var newYear = myLerp( oldCurrentYear, animTargetDate, animProgress);
+        animTimeline.setCurrentYear(newYear);
     }
     else
     {
         // end 
 
-        targetTimeline.setCurrentYear(targetTimeline.animTargetDate);
-        oldCurrentYear = targetTimeline.animTargetDate;
-        clearInterval(targetTimeline.animID);
+        animTimeline.setCurrentYear(animTargetDate);
+        oldCurrentYear = animTargetDate;
+        clearInterval(animID);
     }
 }
+
+function ZoomToDate(date, timelineIndex)
+{
+    var targetTimeline = getTimeline(timelineIndex);
+    animTimeline = targetTimeline;
+    animTargetDate = Number(date);
+    animProgress = 0.0;
+    animID = setInterval(AnimateMove, ANIMATION_INTERVAL);
+}
+
+
 
 
 class TimelineEvent {
@@ -772,21 +776,21 @@ function FinishDrag(timelineIndex){
 // 'People alive' table - for current year, list living persons of significance + their ages
 // 'current year' info window - link to wikipedia info
 
-function onEventClick(timelineIndex) //event handler for eventBubble DOM element
+function onEventClick(timelineIndex, eventIndex, startDate) //event handler for eventBubble DOM element
 {
-    console.log("Event clicked");
+    console.log("Event clicked, timeline " + timelineIndex);
     var targetTimeline = getTimeline(timelineIndex);
 
     //SetCurrentYear(this.getAttribute("startDate"));
-    targetTimeline.selectEvent(this.getAttribute("eventIndex"));
-    targetTimeline.ZoomToDate(this.getAttribute("startDate"));
+    targetTimeline.selectEvent(eventIndex);
+    ZoomToDate(startDate, timelineIndex);
 }
 
 
-function onEventMouseOver()
+function onEventMouseOver(timelineIndex, eventIndex)
 {
-    var tlEvent = mainTimeline.tlEvents[this.getAttribute("eventIndex")];
-    console.log("mouse over " + tlEvent.title);
+    var tlEvent = getTimeline(timelineIndex).tlEvents[eventIndex];
+    console.log("mouse over " + tlEvent.title + " timeline " + timelineIndex);
 
     if(tlEvent.type=="person")
     {
@@ -794,9 +798,9 @@ function onEventMouseOver()
     }
 }
 
-function onEventMouseOut()
+function onEventMouseOut(timelineIndex, eventIndex)
 {
-    var tlEvent = mainTimeline.tlEvents[this.getAttribute("eventIndex")];
+    var tlEvent = getTimeline(timelineIndex).tlEvents[eventIndex];
     if(tlEvent.type=="person")
     {
         setVisibility(tlEvent.lifelineDomElement, false);
