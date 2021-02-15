@@ -90,7 +90,8 @@ class Timeline {
         //document.getElementById("mainTable").innerHTML="";
     
         //remove existing eventBubbles
-        var bubbles = document.getElementsByClassName("eventBubble");
+//        var bubbles = document.getElementsByClassName("eventBubble");
+        var bubbles = this.tableDom.getElementsByClassName("eventBubble");
         for(let i=bubbles.length-1; i>=0; i--) //go from the end backwards to avoid weird iteration bugs
         {
             bubbles[i].remove();
