@@ -695,12 +695,26 @@ function setInfoPanel(content)
 
 
 
+function isTimelineInitialized(timelineIndex)
+{
+    return getTimeline(timelineIndex)!=undefined;
+}
+
 
 //handle mousewheel scaling
 function myWheelHandler(event, timelineIndex)
-{   
+{     
+    if(!isTimelineInitialized(timelineIndex))
+    {
+        console.log("Timeline not initialized");
+        return;
+    } 
     console.log("scaling timeline " + timelineIndex);
     var targetTimeline = getTimeline(timelineIndex);
+
+
+
+
     var y = event.deltaY;
     targetTimeline.sliderScale = TimelineScaleToSliderScale(targetTimeline.currentScale);
     targetTimeline.sliderScale += y * MWHEEL_SCROLL_FACTOR;
@@ -728,21 +742,33 @@ function TimelineScaleToSliderScale(timelineVal)
 }
 
 
-
 //handle timeline dragging
 var isDragging = false;
 var mouseDownY;
 var oldCurrentYear;
 
 function timelineMouseDown(event, timelineIndex)
-{
+{    
+    if(!isTimelineInitialized(timelineIndex))
+    {
+        console.log("Timeline not initialized");
+        return;
+    }
+
+    var targetTimeline = getTimeline(timelineIndex);
     mouseDownY = event.pageY;
-    oldCurrentYear=getTimeline(timelineIndex).currentYear;
+    oldCurrentYear=targetTimeline.currentYear;
     isDragging = true;
 }
 
 function timelineMouseMove(event, timelineIndex)
-{
+{   
+    if(!isTimelineInitialized(timelineIndex))
+    {
+        console.log("Timeline not initialized");
+        return;
+    }
+
     if(isDragging)
     {        
 		var dragAmount = (event.pageY - mouseDownY);
@@ -751,7 +777,12 @@ function timelineMouseMove(event, timelineIndex)
 }
 
 function timelineMouseUp(timelineIndex)
-{
+{   
+    if(!isTimelineInitialized(timelineIndex))
+    {
+        console.log("Timeline not initialized");
+        return;
+    }
     FinishDrag(timelineIndex);
 }
 
