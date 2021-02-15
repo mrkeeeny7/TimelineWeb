@@ -196,11 +196,28 @@ h1 {
     opacity: 0.9;
 }
 
-#controls {
+.controlsContainer
+{
 
     margin: auto;
     width: 90%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+   /* border-width: 2px;
+    border-style: solid;
+    border-color: blue;*/
 }
+
+/*
+.controls
+{
+    
+    border-width: 2px;
+    border-style: solid;
+    border-color: blue;
+}
+*/
 
 .eventBubble {
     margin-left: 100px;

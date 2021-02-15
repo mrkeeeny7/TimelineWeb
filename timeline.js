@@ -10,6 +10,7 @@ var currentYear = 0;    //TODO this is a placeholder for 1BC
 //var tlEvents = [];
 //var currentSelectedEvent;
 var mainTimeline = undefined;
+var secondTimeline = undefined;
 
 var sliderScale;
 const MIN_SCALE = 10;        //years
@@ -42,7 +43,7 @@ class Timeline {
         }
     }
     
-    DeselectEvent()
+    deselectEvent()
     {    
         if(this.currentSelectedEventIndex != undefined) //TODO placeholder for 'no selection'
         {
@@ -56,7 +57,7 @@ class Timeline {
 
     //TODO use a GetSelectedEvent to clean this up
 
-    SelectEvent(eventIndex)
+    selectEvent(eventIndex)
     {
         if(this.currentSelectedEvent != undefined) //TODO placeholder for 'no selection'
         {
@@ -156,7 +157,7 @@ class Timeline {
             
     
                 //add to document
-                document.getElementById("mainTable").appendChild(lifelineDomElement);
+                this.tableDom.appendChild(lifelineDomElement);
                 setVisibility(lifelineDomElement, false); //hide until mouse over evetn bubble
             }
     
@@ -172,7 +173,7 @@ class Timeline {
             this.tlEvents.push(newEvent);
     
             // add to the document
-            document.getElementById("mainTable").appendChild(newEventDomElement);
+            this.tableDom.appendChild(newEventDomElement);
         }
         //document.getElementById("mainTable").innerHTML = eventsString;
         this.SortEventsList();
@@ -302,12 +303,19 @@ function myfunc()
 function loadSelectorOptions()
 {
     console.log("Loading selector options");
-    loadJSON(TIMELINES_SELECTOR_FILE, createSelectorOptions);
+    loadJSON(TIMELINES_SELECTOR_FILE, createAllSelectorOptions);
 }
 
-function createSelectorOptions(jsonObj)
+function createAllSelectorOptions(jsonObj)
 {    
     var selectorDOM = document.getElementById("timelineSelect");
+    var selectorDOM_second = document.getElementById("timelineSelect2");
+    createSelectorOptions(jsonObj, selectorDOM);
+    createSelectorOptions(jsonObj, selectorDOM_second);
+}
+    
+function createSelectorOptions(jsonObj, selectorDOM)
+{    
 
     //clear existing options
     selectorDOM.innerHTML="";
@@ -322,38 +330,45 @@ function createSelectorOptions(jsonObj)
 
 }
 
-function timelineSelectorChanged()
+function timelineSelectorChanged(timelineIndex, value)
 {    
-    var selectorDOM = document.getElementById("timelineSelect");
-    loadTimeline(selectorDOM.value, true);
-}
-
-function initTimeline()
-{
-    mainTimeline = new Timeline(document.getElementById("mainTable"));
-}
-
-function loadTimeline(timelineFile) //TODO add option to recentre/scale timeline
-{
     if(mainTimeline==undefined)
     {
-        initTimeline();
+        initTimelines();    //SHOULD initialize all timelines
     }
 
+    var targetTimeline = mainTimeline;
+    if(timelineIndex==1)
+    {
+        targetTimeline = secondTimeline;
+    }
+
+    loadTimeline(value, targetTimeline);
+}
+
+function initTimelines()
+{
+    mainTimeline = new Timeline(document.getElementById("mainTable"));
+    secondTimeline = new Timeline(document.getElementById("secondTable"));
+}
+
+function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentre/scale timeline
+{
+
     //clear current selection
-    mainTimeline.DeselectEvent();
+    targetTimeline.deselectEvent();
 
     console.log("Loading from " + timelineFile);
-    loadJSON(timelineFile, createEventBubblesMain, true);
+    loadJSON(timelineFile, loadBubbles, targetTimeline);
 
 }
 
-function createEventBubblesMain(jsonObj)
+function loadBubbles(jsonObj, targetTimeline)
 {
-    mainTimeline.createEventBubbles(jsonObj);
+    targetTimeline.createEventBubbles(jsonObj);
 }
 
-function loadJSON(jsonfile, onFinishCallback, recentre)
+function loadJSON(jsonfile, onFinishCallback, targetTimeline)
 {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() 
@@ -362,7 +377,7 @@ function loadJSON(jsonfile, onFinishCallback, recentre)
             if( this.status == 200)     //"OK"
             {
                 var jsonObj = JSON.parse(this.responseText);    //TODO try adding the reviver function here
-                onFinishCallback(jsonObj);
+                onFinishCallback(jsonObj, targetTimeline);
             }
             else if(this.status == 404)
             {
@@ -700,7 +715,7 @@ function onEventClick() //event handler for eventBubble DOM element
 {
     console.log("Event clicked");
     //SetCurrentYear(this.getAttribute("startDate"));
-    mainTimeline.SelectEvent(this.getAttribute("eventIndex"));
+    mainTimeline.selectEvent(this.getAttribute("eventIndex"));
     ZoomToDate(this.getAttribute("startDate"));
 }
 
