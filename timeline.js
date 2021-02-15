@@ -32,6 +32,8 @@ class Timeline {
     currentMinScale;    // scope of visible events
     currentMaxScale;    // scope of visible events
     currentYear = 0;    //TODO this is a placeholder for 1BC
+    oldCurrentYear;
+    
     sliderScale;
 
     constructor(tableDom, timelineIndex)
@@ -301,13 +303,12 @@ class Timeline {
         console.log("Curent year: " +  this.currentYear);
 
 
-    }
-
-        
-
+    } 
 
 
 }  
+
+
 // Handle timeline animation
 var animTargetDate;
 var animProgress;
@@ -319,7 +320,7 @@ function AnimateMove()
     animProgress += ANIMATION_INTERVAL/ANIMATION_TIME;
     if (animProgress < 1.0) {
         //lerp between old date and new date...
-        var newYear = myLerp( oldCurrentYear, animTargetDate, animProgress);
+        var newYear = myLerp( animTimeline.oldCurrentYear, animTargetDate, animProgress);
         animTimeline.setCurrentYear(newYear);
     }
     else
@@ -327,7 +328,7 @@ function AnimateMove()
         // end 
 
         animTimeline.setCurrentYear(animTargetDate);
-        oldCurrentYear = animTargetDate;
+        animTimeline.oldCurrentYear = animTargetDate;
         clearInterval(animID);
     }
 }
@@ -745,8 +746,6 @@ function TimelineScaleToSliderScale(timelineVal)
 //handle timeline dragging
 var isDragging = false;
 var mouseDownY;
-var oldCurrentYear;
-
 function timelineMouseDown(event, timelineIndex)
 {    
     if(!isTimelineInitialized(timelineIndex))
@@ -757,7 +756,7 @@ function timelineMouseDown(event, timelineIndex)
 
     var targetTimeline = getTimeline(timelineIndex);
     mouseDownY = event.pageY;
-    oldCurrentYear=targetTimeline.currentYear;
+    targetTimeline.oldCurrentYear=targetTimeline.currentYear;
     isDragging = true;
 }
 
@@ -794,7 +793,7 @@ function DragTimeline(dragAmount, timelineIndex)
     var draggedYearsAmount = dragScale * dragAmount;
     console.log("Dragged " + draggedYearsAmount + " years");
 
-    targetTimeline.setCurrentYear(oldCurrentYear - draggedYearsAmount);
+    targetTimeline.setCurrentYear(targetTimeline.oldCurrentYear - draggedYearsAmount);
 
 
   //  console.log("Curent year: " + currentYear);
@@ -802,8 +801,11 @@ function DragTimeline(dragAmount, timelineIndex)
 
 }
 
-function FinishDrag(timelineIndex){
-    oldCurrentYear = getTimeline(timelineIndex).currentYear;
+function FinishDrag(timelineIndex)
+{
+    var targetTimeline = getTimeline(timelineIndex);
+    
+    targetTimeline.oldCurrentYear = targetTimeline.currentYear;
     isDragging = false;
 }
 
