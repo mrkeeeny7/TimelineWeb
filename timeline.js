@@ -7,6 +7,8 @@ var secondTimeline = undefined;
 //this will point to one of the above timelines, if defined
 var selectedTimeline = undefined;
 
+var timelinesLocked=false;
+
 const MIN_SCALE = 10;        //years
 const MAX_SCALE = 1e10;      //years
 var minZoom = Math.log(MIN_SCALE / 500.0);
@@ -407,6 +409,13 @@ function myfunc()
 {
     document.getElementById("mainTable")
     .innerHTML = "Testing";
+}
+
+function toggleTimelineLock(button)
+{
+    timelinesLocked = !timelinesLocked;
+    button.setAttribute("toggledStatus", timelinesLocked);
+    button.innerText=timelinesLocked?"Unlock Timelines":"Lock Timelines";
 }
 
 function loadSelectorOptions()

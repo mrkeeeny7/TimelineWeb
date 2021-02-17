@@ -340,3 +340,27 @@ h1 {
     border-image: url(images/column.png) round;
     border-image-slice: 10% 0% fill;
 }
+
+.togglebutton {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+.togglebutton:hover{
+    box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
+}
+.togglebutton[toggledStatus=false]{
+    background-color: grey;
+}
+.togglebutton:active{
+    background-color: grey;
+}
+.togglebutton[toggledStatus=false]:active{
+    background-color: blue;
+}
+
