@@ -83,6 +83,14 @@ h1 {
     height: 90%;
 
 }
+
+.timelineTable[selected='true'] {
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--markerLineColor);
+
+}
 #infoPanel {
     margin: auto;
     padding: 20px;

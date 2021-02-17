@@ -4,6 +4,8 @@
 //var currentSelectedEvent;
 var mainTimeline = undefined;
 var secondTimeline = undefined;
+//this will point to one of the above timelines, if defined
+var selectedTimeline = undefined;
 
 const MIN_SCALE = 10;        //years
 const MAX_SCALE = 1e10;      //years
@@ -87,11 +89,29 @@ class Timeline {
 
         console.log("Selected " + newSelection.title);
 
+
+        //select current timeline
+        if(selectedTimeline!=undefined && selectedTimeline!=this)
+        {
+            selectedTimeline.deselectTable();
+        } 
+        this.selectTable();
+
         //get info from wikipedia
         UpdateInfoPanel();
 
     }
 
+    selectTable(){
+
+        selectedTimeline = this;
+        this.tableDom.setAttribute("selected", true);
+    }
+
+    deselectTable(){
+        selectedTimeline = undefined;
+        this.tableDom.setAttribute("selected", false);
+    }
 
 
     createEventBubbles(jsonObj)
@@ -160,8 +180,9 @@ class Timeline {
             newEventDomElement.setAttribute("selected", false);
             newEventDomElement.setAttribute("eventIndex", eventIndex);
             newEventDomElement.setAttribute("eventType", eventType);
-           // newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title    + "  " + dateString(eventDate)));
-            newEventDomElement.appendChild(document.createTextNode(jsonEventObj.title));
+
+            var newEventText=document.createTextNode(jsonEventObj.title);
+            newEventDomElement.appendChild(newEventText);
     
             var lifelineDomElement = undefined;
             if(eventType=="person")
@@ -804,7 +825,7 @@ function DragTimeline(dragAmount, timelineIndex)
 function FinishDrag(timelineIndex)
 {
     var targetTimeline = getTimeline(timelineIndex);
-    
+
     targetTimeline.oldCurrentYear = targetTimeline.currentYear;
     isDragging = false;
 }
