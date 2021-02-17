@@ -635,9 +635,9 @@ function setVisibility(domElement, isVisible)
 function UpdateInfoPanel()
 {
     document.getElementById("infoPanel").innerHTML = "";
-    if(mainTimeline.currentSelectedEvent != undefined)
+    if(selectedTimeline!=undefined && selectedTimeline.currentSelectedEvent != undefined)
     {
-        var tlEvent = mainTimeline.currentSelectedEvent;
+        var tlEvent = selectedTimeline.currentSelectedEvent;
         //create content for info panel
         var newDiv = document.createElement("div");
         //newDiv.setAttribute("class", "eventBubble");
