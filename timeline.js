@@ -199,7 +199,7 @@ class Timeline {
             {
                 //add a lifeline
                 lifelineDomElement = document.createElement("div");
-                lifelineDomElement.setAttribute("class", " lifelineMarker");
+                lifelineDomElement.setAttribute("class", " lifelineBracket");
                 //lifelineDomElement.appendChild(newEventLifeline);
             
     

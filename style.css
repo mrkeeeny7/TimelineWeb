@@ -341,6 +341,26 @@ h1 {
     border-image-slice: 10% 0% fill;
 }
 
+.lifelineBracket
+{
+    width: 10px;
+    height: auto;
+
+    z-index: 1;
+    position: absolute;
+   
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 180px;
+
+    top: -100px;
+
+    border-width: 3px 0px 3px 3px;/* top right bottom left */
+    border-style: solid;
+    border-color: blue;
+
+}
+
 .togglebutton {
     background-color: blue;
     border: none;
