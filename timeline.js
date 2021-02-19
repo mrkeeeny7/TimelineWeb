@@ -472,6 +472,13 @@ function toggleTimelineLock(button)
      "Lock offset for second timeline: " + secondTimeline.lockOffset + ", Scale offset: " + secondTimeline.lockScaleOffset;
 }
 
+function toggleSecondTimelineInvert(button)
+{
+    secondTimeline.inverted = !secondTimeline.inverted;
+    button.setAttribute("toggledStatus", secondTimeline.inverted);
+ //   button.innerText=timelinesLocked?"Unlock Timelines":"Lock Timelines";
+}
+
 function loadSelectorOptions()
 {
     console.log("Loading selector options");
@@ -523,7 +530,7 @@ function initTimelines()
     mainTimeline = new Timeline(document.getElementById("mainTable"), 0);
     secondTimeline = new Timeline(document.getElementById("secondTable"), 1);
 
-    secondTimeline.inverted=true;
+    secondTimeline.inverted=false;
 }
 
 function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentre/scale timeline
