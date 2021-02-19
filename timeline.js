@@ -160,8 +160,8 @@ class Timeline {
                 eventEndDate = dateIntGregorian(jsonEventObj.endDateString);
             }  */      
             eventEndDate = dateIntIfDefined(jsonEventObj.endDateString, eventDate);
-            eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, eventDate);
-            eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, eventEndDate);
+            eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, undefined); //set birth and death to undefined if not known
+            eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, undefined);
             
     
     
@@ -275,10 +275,14 @@ class Timeline {
             //set lifline positions for persons
             if(_tlevent.type=="person")
             {
-                offset = (_tlevent.birthDate - this.currentYear) * scalefactor + 0.5;
+                //use birth and death dates if available
+                var lifelineStart = (_tlevent.birthDate==undefined)? _tlevent.date : _tlevent.birthDate;
+                var lifelineEnd = (_tlevent.deathDate==undefined)? _tlevent.date : _tlevent.deathDate;
+
+                offset = (lifelineStart - this.currentYear) * scalefactor + 0.5;
                 setPosition(_tlevent.lifelineDomElement, offset);
     
-                offset = (_tlevent.deathDate - this.currentYear) * scalefactor + 0.5;
+                offset = (lifelineEnd - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.lifelineDomElement, offset);
             }
     
@@ -420,8 +424,8 @@ class TimelineEvent {
         this.title = title;
         this.date = Number(date);
         this.endDate = Number(endDate);
-        this.birthDate = Number(birthDate);
-        this.deathDate = Number(deathDate);
+        this.birthDate = birthDate;
+        this.deathDate = deathDate;
         this.searchstring = searchstring;
         this.type = type;
         this.minScale = Number(minScale);
@@ -715,26 +719,49 @@ function UpdateInfoPanel()
         //newDiv.setAttribute("class", "eventBubble");
 
         var titleDOM = document.createElement("h2");
-        titleDOM.innerText = tlEvent.title;
+      //  titleDOM.innerText = tlEvent.title;
 
-        var dateDOM = document.createElement("p");
+        var dateText = "";
         if(tlEvent.endDate != tlEvent.date)
         {
-            dateDOM.innerText = dateString(tlEvent.date) + " - " + dateString(tlEvent.endDate);
+            dateText = dateString(tlEvent.date) + " - " + dateString(tlEvent.endDate);
         }
         else
         {
-            dateDOM.innerText = dateString(tlEvent.date);
+            dateText = dateString(tlEvent.date);
+        }
+     //   addParagraph(newDiv, dateText);
+        titleDOM.innerText = tlEvent.title + " (" + dateText + ")";
+        newDiv.appendChild(titleDOM);
+
+        if(tlEvent.type=="person")
+        {
+            var lifetimetext = "Lived: " + ( (tlEvent.birthDate==undefined)? "unknown date" : dateString(tlEvent.birthDate) ) 
+            + " to " + ((tlEvent.deathDate==undefined)? "unknown date" : dateString(tlEvent.deathDate));
+
+            if(tlEvent.birthDate!=undefined && tlEvent.deathDate!=undefined)
+            {
+                lifetimetext = lifetimetext + " (" + (tlEvent.deathDate-tlEvent.birthDate) + " years)"
+            }
+
+            addParagraph(newDiv, lifetimetext);
         }
 
-        newDiv.appendChild(titleDOM);
-        newDiv.appendChild(dateDOM);
         document.getElementById("infoPanel").appendChild(newDiv);
     }
 
 
     //TODO just add a link to wikpedia page? e.g. wikiURL: https://en.wikipedia.org/page_name
 
+}
+
+function addParagraph(parent, text)
+{
+    var newPara = document.createElement("p");
+    newPara.innerText = text;
+    parent.appendChild(newPara);
+
+    return newPara;
 }
 
 function UpdateInfoPanelWikpedia()
