@@ -70,11 +70,11 @@ class Timeline {
         }
     }
     
-    deselectEvent()
+    clearEventSelection()
     {    
         if(this.currentSelectedEvent != undefined) //TODO placeholder for 'no selection'
         {
-            this.currentSelectedEvent.domElement.setAttribute("selected", false);
+            this.currentSelectedEvent.setSelectedStatus(false);
             console.log("Deselected");
             this.currentSelectedEventIndex = -1;
         }
@@ -89,13 +89,14 @@ class Timeline {
         if(this.currentSelectedEvent != undefined) //TODO placeholder for 'no selection'
         {
             var oldSelection = this.currentSelectedEvent;
-            oldSelection.domElement.setAttribute("selected", false);
+            oldSelection.setSelectedStatus(false);
         }
 
 
         this.currentSelectedEventIndex = eventIndex;
         var newSelection = this.currentSelectedEvent;
-        newSelection.domElement.setAttribute("selected", true);
+
+        newSelection.setSelectedStatus(true);
 
         console.log("Selected " + newSelection.title);
 
@@ -433,6 +434,24 @@ class TimelineEvent {
         
         this.domElement = domElement; //html element
         this.lifelineDomElement = lifelineDomElement; //html element
+
+        //other fields
+        this.selected=false;
+    }
+
+    setSelectedStatus(value)
+    {        
+        this.selected=value;
+        this.domElement.setAttribute("selected", value);
+        this.setLifelineVisible(value);
+    }
+
+    setLifelineVisible(value)
+    {
+        if(this.type=="person")
+        {            
+            setVisibility(this.lifelineDomElement, value);
+        }
     }
 }
 function compareTimelineEvents(a,b)
@@ -541,7 +560,7 @@ function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentr
 {
 
     //clear current selection
-    targetTimeline.deselectEvent();
+    targetTimeline.clearEventSelection();
 
     console.log("Loading from " + timelineFile);
     loadJSON(timelineFile, loadBubbles, targetTimeline);
@@ -950,18 +969,15 @@ function onEventMouseOver(timelineIndex, eventIndex)
     var tlEvent = getTimeline(timelineIndex).tlEvents[eventIndex];
     console.log("mouse over " + tlEvent.title + " timeline " + timelineIndex);
 
-    if(tlEvent.type=="person")
-    {
-        setVisibility(tlEvent.lifelineDomElement, true);
-    }
+    tlEvent.setLifelineVisible(true); //will do nothing unless type is 'person'
 }
 
 function onEventMouseOut(timelineIndex, eventIndex)
 {
     var tlEvent = getTimeline(timelineIndex).tlEvents[eventIndex];
-    if(tlEvent.type=="person")
+    if(!tlEvent.selected)
     {
-        setVisibility(tlEvent.lifelineDomElement, false);
+        tlEvent.setLifelineVisible(false);
     }
 }
 
