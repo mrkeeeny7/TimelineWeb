@@ -126,24 +126,32 @@
 	{
 		"title" : "Hannibal",
 		"dateString" : "218 BC",
+		"birthDateString" : "247 BC",
+		"deathDateString" : "182 BC",
 		"maxScale" : 5000,
 		"type" : "person"
 	},
 	{
 		"title" : "Gaius Marius",
 		"dateString" : "107 BC",
+		"birthDateString" : "157 BC",
+		"deathDateString" : "86 BC",
 		"maxScale" : 500,
 		"type" : "person"
 	},
 	{
 		"title" : "Sulla",
 		"dateString" : "81 BC",
+		"birthDateString" : "138 BC",
+		"deathDateString" : "78 BC",
 		"maxScale" : 500,
 		"type" : "person"
 	},
 	{
 		"title" : "Julius Caesar",
 		"dateString" : "49 BC",
+		"birthDateString" : "100 BC",
+		"deathDateString" : "44 BC",
 		"maxScale" : 50000,
 		"type" : "person",
 		"tags" : ["egypt"]
@@ -151,6 +159,8 @@
 	{
 		"title" : "Augustus",
 		"dateString" : "27 BC",
+		"birthDateString" : "63 BC",
+		"deathDateString" : "14 AD",
 		"maxScale" : 500,
 		"type" : "person"
 	},
