@@ -4,6 +4,7 @@
 //var currentSelectedEvent;
 var mainTimeline = undefined;
 var secondTimeline = undefined;
+var all_timelines = [];
 //this will point to one of the above timelines, if defined
 var selectedTimeline = undefined;
 
@@ -39,6 +40,11 @@ class Timeline {
     oldCurrentYear;
     
     sliderScale;
+    inverted=false;
+
+    //the offset from the main timeline, if timelines are locked
+    lockOffset=0;
+    lockScaleOffset=0;
 
     constructor(tableDom, timelineIndex)
     {
@@ -48,6 +54,8 @@ class Timeline {
         this.currentYearLabelDom = document.getElementById("currentYearLabel" + timelineIndex);
         this.minYearLabelDom = document.getElementById("minYearLabel" + timelineIndex);
         this.maxYearLabelDom = document.getElementById("maxYearLabel" + timelineIndex);
+
+        all_timelines.push(this);
     }
 
     get currentSelectedEvent()
@@ -307,7 +315,7 @@ class Timeline {
     }
 
     
-    setCurrentScale(newScale)
+    setCurrentScale(newScale, propagate=true)
     {
         this.currentScale = newScale;
         //clamp scale
@@ -316,16 +324,53 @@ class Timeline {
         this.refresh();
 
     //  console.log("New scale: " + currentScale);
+
+        //update all the other timelines
+        if(timelinesLocked && propagate)
+        {
+            for(let i=0; i<all_timelines.length; i++)
+            {
+                var offset = all_timelines[i].lockScaleOffset - this.lockScaleOffset;
+                if(all_timelines[i]!=this)
+                {
+                   // all_timelines[i].setCurrentScale(mainTimeline.currentScale + offset, false);
+                    all_timelines[i].setCurrentScale(this.currentScale, false);     //just set the scales equal
+                    all_timelines[i].refresh();
+                }
+            }
+        }
+        
     }
 
-    setCurrentYear(newYear)
+    setCurrentYear(newYear, propagate=true)
     {
         this.currentYear = newYear;
     // document.getElementById("currentYearLabel").innerHTML = dateString(currentYear);
         this.refresh();
-        console.log("Curent year: " +  this.currentYear);
+        console.log("TL" + this.timelineIndex + " Curent year: " +  this.currentYear);
 
 
+        //update all the other timelines
+        if(timelinesLocked && propagate)
+        {
+            for(let i=0; i<all_timelines.length; i++)
+            {
+                var offset = all_timelines[i].lockOffset - this.lockOffset;
+                if(all_timelines[i]!=this) //shouldnt be needed
+                {
+                    //all_timelines[i].setCurrentYear(mainTimeline.currentYear + offset, false);
+                    if(all_timelines[i].inverted)
+                    {
+                        all_timelines[i].setCurrentYear(-this.currentYear, false);
+                    }
+                    else
+                    {
+                        all_timelines[i].setCurrentYear(this.currentYear, false);
+                    }
+                    all_timelines[i].refresh();
+                }
+            }
+        }
     } 
 
 
@@ -416,6 +461,15 @@ function toggleTimelineLock(button)
     timelinesLocked = !timelinesLocked;
     button.setAttribute("toggledStatus", timelinesLocked);
     button.innerText=timelinesLocked?"Unlock Timelines":"Lock Timelines";
+
+    if(timelinesLocked)
+    {
+        secondTimeline.lockOffset = secondTimeline.currentYear - mainTimeline.currentYear;
+        secondTimeline.lockScaleOffset = secondTimeline.currentScale - mainTimeline.currentScale;
+    }
+
+    document.getElementById("lockStatusLabel").innerText =
+     "Lock offset for second timeline: " + secondTimeline.lockOffset + ", Scale offset: " + secondTimeline.lockScaleOffset;
 }
 
 function loadSelectorOptions()
@@ -468,6 +522,8 @@ function initTimelines()
 {
     mainTimeline = new Timeline(document.getElementById("mainTable"), 0);
     secondTimeline = new Timeline(document.getElementById("secondTable"), 1);
+
+    secondTimeline.inverted=true;
 }
 
 function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentre/scale timeline
