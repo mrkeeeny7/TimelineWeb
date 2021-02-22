@@ -1013,3 +1013,15 @@ function myLerp(x,y, a)
 {
     return x*(1-a) + y*a;
 }
+
+
+/**
+ * Bugtracker
+ * 
+ * 1. Lifelines should disappear when the event bubble disappears (out of scale range)
+ * 
+ * 2. Lifelines should only appear when big enough to be meaningful
+ * 
+ * 3. Add num columns to table definition; timeline events can then be assigned a column number. Optional: reserve an 'empty' column on the right for persons
+ * 
+ */

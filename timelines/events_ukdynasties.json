@@ -5,9 +5,25 @@
 	"tags" : ["ukdynasty"],
 	"eventlist" : [
 
+		{
+			"title" : "Roman Britain",
+			"dateString" : "43 AD",
+			"endDateString" : "410 AD",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+	{
+		"title" : "Sub-Roman Britain",
+		"dateString" : "410 AD",
+		"endDateString" : "597 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
 	{
 		"title" : "Heptarchy",
-		"dateString" : "455 AD",
+		"dateString" : "597 AD",
 		"endDateString" : "927 AD",
 		"minScale" : 1,
 		"maxScale" : 5000,
@@ -149,6 +165,18 @@
 		"type" : "era"
 	},
 
+	{
+		"title" : "Caratacus",
+		"dateString" : "45 AD",
+		"maxScale" : 5000,
+		"type" : "person"
+	},
+	{
+		"title" : "Boudica",
+		"dateString" : "60 AD",
+		"maxScale" : 5000,
+		"type" : "person"
+	},
 	{
 		"title" : "Augustine of Canterbury",
 		"dateString" : "597 AD",
