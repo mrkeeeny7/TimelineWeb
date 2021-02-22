@@ -2,6 +2,31 @@
     "timelinelist" : [
 
         {
+            "title" : "Archaeology",
+            "filename" : "timelines/eras_archaeology.json"
+        },
+
+        {
+            "title" : "Cosmic",
+            "filename" : "timelines/events_cosmic.json"
+        },
+
+        {
+            "title" : "Prehistoric",
+            "filename" : "timelines/events_prehistoric.json"
+        },
+
+        {
+            "title" : "Ice Age",
+            "filename" : "timelines/events_iceage.json"
+        },
+
+        {
+            "title" : "Iron Age",
+            "filename" : "timelines/events_ironage.json"
+        },
+
+        {
             "title" : "Rome",
             "filename" : "timelines/events_rome.json"
         },
@@ -19,6 +44,11 @@
         {
             "title" : "UK",
             "filename" : "timelines/events_ukdynasties.json"
+        },
+
+        {
+            "title" : "Science",
+            "filename" : "timelines/events_science.json"
         },
 
         {

@@ -86,6 +86,10 @@ class Timeline {
 
     selectEvent(eventIndex)
     {
+        //first, select current timeline
+        this.selectTable();
+
+
         if(this.currentSelectedEvent != undefined) //TODO placeholder for 'no selection'
         {
             var oldSelection = this.currentSelectedEvent;
@@ -101,25 +105,30 @@ class Timeline {
         console.log("Selected " + newSelection.title);
 
 
-        //select current timeline
-        if(selectedTimeline!=undefined && selectedTimeline!=this)
-        {
-            selectedTimeline.deselectTable();
-        } 
-        this.selectTable();
 
         //get info from wikipedia
         UpdateInfoPanel();
 
     }
 
-    selectTable(){
+    selectTable()
+    {
+        //clear previous selection
+        if(selectedTimeline!=undefined && selectedTimeline!=this)
+        {
+            clearSelectedTimeline();
+        }
 
         selectedTimeline = this;
         this.tableDom.setAttribute("selected", true);
     }
 
     deselectTable(){
+
+        //clear current event selection
+        this.clearEventSelection();
+
+        // deselect the timeline
         selectedTimeline = undefined;
         this.tableDom.setAttribute("selected", false);
     }
@@ -500,6 +509,14 @@ function toggleSecondTimelineInvert(button)
     secondTimeline.inverted = !secondTimeline.inverted;
     button.setAttribute("toggledStatus", secondTimeline.inverted);
  //   button.innerText=timelinesLocked?"Unlock Timelines":"Lock Timelines";
+}
+
+function clearSelectedTimeline()
+{    
+    if(selectedTimeline!=undefined)
+    {
+        selectedTimeline.deselectTable();
+    }
 }
 
 function loadSelectorOptions()
@@ -978,6 +995,17 @@ function onEventMouseOut(timelineIndex, eventIndex)
     if(!tlEvent.selected)
     {
         tlEvent.setLifelineVisible(false);
+    }
+}
+
+function tableClicked(timelineIndex)
+{
+    var target = getTimeline(timelineIndex);
+
+    if(target!=undefined)
+    {
+        //target.clearEventSelection();
+        target.selectTable();
     }
 }
 
