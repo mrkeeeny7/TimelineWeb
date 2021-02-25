@@ -41,6 +41,8 @@ class Timeline {
     
     sliderScale;
     inverted=false;
+    numColumns=3;
+    availableColumns=[2,1,0];
 
     //the offset from the main timeline, if timelines are locked
     lockOffset=0;
@@ -134,25 +136,38 @@ class Timeline {
     }
 
 
-    createEventBubbles(jsonObj)
+    createEventBubbles(jsonObj, clearExistingFlag)
     {
         //var eventsString = "";
         //eventsString += jsonObj.category + ": ";
     
-        //clear exisiting stuff
-        this.tlEvents = [];
-
-        //document.getElementById("mainTable").innerHTML="";
-    
-        //remove existing eventBubbles
-//        var bubbles = document.getElementsByClassName("eventBubble");
-        var bubbles = this.tableDom.getElementsByClassName("eventBubble");
-        for(let i=bubbles.length-1; i>=0; i--) //go from the end backwards to avoid weird iteration bugs
+        if(clearExistingFlag)
         {
-            bubbles[i].remove();
-        }
+            //clear existing stuff
+            this.tlEvents = [];
+      
         
-    
+            //remove existing eventBubbles
+            var bubbles = this.tableDom.getElementsByClassName("eventBubble");
+            for(let i=bubbles.length-1; i>=0; i--) //go from the end backwards to avoid weird iteration bugs
+            {
+                bubbles[i].remove();
+            }
+        
+         }
+
+         // find an available column for this list
+        var currentColumn=0;
+
+        if(this.availableColumns.length > 0)
+        {
+            currentColumn = this.availableColumns.pop();
+        }
+        else
+        {
+            //need to free up a column or something
+            // check overlaps
+        }
     
         for(let i=0; i<jsonObj.eventlist.length; i++)
         {
@@ -221,7 +236,7 @@ class Timeline {
             var newEvent = new TimelineEvent(
                 jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
                 jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
-                newEventDomElement, lifelineDomElement);
+                newEventDomElement, lifelineDomElement, currentColumn);
                 
             let tlIndex = this.timelineIndex;
             newEventDomElement.addEventListener("click", function() { onEventClick(tlIndex, this.getAttribute("eventIndex"), this.getAttribute("startDate")); });
@@ -301,6 +316,9 @@ class Timeline {
                 //set bottom position by end date
                 offset = (_tlevent.endDate - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.domElement, offset);
+
+                //position in preferred column
+                this.setEraColumn(_tlevent, _tlevent.preferredColumn);
             }
         }
     
@@ -309,6 +327,24 @@ class Timeline {
         this.minYearLabelDom.innerHTML = dateString(this.currentMin); 
         this.maxYearLabelDom.innerHTML = dateString(this.currentMax); 
         //TODO other labels
+    }
+
+    setEraColumn(_tlevent, columnNumber)
+    {
+        if(columnNumber > this.numColumns-1)
+        {
+            this.setEraColumn(_tlevent, 0);
+        }
+        else
+        {
+            var width = (100.0 / this.numColumns); // as a %
+        //   setWidth(_tlevent.domElement, width);
+            _tlevent.domElement.style.width = width + "%";
+
+            _tlevent.domElement.style.left = (columnNumber*width) + "%";
+
+            console.log("Set column width to " + width);
+        }
     }
     
     recentreTimeline()
@@ -429,7 +465,7 @@ function ZoomToDate(date, timelineIndex)
 
 class TimelineEvent {
     constructor(title, date, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
-         domElement, lifelineDomElement)
+         domElement, lifelineDomElement, preferredColumn=0)
     {
         this.title = title;
         this.date = Number(date);
@@ -446,6 +482,7 @@ class TimelineEvent {
 
         //other fields
         this.selected=false;
+        this.preferredColumn=preferredColumn;
     }
 
     setSelectedStatus(value)
@@ -586,7 +623,7 @@ function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentr
 
 function loadBubbles(jsonObj, targetTimeline)
 {
-    targetTimeline.createEventBubbles(jsonObj);
+    targetTimeline.createEventBubbles(jsonObj, false);
 }
 
 function loadJSON(jsonfile, onFinishCallback, targetTimeline)
@@ -729,6 +766,11 @@ function setPosition(domElement, heightFactor)
 function setBottomPosition(domElement, heightFactor)
 {
     domElement.style.bottom = ((1-heightFactor)*100) + "%";
+}
+
+function setWidth(domElement, width)//TODO remove if redundant
+{
+    domElement.style.width = width;
 }
 
 function setVisibility(domElement, isVisible)

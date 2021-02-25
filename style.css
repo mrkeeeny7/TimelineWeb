@@ -251,11 +251,12 @@ h1 {
 }
 
 .eventBubble[eventType='era'] {
-    margin-left: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
     margin-top: 0;
     margin-bottom: 1px;
 
-    width: 300px;
+    width: 90%;
     height: auto;
 
     background-color: rgb(88, 88, 88);
