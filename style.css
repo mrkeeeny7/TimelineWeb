@@ -79,7 +79,7 @@ h1 {
     position: relative;
 
     overflow:hidden;
-    width: 30%;
+    width: 40%;
     height: 90%;
 
 }
@@ -109,7 +109,7 @@ h1 {
     position: relative;
 
     overflow:hidden;
-    width: 30%;
+    width: 10%;
     height: 90%;
 
     border-width: 2px;
@@ -255,6 +255,9 @@ h1 {
     margin-right: 0px;
     margin-top: 0;
     margin-bottom: 1px;
+    padding: 0px;
+    padding-top: 10px;
+    text-indent: 10px;
 
     width: 90%;
     height: auto;

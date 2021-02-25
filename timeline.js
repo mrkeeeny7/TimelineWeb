@@ -338,10 +338,16 @@ class Timeline {
         else
         {
             var width = (100.0 / this.numColumns); // as a %
-        //   setWidth(_tlevent.domElement, width);
-            _tlevent.domElement.style.width = width + "%";
 
-            _tlevent.domElement.style.left = (columnNumber*width) + "%";
+            const columnspacing = 0.1; //10% of table width
+            //derived
+            const widthfactor = 1-columnspacing;
+            const leftoffset = columnspacing*0.5; //to center the events; use 0 to left align
+
+        //   setWidth(_tlevent.domElement, width);
+            _tlevent.domElement.style.width = (width * widthfactor) + "%"; //use 90% for a bit of spacing
+
+            _tlevent.domElement.style.left = ((columnNumber + leftoffset)*width) + "%";
 
             console.log("Set column width to " + width);
         }
