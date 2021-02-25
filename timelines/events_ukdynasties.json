@@ -6,6 +6,14 @@
 	"eventlist" : [
 
 		{
+			"title" : "Britain",
+			"dateString" : "43 AD",
+			"endDateString" : "2021",
+			"minScale" : 5000,
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+		{
 			"title" : "Roman Britain",
 			"dateString" : "43 AD",
 			"endDateString" : "410 AD",
@@ -40,7 +48,7 @@
 	{
 		"title" : "United Kingdom",
 		"dateString" : "1707",
-		"endDateString" : "2019",
+		"endDateString" : "2021",
 		"minScale" : 1001,
 		"maxScale" : 5000,
 		"type" : "era"

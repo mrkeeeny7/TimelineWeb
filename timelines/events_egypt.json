@@ -6,6 +6,43 @@
 
 	"eventlist" : [
 
+		{
+			"title" : "Ancient Egypt",
+			"dateString" : "3150 BC",
+			"endDateString" : "332 BC",
+			"minScale" : 5000,
+			"maxScale" : 50000,
+			"type" : "era"
+		},	
+		{
+			"title" : "Greek Egypt",
+			"dateString" : "332 BC",
+			"endDateString" : "30 BC",
+			"minScale" : 5000,
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+		{
+			"title" : "Roman Egypt",
+			"dateString" : "30 BC",
+			"endDateString" : "641 AD",
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+		{
+			"title" : "Medieval Islamic Egypt",
+			"dateString" : "641",
+			"endDateString" : "1517",
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+		{
+			"title" : "Ottoman Egypt",
+			"dateString" : "1517",
+			"endDateString" : "1867",
+			"maxScale" : 50000,
+			"type" : "era"
+		},
 
 
 	{

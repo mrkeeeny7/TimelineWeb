@@ -24,9 +24,40 @@
 		"type" : "era"
 	},
 	{
+		"title" : "Eastern Empire",
+		"dateString" : "476",
+		"endDateString" : "717 AD",
+		"minScale" : 151,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Byzantine Empire",
+		"dateString" : "717",
+		"endDateString" : "1453 AD",
+		"minScale" : 151,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Twenty Years Anarchy",
+		"dateString" : "695",
+		"endDateString" : "717",
+		"maxScale" : 151,
+		"type" : "era"
+	},
+	{
 		"title" : "Rome",
 		"dateString" : "509 BC",
 		"endDateString" : "476 AD",
+		"minScale" : 5000,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Byzantium",
+		"dateString" : "476",
+		"endDateString" : "1453",
 		"minScale" : 5000,
 		"maxScale" : 50000,
 		"type" : "era"

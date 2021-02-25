@@ -258,6 +258,7 @@ h1 {
     padding: 0px;
     padding-top: 10px;
     text-indent: 10px;
+    /* the rest of the spacing is handled dynamically setting the left and width properties */
 
     width: 90%;
     height: auto;
