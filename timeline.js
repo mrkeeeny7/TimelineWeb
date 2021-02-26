@@ -355,7 +355,7 @@ class Timeline {
             }
             else if(_tlevent.type=="person")
             {
-                leftoffset = 0.7; //to center the events; use 0 to left align
+                leftoffset = 1.2; //to center the events; use 0 to left align
             }
             _tlevent.domElement.style.left = ((columnNumber + leftoffset)*width) + "%";
 
