@@ -230,7 +230,7 @@ h1 {
 */
 
 .eventBubble {
-    margin-left: 100px;
+   /* margin-left: 100px;*/
     margin-top: -22px; /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
     margin-bottom: 10px;
     padding: 10px;
@@ -272,7 +272,7 @@ h1 {
     display: none;
 }
 .eventBubble[eventType='person'] {
-    margin-left: 200px;
+   /* margin-left: 200px;*/
     margin-top: -22px; /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
     margin-bottom: 10px;
     padding: 10px;

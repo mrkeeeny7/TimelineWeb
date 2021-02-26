@@ -309,6 +309,8 @@ class Timeline {
     
                 offset = (lifelineEnd - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.lifelineDomElement, offset);
+
+                //TODO move lifeline to correct column
             }
     
             if(_tlevent.type=="era")
@@ -317,9 +319,9 @@ class Timeline {
                 offset = (_tlevent.endDate - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.domElement, offset);
 
-                //position in preferred column
-                this.setEraColumn(_tlevent, _tlevent.preferredColumn);
             }
+            //position in preferred column
+            this.setColumn(_tlevent, _tlevent.preferredColumn);
         }
     
         
@@ -329,11 +331,11 @@ class Timeline {
         //TODO other labels
     }
 
-    setEraColumn(_tlevent, columnNumber)
+    setColumn(_tlevent, columnNumber)
     {
         if(columnNumber > this.numColumns-1)
         {
-            this.setEraColumn(_tlevent, 0);
+            this.setColumn(_tlevent, 0);
         }
         else
         {
@@ -342,11 +344,19 @@ class Timeline {
             const columnspacing = 0.1; //10% of table width
             //derived
             const widthfactor = 1-columnspacing;
-            const leftoffset = columnspacing*0.5; //to center the events; use 0 to left align
 
-        //   setWidth(_tlevent.domElement, width);
-            _tlevent.domElement.style.width = (width * widthfactor) + "%"; //use 90% for a bit of spacing
+            var leftoffset = 0.4;
+            if(_tlevent.type=="era")
+            {
+                leftoffset = columnspacing*0.5; //to center the events; use 0 to left align
+            //   setWidth(_tlevent.domElement, width);
+                _tlevent.domElement.style.width = (width * widthfactor) + "%"; //use 90% for a bit of spacing
 
+            }
+            else if(_tlevent.type=="person")
+            {
+                leftoffset = 0.7; //to center the events; use 0 to left align
+            }
             _tlevent.domElement.style.left = ((columnNumber + leftoffset)*width) + "%";
 
             console.log("Set column width to " + width);
