@@ -356,6 +356,9 @@ class Timeline {
             else if(_tlevent.type=="person")
             {
                 leftoffset = 1.2; //to center the events; use 0 to left align
+
+                // set lifeline column
+                _tlevent.lifelineDomElement.style.left = ((columnNumber + leftoffset)*width) + "%";
             }
             _tlevent.domElement.style.left = ((columnNumber + leftoffset)*width) + "%";
 

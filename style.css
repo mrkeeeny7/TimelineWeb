@@ -252,7 +252,7 @@ h1 {
 
 .eventBubble[eventType='basic'] {
     
-    /*this centers things about the horizontal transform  (IE9, standard)*/
+    /* this centers things about the horizontal transform  (IE9, standard)*/
  /*   -ms-transform: translate(-50%,0px); 
     transform: translate(-50%,0px);*/
 
@@ -287,7 +287,7 @@ h1 {
     margin-bottom: 10px;
     padding: 10px;
 
-    /* right align in a colun */
+    /* right align in a column */
     -ms-transform: translate(-100%,0px); 
     transform: translate(-100%,0px);
 
@@ -304,6 +304,8 @@ h1 {
     font-size: 16px;
     font-style: italic;
     user-select: none; /* prevent selecting of text */
+
+    /* TODO make background invisible when not highlighted */
     
 }
 
@@ -370,11 +372,12 @@ h1 {
    
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 180px;
+  /*  margin-left: 180px;*/
+    margin-left: 10px;
 
     top: -100px;
 
-    border-width: 3px 0px 3px 3px;/* top right bottom left */
+    border-width: 3px 3px 3px 0px;/* top right bottom left */
     border-style: solid;
     border-color: blue;
 
