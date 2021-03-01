@@ -33,6 +33,13 @@ h1 {
     padding-top: 24px;
 }
 
+h2 {
+    color: var(--darkTextColor);
+    text-align: center;
+    size: 18px;
+    padding-top: 18px;
+}
+
 /*debug*/
 /*#mainSection, #headerBar, #mainBar, #mainTable {*/
 /*#controls {
