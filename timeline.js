@@ -668,7 +668,7 @@ function loadJSON(jsonfile, onFinishCallback, targetTimeline)
             }
         }
     };
-    xmlhttp.open("POST", jsonfile, true); //currently using POST to avoid caching; TODO look into best options for this
+    xmlhttp.open("GET", jsonfile, true);
     xmlhttp.send();
 }
 
