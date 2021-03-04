@@ -20,7 +20,7 @@ const MEGA_ANNUM = 1000000; //1 million yrs = 1 Ma
 const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 //magic numbers
-const MWHEEL_SCROLL_FACTOR = 0.003;
+const MWHEEL_SCROLL_FACTOR = 0.01;
 
 const ANIMATION_TIME = 500.0; //milliseconds
 const ANIMATION_INTERVAL = 50.0; //milliseconds
@@ -927,16 +927,23 @@ function myWheelHandler(event, timelineIndex)
         console.log("Timeline not initialized");
         return;
     } 
-    console.log("scaling timeline " + timelineIndex);
     var targetTimeline = getTimeline(timelineIndex);
 
 
 
 
-    var y = event.deltaY;
+    if(event.deltaY==0)
+    {
+        console.log("No wheel delta");
+        return;
+    }
+    var y = event.deltaY / Math.abs(event.deltaY);  //value should be 1 or -1
     targetTimeline.sliderScale = TimelineScaleToSliderScale(targetTimeline.currentScale);
     targetTimeline.sliderScale += y * MWHEEL_SCROLL_FACTOR;
     targetTimeline.setCurrentScale(SliderScaleToTimelineScale(targetTimeline.sliderScale));
+
+    
+    console.log("scaling timeline " + timelineIndex + " deltaY=" + y);
 
 }
 
