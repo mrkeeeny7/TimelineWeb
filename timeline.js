@@ -109,7 +109,7 @@ class Timeline {
 
 
         //get info from wikipedia
-        UpdateInfoPanelWikpedia();
+        UpdateInfoPanel();
 
     }
 
