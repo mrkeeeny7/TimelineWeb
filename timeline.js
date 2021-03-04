@@ -81,7 +81,7 @@ class Timeline {
             this.currentSelectedEventIndex = -1;
         }
 
-        UpdateInfoPanel();
+        UpdateInfoPanel(); //TODO clear info panel here
     }
 
     //TODO use a GetSelectedEvent to clean this up
@@ -109,7 +109,7 @@ class Timeline {
 
 
         //get info from wikipedia
-        UpdateInfoPanel();
+        UpdateInfoPanelWikpedia();
 
     }
 
@@ -884,6 +884,7 @@ function UpdateInfoPanelWikpedia()
             else
             {
                 console.log("Error loading page " + url + ": " + this.statusText);
+                UpdateInfoPanel();
             }
         }
     };
@@ -903,6 +904,7 @@ function UpdateInfoPanelWikpedia()
 function requestWikipediaContent(searchResult)
 {
     console.log(searchResult);
+    document.getElementById("infoPanel").innerHTML = searchResult;
 
 }
 
@@ -943,7 +945,7 @@ function myWheelHandler(event, timelineIndex)
     targetTimeline.setCurrentScale(SliderScaleToTimelineScale(targetTimeline.sliderScale));
 
     
-    console.log("scaling timeline " + timelineIndex + " deltaY=" + y);
+   // console.log("scaling timeline " + timelineIndex + " deltaY=" + y);
 
 }
 
