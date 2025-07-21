@@ -3,6 +3,9 @@
 	"category" : "Rome",
 	"colorString" : "#ff00dd55",
 	"tags" : ["rome"],
+	"defaultScale" : 500,
+	"defaultDateString" : "500 BC",
+	
 	"eventlist" : [
 
 	

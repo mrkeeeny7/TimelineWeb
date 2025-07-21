@@ -252,6 +252,18 @@ class Timeline {
         //document.getElementById("mainTable").innerHTML = eventsString;
         this.SortEventsList();
         this.recentreTimeline();
+
+        if(jsonObj.defaultDateString != undefined)
+        {
+            var defaultDate = dateIntGregorian(jsonObj.defaultDateString);
+            this.setCurrentYear(defaultDate);
+        }
+
+        if(jsonObj.defaultScale != undefined)
+        {
+            this.setCurrentScale(jsonObj.defaultScale);
+        }
+
         this.refresh();
     
     }
@@ -386,6 +398,7 @@ class Timeline {
     
     setCurrentScale(newScale, propagate=true)
     {
+        console.log("Setting scale " + newScale);
         this.currentScale = newScale;
         //clamp scale
         this.currentScale = Math.min(this.currentScale, MAX_SCALE);
@@ -692,7 +705,7 @@ function dateIntIfDefined(dateString, backup)
 }
 
 
-
+// create date int from string in format "[year]" or "[year] BC"
 function dateIntGregorian(dateString)
 {
 //    var tokens = dateString.split(" ");
@@ -720,6 +733,7 @@ function dateString(dateNumber)
     }
 }
 
+// create Gregorian date string from date number
 function dateGregorian(dateNumber)
 {   
     var date = Number(dateNumber);

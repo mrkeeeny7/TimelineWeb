@@ -5,3 +5,14 @@
 
 
 == Person browsing mode: list of persons alive in current year (dynamically updating) + current ages and title
+
+== 'overall' timeline on the left - showing the 'big picture' (big bang to present) and illustrating the current slice being viewed
+
+
+
+* Redesign columns
+ - left column for 'eras'
+ - right, middle for 'empires' (can overlap)
+
+more felixibility in column placement
+ (arrange into 'threads')

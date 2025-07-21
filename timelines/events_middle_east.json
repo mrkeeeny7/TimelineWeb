@@ -2,6 +2,8 @@
  
 	"category" : "Middle East",
 	"colorString" : "#ff990055",
+	"defaultScale" : 500,
+	"defaultDateString" : "500 BC",
 
 	"eventlist" : [
 

@@ -184,6 +184,21 @@
 
 
 		{
+			"title" : "Big Bang",
+			"searchstring" : "Big Bang",
+			"dateString" : "13787000000 BC"
+		},
+		{
+			"title" : "Sun formation",
+			"searchstring" : "Sun forms",
+			"dateString" : "4567000000 BC"
+		},
+		{
+			"title" : "Primordial Earth formation",
+			"searchstring" : "Primordial Eath",
+			"dateString" : "4540000000 BC"
+		},
+		{
 			"title" : "Oceans form on Earth",
 			"searchstring" : "Origin of water on Earth",
 			"dateString" : "4410000000 BC"

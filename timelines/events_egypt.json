@@ -3,6 +3,8 @@
 	"category" : "Egypt",
 	"colorString" : "#ffff0055",
 	"tags" : ["egypt"],
+	"defaultScale" : 2000,
+	"defaultDateString" : "1000 BC",
 
 	"eventlist" : [
 
