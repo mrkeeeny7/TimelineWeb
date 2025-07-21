@@ -63,7 +63,7 @@
 		"type" : "era"
 	},
 	{
-		"title" : "Principate",
+		"title" : "Roman Empire (Principate)",
 		"dateString" : "27 BC",
 		"endDateString" : "235 AD",
 		"minScale" : 151,
@@ -71,14 +71,14 @@
 		"type" : "era"
 	},
 	{
-		"title" : "Crisis of the Third Century",
+		"title" : "Roman Empire (Crisis of the Third Century)",
 		"dateString" : "235",
 		"endDateString" : "284",
 		"maxScale" : 500,
 		"type" : "era"
 	},
 	{
-		"title" : "Dominate",
+		"title" : "Roman Empire (Dominate)",
 		"dateString" : "284",
 		"endDateString" : "476",
 		"minScale" : 151,
