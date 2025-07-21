@@ -636,11 +636,19 @@ function timelineSelectorChanged(timelineIndex, value)
     loadTimeline(value, targetTimeline);
 }
 
+// update the value of the HTML year field
 function updateYearInput()
 {
     var yearInputDOM = document.getElementById("yearInput");
   //  yearInputDOM.value = dateString(mainTimeline.currentYear);
     yearInputDOM.value = dateGregorian(mainTimeline.currentYear);
+}
+
+//update the current year FROM the HTML field
+function submitYearInput()
+{
+    var yearInputDOM = document.getElementById("yearInput");
+    mainTimeline.setCurrentYear(dateIntGregorian(yearInputDOM.value));
 }
 
 function initTimelines()
