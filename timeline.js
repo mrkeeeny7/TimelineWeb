@@ -431,6 +431,8 @@ class Timeline {
         this.refresh();
         console.log("TL" + this.timelineIndex + " Curent year: " +  this.currentYear);
 
+        //update the HTML field
+        updateYearInput();
 
         //update all the other timelines
         if(timelinesLocked && propagate)
@@ -634,6 +636,13 @@ function timelineSelectorChanged(timelineIndex, value)
     loadTimeline(value, targetTimeline);
 }
 
+function updateYearInput()
+{
+    var yearInputDOM = document.getElementById("yearInput");
+  //  yearInputDOM.value = dateString(mainTimeline.currentYear);
+    yearInputDOM.value = dateGregorian(mainTimeline.currentYear);
+}
+
 function initTimelines()
 {
     mainTimeline = new Timeline(document.getElementById("mainTable"), 0);
@@ -720,7 +729,7 @@ function dateIntGregorian(dateString)
     }
 }
 
-function dateString(dateNumber)
+function dateString(dateNumber) //use this for most purposes
 {
     //if(currentScale > MEGA_ANNUM_THRESHOLD)
     if(Math.abs(Number(dateNumber)) > MEGA_ANNUM_THRESHOLD)

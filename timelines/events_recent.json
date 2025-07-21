@@ -3,6 +3,9 @@
 	"category" : "Recent history",
 	"colorString" : "#22aadd55",
 	"tags" : ["history"],
+	"defaultScale" : 200,
+	"defaultDateString" : "1800",
+
 	"eventlist" : [
 		{
 			"title" : "Modern",

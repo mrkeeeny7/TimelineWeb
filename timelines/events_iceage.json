@@ -3,6 +3,8 @@
 	"category" : "Ice Age",
 	"colorString" : "#00990ff55",
 	"tags" : ["ice age"],
+	"defaultScale" : 1000000,
+	"defaultDateString" : "2586000 BC",
 
 	"eventlist" : [
 
