@@ -135,7 +135,13 @@ class Timeline {
         this.tableDom.setAttribute("selected", false);
     }
 
-
+    /**
+     * 
+     * de facto, this loads data fronm the json obj
+     * 
+     * @param {Object} jsonObj the JSON data for this timeline
+     * @param {boolean} clearExistingFlag whether to clear existing data before loading new data
+     */
     createEventBubbles(jsonObj, clearExistingFlag)
     {
         //var eventsString = "";
@@ -659,6 +665,13 @@ function initTimelines()
     secondTimeline.inverted=false;
 }
 
+/**
+ * 
+ * Load this data into the Timeline obj and create the event bubbles
+ * 
+ * @param {string} timelineFile the JSON file to read the data from
+ * @param {Timeline} targetTimeline the Timeline to load the data into
+ */
 function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentre/scale timeline
 {
 
@@ -670,11 +683,26 @@ function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentr
 
 }
 
+/**
+ * 
+ * Load this data into the Timeline obj and create the event bubbles
+ * 
+ * @param {Object} jsonObj the JSON data
+ * @param {Timeline} targetTimeline the Timeline to load the data into
+ */
 function loadBubbles(jsonObj, targetTimeline)
 {
     targetTimeline.createEventBubbles(jsonObj, false);
 }
 
+/**
+ * 
+ * Load data into the Timeline obj and create the event bubbles
+ * 
+ * @param {string} jsonfile the JSON file to read the data from
+ * @param {Function} onFinishCallback the function to call when the file has been fetched
+ * @param {Timeline} targetTimeline the Timeline to load the data into
+ */
 function loadJSON(jsonfile, onFinishCallback, targetTimeline)
 {
     var xmlhttp = new XMLHttpRequest();
@@ -721,8 +749,12 @@ function dateIntIfDefined(dateString, backup)
     }
 }
 
-
-// create date int from string in format "[year]" or "[year] BC"
+/**
+ * 
+ * create date int from string in format "[year]" or "[year] BC"
+ * 
+ * @param {string} dateString the input string 
+ */
 function dateIntGregorian(dateString)
 {
 //    var tokens = dateString.split(" ");
@@ -737,7 +769,14 @@ function dateIntGregorian(dateString)
     }
 }
 
-function dateString(dateNumber) //use this for most purposes
+/**
+ * 
+ * create date string from number
+ * use this for most purposes
+ * 
+ * @param {number} dateNumber the input string 
+ */
+function dateString(dateNumber)
 {
     //if(currentScale > MEGA_ANNUM_THRESHOLD)
     if(Math.abs(Number(dateNumber)) > MEGA_ANNUM_THRESHOLD)
@@ -749,8 +788,12 @@ function dateString(dateNumber) //use this for most purposes
         return dateGregorian(dateNumber);
     }
 }
-
-// create Gregorian date string from date number
+/**
+ * 
+ * create Gregorian date string from number
+ * 
+ * @param {number} dateNumber the input string 
+ */
 function dateGregorian(dateNumber)
 {   
     var date = Number(dateNumber);
@@ -772,6 +815,12 @@ function dateGregorian(dateNumber)
 
 }
 
+/**
+ * 
+ * create MA date string from number
+ * 
+ * @param {number} dateNumber the input string 
+ */
 function dateMegaAnnum(dateNumber)
 {
     var date = Number(dateNumber);
@@ -796,7 +845,7 @@ function appendData(data) {
 
 /**
  * 
- * @param {DOM element} domElement the timeline event to move
+ * @param {Element} domElement
  * @param {number} heightFactor the y-position to set as a fraction of the overall range, in the range [0,1]
  */
 function setPosition(domElement, heightFactor)
@@ -808,7 +857,7 @@ function setPosition(domElement, heightFactor)
 
 /**
  * 
- * @param {DOM element} tlEvent the timeline event to move
+ * @param {Element} domElement 
  * @param {number} heightFactor the y-position to set as a fraction of the overall range, in the range [0,1]
  * 
  * Used for era bubbles that stretch multiple years
@@ -818,6 +867,12 @@ function setBottomPosition(domElement, heightFactor)
     domElement.style.bottom = ((1-heightFactor)*100) + "%";
 }
 
+/**
+ * 
+ * @param {Element} domElement
+ * @param {number} width
+ * 
+ */
 function setWidth(domElement, width)//TODO remove if redundant
 {
     domElement.style.width = width;
