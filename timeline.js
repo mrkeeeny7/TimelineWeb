@@ -26,6 +26,52 @@ const ANIMATION_TIME = 500.0; //milliseconds
 const ANIMATION_INTERVAL = 50.0; //milliseconds
 const ANIMATION_NUMFRAMES = ANIMATION_TIME / ANIMATION_INTERVAL;
 
+class PersonData
+{
+    /**
+     * @type {string}
+     */
+    name;
+    /**
+    * @type {string}
+    */
+    birthDateString;
+    /**
+    * @type {string}
+    */
+    deathDateString;
+
+    /**
+    * @type {number}
+    */
+    birthYear;
+    /**
+    * @type {number}
+    */
+    deathYear;
+
+    /**
+     * 
+     * @param {number} year 
+     * @returns {number} age of this person in a given year
+     */
+    ageAtYear(year)
+    {
+        return year - this.birthYear;
+    }
+
+    /**
+     * 
+     * @param {number} year 
+     * @returns {boolean} alive status of this person in a given year
+     */
+    aliveInYear(year)
+    {
+        return year >= this.birthYear && year <= this.deathYear;
+    }
+
+}
+
 class Timeline {
     currentSelectedEventIndex = undefined;
     tlEvents = [];
