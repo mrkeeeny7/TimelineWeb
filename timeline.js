@@ -54,11 +54,14 @@ class PersonData
      * @constructor
      * @param {{name: string, birthDateString: string, deathDateString: string} personDataJSObj}
      */
-    PersonData(personDataJSObj)
+    constructor(personDataJSObj)
     {
         this.name               = personDataJSObj.name;
         this.birthDateString    = personDataJSObj.birthDateString;
         this.deathDateString    = personDataJSObj.deathDateString;
+
+        this.birthYear = dateIntGregorian(this.birthDateString);
+        this.deathYear = dateIntGregorian(this.deathDateString);
     }
 
     /**
@@ -92,10 +95,12 @@ class PersonListSorted {
 
     /**
      * 
-     * @param {PersonData} newPerson 
+     * @param {Object} jsonPersonObj 
      */
-    Insert(newPerson)
+    Insert(jsonPersonObj)
     {
+        var newPerson = new PersonData(jsonPersonObj);
+
         if(this.theList.length == 0)
         {
             this.theList.push(newPerson);
@@ -373,8 +378,8 @@ class Timeline {
         // load person list
         for(let i=0; i<jsonObj.personlist.length; i++)
         {
-            var newPerson = new PersonData(jsonObj.personlist[i])
-            this.personlist.Insert(newPerson);
+            //var newPerson = new PersonData(jsonObj.personlist[i])
+            this.personlist.Insert(jsonObj.personlist[i]);
         }
 
 
