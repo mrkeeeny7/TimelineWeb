@@ -51,6 +51,17 @@ class PersonData
     deathYear;
 
     /**
+     * @constructor
+     * @param {{name: string, birthDateString: string, deathDateString: string} personDataJSObj}
+     */
+    PersonData(personDataJSObj)
+    {
+        this.name               = personDataJSObj.name;
+        this.birthDateString    = personDataJSObj.birthDateString;
+        this.deathDateString    = personDataJSObj.deathDateString;
+    }
+
+    /**
      * 
      * @param {number} year 
      * @returns {number} age of this person in a given year
@@ -72,9 +83,62 @@ class PersonData
 
 }
 
+class PersonListSorted {
+
+    /**
+     * @type {PersonData[]}
+     */
+    theList = []; //for now, just use an array and sort() when inserting. TODO implement better if necessary
+
+    /**
+     * 
+     * @param {PersonData} newPerson 
+     */
+    Insert(newPerson)
+    {
+        if(this.theList.length == 0)
+        {
+            this.theList.push(newPerson);
+        }
+        else
+        {
+            this.theList.push(newPerson);
+
+            //TODO only sort if new person is in the wrong order
+            //TODO or could just insert at the correct position by iterating
+            this.theList.sort(function(a,b) { return a.birthYear - b.birthYear; })
+        }
+    }
+
+    /**
+     * 
+     * @param {number} year
+     * @returns {PersonData[]}  list of persons alive in the given year
+     */
+    PersonsAliveList(year)
+    {
+        var alivelist = new Array();
+        for(i = 0; i<this.theList.length; i++)
+        {
+            if(this.theList[i].aliveInYear(year))
+            {
+                alivelist.push(this.theList[i]);
+            }
+        }
+
+        return alivelist;
+    }
+
+}
+
 class Timeline {
     currentSelectedEventIndex = undefined;
     tlEvents = [];
+
+    /**
+     * @type {PersonListSorted}
+     */
+    personlist = new PersonListSorted();
 
     //current timeline variables
     currentMin = -50; //min year
@@ -184,6 +248,7 @@ class Timeline {
     /**
      * 
      * de facto, this loads data fronm the json obj
+     * TODO load Person data from person list into a local list of persons
      * 
      * @param {Object} jsonObj the JSON data for this timeline
      * @param {boolean} clearExistingFlag whether to clear existing data before loading new data
@@ -304,6 +369,14 @@ class Timeline {
         //document.getElementById("mainTable").innerHTML = eventsString;
         this.SortEventsList();
         this.recentreTimeline();
+
+        // load person list
+        for(let i=0; i<jsonObj.personlist.length; i++)
+        {
+            var newPerson = new PersonData(jsonObj.personlist[i])
+            this.personlist.Insert(newPerson);
+        }
+
 
         if(jsonObj.defaultDateString != undefined)
         {
