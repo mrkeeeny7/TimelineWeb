@@ -6,6 +6,9 @@ var mainTimeline = undefined;
 var secondTimeline = undefined;
 var all_timelines = [];
 //this will point to one of the above timelines, if defined
+/**
+ * @type { Timeline }
+ */
 var selectedTimeline = undefined;
 
 var timelinesLocked=false;
@@ -123,7 +126,7 @@ class PersonListSorted {
     PersonsAliveList(year)
     {
         var alivelist = new Array();
-        for(i = 0; i<this.theList.length; i++)
+        for(let i = 0; i<this.theList.length; i++)
         {
             if(this.theList[i].aliveInYear(year))
             {
@@ -132,6 +135,34 @@ class PersonListSorted {
         }
 
         return alivelist;
+    }
+
+    /**
+     * 
+     * @param {number} year 
+     * @returns {string} A summary string of the persons alive in given year
+     */
+    PersonsAliveString(year)
+    {
+        var alivelist = this.PersonsAliveList(year);
+        var outstr = "";
+        for(let i=0; i<alivelist.length; i++)
+        {
+            var age = alivelist[i].ageAtYear(year);
+            var textline = age + " years: " + alivelist[i].name;
+
+            //add to outstr
+            if(outstr == "")
+            {
+                outstr = textline;
+            }
+            else
+            {
+                outstr = outstr + "\n" + textline;
+            }
+        }
+
+        return outstr;
     }
 
 }
@@ -1055,6 +1086,23 @@ function UpdateInfoPanel()
         }
 
         document.getElementById("infoPanel").appendChild(newDiv);
+    }
+
+    // add the persons alive list
+    // TODO infoPanel gets cleared every click update
+    //  so create a separate section that will update when currentYear changes
+    if(selectedTimeline!=undefined)
+    {
+        //create content for info panel
+        var newDiv = document.createElement("div");
+       // var titleDOM = document.createElement("h2");
+
+        var aliveListText = selectedTimeline.personlist.PersonsAliveString(selectedTimeline.currentYear);
+        newDiv.innerText = aliveListText;
+        newDiv.appendChild(titleDOM);
+
+        document.getElementById("infoPanel").appendChild(newDiv);
+       // document.getElementById("personList").innerText = aliveListText;
     }
 
 
