@@ -2,15 +2,19 @@
 
 //var tlEvents = [];
 //var currentSelectedEvent;
+
+/** @type {Timeline} */
 var mainTimeline = undefined;
+/** @type {Timeline} */
 var secondTimeline = undefined;
+/** @type {Timeline[]} */
 var all_timelines = [];
+
 //this will point to one of the above timelines, if defined
-/**
- * @type { Timeline }
- */
+/** @type { Timeline } */
 var selectedTimeline = undefined;
 
+/** @type {boolean} */
 var timelinesLocked=false;
 
 const MIN_SCALE = 10;        //years
@@ -147,7 +151,7 @@ class PersonListSorted {
 
     /**
      * 
-     * @param {number} year 
+     * @param {number} year input year is assumed to be whole-number (use GetCurrrentYearInt())
      * @returns {string} (HTML formatted) A summary string of the persons alive in given year
      */
     PersonsAliveStringHTML(year)
@@ -163,7 +167,8 @@ class PersonListSorted {
 
             //italic if in death year
             if(alivelist[i].deathYear != undefined 
-                && Math.abs(alivelist[i].deathYear - year) < 1)
+                && year - alivelist[i].deathYear >= 0
+                && year - alivelist[i].deathYear < 1)
             {
                 textline = "<i>" + textline + " (year of death)" + "</i>";
             }
@@ -227,7 +232,8 @@ class Timeline {
     currentScale = 100;
     currentMinScale;    // scope of visible events
     currentMaxScale;    // scope of visible events
-    currentYear = 0;    //TODO this is a placeholder for 1BC
+    /** @type {number} this can be a floating point value (for smooth dragging), TODO: better name would maybe be currentDate */
+    currentYear = 0;    //TODO 0 is a placeholder for 1BC
     oldCurrentYear;
     
     sliderScale;
@@ -462,7 +468,7 @@ class Timeline {
         if(jsonObj.defaultDateString != undefined)
         {
             var defaultDate = dateIntGregorian(jsonObj.defaultDateString);
-            this.setCurrentYear(defaultDate);
+            this.SetCurrentYear(defaultDate);
         }
 
         if(jsonObj.defaultScale != undefined)
@@ -593,7 +599,7 @@ class Timeline {
         console.log("Dates from " + date0 + " to " +  date1) ;
     
         var midpoint = (date0 + date1) /2;
-        this.setCurrentYear(midpoint);
+        this.SetCurrentYear(midpoint);
     
         var newScale = (date1 - date0);
         this.setCurrentScale(newScale);
@@ -630,7 +636,12 @@ class Timeline {
         
     }
 
-    setCurrentYear(newYear, propagate=true)
+    /**
+     * 
+     * @param {number} newYear updates the current year to this value
+     * @param {boolean} propagate also update accordingly timelines that are locked to this one
+     */
+    SetCurrentYear(newYear, propagate=true)
     {
         this.currentYear = newYear;
     // document.getElementById("currentYearLabel").innerHTML = dateString(currentYear);
@@ -646,14 +657,14 @@ class Timeline {
                 var offset = all_timelines[i].lockOffset - this.lockOffset;
                 if(all_timelines[i]!=this) //shouldnt be needed
                 {
-                    //all_timelines[i].setCurrentYear(mainTimeline.currentYear + offset, false);
+                    //all_timelines[i].SetCurrentYear(mainTimeline.currentYear + offset, false);
                     if(all_timelines[i].inverted)
                     {
-                        all_timelines[i].setCurrentYear(-this.currentYear, false);
+                        all_timelines[i].SetCurrentYear(-this.currentYear, false);
                     }
                     else
                     {
-                        all_timelines[i].setCurrentYear(this.currentYear, false);
+                        all_timelines[i].SetCurrentYear(this.currentYear, false);
                     }
                     all_timelines[i].refresh();
                 }
@@ -667,6 +678,15 @@ class Timeline {
         UpdatePersonPanel();
     } 
 
+    /**
+     * 
+     * @returns { number } current year as whole-number value
+     */
+    GetCurrentYearInt()
+    {
+        return Math.floor(this.currentYear);
+    }
+
 
 }  
 
@@ -675,6 +695,10 @@ class Timeline {
 var animTargetDate;
 var animProgress;
 var animID;
+
+/**
+ * @type {Timeline}
+ */
 var animTimeline;
 
 function AnimateMove()
@@ -683,13 +707,13 @@ function AnimateMove()
     if (animProgress < 1.0) {
         //lerp between old date and new date...
         var newYear = myLerp( animTimeline.oldCurrentYear, animTargetDate, animProgress);
-        animTimeline.setCurrentYear(newYear);
+        animTimeline.SetCurrentYear(newYear);
     }
     else
     {
         // end 
 
-        animTimeline.setCurrentYear(animTargetDate);
+        animTimeline.SetCurrentYear(animTargetDate);
         animTimeline.oldCurrentYear = animTargetDate;
         clearInterval(animID);
     }
@@ -851,14 +875,14 @@ function updateYearInput()
 {
     var yearInputDOM = document.getElementById("yearInput");
   //  yearInputDOM.value = dateString(mainTimeline.currentYear);
-    yearInputDOM.value = dateGregorian(mainTimeline.currentYear);
+    yearInputDOM.value = dateGregorian(mainTimeline.GetCurrentYearInt());
 }
 
 //update the current year FROM the HTML field
 function submitYearInput()
 {
     var yearInputDOM = document.getElementById("yearInput");
-    mainTimeline.setCurrentYear(dateIntGregorian(yearInputDOM.value));
+    mainTimeline.SetCurrentYear(dateIntGregorian(yearInputDOM.value));
 }
 
 function initTimelines()
@@ -1166,8 +1190,8 @@ function UpdatePersonPanel()
        // var newDiv = document.createElement("div");
        // var titleDOM = document.createElement("h2");
 
-       //var aliveListText = selectedTimeline.personlist.PersonsAliveString(selectedTimeline.currentYear);
-       var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(selectedTimeline.currentYear);
+       //var aliveListText = selectedTimeline.personlist.PersonsAliveString(selectedTimeline.GetCurrentYearInt());
+       var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(selectedTimeline.GetCurrentYearInt());
         //newDiv.innerText = aliveListText;
 
         //document.getElementById("personPanel").appendChild(newDiv);
@@ -1344,7 +1368,7 @@ function DragTimeline(dragAmount, timelineIndex)
     var draggedYearsAmount = dragScale * dragAmount;
     console.log("Dragged " + draggedYearsAmount + " years");
 
-    targetTimeline.setCurrentYear(targetTimeline.oldCurrentYear - draggedYearsAmount);
+    targetTimeline.SetCurrentYear(targetTimeline.oldCurrentYear - draggedYearsAmount);
 
 
   //  console.log("Curent year: " + currentYear);
