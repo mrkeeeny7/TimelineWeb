@@ -98,6 +98,23 @@ h2 {
     border-color: var(--markerLineColor);
 
 }
+#centerFrame {    
+    margin: auto;
+    padding: 0px;
+
+
+
+    position: relative;
+
+    overflow:hidden;
+    width: 15%;
+    height: 90%;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--darkTextColor);
+
+}
 #infoPanel {
     margin: auto;
     padding: 20px;
@@ -113,15 +130,46 @@ h2 {
     /*top: 10px;*/
   /*  right: 10px;*/
 
-    position: relative;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 
     overflow:hidden;
-    width: 10%;
-    height: 90%;
+    width: 100%;
+    height: 50%;
 
     border-width: 2px;
     border-style: solid;
-    border-color: var(--darkTextColor);
+    border-color: magenta;
+     
+
+}
+#personPanel {
+    margin: auto;
+    padding: 20px;
+
+    background-color: var(--lightBG);
+    color: var(--darkTextColor);
+ /*   opacity: 0.5;*/
+    font-size: 16px;
+
+    /* position in top right corner */
+  /*  position: absolute;*/
+    
+    /*top: 10px;*/
+  /*  right: 10px;*/
+
+    position: absolute;
+    top: 50%;
+    left: 0px;
+
+    overflow:hidden;
+    width: 100%;
+    height: 50%;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: greenyellow;
      
 
 }

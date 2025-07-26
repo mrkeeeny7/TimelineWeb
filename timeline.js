@@ -140,16 +140,22 @@ class PersonListSorted {
     /**
      * 
      * @param {number} year 
-     * @returns {string} A summary string of the persons alive in given year
+     * @returns {string} (HTML formatted) A summary string of the persons alive in given year
      */
-    PersonsAliveString(year)
+    PersonsAliveStringHTML(year)
     {
         var alivelist = this.PersonsAliveList(year);
-        var outstr = "";
+        var outstr = "<h3>Notable People</h3>";
         for(let i=0; i<alivelist.length; i++)
         {
-            var age = alivelist[i].ageAtYear(year);
+            var age = Math.floor(alivelist[i].ageAtYear(year));
             var textline = age + " years: " + alivelist[i].name;
+
+            //italic if in death year
+            if(Math.abs(alivelist[i].deathYear - year) < 1)
+            {
+                textline = "<i>" + textline + " (year of death)" + "</i>";
+            }
 
             //add to outstr
             if(outstr == "")
@@ -158,12 +164,40 @@ class PersonListSorted {
             }
             else
             {
-                outstr = outstr + "\n" + textline;
+                outstr = outstr + "<br>" + textline;
             }
         }
 
         return outstr;
-    }
+    }    
+    
+    /**
+    * 
+    * @param {number} year 
+    * @returns {string} A summary string of the persons alive in given year
+    */
+   PersonsAliveString(year)
+   {
+       var alivelist = this.PersonsAliveList(year);
+       var outstr = "";
+       for(let i=0; i<alivelist.length; i++)
+       {
+           var age = alivelist[i].ageAtYear(year);
+           var textline = age + " years: " + alivelist[i].name;
+
+           //add to outstr
+           if(outstr == "")
+           {
+               outstr = textline;
+           }
+           else
+           {
+               outstr = outstr + "\n" + textline;
+           }
+       }
+
+       return outstr;
+   }
 
 }
 
@@ -592,8 +626,6 @@ class Timeline {
         this.refresh();
         console.log("TL" + this.timelineIndex + " Curent year: " +  this.currentYear);
 
-        //update the HTML field
-        updateYearInput();
 
         //update all the other timelines
         if(timelinesLocked && propagate)
@@ -616,6 +648,12 @@ class Timeline {
                 }
             }
         }
+
+        //update the HTML field
+        updateYearInput();
+        //update the HTML in the person panel
+        //TODO maybe need a callback/event handler
+        UpdatePersonPanel();
     } 
 
 
@@ -1046,9 +1084,14 @@ function setVisibility(domElement, isVisible)
     }
 }
 
+/**
+ * Clears and updates the inner HTML of the Info Panel
+ */
 function UpdateInfoPanel()
 {
-    document.getElementById("infoPanel").innerHTML = "";
+    var infoPanel = document.getElementById("infoPanel");
+    infoPanel.innerHTML = ""; //clears the info Panel
+
     if(selectedTimeline!=undefined && selectedTimeline.currentSelectedEvent != undefined)
     {
         var tlEvent = selectedTimeline.currentSelectedEvent;
@@ -1085,28 +1128,41 @@ function UpdateInfoPanel()
             addParagraph(newDiv, lifetimetext);
         }
 
-        document.getElementById("infoPanel").appendChild(newDiv);
+        infoPanel.appendChild(newDiv);
     }
 
+   
+
+
+    //TODO just add a link to wikpedia page? e.g. wikiURL: https://en.wikipedia.org/page_name
+
+}
+
+/**
+ * Clears and updates the inner HTML of the Person Panel
+ */
+function UpdatePersonPanel()
+{
+    var personPanel = document.getElementById("personPanel");
+    personPanel.innerHTML = ""; //clears the  Panel 
+    
     // add the persons alive list
     // TODO infoPanel gets cleared every click update
     //  so create a separate section that will update when currentYear changes
     if(selectedTimeline!=undefined)
     {
         //create content for info panel
-        var newDiv = document.createElement("div");
+       // var newDiv = document.createElement("div");
        // var titleDOM = document.createElement("h2");
 
-        var aliveListText = selectedTimeline.personlist.PersonsAliveString(selectedTimeline.currentYear);
-        newDiv.innerText = aliveListText;
-        newDiv.appendChild(titleDOM);
+       //var aliveListText = selectedTimeline.personlist.PersonsAliveString(selectedTimeline.currentYear);
+       var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(selectedTimeline.currentYear);
+        //newDiv.innerText = aliveListText;
 
-        document.getElementById("infoPanel").appendChild(newDiv);
-       // document.getElementById("personList").innerText = aliveListText;
+        //document.getElementById("personPanel").appendChild(newDiv);
+        //personPanel.innerText = aliveListText;
+        personPanel.innerHTML = aliveListHTML;
     }
-
-
-    //TODO just add a link to wikpedia page? e.g. wikiURL: https://en.wikipedia.org/page_name
 
 }
 
