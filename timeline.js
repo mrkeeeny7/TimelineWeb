@@ -64,7 +64,15 @@ class PersonData
         this.deathDateString    = personDataJSObj.deathDateString;
 
         this.birthYear = dateIntGregorian(this.birthDateString);
-        this.deathYear = dateIntGregorian(this.deathDateString);
+
+        if(this.deathDateString!= undefined)
+        {
+            this.deathYear = dateIntGregorian(this.deathDateString);
+        }
+        else
+        {
+            this.deathYear = undefined;
+        }
     }
 
     /**
@@ -84,7 +92,7 @@ class PersonData
      */
     aliveInYear(year)
     {
-        return year >= this.birthYear && year <= this.deathYear;
+        return year >= this.birthYear && (year <= this.deathYear || this.deathYear==undefined );
     }
 
 }
@@ -144,15 +152,18 @@ class PersonListSorted {
      */
     PersonsAliveStringHTML(year)
     {
-        var alivelist = this.PersonsAliveList(year);
-        var outstr = "<h3>Notable People</h3>";
+        var alivelist = this.PersonsAliveList(Math.floor(year));
+        var yearstr = dateString(year);
+
+        var outstr = "<h3>Notable People in " + yearstr + "</h3>";
         for(let i=0; i<alivelist.length; i++)
         {
             var age = Math.floor(alivelist[i].ageAtYear(year));
             var textline = age + " years: " + alivelist[i].name;
 
             //italic if in death year
-            if(Math.abs(alivelist[i].deathYear - year) < 1)
+            if(alivelist[i].deathYear != undefined 
+                && Math.abs(alivelist[i].deathYear - year) < 1)
             {
                 textline = "<i>" + textline + " (year of death)" + "</i>";
             }

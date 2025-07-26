@@ -419,6 +419,11 @@
 
 
 "personlist" : [
+	{		"name" : "Hannibal", "birthDateString" : "247 BC", "deathDateString" : "182 BC" 			},
+	{		"name" : "Gaius Marius", "birthDateString" : "157 BC", "deathDateString" : "86 BC"			},
+	{		"name" : "Sulla", "birthDateString" : "138 BC", "deathDateString" : "78 BC"					},
+	{		"name" : "Julius Caesar", "birthDateString" : "100 BC", "deathDateString" : "44 BC"			},
+	{		"name" : "Augustus", "birthDateString" : "63 BC", "deathDateString" : "14 AD"				},
 	{		"name" : "Diocletian", "birthDateString" : "242", "deathDateString" : "311" 				},
 	{		"name" : "Constantine the Great", "birthDateString" : "272", "deathDateString" : "337"		},
 	{		"name" : "Julian the Apostate", "birthDateString" : "331", "deathDateString" : "363" 		},
