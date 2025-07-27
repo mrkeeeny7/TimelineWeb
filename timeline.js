@@ -492,6 +492,9 @@ class Timeline {
 
     }
 
+    /**
+     * recalculates the positions of all the timeline elements
+     */
     refresh() {
         this.currentMin = this.currentYear - this.currentScale/2;
         this.currentMax = this.currentYear + this.currentScale/2;
@@ -875,7 +878,7 @@ function updateYearInput()
 {
     var yearInputDOM = document.getElementById("yearInput");
   //  yearInputDOM.value = dateString(mainTimeline.currentYear);
-    yearInputDOM.value = dateGregorian(mainTimeline.GetCurrentYearInt());
+    yearInputDOM.value = dateGregorian(mainTimeline.currentYear);
 }
 
 //update the current year FROM the HTML field
@@ -891,6 +894,9 @@ function initTimelines()
     secondTimeline = new Timeline(document.getElementById("secondTable"), 1);
 
     secondTimeline.inverted=false;
+
+    //set initial focus
+    mainTimeline.selectTable();
 }
 
 /**
@@ -999,10 +1005,10 @@ function dateIntGregorian(dateString)
 
 /**
  * 
- * create date string from number
+ * create date string from number;
  * use this for most purposes
  * 
- * @param {number} dateNumber the input string 
+ * @param {number} dateNumber the input date as number (expects floating point value)
  */
 function dateString(dateNumber)
 {
@@ -1020,7 +1026,7 @@ function dateString(dateNumber)
  * 
  * create Gregorian date string from number
  * 
- * @param {number} dateNumber the input string 
+ * @param {number} dateNumber the input date as number (expects floating point value) 
  */
 function dateGregorian(dateNumber)
 {   
@@ -1191,7 +1197,8 @@ function UpdatePersonPanel()
        // var titleDOM = document.createElement("h2");
 
        //var aliveListText = selectedTimeline.personlist.PersonsAliveString(selectedTimeline.GetCurrentYearInt());
-       var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(selectedTimeline.GetCurrentYearInt());
+       var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(
+                selectedTimeline.GetCurrentYearInt());//TODO this may need fixing for consistency - dateIntGregorian uses Math.ceil() instead of floor()
         //newDiv.innerText = aliveListText;
 
         //document.getElementById("personPanel").appendChild(newDiv);
