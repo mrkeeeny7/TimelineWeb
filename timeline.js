@@ -89,7 +89,14 @@ class PersonData
             this.ruled = [];
             for(let i=0; i<personDataJSObj.ruled.length; i++)
             {
-                this.ruled[i] = dateIntGregorian(personDataJSObj.ruled[i]);
+                if(personDataJSObj.ruled[i]==undefined)
+                {
+                    this.ruled[i] = undefined;
+                }
+                else
+                {
+                    this.ruled[i] = dateIntGregorian(personDataJSObj.ruled[i]);
+                }
             }
         }
     }
@@ -167,7 +174,7 @@ class PersonListSorted {
     /**
      * 
      * @param {number} year input year is assumed to be whole-number (use GetCurrrentYearInt())
-     * @returns {string} (HTML formatted) A summary string of the persons alive in given year
+     * @returns {string} (HTML formatted) A summary string of the list of persons alive in given year
      */
     PersonsAliveStringHTML(year)
     {
@@ -177,16 +184,6 @@ class PersonListSorted {
         var outstr = "<h3>Notable People in " + yearstr + "</h3>";
         for(let i=0; i<alivelist.length; i++)
         {
-            var age = Math.floor(alivelist[i].ageAtYear(year));
-           /* var textline = age + " years: " + alivelist[i].name;
-
-            //italic if in death year
-            if(alivelist[i].deathYear != undefined 
-                && year - alivelist[i].deathYear >= 0
-                && year - alivelist[i].deathYear < 1)
-            {
-                textline = "<i>" + textline + " (year of death)" + "</i>";
-            }*/
             var textline = this.PersonStringHTML(alivelist[i], year);
 
             //add to outstr
@@ -230,7 +227,7 @@ class PersonListSorted {
         {
             var start = person.ruled[0];
             var end = person.ruled[1];//TODO modify to allow multiple spans
-            if(start <= year && end >= year)
+            if(start <= year && (end >= year || end == undefined))
             {
                 //make line bold
                 textline = "<b>" + textline + "</b>";
