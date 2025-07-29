@@ -456,13 +456,46 @@
 		{		"name" : "Hypatia", "birthDateString" : "350", "deathDateString" : "415" 		},
 
 
-		{		"name" : "Diocletian", "birthDateString" : "242", "deathDateString" : "311" 				},
+		{		"name" : "Diocletian", "birthDateString" : "242", "deathDateString" : "311" 		, "ruled" : ["284", "305"]		},
 		{		"name" : "Constantine the Great", "birthDateString" : "272", "deathDateString" : "337"		},
 		{		"name" : "Julian the Apostate", "birthDateString" : "331", "deathDateString" : "363" 		},
 		{		"name" : "Valentinian I", "birthDateString" : "321", "deathDateString" : "375"				},
 		{		"name" : "Valens", "birthDateString" : "328", "deathDateString" : "378"						},
+		{		"name" : "Valentinian II"	, "birthDateString" : "371", "deathDateString" : "392"				},
+		{		"name" : "Magnus Maximus"	, "birthDateString" : "335", "deathDateString" : "388"				},
 		{		"name" : "Theodosius I"	, "birthDateString" : "347", "deathDateString" : "395"				},
-		{		"name" : "Honorius"	, "birthDateString" : "384", "deathDateString" : "423"					},	
+
+		{		"name" : "Honorius"	, "birthDateString" : "384", "deathDateString" : "423"					},			
+		{		"name" : "Stilicho", "birthDateString" : "359", "deathDateString" : "408" 		},
+		{		"name" : "Galla Placidia", "birthDateString" : "392", "deathDateString" : "450" 		},
+		{		"name" : "Alaric the Goth", "birthDateString" : "370", "deathDateString" : "411" 		},
+		{		"name" : "Athaulf the Goth", "birthDateString" : "370", "deathDateString" : "415" 		},
+		{		"name" : "Gaiseric", "birthDateString" : "389", "deathDateString" : "477" 		},
+		{		"name" : "Valentinian III"	, "birthDateString" : "419", "deathDateString" : "455"					},
+		{		"name" : "Flavius Aetius"	, "birthDateString" : "390", "deathDateString" : "454"					},
+		{		"name" : "Petronius Maximus"	, "birthDateString" : "397", "deathDateString" : "455"					},
+		{		"name" : "Majorian"	, "birthDateString" : "420", "deathDateString" : "461"					},
+		{		"name" : "Ricimer"	, "birthDateString" : "418", "deathDateString" : "472"					},
+		{		"name" : "Romulus Augustulus"	, "birthDateString" : "465", "deathDateString" : "511"					},
+		{		"name" : "Odoacer"	, "birthDateString" : "433", "deathDateString" : "493"					},
+		{		"name" : "Ambrose of Milan"	, "birthDateString" : "339", "deathDateString" : "397"					},
+		{		"name" : "Clovis I", "birthDateString" : "466", "deathDateString" : "511" 		},
+		{		"name" : "Theodoric I (Visigoth)", "birthDateString" : "390", "deathDateString" : "451" 		},
+		{		"name" : "Theodoric the Great (Ostrogoth)", "birthDateString" : "454", "deathDateString" : "526" 		},
+
+		
+		{		"name" : "Arcadius"	, "birthDateString" : "377", "deathDateString" : "408"					},	
+		{		"name" : "Theodosius II"	, "birthDateString" : "401", "deathDateString" : "450"					},	
+		{		"name" : "Aelia Pulcheria"	, "birthDateString" : "398", "deathDateString" : "453"				},	
+		{		"name" : "Marcian"	, "birthDateString" : "392", "deathDateString" : "457"					},	
+		{		"name" : "Leo I"	, "birthDateString" : "401", "deathDateString" : "474"					},	
+		{		"name" : "Zeno"	, "birthDateString" : "425", "deathDateString" : "491"					},	
+		{		"name" : "Anastasius"	, "birthDateString" : "431", "deathDateString" : "518"					},	
+		{		"name" : "Justinian the Great"	, "birthDateString" : "482", "deathDateString" : "565", "ruled" : ["527", "565"]					},	
+
+
+		{		"name" : "Jesus of Nazareth"	, "birthDateString" : "4 BC", "deathDateString" : "33"					},	
+		{		"name" : "Muhammad"	, "birthDateString" : "570", "deathDateString" : "632"					},	
 
 		{		"name" : "Attila the Hun", "birthDateString" : "406", "deathDateString" : "453"				},
 		{		"name" : "Genghis Khan", "birthDateString" : "1162", "deathDateString" : "1227"				},

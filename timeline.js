@@ -58,6 +58,12 @@ class PersonData
     deathYear;
 
     /**
+     * @type {number[]}
+     * array of dates corresponding to the time this person was a 'ruler', if any
+     */
+    ruled;
+
+    /**
      * @constructor
      * @param {{name: string, birthDateString: string, deathDateString: string} personDataJSObj}
      */
@@ -76,6 +82,15 @@ class PersonData
         else
         {
             this.deathYear = undefined;
+        }
+
+        if(personDataJSObj.ruled != undefined )
+        {
+            this.ruled = [];
+            for(let i=0; i<personDataJSObj.ruled.length; i++)
+            {
+                this.ruled[i] = dateIntGregorian(personDataJSObj.ruled[i]);
+            }
         }
     }
 
@@ -163,7 +178,7 @@ class PersonListSorted {
         for(let i=0; i<alivelist.length; i++)
         {
             var age = Math.floor(alivelist[i].ageAtYear(year));
-            var textline = age + " years: " + alivelist[i].name;
+           /* var textline = age + " years: " + alivelist[i].name;
 
             //italic if in death year
             if(alivelist[i].deathYear != undefined 
@@ -171,7 +186,8 @@ class PersonListSorted {
                 && year - alivelist[i].deathYear < 1)
             {
                 textline = "<i>" + textline + " (year of death)" + "</i>";
-            }
+            }*/
+            var textline = this.PersonStringHTML(alivelist[i], year);
 
             //add to outstr
             if(outstr == "")
@@ -186,6 +202,44 @@ class PersonListSorted {
 
         return outstr;
     }    
+
+    /**
+     * 
+     * @param {PersonData} person 
+     * @param {number} year  input year is assumed to be whole-number (use GetCurrrentYearInt())
+     * @returns { string } the HTML line summarizing this person in the given year
+     */
+    PersonStringHTML(person, year)
+    {           
+        var age = Math.floor(person.ageAtYear(year));
+        var textline = age + " years: " + person.name;
+
+        //italic if in death year
+        if(person.deathYear != undefined 
+            && year - person.deathYear >= 0
+            && year - person.deathYear < 1)
+        {
+            textline = "<i>" + textline + " (year of death)" + "</i>";
+        }
+        else if(age == 0)
+        {
+            textline = "<i>" + textline + "</i>";
+        }
+
+        if(person.ruled != undefined )
+        {
+            var start = person.ruled[0];
+            var end = person.ruled[1];//TODO modify to allow multiple spans
+            if(start <= year && end >= year)
+            {
+                //make line bold
+                textline = "<b>" + textline + "</b>";
+            }
+        }
+
+        return textline;
+
+    }
     
     /**
     * 
