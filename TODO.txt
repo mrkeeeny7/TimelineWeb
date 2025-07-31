@@ -1,7 +1,8 @@
 
 * Set a default zoom level (Scale) and center date for each timeline, if it is the first selected
 * Separate 'persons' into separate data file
-X Show current year prominently and allow to enter a specific year and zoom level (span in years)
+X Show current year prominently and allow to enter a specific year 
+ - and zoom level (span in years)
 
 
 == Person browsing mode: list of persons alive in current year (dynamically updating) + current ages and title
@@ -14,7 +15,7 @@ X Show current year prominently and allow to enter a specific year and zoom leve
 
 
 * Redesign columns
- - left column for 'eras'
+ - left column for 'eras' (Western + others)
  - right, middle for 'empires' (can overlap)
 
 more felixibility in column placement

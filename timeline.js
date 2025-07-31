@@ -225,12 +225,30 @@ class PersonListSorted {
 
         if(person.ruled != undefined )
         {
-            var start = person.ruled[0];
+           /* var start = person.ruled[0];
             var end = person.ruled[1];//TODO modify to allow multiple spans
             if(start <= year && (end >= year || end == undefined))
             {
                 //make line bold
                 textline = "<b>" + textline + "</b>";
+            }*/
+
+            var start, end;
+            let i=0;
+            while(i<person.ruled.length)
+            {
+                //read next pair of values from the array
+                start = person.ruled[i++];
+                end = person.ruled[i++]; //should be undefined if we run past the end of the array
+                if(start <= year && (end >= year || end == undefined))
+                {
+                    //person did rule in current year
+                    //make line bold
+                    textline = "<b>" + textline + "</b>";
+
+                    //stop searching array
+                    break;
+                }
             }
         }
 
