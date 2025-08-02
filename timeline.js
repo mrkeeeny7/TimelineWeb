@@ -103,22 +103,27 @@ class PersonData
 
     /**
      * 
-     * @param {number} year 
-     * @returns {number} age of this person in a given year
+     * @param {number} yearInt using rounded int number
+     * @returns {number} age of this person in a given year (should be integer)
      */
-    ageAtYear(year)
+    ageAtYear(yearInt)
     {
-        return year - this.birthYear;
+        //need to handle AD/BC weirdness e.g. born in -1, current year 1 ==> 1 year old
+        if(this.birthYear < 0 && yearInt > 0)
+        {
+            return (yearInt - this.birthYear) - 1;
+        }
+        return yearInt - this.birthYear;
     }
 
     /**
      * 
-     * @param {number} year 
+     * @param {number} yearInt year in whole-number form
      * @returns {boolean} alive status of this person in a given year
      */
-    aliveInYear(year)
+    aliveInYear(yearInt)
     {
-        return year >= this.birthYear && (year <= this.deathYear || this.deathYear==undefined );
+        return yearInt >= this.birthYear && (yearInt <= this.deathYear || this.deathYear==undefined );
     }
 
 }
@@ -154,15 +159,16 @@ class PersonListSorted {
 
     /**
      * 
-     * @param {number} year
+     * @param {number} date as as the usual floating point date format
      * @returns {PersonData[]}  list of persons alive in the given year
      */
-    PersonsAliveList(year)
+    PersonsAliveList(date)
     {
+        var yearInt = dateInt(date); //date rounded to whole-year
         var alivelist = new Array();
         for(let i = 0; i<this.theList.length; i++)
         {
-            if(this.theList[i].aliveInYear(year))
+            if(this.theList[i].aliveInYear(yearInt))
             {
                 alivelist.push(this.theList[i]);
             }
@@ -173,18 +179,18 @@ class PersonListSorted {
 
     /**
      * 
-     * @param {number} year input year is assumed to be whole-number (use GetCurrrentYearInt())
+     * @param {number} date input year in usual floating point date
      * @returns {string} (HTML formatted) A summary string of the list of persons alive in given year
      */
-    PersonsAliveStringHTML(year)
+    PersonsAliveStringHTML(date)
     {
-        var alivelist = this.PersonsAliveList(Math.floor(year));
-        var yearstr = dateString(year);
+        var alivelist = this.PersonsAliveList(date);
+        var yearstr = dateString(date);
 
         var outstr = "<h3>Notable People in " + yearstr + "</h3>";
         for(let i=0; i<alivelist.length; i++)
         {
-            var textline = this.PersonStringHTML(alivelist[i], year);
+            var textline = this.PersonStringHTML(alivelist[i], date);
 
             //add to outstr
             if(outstr == "")
@@ -203,18 +209,17 @@ class PersonListSorted {
     /**
      * 
      * @param {PersonData} person 
-     * @param {number} year  input year is assumed to be whole-number (use GetCurrrentYearInt())
+     * @param {number} dateNumber  input date in floating point format
      * @returns { string } the HTML line summarizing this person in the given year
      */
-    PersonStringHTML(person, year)
+    PersonStringHTML(person, dateNumber)
     {           
-        var age = Math.floor(person.ageAtYear(year));
+        var yearInt = dateInt(dateNumber); //the current date in whole-years
+        var age = Math.floor(person.ageAtYear(yearInt));
         var textline = age + " years: " + person.name;
 
         //italic if in death year
-        if(person.deathYear != undefined 
-            && year - person.deathYear >= 0
-            && year - person.deathYear < 1)
+        if(person.deathYear != undefined && yearInt == person.deathYear)
         {
             textline = "<i>" + textline + " (year of death)" + "</i>";
         }
@@ -240,7 +245,7 @@ class PersonListSorted {
                 //read next pair of values from the array
                 start = person.ruled[i++];
                 end = person.ruled[i++]; //should be undefined if we run past the end of the array
-                if(start <= year && (end >= year || end == undefined))
+                if(start <= yearInt && (end >= yearInt || end == undefined))
                 {
                     //person did rule in current year
                     //make line bold
@@ -750,14 +755,7 @@ class Timeline {
         UpdatePersonPanel();
     } 
 
-    /**
-     * 
-     * @returns { number } current year as whole-number value
-     */
-    GetCurrentYearInt()
-    {
-        return Math.floor(this.currentYear);
-    }
+
 
 
 }  
@@ -1057,6 +1055,7 @@ function dateIntIfDefined(dateString, backup)
  * create date int from string in format "[year]" or "[year] BC"
  * 
  * @param {string} dateString the input string 
+ * @returns {number} the year as an integer
  */
 function dateIntGregorian(dateString)
 {
@@ -1077,7 +1076,12 @@ function dateIntGregorian(dateString)
  * create date string from number;
  * use this for most purposes
  * 
+ * Dates round up if AD, down if BC
+ * NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+ * All dates in the range (0, 1] count as 1 AD
+ * 
  * @param {number} dateNumber the input date as number (expects floating point value)
+ * @returns {string} the usual string format of this date (e.g. Ma, AD or BC)
  */
 function dateString(dateNumber)
 {
@@ -1095,7 +1099,12 @@ function dateString(dateNumber)
  * 
  * create Gregorian date string from number
  * 
+ * Dates round up if AD, down if BC
+ * NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+ * All dates in the range (0, 1] count as 1 AD
+ * 
  * @param {number} dateNumber the input date as number (expects floating point value) 
+ * @returns {string} the 'AD/BC' string of the date (AD omitted if date is later than 999 AD)
  */
 function dateGregorian(dateNumber)
 {   
@@ -1103,20 +1112,41 @@ function dateGregorian(dateNumber)
     var str;
     if(date <= 0)
     {
-        str = Math.ceil(-date) + " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+        str = -dateInt(date)+ " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
     }
     else if(date < 1000)
     {
-        str = Math.ceil(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
+        str = dateInt(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
     }
     else
     {
-        str = Math.ceil(date) + ""; //so 1000 becomes '1000'
+        str = dateInt(date) + ""; //so 1000 becomes '1000'
     }
 
     return str;
 
 }
+
+/**
+ * 
+ * @param {number} dateNumber 
+ * @returns input date, rounded to correct year
+ */
+function dateInt(dateNumber)
+{
+    var dateRounded;
+    if(dateNumber <= 0)
+    {
+        dateRounded = Math.floor(dateNumber); //so -0.1 becomes -1, etc.; only dates in the range [-1, 0) count as -1 (i.e. 1 BC)
+    }
+    else
+    {
+        dateRounded = Math.ceil(dateNumber); //round to integer above. 0.1 becomes 1.
+    }
+
+    return dateRounded;
+}
+
 
 /**
  * 
@@ -1266,9 +1296,14 @@ function UpdatePersonPanel()
        // var titleDOM = document.createElement("h2");
 
        //var aliveListText = selectedTimeline.personlist.PersonsAliveString(selectedTimeline.GetCurrentYearInt());
-       var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(
-                selectedTimeline.GetCurrentYearInt());//TODO this may need fixing for consistency - dateIntGregorian uses Math.ceil() instead of floor()
-        //newDiv.innerText = aliveListText;
+  //     var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(
+ //       selectedTimeline.GetCurrentYearInt());//TODO this may need fixing for consistency - dateIntGregorian uses Math.ceil() instead of floor()
+       
+       
+       var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(selectedTimeline.currentYear);
+      
+      
+                //newDiv.innerText = aliveListText;
 
         //document.getElementById("personPanel").appendChild(newDiv);
         //personPanel.innerText = aliveListText;
