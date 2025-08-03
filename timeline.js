@@ -306,8 +306,9 @@ class Timeline {
     currentScale = 100;
     currentMinScale;    // scope of visible events
     currentMaxScale;    // scope of visible events
+
     /** @type {number} this can be a floating point value (for smooth dragging), TODO: better name would maybe be currentDate */
-    currentYear = 0;    //TODO 0 is a placeholder for 1BC
+    currentYear = 0;    //TODO 0 is a placeholder for 1BC TODO TODO rename to currentDate
     oldCurrentYear;
     
     sliderScale;
