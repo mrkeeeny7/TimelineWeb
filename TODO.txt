@@ -23,3 +23,6 @@ X Show current year prominently and allow to enter a specific year
 
 more felixibility in column placement
  (arrange into 'threads')
+
+
+== at high zoom levels, show years as discrete bands (special/adapted kind of era)
