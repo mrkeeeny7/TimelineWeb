@@ -12,7 +12,10 @@ X Show current year prominently and allow to enter a specific year
 
 == 'overall' timeline on the left - showing the 'big picture' (big bang to present) and illustrating the current slice being viewed
 
-
+== Layouts
+ - layout for simple timeline
+ - layout for timeline compare (AD vs BC)
+ - layouts for mobile
 
 * Redesign columns
  - left column for 'eras' (Western + others)

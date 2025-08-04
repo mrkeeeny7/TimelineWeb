@@ -379,8 +379,11 @@
 	],
 
 	"personlist" : [
-		{		"name" : "Cyrus the Great", "birthDateString" : "600 BC", "deathDateString" : "530 BC" 		},
-		{		"name" : "Xerxes I", "birthDateString" : "518 BC", "deathDateString" : "465 BC" 		},
+		{		"name" : "Cyrus the Great", "birthDateString" : "600 BC", "deathDateString" : "530 BC" 	, "ruled" : ["559 BC", "530 BC"]	},
+		{		"name" : "Darius the Great", "birthDateString" : "550 BC", "deathDateString" : "486 BC" 	, "ruled" : ["522 BC", "486 BC"]	},
+		{		"name" : "Xerxes I", "birthDateString" : "518 BC", "deathDateString" : "465 BC" 	, "ruled" : ["486 BC", "465 BC"]	},
+
+		{		"name" : "Leonidas I", "birthDateString" : "540 BC", "deathDateString" : "480 BC" 	, "ruled" : ["489 BC", "480 BC"]	},
 
 		{		"name" : "Pythagoras", "birthDateString" : "570 BC", "deathDateString" : "495 BC" 		},
 		{		"name" : "Socrates", "birthDateString" : "470 BC", "deathDateString" : "399 BC" 		},
@@ -389,13 +392,16 @@
 		{		"name" : "Archimedes", "birthDateString" : "287 BC", "deathDateString" : "212 BC" 		},
 		{		"name" : "Galen", "birthDateString" : "129", "deathDateString" : "216" 		},
 
-		{		"name" : "Alexander the Great", "birthDateString" : "356 BC", "deathDateString" : "323 BC" 			},
-		{		"name" : "Ptolemy I", "birthDateString" : "369 BC", "deathDateString" : "282 BC" 			},
+		{		"name" : "Alexander the Great", "birthDateString" : "356 BC", "deathDateString" : "323 BC" 	, "ruled" : ["336 BC", "323 BC"]		},
 		{		"name" : "Hannibal", "birthDateString" : "247 BC", "deathDateString" : "182 BC" 			},
-		{		"name" : "Gaius Marius", "birthDateString" : "157 BC", "deathDateString" : "86 BC"			},
-		{		"name" : "Sulla", "birthDateString" : "138 BC", "deathDateString" : "78 BC"					},
-		{		"name" : "Julius Caesar", "birthDateString" : "100 BC", "deathDateString" : "44 BC"			},
-		{		"name" : "Augustus", "birthDateString" : "63 BC", "deathDateString" : "14 AD"		, "ruled" : ["27 BC", "14"]			},
+		{		"name" : "Marius", "birthDateString" : "157 BC", "deathDateString" : "86 BC", "ruled" : ["107 BC", "107 BC", "104 BC", "100 BC", "86 BC", "86 BC"]			},
+		{		"name" : "Sulla", "birthDateString" : "138 BC", "deathDateString" : "78 BC"	, "ruled" : ["63 BC", "63 BC"]				},
+		{		"name" : "Cicero", "birthDateString" : "106 BC", "deathDateString" : "43 BC"		, "ruled" : ["88 BC", "88 BC", "82 BC", "80 BC"]			},
+		{		"name" : "Marcus Crassus", "birthDateString" : "115 BC BC", "deathDateString" : "53 BC"		, "ruled" : ["70 BC", "70 BC", "55 BC", "55 BC"]			},
+		{		"name" : "Pompey", "birthDateString" : "106 BC", "deathDateString" : "48 BC"		, "ruled" : ["70 BC", "70 BC", "55 BC", "55 BC", "52 BC", "55 BC"]			},
+		{		"name" : "Julius Caesar", "birthDateString" : "100 BC", "deathDateString" : "44 BC"	, "ruled" : ["59 BC", "59 BC", "49 BC", "44 BC"]			},
+		{		"name" : "Mark Antony", "birthDateString" : "83 BC", "deathDateString" : "30 BC"	, "ruled" : ["43 BC", "30 BC"]			},
+		{		"name" : "Augustus", "birthDateString" : "63 BC", "deathDateString" : "14 AD"		, "ruled" : ["43 BC", "14"]			},
 
 		{		"name" : "Tiberius", "birthDateString" : "42 BC", "deathDateString" : "37 AD"  , "ruled" : ["14", "37"]	},
 		{		"name" : "Caligula" , "birthDateString" : "12", "deathDateString" : "41" , "ruled" : ["37", "41"]	},
@@ -425,7 +431,18 @@
 		{		"name" : "Elagabalus", "birthDateString" : "204", "deathDateString" : "222" 	, "ruled" : ["218", "222"]	},		
 		{		"name" : "Severus Alexander", "birthDateString" : "208", "deathDateString" : "235" , "ruled" : ["222", "235"]		},
 
-		{		"name" : "Cleopatra", "birthDateString" : "70 BC", "deathDateString" : "30 BC" 		},
+		{		"name" : "Thutmose II", "birthDateString" : "1502 BC", "deathDateString" : "1479 BC" , "ruled" : ["1493 BC", "1479 BC"]			},
+		{		"name" : "Hatshepsut", "birthDateString" : "1505 BC", "deathDateString" : "1458 BC" , "ruled" : ["1479 BC", "1458 BC"]			},
+		{		"name" : "Thutmose III", "birthDateString" : "1481 BC", "deathDateString" : "1425 BC" , "ruled" : ["1479 BC", "1425 BC"]			},
+		{		"name" : "Akhenaten", "birthDateString" : "1374 BC", "deathDateString" : "1336 BC" , "ruled" : ["1353 BC", "1336 BC"]			},
+		{		"name" : "Tutankhamun", "birthDateString" : "1341 BC", "deathDateString" : "1323 BC" , "ruled" : ["1332 BC", "1323 BC"]			},
+		{		"name" : "Seti I", "birthDateString" : "1319 BC", "deathDateString" : "1279 BC" , "ruled" : ["1294 BC", "1279 BC"]			},
+		{		"name" : "Rameses II", "birthDateString" : "1303 BC", "deathDateString" : "1213 BC" , "ruled" : ["1279 BC", "1213 BC"]			},
+		{		"name" : "Rameses III", "birthDateString" : "1217 BC", "deathDateString" : "1155 BC" , "ruled" : ["1186 BC", "1155 BC"]			},
+		{		"name" : "Ptolemy I", "birthDateString" : "369 BC", "deathDateString" : "282 BC" , "ruled" : ["305 BC", "282 BC"]			},
+		{		"name" : "Cleopatra", "birthDateString" : "70 BC", "deathDateString" : "30 BC" 	, "ruled" :  ["51 BC", "30 BC"]	},
+
+		{		"name" : "Nefertiti", "birthDateString" : "1370 BC", "deathDateString" : "1330 BC" , "ruled" : ["1334 BC", "1332 BC"]			},
 		{		"name" : "Agrippina the Younger", "birthDateString" : "15 AD", "deathDateString" : "59 AD" 		},
 		{		"name" : "Boudicca", "birthDateString" : "30 AD", "deathDateString" : "61 AD" 		},
 		{		"name" : "Julia Domna", "birthDateString" : "160", "deathDateString" : "217" },
