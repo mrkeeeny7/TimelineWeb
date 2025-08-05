@@ -5,10 +5,12 @@ X Show current year prominently and allow to enter a specific year
  - and zoom level (span in years)
 
 
-== Person browsing mode: list of persons alive in current year (dynamically updating) + current ages and title
+X == Person browsing mode: list of persons alive in current year (dynamically updating) + current ages and title
 
  - mouse over persons for more info
  - click persons for exapnded info or wiki page
+
+
 
 == 'overall' timeline on the left - showing the 'big picture' (big bang to present) and illustrating the current slice being viewed
 
@@ -24,5 +26,25 @@ X Show current year prominently and allow to enter a specific year
 more felixibility in column placement
  (arrange into 'threads')
 
+-- Consolidate timelines & set default layout
+ 
+(Roman, Modern, Medieval) ==> Western
+(Prehistoric, Ice Age) ==> Prehistoric
+
 
 == at high zoom levels, show years as discrete bands (special/adapted kind of era)
+
+-- Fix scrolling on person panel
+
+
+
+=== Show current timelines loaded
+	- can drag from one column to another
+
+==== Settings panel (pop up)
+ - switch calendar (Gregorian, Roman, Islamic, Chinese, Mayan, Japanese)
+ - filter settings for notable persons (Leaders, Artists, Historians, Royals, Britain, America, Rome, etc.);
+	notability (Tier I, II, III)
+
+
+== 

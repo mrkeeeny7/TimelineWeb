@@ -9,6 +9,7 @@
     --markerLineColor: hsl(0, 80%, 50%);
 
     --mediumBG: wheat;
+    --mediumrareBG: rgb(253, 246, 231);
     --lightBG: white;
 }
 
@@ -106,18 +107,22 @@ h2 {
 
     position: relative;
 
-    overflow:hidden;
+    overflow:visible; /* so the overflow of sub windows should be visible or the calculations are off */
     width: 15%;
     height: 90%;
 
-    border-width: 2px;
+    border-width: 0px;
     border-style: solid;
     border-color: var(--darkTextColor);
+  /*  border-color: magenta;*/
+
+    /*--inner-border-width: 10px;*/ /*debug*/
+    --inner-border-width: 2px;
 
 }
 #infoPanel {
     margin: auto;
-    padding: 20px;
+   /* padding: 20px;*/
 
     background-color: var(--mediumBG);
     color: var(--darkTextColor);
@@ -134,13 +139,13 @@ h2 {
     top: 0px;
     left: 0px;
 
-    overflow:hidden;
-    width: 100%;
-    height: 30%;
+    overflow:auto;
+    width: calc(100% - 2*var(--inner-border-width)); /* account for border width */
+    height: calc(30% - 1.5*var(--inner-border-width));
 
-    border-width: 2px;
+    border-width: var(--inner-border-width);
     border-style: solid;
-    /*border-color: magenta;*/
+   /* border-color: blue;*/
      
 
 }
@@ -148,7 +153,8 @@ h2 {
     margin: auto;
     padding: 20px;
 
-    background-color: var(--lightBG);
+  /*  background-color: var(--lightBG);*/
+    background-color: var(--mediumrareBG);
     color: var(--darkTextColor);
  /*   opacity: 0.5;*/
     font-size: 16px;
@@ -160,14 +166,15 @@ h2 {
   /*  right: 10px;*/
 
     position: absolute;
-    top: 30%;
+    top: calc(30% - 0.5*var(--inner-border-width));  /* the top border will overlap with the bottom of the top panel */
     left: 0px;
 
-    overflow:hidden;
-    width: 100%;
-    height: 70%;
+    overflow-x:auto;
+    overflow-y:auto;
+    width: calc(100% - 2*var(--inner-border-width) - 40px); /* account for border width and padding */
+    height: calc(70% - 1.5*var(--inner-border-width) - 40px);
 
-    border-width: 2px;
+    border-width: var(--inner-border-width);
     border-style: solid;
    /* border-color: greenyellow;*/
      
