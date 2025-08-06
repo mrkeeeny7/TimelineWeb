@@ -17,6 +17,14 @@
 			"type" : "era"
 		},
 		{
+			"title" : "Early Modern",
+			"dateString" : "1492",
+			"endDateString" : "1790",
+			"minScale" : 501,
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+		{
 			"title" : "Middle Ages",
 			"dateString" : "476 AD",
 			"endDateString" : "1492",
@@ -24,12 +32,22 @@
 			"maxScale" : 50000,
 			"type" : "era"
 		},
+		{
+			"title" : "Classical Antiquity",
+			"dateString" : "800 BC",
+			"endDateString" : "476",
+			"minScale" : 501,
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+
+
 
 		{
 			"title" : "Current Era",
 			"searchstring" : "21st century",
 			"dateString" : "2001",
-			"endDateString" : "2019",
+			"endDateString" : "PRESENTDAY",
 			"minScale" : 1,
 			"maxScale" : 500,
 			"type" : "era"
@@ -124,9 +142,101 @@
 			"maxScale" : 500,
 			"type" : "era"
 		},
+		{
+			"title" : "Baroque Period",
+			"dateString" : "1620",
+			"endDateString" : "1715",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Age of Discovery",
+			"dateString" : "1492",
+			"endDateString" : "1620",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Late Middle Ages",
+			"dateString" : "1300",
+			"endDateString" : "1492",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "High Middle Ages",
+			"dateString" : "1000",
+			"endDateString" : "1300",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Dark Ages / Early Middle Ages",
+			"dateString" : "476",
+			"endDateString" : "1000",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Late Antiquity",
+			"dateString" : "284",
+			"endDateString" : "476",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Roman Ascendancy",
+			"dateString" : "30 BC",
+			"endDateString" : "284",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Hellenistic Period",
+			"dateString" : "323 BC",
+			"endDateString" : "30 BC",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Classical Greece",
+			"dateString" : "510 BC",
+			"endDateString" : "323 BC",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
 
 
 
+		{
+			"title" : "Present Day",
+			"searchstring" : "Present Day",
+			"dateString" : "PRESENTDAY",
+			"type" : "horizline"
+		},
+		{
+			"title" : "Russia-Ukraine invasion",
+			"searchstring" : "Russia Ukraine invasion",
+			"dateString" : "2022",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "COVID pandemic",
+			"searchstring" : "COVID pandemic",
+			"dateString" : "2020",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
 		{
 			"title" : "European Migrant Crisis",
 			"searchstring" : "European migrant crisis",

@@ -293,6 +293,9 @@ class PersonListSorted {
 
 class Timeline {
     currentSelectedEventIndex = undefined;
+    /**
+     * @type {TimelineEvent[]}
+     */
     tlEvents = [];
 
     /**
@@ -495,9 +498,21 @@ class Timeline {
             newEventDomElement.setAttribute("eventIndex", eventIndex);
             newEventDomElement.setAttribute("eventType", eventType);
 
-            var newEventText=document.createTextNode(jsonEventObj.title);
-            newEventDomElement.appendChild(newEventText);
-    
+            if(eventType=="horizline")
+            {
+                //instead of adding text to the box, create a sub-element (label) and add the text to that
+                var newLabel = document.createElement("div");
+                newLabel.setAttribute("class", "yearLabel");                
+                var newEventText=document.createTextNode(jsonEventObj.title);
+                newLabel.appendChild(newEventText);
+
+                newEventDomElement.appendChild(newLabel);
+            }
+            else
+            {
+                var newEventText=document.createTextNode(jsonEventObj.title);
+                newEventDomElement.appendChild(newEventText);
+            }
             var lifelineDomElement = undefined;
             if(eventType=="person")
             {
@@ -622,6 +637,12 @@ class Timeline {
                 setBottomPosition(_tlevent.domElement, offset);
 
             }
+            if(_tlevent.type=="horizline")
+            {
+                //set position as with default event
+                setPosition(_tlevent.domElement, offset);
+
+            }
             //position in preferred column
             this.setColumn(_tlevent, _tlevent.preferredColumn);
         }
@@ -653,6 +674,12 @@ class Timeline {
                 leftoffset = columnspacing*0.5; //to center the events; use 0 to left align
             //   setWidth(_tlevent.domElement, width);
                 _tlevent.domElement.style.width = (width * widthfactor) + "%"; //use 90% for a bit of spacing
+
+            }
+            else if(_tlevent.type=="horizline")
+            {
+                leftoffset = 0; //to center the events; use 0 to left align
+                _tlevent.domElement.style.width = "100%";
 
             }
             else if(_tlevent.type=="person")
@@ -1034,6 +1061,17 @@ function loadJSON(jsonfile, onFinishCallback, targetTimeline)
 
 /**
  * 
+ * @returns the current, real-world year (UTC)
+ */
+function datePresentDay()
+{
+    const date = new Date();
+    const presentYear = date.getUTCFullYear();
+    return presentYear;
+}
+
+/**
+ * 
  * Convert input string to a Gregorian date number
  * 
  * @param {string} dateString the input string to try
@@ -1041,6 +1079,10 @@ function loadJSON(jsonfile, onFinishCallback, targetTimeline)
  */
 function dateIntIfDefined(dateString, backup)
 {
+    if(dateString == "PRESENTDAY")
+    {
+        return datePresentDay();
+    }
     if(dateString == undefined)
     {
         return backup;
@@ -1060,6 +1102,11 @@ function dateIntIfDefined(dateString, backup)
  */
 function dateIntGregorian(dateString)
 {
+    if(dateString == "PRESENTDAY")
+    {
+        return datePresentDay();
+    }
+
 //    var tokens = dateString.split(" ");
     var tokens = dateString.match(/\S+/g);
     if(tokens[1] && tokens[1].toLowerCase() == "bc")

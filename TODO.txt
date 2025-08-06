@@ -47,4 +47,5 @@ more felixibility in column placement
 	notability (Tier I, II, III)
 
 
-== 
+== Age unknown for persons if an 'alive' period can be determined through length of rule or other dates
+	if minimum age is known in a given year (e.g. was adult) then latest birth date can be deduced and show as alive from that date

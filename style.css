@@ -322,6 +322,34 @@ h2 {
     transform: translate(0%,0px);
 }
 
+.eventBubble[eventType='horizline'] {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: -5px; /* = half total height, accounting for padding+height+border = (0)+10+0) =10 */
+    margin-bottom: 0px;
+    padding: 0px;
+    height: 10px;
+    overflow: visible; /* allow text to overflow the box */
+    
+    /* left align */
+    -ms-transform: translate(0%,0px); 
+    transform: translate(0%,0px);
+    
+    background-color: rgba(245, 65, 89, 0.829);
+    color: rgba(245, 65, 89, 0.829);
+    text-align: right;
+    font-size: 24px;
+    
+    position: absolute;
+    top: 0px; /* this should be overridden in Javascript */
+    right: 20px;
+    top: 0px;
+    z-index: 1;
+
+    
+
+}
+
 .eventBubble[eventType='era'] {
     margin-left: 0px;
     margin-right: 0px;
