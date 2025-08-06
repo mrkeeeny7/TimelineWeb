@@ -31,6 +31,9 @@ more felixibility in column placement
 (Roman, Modern, Medieval) ==> Western
 (Prehistoric, Ice Age) ==> Prehistoric
 
+-- create a 'Default' load
+* persons
+* Western history (Modern)
 
 == at high zoom levels, show years as discrete bands (special/adapted kind of era)
 
