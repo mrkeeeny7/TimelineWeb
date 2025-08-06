@@ -502,7 +502,8 @@ class Timeline {
             {
                 //instead of adding text to the box, create a sub-element (label) and add the text to that
                 var newLabel = document.createElement("div");
-                newLabel.setAttribute("class", "yearLabel");                
+                newLabel.setAttribute("class", "yearLabel");         
+                newLabel.setAttribute("id", "presentDayLabel");                
                 var newEventText=document.createTextNode(jsonEventObj.title);
                 newLabel.appendChild(newEventText);
 
