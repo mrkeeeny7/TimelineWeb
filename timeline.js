@@ -291,6 +291,62 @@ class PersonListSorted {
 
 }
 
+class TimelineColumnWidget
+{
+    /**
+     * @type {TimelineEvent[]}
+     */
+    col_tlEvents = [];
+
+    /**
+     * @type {string}
+     */
+    groupName;
+
+    domElement;
+
+    /**
+     * 
+     * @param {string} groupName 
+     * @param {Timeline} timeline 
+     */
+    Init(groupName, timeline)
+    {
+        this.groupName=groupName;
+        this.CreateDOMElement(timeline);
+    }
+
+    /**
+     * 
+     * @param {Timeline} timeline 
+     */
+    CreateDOMElement(timeline)
+    {           
+        this.domElement = document.createElement("div");
+        this.domElement.setAttribute("class", "tlColumnWidget");  
+        var widgetText=document.createTextNode(this.groupName);
+        this.domElement.appendChild(widgetText);
+
+        //TODO position the element (parent to timeline window) above the relevant column
+
+        {
+            //instead of adding text to the box, create a sub-element (label) and add the text to that
+
+            // var newLabel = document.createElement("div");
+            // newLabel.setAttribute("class", "yearLabel");         
+            // newLabel.setAttribute("id", "presentDayLabel");                
+            // var newEventText=document.createTextNode(jsonEventObj.title);
+            // newLabel.appendChild(newEventText);
+
+            // domElement.appendChild(newLabel);
+
+        }
+        // add to the document
+        timeline.tableDom.appendChild(this.domElement);
+    }
+
+}
+
 class Timeline {
     currentSelectedEventIndex = undefined;
     /**
@@ -450,6 +506,10 @@ class Timeline {
             //need to free up a column or something
             // check overlaps
         }
+
+        // make a widget for the selected column
+        var newWidget =  new TimelineColumnWidget();
+        newWidget.Init(jsonObj.category, this);
     
         for(let i=0; i<jsonObj.eventlist.length; i++)
         {
@@ -548,11 +608,14 @@ class Timeline {
         this.SortEventsList();
         this.recentreTimeline();
 
-        // load person list
-        for(let i=0; i<jsonObj.personlist.length; i++)
+        if(jsonObj.personlist != undefined)
         {
-            //var newPerson = new PersonData(jsonObj.personlist[i])
-            this.personlist.Insert(jsonObj.personlist[i]);
+            // load person list
+            for(let i=0; i<jsonObj.personlist.length; i++)
+            {
+                //var newPerson = new PersonData(jsonObj.personlist[i])
+                this.personlist.Insert(jsonObj.personlist[i]);
+            }
         }
 
 
@@ -655,6 +718,11 @@ class Timeline {
         //TODO other labels
     }
 
+    /**
+     * 
+     * @param {TimelineEvent} _tlevent 
+     * @param {number} columnNumber 
+     */
     setColumn(_tlevent, columnNumber)
     {
         if(columnNumber > this.numColumns-1)
@@ -679,7 +747,7 @@ class Timeline {
             }
             else if(_tlevent.type=="horizline")
             {
-                leftoffset = 0; //to center the events; use 0 to left align
+                leftoffset = 0; //TODO make this disregard the column (always put in left)
                 _tlevent.domElement.style.width = "100%";
 
             }
@@ -831,6 +899,21 @@ function ZoomToDate(date, timelineIndex)
 
 
 class TimelineEvent {
+    /**
+     * 
+     * @param {string} title 
+     * @param {number} date 
+     * @param {number} endDate 
+     * @param {number} birthDate 
+     * @param {number} deathDate 
+     * @param {string} searchstring 
+     * @param {string} type 
+     * @param {number} minScale 
+     * @param {number} maxScale 
+     * @param {HTMLDivElement} domElement 
+     * @param {HTMLDivElement} lifelineDomElement 
+     * @param {number} preferredColumn 
+     */
     constructor(title, date, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
          domElement, lifelineDomElement, preferredColumn=0)
     {
