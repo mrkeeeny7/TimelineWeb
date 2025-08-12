@@ -53,26 +53,29 @@
             <div id="mainBar"> 
 
 
-               <div id="mainTable" class="timelineTable" selected=false onwheel="myWheelHandler(event, 0)" onmousedown="timelineMouseDown(event, 0)" onmousemove="timelineMouseMove(event, 0)"
-                onmouseup="timelineMouseUp(0)" onclick="tableClicked(0)">
-                   <!-- <div class="eventBubble">Placeholder Event</div>
-                    <div class="eventBubble">Placeholder Event</div>
-                    <div class="eventBubble">Placeholder Event</div>
+                <div class="tableContainer" id="tableContainerLeft">
+                    <div id="mainTable" class="timelineTable" selected=false onwheel="myWheelHandler(event, 0)" onmousedown="timelineMouseDown(event, 0)" onmousemove="timelineMouseMove(event, 0)"
+                        onmouseup="timelineMouseUp(0)" onclick="tableClicked(0)">
+                        <!-- <div class="eventBubble">Placeholder Event</div>
+                            <div class="eventBubble">Placeholder Event</div>
+                            <div class="eventBubble">Placeholder Event</div>
 
-                    <div class="lifelineMarker">Some test stuff</div>
-                   -->
-                
-             
-                    <div class="yearMarkerLine" id="currentYearMarker0" timelinePosition="middle">
-                        <div class="yearLabel" id="currentYearLabel0"></div>
-                    </div>
-                    <div class="yearMarkerLine" id="minYearMarker0" timelinePosition="top">
-                        <div class="yearLabel" id="minYearLabel0"></div>
-                    </div>
-                    <div class="yearMarkerLine" id="maxYearMarker0" timelinePosition="bottom">
-                        <div class="yearLabel" id="maxYearLabel0"></div>
+                            <div class="lifelineMarker">Some test stuff</div>
+                        -->
+                        
+                    
+                            <div class="yearMarkerLine" id="currentYearMarker0" timelinePosition="middle">
+                                <div class="yearLabel" id="currentYearLabel0"></div>
+                            </div>
+                            <div class="yearMarkerLine" id="minYearMarker0" timelinePosition="top">
+                                <div class="yearLabel" id="minYearLabel0"></div>
+                            </div>
+                            <div class="yearMarkerLine" id="maxYearMarker0" timelinePosition="bottom">
+                                <div class="yearLabel" id="maxYearLabel0"></div>
+                            </div>
                     </div>
                 </div>
+                 
                 <div id="centerFrame">
                     <div id="infoPanel">
                         Default text...info panel
@@ -83,19 +86,22 @@
                     </div>
                 </div>
 
+                <div class="tableContainer" id="tableContainerRight">
                
-                <div id="secondTable" class="timelineTable" selected=false onwheel="myWheelHandler(event, 1)" onmousedown="timelineMouseDown(event, 1)" onmousemove="timelineMouseMove(event, 1)"
-                onmouseup="timelineMouseUp(1)" onclick="tableClicked(1)">            
-                    <div class="yearMarkerLine" id="currentYearMarker1" timelinePosition="middle">
-                        <div class="yearLabel" id="currentYearLabel1"></div>
-                    </div>
-                    <div class="yearMarkerLine" id="minYearMarker1" timelinePosition="top">
-                        <div class="yearLabel" id="minYearLabel1"></div>
-                    </div>
-                    <div class="yearMarkerLine" id="maxYearMarker1" timelinePosition="bottom">
-                        <div class="yearLabel" id="maxYearLabel1"></div>
+                    <div id="secondTable" class="timelineTable" selected=false onwheel="myWheelHandler(event, 1)" onmousedown="timelineMouseDown(event, 1)" onmousemove="timelineMouseMove(event, 1)"
+                    onmouseup="timelineMouseUp(1)" onclick="tableClicked(1)">            
+                        <div class="yearMarkerLine" id="currentYearMarker1" timelinePosition="middle">
+                            <div class="yearLabel" id="currentYearLabel1"></div>
+                        </div>
+                        <div class="yearMarkerLine" id="minYearMarker1" timelinePosition="top">
+                            <div class="yearLabel" id="minYearLabel1"></div>
+                        </div>
+                        <div class="yearMarkerLine" id="maxYearMarker1" timelinePosition="bottom">
+                            <div class="yearLabel" id="maxYearLabel1"></div>
+                        </div>
                     </div>
                 </div>
+
  
             </div>
         </div>

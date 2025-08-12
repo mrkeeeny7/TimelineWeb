@@ -304,16 +304,19 @@ class TimelineColumnWidget
     groupName;
 
     domElement;
+    columnNumber;
 
     /**
      * 
      * @param {string} groupName 
      * @param {Timeline} timeline 
      */
-    Init(groupName, timeline)
+    Init(groupName, timeline, initialColumn)
     {
         this.groupName=groupName;
+        this.columnNumber = initialColumn;
         this.CreateDOMElement(timeline);
+
     }
 
     /**
@@ -341,8 +344,25 @@ class TimelineColumnWidget
             // domElement.appendChild(newLabel);
 
         }
-        // add to the document
-        timeline.tableDom.appendChild(this.domElement);
+        // add to the document (use the container element of the table which allows overflow)
+        timeline.containerDom.parentNode.appendChild(this.domElement); 
+        // get timeline window position
+        const rect = timeline.containerDom.getBoundingClientRect();
+
+        //set position of widget
+        this.domElement.style.top = rect.top + "px" - this.domElement.style.height;
+        //position centeres above relevant column
+        this.domElement.style.left = (
+            rect.left 
+            + (rect.width/3)*this.columnNumber    // center on column
+            //+ rect.width/6 - this.domElement.style.width/2 // center widget
+             ) 
+            + "px";
+
+        //this.domElement.style.width = rect.width/3 + "px";
+
+       // timeline.containerDom.appendChild(this.domElement); 
+       // timeline.tableDom.appendChild(this.domElement); 
     }
 
 }
@@ -379,9 +399,25 @@ class Timeline {
     lockOffset=0;
     lockScaleOffset=0;
 
+    /**
+     * @type {HTMLDivElement}
+     */
+    tableDom;
+    
+    /**
+     * @type {HTMLDivElement}
+     */
+    containerDom;
+
+    /**
+     * 
+     * @param {HTMLDivElement} tableDom 
+     * @param {number} timelineIndex 
+     */
     constructor(tableDom, timelineIndex)
     {
         this.tableDom = tableDom; //TODO replace all references to getElementbyID("mainTable")
+        this.containerDom = tableDom.parentNode;
         this.timelineIndex = timelineIndex;
 
         this.currentYearLabelDom = document.getElementById("currentYearLabel" + timelineIndex);
@@ -509,7 +545,7 @@ class Timeline {
 
         // make a widget for the selected column
         var newWidget =  new TimelineColumnWidget();
-        newWidget.Init(jsonObj.category, this);
+        newWidget.Init(jsonObj.category, this, currentColumn);
     
         for(let i=0; i<jsonObj.eventlist.length; i++)
         {
