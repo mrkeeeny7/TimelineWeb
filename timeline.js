@@ -346,23 +346,25 @@ class TimelineColumnWidget
         }
         // add to the document (use the container element of the table which allows overflow)
         timeline.containerDom.parentNode.appendChild(this.domElement); 
+        // timeline.containerDom.appendChild(this.domElement); 
+        // timeline.tableDom.appendChild(this.domElement); 
+
         // get timeline window position
         const rect = timeline.containerDom.getBoundingClientRect();
 
         //set position of widget
-        this.domElement.style.top = rect.top + "px" - this.domElement.style.height;
+        this.domElement.style.top = rect.top + "px" - this.domElement.getBoundingClientRect().height;
         //position centeres above relevant column
         this.domElement.style.left = (
             rect.left 
             + (rect.width/3)*this.columnNumber    // center on column
-            //+ rect.width/6 - this.domElement.style.width/2 // center widget
+            + rect.width/6 - this.domElement.getBoundingClientRect().width/2 // center widget
              ) 
             + "px";
 
         //this.domElement.style.width = rect.width/3 + "px";
 
-       // timeline.containerDom.appendChild(this.domElement); 
-       // timeline.tableDom.appendChild(this.domElement); 
+        //TODO - make containers ('columnHeaders') for multiple widgets and arrange them within this box
     }
 
 }
