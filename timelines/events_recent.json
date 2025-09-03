@@ -547,7 +547,7 @@
 		{		"name" : "Hatshepsut", "birthDateString" : "1505 BC", "deathDateString" : "1458 BC" , "ruled" : ["1479 BC", "1458 BC"]			},
 		{		"name" : "Thutmose III", "birthDateString" : "1481 BC", "deathDateString" : "1425 BC" , "ruled" : ["1479 BC", "1425 BC"]			},
 		{		"name" : "Akhenaten", "birthDateString" : "1374 BC", "deathDateString" : "1336 BC" , "ruled" : ["1353 BC", "1336 BC"]			},
-		{		"name" : "Tutankhamun", "birthDateString" : "1341 BC", "deathDateString" : "1323 BC" , "ruled" : ["1332 BC", "1323 BC"]			},
+		{		"name" : "Tutankhamun", "birthDateString" : "c. 1341 BC", "deathDateString" : "1323 BC" , "ruled" : ["1332 BC", "1323 BC"]			},
 		{		"name" : "Seti I", "birthDateString" : "c. 1319 BC", "deathDateString" : "1279 BC" , "ruled" : ["1294 BC", "1279 BC"]			},
 		{		"name" : "Rameses II", "birthDateString" : "c. 1303 BC", "deathDateString" : "1213 BC" , "ruled" : ["1279 BC", "1213 BC"]			},
 		{		"name" : "Rameses III", "birthDateString" : "1217 BC", "deathDateString" : "1155 BC" , "ruled" : ["1186 BC", "1155 BC"]			},
