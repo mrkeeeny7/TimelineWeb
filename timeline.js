@@ -58,6 +58,11 @@ class PersonData
     deathYear;
 
     /**
+     * @type {boolean}
+     */
+    ageIsAppox;
+
+    /**
      * @type {number[]}
      * array of dates corresponding to the time this person was a 'ruler', if any
      */
@@ -73,16 +78,13 @@ class PersonData
         this.birthDateString    = personDataJSObj.birthDateString;
         this.deathDateString    = personDataJSObj.deathDateString;
 
-        this.birthYear = dateIntGregorian(this.birthDateString);
+        var birthYearObj = unpackDateString(this.birthDateString);
+        this.birthYear = birthYearObj.date;
+        this.ageIsAppox = birthYearObj.isApprox;
 
-        if(this.deathDateString!= undefined)
-        {
-            this.deathYear = dateIntGregorian(this.deathDateString);
-        }
-        else
-        {
-            this.deathYear = undefined;
-        }
+        this.deathYear = unpackDateString(this.deathDateString).date;
+
+       
 
         if(personDataJSObj.ruled != undefined )
         {
@@ -95,7 +97,7 @@ class PersonData
                 }
                 else
                 {
-                    this.ruled[i] = dateIntGregorian(personDataJSObj.ruled[i]);
+                    this.ruled[i] = unpackDateString(personDataJSObj.ruled[i]).date;
                 }
             }
         }
@@ -123,7 +125,43 @@ class PersonData
      */
     aliveInYear(yearInt)
     {
+        //birth year unknown
+        if(this.birthYear==undefined)
+        {
+            if(this.isRuling(yearInt))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        //default - birth year known
         return yearInt >= this.birthYear && (yearInt <= this.deathYear || this.deathYear==undefined );
+    }
+
+    /**
+     * 
+     * @param {number} yearInt year in whole number form
+     * @returns {boolean} whether this person is ruling in given year
+     */
+    isRuling(yearInt)
+    {
+        var start, end;
+        let i=0;
+        while(i<this.ruled.length)
+        {
+            //read next pair of values from the array
+            start = this.ruled[i++];
+            end = this.ruled[i++]; //should be undefined if we run past the end of the array
+            if(start <= yearInt && (end >= yearInt || end == undefined))
+            {
+                //person did rule in current year
+                return true;
+            }
+        }
+        return false; //default return false
     }
 
 }
@@ -215,8 +253,23 @@ class PersonListSorted {
     PersonStringHTML(person, dateNumber)
     {           
         var yearInt = dateInt(dateNumber); //the current date in whole-years
-        var age = Math.floor(person.ageAtYear(yearInt));
-        var textline = age + " years: " + person.name;
+
+        var textline="";
+        if(person.birthYear != undefined)
+        {
+            var age = Math.floor(person.ageAtYear(yearInt));
+            textline = age + " years: " + person.name;
+            if(person.ageIsAppox)
+            {
+                //add approx qualifier
+                 textline = "~" + textline;
+            }
+          
+        }
+        else
+        {
+            textline = "Unknown age: " + person.name;
+        }
 
         //italic if in death year
         if(person.deathYear != undefined && yearInt == person.deathYear)
@@ -238,22 +291,9 @@ class PersonListSorted {
                 textline = "<b>" + textline + "</b>";
             }*/
 
-            var start, end;
-            let i=0;
-            while(i<person.ruled.length)
-            {
-                //read next pair of values from the array
-                start = person.ruled[i++];
-                end = person.ruled[i++]; //should be undefined if we run past the end of the array
-                if(start <= yearInt && (end >= yearInt || end == undefined))
-                {
-                    //person did rule in current year
-                    //make line bold
-                    textline = "<b>" + textline + "</b>";
-
-                    //stop searching array
-                    break;
-                }
+            if(person.isRuling(yearInt))
+            {                
+                 textline = "<b>" + textline + "</b>";
             }
         }
 
@@ -554,7 +594,7 @@ class Timeline {
             var jsonEventObj = jsonObj.eventlist[i];        
             var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
     
-            eventDate = dateIntGregorian(jsonEventObj.dateString) ; //convert to numerical (so can sort, among other things)
+            eventDate = unpackDateString(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things)
             
             /*if(jsonEventObj.endDateString == undefined)
             {
@@ -659,7 +699,7 @@ class Timeline {
 
         if(jsonObj.defaultDateString != undefined)
         {
-            var defaultDate = dateIntGregorian(jsonObj.defaultDateString);
+            var defaultDate = unpackDateString(jsonObj.defaultDateString).date;
             this.SetCurrentYear(defaultDate);
         }
 
@@ -1102,7 +1142,7 @@ function updateYearInput()
 function submitYearInput()
 {
     var yearInputDOM = document.getElementById("yearInput");
-    mainTimeline.SetCurrentYear(dateIntGregorian(yearInputDOM.value));
+    mainTimeline.SetCurrentYear(unpackDateString(yearInputDOM.value).date);
 }
 
 function initTimelines()
@@ -1201,17 +1241,13 @@ function datePresentDay()
  */
 function dateIntIfDefined(dateString, backup)
 {
-    if(dateString == "PRESENTDAY")
-    {
-        return datePresentDay();
-    }
     if(dateString == undefined)
     {
         return backup;
     }
     else
     {
-        return dateIntGregorian(dateString);
+        return unpackDateString(dateString).date;
     }
 }
 
@@ -1220,25 +1256,48 @@ function dateIntIfDefined(dateString, backup)
  * create date int from string in format "[year]" or "[year] BC"
  * 
  * @param {string} dateString the input string 
- * @returns {number} the year as an integer
+ * @returns {{date: number | undefined, isApprox: boolean}} the year as an integer and whether it is approximate
  */
-function dateIntGregorian(dateString)
+function unpackDateString(dateString)
 {
-    if(dateString == "PRESENTDAY")
-    {
-        return datePresentDay();
-    }
+    var isApprox = false;
+    var dateInt; //return value
 
-//    var tokens = dateString.split(" ");
-    var tokens = dateString.match(/\S+/g);
-    if(tokens[1] && tokens[1].toLowerCase() == "bc")
+    if(dateString==undefined)
     {
-        return tokens[0] * -1; //TODO this is temprary - it will cause an off by 1 error when calculating date differences
+        dateInt = undefined;
     }
     else
     {
-        return tokens[0];
+
+        if(dateString == "PRESENTDAY")
+        {
+            return datePresentDay();
+        }
+
+    //    var tokens = dateString.split(" ");
+        var tokens = dateString.match(/\S+/g); //split string by whitespace
+
+        if(tokens[0].toLowerCase() == "c." || tokens[0].toLowerCase() == "c")
+        {
+            //date is approx
+            isApprox = true;
+            tokens=tokens.slice(1); // remove first element from array and continue.
+        }
+
+        if(tokens[1] && tokens[1].toLowerCase() == "bc")
+        {
+            dateInt = tokens[0] * -1; //TODO this is temprary - it will cause an off by 1 error when calculating date differences
+        }
+        else
+        {
+            dateInt = tokens[0];
+        }
     }
+    return {
+        date: dateInt, 
+        isApprox: isApprox
+    };
 }
 
 /**
