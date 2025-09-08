@@ -349,6 +349,8 @@ class TimelineColumnWidget
         // timeline.containerDom.appendChild(this.domElement); 
         // timeline.tableDom.appendChild(this.domElement); 
 
+        //TODO make a box to contain multiple widgets. One box on top of each column ('columnHeader')
+
         // get timeline window position
         const rect = timeline.containerDom.getBoundingClientRect();
 

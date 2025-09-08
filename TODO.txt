@@ -8,7 +8,7 @@ X Show current year prominently and allow to enter a specific year
 X == Person browsing mode: list of persons alive in current year (dynamically updating) + current ages and title
 
  - mouse over persons for more info
- - click persons for exapnded info or wiki page
+ - click persons for expanded info or wiki page
 
 
 
@@ -23,7 +23,7 @@ X == Person browsing mode: list of persons alive in current year (dynamically up
  - left column for 'eras' (Western + others)
  - right, middle for 'empires' (can overlap)
 
-more felixibility in column placement
+more flexibility in column placement
  (arrange into 'threads')
 
 -- Consolidate timelines & set default layout

@@ -629,13 +629,14 @@
 		{		"name" : "Anastasius"	, "birthDateString" : "431", "deathDateString" : "518"					},	
 		{		"name" : "Justinian the Great"	, "birthDateString" : "482", "deathDateString" : "565", "ruled" : ["527", "565"]					},	
 		{		"name" : "Heraclius"	, "birthDateString" : "575", "deathDateString" : "641", "ruled" : ["610", "641"]					},	
+		{		"name" : "Irene of Athens"	, "birthDateString" : "750", "deathDateString" : "803", "ruled" : ["792", "802"]		},	
+		{		"name" : "Basil I the Macedonian"	, "birthDateString" : "811", "deathDateString" : "886", "ruled" : ["867", "886"]		},	
 
 
 		{		"name" : "Pope Gregory the Great"	, "birthDateString" : "540", "deathDateString" : "604", "ruled" : ["590", "604"]		},
 		{		"name" : "Khosrow II"	, "birthDateString" : "570", "deathDateString" : "628", "ruled" : ["590", "628"]		},	
 		{		"name" : "Emperor Taizong"	, "birthDateString" : "598", "deathDateString" : "649", "ruled" : ["626", "649"]		},
 		{		"name" : "Harun al-Rashid"	, "birthDateString" : "763", "deathDateString" : "809", "ruled" : ["786", "809"]		},
-		{		"name" : "Irene of Athens"	, "birthDateString" : "750", "deathDateString" : "803", "ruled" : ["792", "802"]		},	
 		{		"name" : "Charlemagne"	, "birthDateString" : "748", "deathDateString" : "814", "ruled" : ["768", "814"]		},	
 
 
@@ -648,7 +649,7 @@
 		{		"name" : "Guyuk Khan", "birthDateString" : "1206", "deathDateString" : "1248"	, "ruled" : ["1246", "1248"]			},
 		{		"name" : "Mongke Khan", "birthDateString" : "1209", "deathDateString" : "1259"	, "ruled" : ["1251", "1259"]			},
 		{		"name" : "Kublai Khan", "birthDateString" : "1215", "deathDateString" : "1294"	, "ruled" : ["1260", "1294"]			},
-		{		"name" : "Saladin", "birthDateString" : "1137", "deathDateString" : "1193"				},
+		{		"name" : "Saladin", "birthDateString" : "1137", "deathDateString" : "1193"	, "ruled" : ["1174", "1193"]			},
 		{		"name" : "Marco Polo", "birthDateString" : "1254", "deathDateString" : "1324"				},
 		{		"name" : "Osman I", "birthDateString" : "1254", "deathDateString" : "1323"				},
 		{		"name" : "Timur", "birthDateString" : "1320", "deathDateString" : "1405"				},
@@ -678,6 +679,8 @@
 		{		"name" : "Henry Morgan", "birthDateString" : "1635", "deathDateString" : "1688"				},
 		{		"name" : "Daniel Defoe", "birthDateString" : "1660", "deathDateString" : "1731"				},
 		{		"name" : "Blackbeard", "birthDateString" : "1680", "deathDateString" : "1718"				},
+		
+		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850"				},
 		{		"name" : "Nicolaus Copernicus", "birthDateString" : "1473", "deathDateString" : "1543"				},
 		{		"name" : "Johannes Kepler", "birthDateString" : "1571", "deathDateString" : "1630"				},
 		{		"name" : "Galileo Galilei", "birthDateString" : "1564", "deathDateString" : "1642"				},
@@ -685,6 +688,7 @@
 		{		"name" : "Charles Darwin", "birthDateString" : "1809", "deathDateString" : "1882"				},
 		{		"name" : "Charles Dickens", "birthDateString" : "1812", "deathDateString" : "1870"				},
 		{		"name" : "Albert Einstein", "birthDateString" : "1879", "deathDateString" : "1955"				},
+		
 		{		"name" : "Emperor Franz Joseph I", "birthDateString" : "1830", "deathDateString" : "1916"	, "ruled" : ["1848", "1916"]			},
 		{		"name" : "Captain Cook", "birthDateString" : "1728", "deathDateString" : "1779"				},
 		{		"name" : "Ivan the Terrible", "birthDateString" : "1530", "deathDateString" : "1584"				},
@@ -752,6 +756,7 @@
 		{		"name" : "Harald Hardrada", "birthDateString" : "1015", "deathDateString" : "1066"	, "ruled" : ["1046", "1066"]			},
 		{		"name" : "Harold Godwinson", "birthDateString" : "1022", "deathDateString" : "1066"	, "ruled" : ["1066", "1066"]			},
 		
+		{		"name" : "Kenneth MacAlpin", "birthDateString" : "810", "deathDateString" : "858"	, "ruled" : ["841", "858"]			},
 		{		"name" : "Macbeth", "birthDateString" : "1005", "deathDateString" : "1057"	, "ruled" : ["1040", "1057"]			},
 		{		"name" : "William Wallace", "birthDateString" : "1270", "deathDateString" : "1305"	, "ruled" : ["1297", "1298"]			},
 		{		"name" : "Robert the Bruce", "birthDateString" : "1274", "deathDateString" : "1329"	, "ruled" : ["1306", "1329"]			},
