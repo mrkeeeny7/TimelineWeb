@@ -385,7 +385,7 @@ class TimelineColumnWidget
 
         }
         // add to the document (use the container element of the table which allows overflow)
-        timeline.containerDom.parentNode.appendChild(this.domElement); 
+        timeline.containerDom.parentNode.appendChild(this.domElement); //append to the 'mainBar' element
         // timeline.containerDom.appendChild(this.domElement); 
         // timeline.tableDom.appendChild(this.domElement); 
 
@@ -460,7 +460,17 @@ class Timeline {
      */
     constructor(tableDom, timelineIndex)
     {
+        /**
+         * 
+         * @type {HTMLDivElement}
+         * e.g. "mainTable"
+         */
         this.tableDom = tableDom; //TODO replace all references to getElementbyID("mainTable")
+        /**
+         * 
+         * @type {HTMLDivElement}
+         * e.g. the "tableContainer"
+         */
         this.containerDom = tableDom.parentNode;
         this.timelineIndex = timelineIndex;
 
@@ -1225,7 +1235,7 @@ function loadJSON(jsonfile, onFinishCallback, targetTimeline)
 
 /**
  * 
- * @returns the current, real-world year (UTC)
+ * @returns {number} the current, real-world year (UTC)
  */
 function datePresentDay()
 {
@@ -1268,14 +1278,14 @@ function unpackDateString(dateString)
     if(dateString==undefined)
     {
         dateInt = undefined;
+    } 
+    else if(dateString == "PRESENTDAY")
+    {
+        dateInt = datePresentDay();
+        isApprox = false;
     }
     else
-    {
-
-        if(dateString == "PRESENTDAY")
-        {
-            return datePresentDay();
-        }
+    {        
 
     //    var tokens = dateString.split(" ");
         var tokens = dateString.match(/\S+/g); //split string by whitespace
