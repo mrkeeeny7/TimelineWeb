@@ -25,10 +25,7 @@
             <!-- row 2 -->
             <div id="controlsBar">   
                 <div class="controls">                        
-                    <label for="timelineSelect">Select timeline:</label>
-                    <select class="tlDropDown" id="timelineSelect" name="timelineSelect" targetTimeline=0 onchange="timelineSelectorChanged(0, this.value)">
-                        <!-- options to be added by script -->
-                    </select> 
+
                     
                     <label for="yearInput">Year:</label>
                     <input type="text" id="yearInput" name="yearInput" onchange="submitYearInput()">
@@ -42,7 +39,7 @@
                 </div>   
                 <div class="controls">   
 
-                    <label for="timelineSelect2">Select timeline:</label>
+                    <!--<label for="timelineSelect2">Select timeline:</label>-->
                     <select class="tlDropDown" id="timelineSelect2" name="timelineSelect" targetTimeline=1 onchange="timelineSelectorChanged(1,this.value)">
                         <option value="volvo">Volvo</option>
                         <option value="saab">Saab</option>
@@ -57,9 +54,20 @@
             <div id="mainBar"> 
 
 
-                <div id="colHeader1" class="tableColumnHeader">COL A</div>
+                <div id="colHeader1" class="tableColumnHeader">
+                    <!--
+                    COL A
+                    <label for="timelineSelect">Select timeline:</label>-->
+                    <select class="tlDropDown" id="timelineSelect" name="timelineSelect" targetTimeline=0 onchange="timelineSelectorChanged(0, this.value)">
+                        <!-- options to be added by script -->
+                    </select> 
+                </div>
                 <div id="colHeader2" class="tableColumnHeader">COL B</div>
                 <div id="colHeader3" class="tableColumnHeader">COL C</div>
+                <div id="colHeader4" class="tableColumnHeader">COL D</div>
+                <div id="colHeader5" class="tableColumnHeader">COL E</div>
+                <div id="colHeader6" class="tableColumnHeader">COL F</div>
+                <div id="colHeader7" class="tableColumnHeader">COL G</div>
                 <div class="tableContainer" id="tableContainerLeft">
                     <div id="mainTable" class="timelineTable" selected=false onwheel="myWheelHandler(event, 0)" onmousedown="timelineMouseDown(event, 0)" onmousemove="timelineMouseMove(event, 0)"
                         onmouseup="timelineMouseUp(0)" onclick="tableClicked(0)">
