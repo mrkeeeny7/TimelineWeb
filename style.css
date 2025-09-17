@@ -11,12 +11,15 @@
     --mediumBG: wheat;
     --mediumrareBG: rgb(253, 246, 231);
     --lightBG: white;
+
+    --buttonColour: lightblue;
+    --buttonTextColour: darkblue;
 }
 
 * {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: var(--darkTextColor);
-    size: 12px;
+    font-size: 16px;
 }
 
 html, body {
@@ -30,14 +33,15 @@ html, body {
 h1 {
     color: var(--darkTextColor);
     text-align: center;
-    size: 24px;
-    padding-top: 24px;
+    font-size: 28px;
+    /*padding-top: 24px;*/
+    padding: auto;
 }
 
 h2 {
     color: var(--darkTextColor);
     text-align: center;
-    size: 18px;
+    font-size: 24px;
     padding-top: 18px;
 }
 
@@ -51,6 +55,7 @@ h2 {
 }
 */
 
+/* top-level container */
 #mainSection {
     background-color: var(--lightBG);
     margin-left: 100px;
@@ -60,6 +65,10 @@ h2 {
     /*position: fixed;
     width: 80%;*/
 
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 10% 80%;
+
     width: auto;
     height: 90%;
 }
@@ -67,26 +76,95 @@ h2 {
 #headerBar {
 
     width: 100%;
-    height: 15%;
+    height: 100%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: blue;
 }
 #mainBar {
     
     width: 100%;
-    height: 85%;
-    display: flex;   
-    flex-direction: row; 
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    grid-template-rows: 60px auto; /* colHeader and timelineTable */
+
+    /*display: flex;   
+    flex-direction: row;
+    */ 
 }
+
+#controlsBar
+{
+
+    margin: auto;
+    width: 100%;
+    height: 100%;
+   /* display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    */
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: blue;
+}
+
+
+.controls
+{
+    
+    border-width: 2px;
+    border-style: solid;
+    border-color: blue;
+}
+
 
 .tableContainer {
     margin: auto;
     position: relative;
-    width: 40%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     overflow:hidden;
+
+    /*display: flex;*/
 
     border-width: 2px;
     border-style: solid;
     border-color: magenta;
+}
+.tableColumnHeader {
+    margin: 0px;
+    /*position: absolute;*/
+    width: 100%;
+    height: 100%;
+    top: 0;
+   /* height: 90%;*/
+    overflow:hidden;
+
+    /* content elemetns layout */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+    column-gap: 2px;
+
+    /* debug */
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(0, 225, 255);
+}
+
+#colHeader1{
+    left: 0%;
+}
+#colHeader2{
+    left: 33.33% ;
+}
+#colHeader3{
+    left: 66.67%;
 }
 
 .timelineTable {
@@ -113,6 +191,16 @@ h2 {
     border-color: var(--markerLineColor);
 
 }
+
+select {
+  padding: 4px;
+  border: none;
+  border-radius: 4px;
+  background-color:var(--buttonColour);
+  color: var(--buttonTextColour);
+  border-color: var(--buttonTextColour);
+}
+
 #centerFrame {    
     margin: auto;
     padding: 0px;
@@ -122,7 +210,7 @@ h2 {
     position: relative;
 
     overflow:visible; /* so the overflow of sub windows should be visible or the calculations are off */
-    width: 15%;
+    width: 100%;
     height: 90%;
 
     border-width: 0px;
@@ -288,29 +376,6 @@ h2 {
     opacity: 0.9;
 }
 
-.controlsContainer
-{
-
-    margin: auto;
-    width: 90%;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-   /* border-width: 2px;
-    border-style: solid;
-    border-color: blue;*/
-}
-
-/*
-.controls
-{
-    
-    border-width: 2px;
-    border-style: solid;
-    border-color: blue;
-}
-*/
-
 .eventBubble {
    /* margin-left: 100px;*/
     margin-top: -22px; /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
@@ -468,16 +533,17 @@ h2 {
     margin-bottom: 10px;
     */
     padding: 2px;
+    /*margin: 2px 0px 0px 2px;*/ /*use flexbox gap in container */
 
-    position: absolute;
+    /*position: relative;*/
     /*top: -10px;
     left: 20px;
     */z-index: 2;
     
-    /*width: max-content;*/
-   /* height: 20px;*/
-    background-color: lightblue;
-    color: darkblue;
+    width: max-content;
+    height: 20px;
+    background-color: var(--buttonColour);
+    color: var(--buttonTextColour);
     opacity: 0.8;
 
     /* text */

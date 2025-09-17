@@ -385,7 +385,8 @@ class TimelineColumnWidget
 
         }
         // add to the document (use the container element of the table which allows overflow)
-        timeline.containerDom.parentNode.appendChild(this.domElement); //append to the 'mainBar' element
+        document.getElementById("colHeader1").appendChild(this.domElement); //append to the 'mainBar' element
+        //timeline.containerDom.parentNode.appendChild(this.domElement); //append to the 'mainBar' element
         // timeline.containerDom.appendChild(this.domElement); 
         // timeline.tableDom.appendChild(this.domElement); 
 
