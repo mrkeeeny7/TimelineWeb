@@ -89,9 +89,21 @@ select {
     /*position: fixed;
     width: 80%;*/
 
-    display: grid;
+   /* display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 10% 10% 80%;
+    grid-template-rows: 10% 7% 83%;
+    */
+     /*header controls mainBar */
+    
+    display: grid;
+    grid-template-columns: 13.33% 13.33% 13.33% auto 13.33% 13.33% 13.33% ;
+    grid-template-rows: 60px 60px 60px auto; /* header, controls, colHeader and timelineTable */
+    grid-template-areas: 
+    "mainHeader mainHeader mainHeader mainHeader mainHeader mainHeader mainHeader" 
+    "controlsL controlsL controlsL . controlsR controlsR controlsR"
+    "colHeaderA colHeaderB colHeaderC colHeaderD colHeaderE colHeaderF colHeaderG"
+    "timelineA timelineA timelineA centerFrame timelineB timelineB timelineB" ;
+    justify-items: center;
 
     width: auto;
     height: 90%;
@@ -99,13 +111,20 @@ select {
 
 #headerBar {
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     height: 100%;
     border-width: 2px;
     border-style: solid;
     border-color: blue;
+    grid-area: mainHeader;
+
 }
-#mainBar {
+
+#mainBar { /* disabled */
     
     width: 100%;
     height: 100%;
@@ -133,20 +152,39 @@ select {
     flex-direction: row;
     justify-content: space-evenly;
     */
-    display: grid;
+   
+/* display: grid;
     grid-template-columns: 40% 20% 40%;
     border-width: 2px;
     border-style: solid;
     border-color: blue;
+*/
+    
+    grid-area: controls;
+
+}
+
+#controlsL {
+    grid-area: controlsL
+}
+
+#controlsR {
+    grid-area: controlsR;
 }
 
 
 .controls
 {
+    display: flex;
+    align-items: center;
     
     border-width: 2px;
     border-style: solid;
     border-color: blue;
+}
+
+#yearInput {
+    width: 70px;
 }
 
 
@@ -176,6 +214,8 @@ select {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center; /* rather than left or right */
+    align-items: center; /* rather than top or bottom */
     gap: 2px;
     column-gap: 2px;
 
@@ -186,13 +226,39 @@ select {
 }
 
 #colHeader1{
-    left: 0%;
+   /* left: 0%;*/
+   
+    grid-area: colHeaderA;
+
 }
+
 #colHeader2{
-    left: 33.33% ;
+    /*left: 33.33% ;*/
+    grid-area: colHeaderB;
 }
 #colHeader3{
-    left: 66.67%;
+    /*left: 66.67%;*/
+    grid-area: colHeaderC;
+}
+#colHeader4{
+   /* left: 0%;*/
+   
+    grid-area: colHeaderD;
+
+}
+
+#colHeader5{
+    /*left: 33.33% ;*/
+    grid-area: colHeaderE;
+}
+#colHeader6{
+    /*left: 66.67%;*/
+    grid-area: colHeaderF;
+}
+
+#colHeader7{
+    /*left: 66.67%;*/
+    grid-area: colHeaderG;
 }
 
 .timelineTable {
