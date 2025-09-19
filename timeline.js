@@ -17,6 +17,12 @@ var selectedTimeline = undefined;
 /** @type {boolean} */
 var timelinesLocked=false;
 
+//HTML DOM elements
+/** @type {HTMLElement[]} */
+var colHeaderDOMLeft;
+/** @type {HTMLElement[]} */
+var colHeaderDOMRight;
+
 const MIN_SCALE = 10;        //years
 const MAX_SCALE = 1e10;      //years
 var minZoom = Math.log(MIN_SCALE / 500.0);
@@ -385,7 +391,15 @@ class TimelineColumnWidget
 
         }
         // add to the document (use the container element of the table which allows overflow)
-        document.getElementById("colHeader1").appendChild(this.domElement); //append to the 'mainBar' element
+        if(timeline == mainTimeline) //TODO need a cleaner way to track which timeline is active
+        {
+            colHeaderDOMLeft[this.columnNumber].appendChild(this.domElement); //append to the column header
+        }
+        else
+        {
+            colHeaderDOMRight[this.columnNumber].appendChild(this.domElement); //append to the column header
+        }
+      //  document.getElementById("colHeader1").appendChild(this.domElement);
         //timeline.containerDom.parentNode.appendChild(this.domElement); //append to the 'mainBar' element
         // timeline.containerDom.appendChild(this.domElement); 
         // timeline.tableDom.appendChild(this.domElement); 
@@ -1160,6 +1174,22 @@ function submitYearInput()
 
 function initTimelines()
 {
+    //init variables
+    
+    colHeaderDOMLeft =  [ 
+        document.getElementById("colHeader1"),
+        document.getElementById("colHeader2"),
+        document.getElementById("colHeader3"),
+        //skip 4 (central column)
+    ];    
+    
+    colHeaderDOMRight =  [ 
+        document.getElementById("colHeader5"),
+        document.getElementById("colHeader6"),
+        document.getElementById("colHeader7") 
+    ];
+
+
     mainTimeline = new Timeline(document.getElementById("mainTable"), 0);
     secondTimeline = new Timeline(document.getElementById("secondTable"), 1);
 
