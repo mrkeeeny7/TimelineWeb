@@ -212,6 +212,7 @@ select {
     top: 0;
    /* height: 90%;*/
     overflow:hidden;
+    z-index: 0;
 
     /* content elemetns layout */
     display: flex;
@@ -226,6 +227,13 @@ select {
     border-width: 2px;
     border-style: solid;
     border-color: rgb(0, 225, 255);
+}
+
+.tableColumnHeader:hover {
+    overflow: visible;
+    height:fit-content;
+    min-height: 100%;
+    z-index: 3;
 }
 
 #colHeader1{
