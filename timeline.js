@@ -1321,7 +1321,7 @@ function unpackDateString(dateString)
     //    var tokens = dateString.split(" ");
         var tokens = dateString.match(/\S+/g); //split string by whitespace
 
-        if(tokens[0].toLowerCase() == "c." || tokens[0].toLowerCase() == "c")
+        if(tokens[0].toLowerCase() == "c." || tokens[0].toLowerCase() == "c"|| tokens[0].toLowerCase() == "~")
         {
             //date is approx
             isApprox = true;

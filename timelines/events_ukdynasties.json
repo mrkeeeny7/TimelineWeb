@@ -5,14 +5,46 @@
 	"tags" : ["ukdynasty"],
 	"eventlist" : [
 
-		{
-			"title" : "Britain",
-			"dateString" : "43 AD",
-			"endDateString" : "2021",
-			"minScale" : 5000,
-			"maxScale" : 50000,
-			"type" : "era"
-		},
+	{
+		"title" : "Mesolithic Britain",
+		"dateString" : "~ 10000 BC",
+		"endDateString" : "~ 4500 BC",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Neolithic Britain",
+		"dateString" : "~ 4500 BC",
+		"endDateString" : "~ 2500 BC",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Bronze Age Britain",
+		"dateString" : "~ 2500 BC",
+		"endDateString" : "~ 800 BC",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Iron Age Britain",
+		"dateString" : "~ 800 BC",
+		"endDateString" : "43 AD",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Britain",
+		"dateString" : "43 AD",
+		"endDateString" : "2021",
+		"minScale" : 5000,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
 		{
 			"title" : "Roman Britain",
 			"dateString" : "43 AD",
@@ -21,156 +53,225 @@
 			"maxScale" : 5000,
 			"type" : "era"
 		},
-	{
-		"title" : "Sub-Roman Britain",
-		"dateString" : "410 AD",
-		"endDateString" : "597 AD",
-		"minScale" : 1,
-		"maxScale" : 5000,
-		"type" : "era"
-	},
-	{
-		"title" : "Heptarchy",
-		"dateString" : "597 AD",
-		"endDateString" : "927 AD",
-		"minScale" : 1,
-		"maxScale" : 5000,
-		"type" : "era"
-	},
-	{
-		"title" : "Kingdom of England",
-		"dateString" : "927 AD",
-		"endDateString" : "1707",
-		"minScale" : 1001,
-		"maxScale" : 5000,
-		"type" : "era"
-	},
-	{
-		"title" : "United Kingdom",
-		"dateString" : "1707",
-		"endDateString" : "2021",
-		"minScale" : 1001,
-		"maxScale" : 5000,
-		"type" : "era"
-	},
-	
-	{
-		"title" : "House of Wessex",
-		"dateString" : "927",
-		"endDateString" : "1066",
-		"maxScale" : 1000,
-		"type" : "era",
+		{
+			"title" : "Sub-Roman Britain",
+			"dateString" : "410 AD",
+			"endDateString" : "597 AD",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Heptarchy",
+			"dateString" : "597 AD",
+			"endDateString" : "927 AD",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Kingdom of England",
+			"dateString" : "927 AD",
+			"endDateString" : "1707",
+			"minScale" : 1001,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "United Kingdom",
+			"dateString" : "1707",
+			"endDateString" : "2021",
+			"minScale" : 1001,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		
+		{
+			"title" : "House of Wessex",
+			"dateString" : "927",
+			"endDateString" : "1066",
+			"maxScale" : 1000,
+			"type" : "era",
 
-		"comment" : "House of Wessex dates from 829, but Kingdom of England from 927; hence later date is used"
-	},
-	
-	{
-		"title" : "House of Normandy",
-		"dateString" : "1066",
-		"endDateString" : "1154",
-		"maxScale" : 1000,
-		"type" : "era"
-	},
-	{
-		"title" : "House of Plantagenet",
-		"dateString" : "1154",
-		"endDateString" : "1485",
-		"minScale" : 501,
-		"maxScale" : 1000,
-		"type" : "era"
-	},
-	{
-		"title" : "Angevins",
-		"dateString" : "1154",
-		"endDateString" : "1216",
-		"minScale" : 1,
-		"maxScale" : 500,
-		"type" : "era"
-	},
-	{
-		"title" : "Plantagenets",
-		"dateString" : "1216",
-		"endDateString" : "1399",
-		"maxScale" : 500,
-		"type" : "era"
-	},
-	{
-		"title" : "Lancastrians",
-		"dateString" : "1399",
-		"endDateString" : "1471",
-		"maxScale" : 500,
-		"type" : "era"
-	},
-	{
-		"title" : "Yorkists",
-		"dateString" : "1461",
-		"endDateString" : "1485",
-		"maxScale" : 500,
-		"type" : "era"
-	},
+			"comment" : "House of Wessex dates from 829, but Kingdom of England from 927; hence later date is used"
+		},
+		
+		{
+			"title" : "House of Normandy",
+			"dateString" : "1066",
+			"endDateString" : "1154",
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
+			"title" : "House of Plantagenet",
+			"dateString" : "1154",
+			"endDateString" : "1485",
+			"minScale" : 501,
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
+			"title" : "Angevins",
+			"dateString" : "1154",
+			"endDateString" : "1216",
+			"minScale" : 1,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Plantagenets",
+			"dateString" : "1216",
+			"endDateString" : "1399",
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Lancastrians",
+			"dateString" : "1399",
+			"endDateString" : "1471",
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Yorkists",
+			"dateString" : "1461",
+			"endDateString" : "1485",
+			"maxScale" : 500,
+			"type" : "era"
+		},
+
+		{
+			"title" : "House of Tudor",
+			"dateString" : "1485",
+			"endDateString" : "1603",
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
+			"title" : "House of Stuart",
+			"dateString" : "1603",
+			"endDateString" : "1714",
+			"minScale" : 501,
+			"maxScale" : 1000,
+			"type" : "era",
+			"comments": "Large scale"
+		},
+		{
+			"title" : "House of Stuart",
+			"dateString" : "1603",
+			"endDateString" : "1649",
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Commonwealth",
+			"searchstring" : "Commonwealth of England",
+			"dateString" : "1649",
+			"endDateString" : "1660",
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Stuart Restoration",
+			"searchstring" : "The Restoration",
+			"dateString" : "1660",
+			"endDateString" : "1714",
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "House of Hanover",
+			"dateString" : "1714",
+			"endDateString" : "1901",
+			"minScale" : 101,
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
+			"title" : "House of Saxe-Coburg and Gotha",
+			"dateString" : "1901",
+			"endDateString" : "1917",
+			"minScale" : 101,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "House of Windsor",
+			"dateString" : "1917",
+			"endDateString" : "PRESENTDAY",
+			"minScale" : 101,
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+			{
+				"title" : "Georgian Era",
+				"dateString" : "1714",
+				"endDateString" : "c. 1795",
+				"maxScale" : 101,
+				"type" : "era"
+			},
+			{
+				"title" : "Regency Era",
+				"dateString" : "c. 1795",
+				"endDateString" : "1837",
+				"maxScale" : 101,
+				"type" : "era"
+			},
+			{
+				"title" : "Victorian Era (Victoria)",
+				"dateString" : "1837",
+				"endDateString" : "1901",
+				"maxScale" : 101,
+				"type" : "era"
+			},
+			{
+				"title" : "Edwardian Era (Edward VII)",
+				"dateString" : "1901",
+				"endDateString" : "1910",
+				"maxScale" : 101,
+				"type" : "era"
+			},
+			{
+				"title" : "George V",
+				"dateString" : "1910",
+				"endDateString" : "1936",
+				"maxScale" : 101,
+				"type" : "era"
+			},
+			{
+				"title" : "Edward VIII",
+				"dateString" : "1936",
+				"endDateString" : "1936",
+				"maxScale" : 101,
+				"type" : "era"
+			},
+			{
+				"title" : "George VI",
+				"dateString" : "1936",
+				"endDateString" : "1952",
+				"maxScale" : 101,
+				"type" : "era"
+			},
+			{
+				"title" : "Elizabeth II",
+				"dateString" : "1952",
+				"endDateString" : "2022",
+				"maxScale" : 101,
+				"type" : "era"
+			},
+			{
+				"title" : "Charles III",
+				"dateString" : "2022",
+				"endDateString" : "PRESENTDAY",
+				"maxScale" : 101,
+				"type" : "era"
+			},
 
 	{
-		"title" : "House of Tudor",
-		"dateString" : "1485",
-		"endDateString" : "1603",
-		"maxScale" : 1000,
-		"type" : "era"
-	},
-	{
-		"title" : "House of Stuart",
-		"dateString" : "1603",
-		"endDateString" : "1714",
-		"minScale" : 501,
-		"maxScale" : 1000,
-		"type" : "era",
-		"comments": "Large scale"
-	},
-	{
-		"title" : "House of Stuart",
-		"dateString" : "1603",
-		"endDateString" : "1649",
-		"maxScale" : 500,
-		"type" : "era"
-	},
-	{
-		"title" : "Commonwealth",
-		"searchstring" : "Commonwealth of England",
-		"dateString" : "1649",
-		"endDateString" : "1660",
-		"maxScale" : 500,
-		"type" : "era"
-	},
-	{
-		"title" : "Stuart Restoration",
-		"searchstring" : "The Restoration",
-		"dateString" : "1660",
-		"endDateString" : "1714",
-		"maxScale" : 500,
-		"type" : "era"
-	},
-	{
-		"title" : "House of Hanover",
-		"dateString" : "1714",
-		"endDateString" : "1901",
-		"minScale" : 101,
-		"maxScale" : 1000,
-		"type" : "era"
-	},
-	{
-		"title" : "House of Saxe-Coburg and Gotha",
-		"dateString" : "1901",
-		"endDateString" : "1917",
-		"minScale" : 101,
-		"maxScale" : 500,
-		"type" : "era"
-	},
-	{
-		"title" : "House of Windsor",
-		"dateString" : "1917",
-		"endDateString" : "2019",
-		"minScale" : 101,
-		"maxScale" : 1000,
-		"type" : "era"
+		"title" : "Stonehenge",
+		"dateString" : "3100 BC",
+		"maxScale" : 50000
 	},
 
 	{
