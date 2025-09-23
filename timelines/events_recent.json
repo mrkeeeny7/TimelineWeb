@@ -28,7 +28,7 @@
 			"title" : "Middle Ages",
 			"dateString" : "476 AD",
 			"endDateString" : "1492",
-			"minScale" : 501,
+			"minScale" : 2000,
 			"maxScale" : 50000,
 			"type" : "era"
 		},
@@ -163,7 +163,7 @@
 			"dateString" : "1300",
 			"endDateString" : "1492",
 			"minScale" : 1,
-			"maxScale" : 500,
+			"maxScale" : 2000,
 			"type" : "era"
 		},
 		{
@@ -171,7 +171,7 @@
 			"dateString" : "1000",
 			"endDateString" : "1300",
 			"minScale" : 1,
-			"maxScale" : 500,
+			"maxScale" : 2000,
 			"type" : "era"
 		},
 		{
@@ -179,7 +179,7 @@
 			"dateString" : "476",
 			"endDateString" : "1000",
 			"minScale" : 1,
-			"maxScale" : 500,
+			"maxScale" : 2000,
 			"type" : "era"
 		},
 		{
@@ -384,10 +384,10 @@
 			"maxScale" : 100
 		},
 		{
-			"title" : "WWI breaks out",
+			"title" : "The Great War (WWI)",
 			"dateString" : "1914",
 			"minScale" : 1,
-			"maxScale" : 100
+			"maxScale" : 5000
 		},
 		{
 			"title" : "Sinking of Titanic",
@@ -469,7 +469,7 @@
 			"searchstring" : "United States Declaration of Independence",
 			"dateString" : "1776",
 			"minScale" : 1,
-			"maxScale" : 200
+			"maxScale" : 5000
 		},
 		{
 			"title" : "Seven Years' War",
@@ -478,11 +478,17 @@
 			"maxScale" : 200
 		},
 		{
-			"title" : "Jacobite Rising",
-			"searchstring" : "Jacobite rising of 1745",
-			"dateString" : "1745",
+			"title" : "Black Death",
+			"dateString" : "1346",
 			"minScale" : 1,
-			"maxScale" : 200
+			"maxScale" : 5000
+		},
+		{
+			"title" : "First Crusade",
+			"searchstring" : "First Crusade",
+			"dateString" : "1096",
+			"minScale" : 1,
+			"maxScale" : 5000
 		}
 	
 

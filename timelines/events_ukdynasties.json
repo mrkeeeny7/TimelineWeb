@@ -73,7 +73,7 @@
 			"title" : "Kingdom of England",
 			"dateString" : "927 AD",
 			"endDateString" : "1707",
-			"minScale" : 1001,
+			"minScale" : 1000,
 			"maxScale" : 5000,
 			"type" : "era"
 		},
@@ -81,7 +81,7 @@
 			"title" : "United Kingdom",
 			"dateString" : "1707",
 			"endDateString" : "2021",
-			"minScale" : 1001,
+			"minScale" : 1000,
 			"maxScale" : 5000,
 			"type" : "era"
 		},
@@ -107,7 +107,7 @@
 			"title" : "House of Plantagenet",
 			"dateString" : "1154",
 			"endDateString" : "1485",
-			"minScale" : 501,
+			"minScale" : 500,
 			"maxScale" : 1000,
 			"type" : "era"
 		},
@@ -152,7 +152,7 @@
 			"title" : "House of Stuart",
 			"dateString" : "1603",
 			"endDateString" : "1714",
-			"minScale" : 501,
+			"minScale" : 500,
 			"maxScale" : 1000,
 			"type" : "era",
 			"comments": "Large scale"
@@ -184,7 +184,7 @@
 			"title" : "House of Hanover",
 			"dateString" : "1714",
 			"endDateString" : "1901",
-			"minScale" : 101,
+			"minScale" : 500,
 			"maxScale" : 1000,
 			"type" : "era"
 		},
@@ -192,15 +192,15 @@
 			"title" : "House of Saxe-Coburg and Gotha",
 			"dateString" : "1901",
 			"endDateString" : "1917",
-			"minScale" : 101,
-			"maxScale" : 500,
+			"minScale" : 501,
+			"maxScale" : 1000,
 			"type" : "era"
 		},
 		{
 			"title" : "House of Windsor",
 			"dateString" : "1917",
 			"endDateString" : "PRESENTDAY",
-			"minScale" : 101,
+			"minScale" : 500,
 			"maxScale" : 1000,
 			"type" : "era"
 		},
@@ -208,63 +208,64 @@
 				"title" : "Georgian Era",
 				"dateString" : "1714",
 				"endDateString" : "c. 1795",
-				"maxScale" : 101,
+				"maxScale" : 500,
 				"type" : "era"
 			},
 			{
 				"title" : "Regency Era",
 				"dateString" : "c. 1795",
 				"endDateString" : "1837",
-				"maxScale" : 101,
+				"maxScale" : 500,
 				"type" : "era"
 			},
 			{
 				"title" : "Victorian Era (Victoria)",
 				"dateString" : "1837",
 				"endDateString" : "1901",
-				"maxScale" : 101,
+				"maxScale" : 500,
 				"type" : "era"
 			},
 			{
 				"title" : "Edwardian Era (Edward VII)",
 				"dateString" : "1901",
 				"endDateString" : "1910",
-				"maxScale" : 101,
+				"maxScale" : 500,
+				"type" : "era"
+			},
+			{
+				"title" : "Modern Era",
+				"dateString" : "1910",
+				"endDateString" : "PRESENTDAY",
+				"minScale" : 101,
+				"maxScale" : 500,
 				"type" : "era"
 			},
 			{
 				"title" : "George V",
 				"dateString" : "1910",
 				"endDateString" : "1936",
-				"maxScale" : 101,
-				"type" : "era"
-			},
-			{
-				"title" : "Edward VIII",
-				"dateString" : "1936",
-				"endDateString" : "1936",
-				"maxScale" : 101,
+				"maxScale" : 100,
 				"type" : "era"
 			},
 			{
 				"title" : "George VI",
 				"dateString" : "1936",
 				"endDateString" : "1952",
-				"maxScale" : 101,
+				"maxScale" : 100,
 				"type" : "era"
 			},
 			{
 				"title" : "Elizabeth II",
 				"dateString" : "1952",
 				"endDateString" : "2022",
-				"maxScale" : 101,
+				"maxScale" : 100,
 				"type" : "era"
 			},
 			{
 				"title" : "Charles III",
 				"dateString" : "2022",
 				"endDateString" : "PRESENTDAY",
-				"maxScale" : 101,
+				"maxScale" : 100,
 				"type" : "era"
 			},
 
@@ -365,6 +366,14 @@
 	{
 		"title" : "Glorious Revolution",
 		"dateString" : "1688",
+		"maxScale" : 5000
+	},
+
+	{
+		"title" : "Jacobite Rising",
+		"searchstring" : "Jacobite rising of 1745",
+		"dateString" : "1745",
+		"minScale" : 1,
 		"maxScale" : 5000
 	},
 
