@@ -186,7 +186,7 @@ select {
     border-color: blue;*/
 }
 
-#yearInput {
+#yearInput, #scaleInput {
     width: 70px;
 }
 

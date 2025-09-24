@@ -12,7 +12,7 @@
 			"dateString" : "1790",
 			"endDateString" : "2021",
 			
-			"minScale" : 501,
+			"minScale" : 500,
 			"maxScale" : 50000,
 			"type" : "era"
 		},
@@ -20,7 +20,7 @@
 			"title" : "Early Modern",
 			"dateString" : "1492",
 			"endDateString" : "1790",
-			"minScale" : 501,
+			"minScale" : 500,
 			"maxScale" : 50000,
 			"type" : "era"
 		},
@@ -36,7 +36,7 @@
 			"title" : "Classical Antiquity",
 			"dateString" : "800 BC",
 			"endDateString" : "476",
-			"minScale" : 501,
+			"minScale" : 500,
 			"maxScale" : 50000,
 			"type" : "era"
 		},
@@ -312,12 +312,6 @@
 		{
 			"title" : "Cuban Missile Crisis",
 			"dateString" : "1962",
-			"minScale" : 1,
-			"maxScale" : 100
-		},
-		{
-			"title" : "Suez Crisis",
-			"dateString" : "1956",
 			"minScale" : 1,
 			"maxScale" : 100
 		},

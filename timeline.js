@@ -766,7 +766,7 @@ class Timeline {
 
             //1. determine visibility
             let withinVisibleScale=true;
-            if(_tlevent.maxScale > 0 && this.currentScale > _tlevent.maxScale){
+            if(_tlevent.maxScale > 0 && this.currentScale >= _tlevent.maxScale){
                 withinVisibleScale = false;
             }
             if(_tlevent.minScale > 0 && this.currentScale < _tlevent.minScale){
@@ -886,7 +886,11 @@ class Timeline {
         //refresh();
     }
 
-    
+    /**
+     * 
+     * @param {number} newScale the value to set the scale to
+     * @param {boolean} propagate scale all the locked timelines accordingly
+     */
     setCurrentScale(newScale, propagate=true)
     {
         console.log("Setting scale " + newScale);
@@ -913,6 +917,10 @@ class Timeline {
             }
         }
         
+        /* update the HTML field */
+        /* TODO maybe a generic UIChanged() / updateUI() function would clean this up */
+        updateScaleInput();
+        UpdatePersonPanel();
     }
 
     /**
@@ -1013,8 +1021,8 @@ class TimelineEvent {
      * @param {number} deathDate 
      * @param {string} searchstring 
      * @param {string} type 
-     * @param {number} minScale 
-     * @param {number} maxScale 
+     * @param {number} minScale this is a lower bound (inclusive) - event should be visible at this scale and above (if less than maxScale)
+     * @param {number} maxScale this is an upper bound (not inclusive) - event will NOT be visible at this scale or above
      * @param {HTMLDivElement} domElement 
      * @param {HTMLDivElement} lifelineDomElement 
      * @param {number} preferredColumn 
@@ -1170,6 +1178,20 @@ function submitYearInput()
 {
     var yearInputDOM = document.getElementById("yearInput");
     mainTimeline.SetCurrentYear(unpackDateString(yearInputDOM.value).date);
+}
+
+// update the value of the HTML year field
+function updateScaleInput()
+{
+    var dom = document.getElementById("scaleInput");
+    dom.value = mainTimeline.currentScale;
+}
+
+//update the current year FROM the HTML field
+function submitScaleInput()
+{
+    var dom = document.getElementById("scaleInput");
+    mainTimeline.setCurrentScale(dom.value);
 }
 
 function initTimelines()

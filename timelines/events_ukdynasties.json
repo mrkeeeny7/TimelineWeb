@@ -358,6 +358,12 @@
 
 
 	{
+		"title" : "Spanish Armada",
+		"dateString" : "1588",
+		"maxScale" : 5000
+	},
+
+	{
 		"title" : "Execution of Charles I",
 		"dateString" : "1649",
 		"maxScale" : 500
@@ -375,6 +381,62 @@
 		"dateString" : "1745",
 		"minScale" : 1,
 		"maxScale" : 5000
+	},
+
+	{
+		"title" : "Great Exhibition",
+		"dateString" : "1851",
+		"minScale" : 1,
+		"maxScale" : 5000
+	},
+
+	{
+		"title" : "Abdication of Edward VIII",
+		"dateString" : "1936",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+
+	{
+		"title" : "Battle of Britain",
+		"dateString" : "1940",
+		"minScale" : 1,
+		"maxScale" : 5000
+	},
+
+	{
+		"title" : "Suez Crisis",
+		"dateString" : "1956",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+
+	{
+		"title" : "Beatlemania",
+		"dateString" : "1963",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+
+	{
+		"title" : "Bloody Sunday (The Troubles)",
+		"dateString" : "1972",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+
+	{
+		"title" : "7/7 bombings",
+		"dateString" : "2005",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+
+	{
+		"title" : "Brexit referendum",
+		"dateString" : "2016",
+		"minScale" : 1,
+		"maxScale" : 200
 	},
 
 	{
