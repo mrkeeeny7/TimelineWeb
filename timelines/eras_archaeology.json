@@ -10,7 +10,7 @@
 			"title" : "Neolithic",
 			"dateString" : "10000 BC",
 			"endDateString" : "4500 BC",
-			"minScale" : 5000,
+			"minScale" : 1,
 			"maxScale" : 50000,
 			"type" : "era"
 		},
@@ -18,7 +18,7 @@
 			"title" : "Chalcolithic",
 			"dateString" : "4500 BC",
 			"endDateString" : "3300 BC",
-			"minScale" : 5000,
+			"minScale" : 1,
 			"maxScale" : 50000,
 			"type" : "era"
 		},
@@ -26,7 +26,7 @@
 			"title" : "Bronze Age",
 			"dateString" : "3300 BC",
 			"endDateString" : "1200 BC",
-			"minScale" : 5000,
+			"minScale" : 1,
 			"maxScale" : 50000,
 			"type" : "era"
 		},
@@ -34,38 +34,11 @@
 			"title" : "Iron Age",
 			"dateString" : "1200 BC",
 			"endDateString" : "550 BC",
-			"minScale" : 5000,
-			"maxScale" : 50000,
-			"type" : "era"
-		},
-
-
-		{
-			"title" : "Middle Ages",
-			"dateString" : "477",
-			"endDateString" : "1453",
-			"minScale" : 5000,
-			"maxScale" : 50000,
-			"type" : "era"
-		},
-		{
-			"title" : "Early Modern Age",
-			"searchstring" : "Early modern period",
-			"dateString" : "1454",
-			"endDateString" : "1789",
-			"minScale" : 5000,
-			"maxScale" : 50000,
-			"type" : "era"
-		},
-		{
-			"title" : "Modern Age",
-			"searchstring" : "Modern history",
-			"dateString" : "1790",
-			"endDateString" : "2019",
-			"minScale" : 5000,
+			"minScale" : 1,
 			"maxScale" : 50000,
 			"type" : "era"
 		}
+
 	
 
 ] }

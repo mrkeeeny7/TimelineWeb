@@ -3,6 +3,9 @@
 //var tlEvents = [];
 //var currentSelectedEvent;
 
+//timeline files
+var jsonFileQueue = [];
+
 /** @type {Timeline} */
 var mainTimeline = undefined;
 /** @type {Timeline} */
@@ -1122,7 +1125,7 @@ function clearSelectedTimeline()
 function loadSelectorOptions()
 {
     console.log("Loading selector options");
-    loadJSON(TIMELINES_SELECTOR_FILE, createAllSelectorOptions);
+    readJSONFile(TIMELINES_SELECTOR_FILE, createAllSelectorOptions);
 }
 
 function createAllSelectorOptions(jsonObj)
@@ -1170,6 +1173,7 @@ function updateYearInput()
 {
     var yearInputDOM = document.getElementById("yearInput");
   //  yearInputDOM.value = dateString(mainTimeline.currentYear);
+
     yearInputDOM.value = dateGregorian(mainTimeline.currentYear);
 }
 
@@ -1184,7 +1188,10 @@ function submitYearInput()
 function updateScaleInput()
 {
     var dom = document.getElementById("scaleInput");
-    dom.value = mainTimeline.currentScale;
+   // const formattedNumberEN = new Intl.NumberFormat('fr-FR').format(mainTimeline.currentScale);
+    const formattedNumberEN = new Intl.NumberFormat('en-US').format(mainTimeline.currentScale);
+
+    dom.value = formattedNumberEN;
 }
 
 //update the current year FROM the HTML field
@@ -1235,8 +1242,16 @@ function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentr
     targetTimeline.clearEventSelection();
 
     console.log("Loading from " + timelineFile);
-    loadJSON(timelineFile, loadBubbles, targetTimeline);
+    readJSONFile(timelineFile, loadTimelineFromJSON, targetTimeline);
 
+   /* jsonFileQueue.push(timelineFile); //add the first file to the queue. Included files will subsequently be added
+    while(jsonFileQueue.length > 0) //process the queue
+    {
+        let tf = jsonFileQueue.pop();
+        console.log("Loading from " + tf);
+        readJSONFile(tf, loadTimelineFromJSON, targetTimeline);
+    }
+*/
 }
 
 /**
@@ -1246,9 +1261,23 @@ function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentr
  * @param {Object} jsonObj the JSON data
  * @param {Timeline} targetTimeline the Timeline to load the data into
  */
-function loadBubbles(jsonObj, targetTimeline)
+function loadTimelineFromJSON(jsonObj, targetTimeline)
 {
+    //load events from this JSON file
     targetTimeline.createEventBubbles(jsonObj, false);
+
+    //load the included files
+    for(let i=0; i<jsonObj.includefiles.length; i++)
+    {
+        //read the included timeline file
+       //readJSONFile(jsonObj.includefiles[i], loadTimelineFromJSON, targetTimeline);
+
+       //add the included file to the load queue
+       //jsonFileQueue.push(jsonObj.includefiles[i]);
+
+       //load the next timeline
+       loadTimeline(jsonObj.includefiles[i], targetTimeline);
+    }
 }
 
 /**
@@ -1259,7 +1288,7 @@ function loadBubbles(jsonObj, targetTimeline)
  * @param {Function} onFinishCallback the function to call when the file has been fetched
  * @param {Timeline} targetTimeline the Timeline to load the data into
  */
-function loadJSON(jsonfile, onFinishCallback, targetTimeline)
+function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
 {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() 

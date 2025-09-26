@@ -6,6 +6,11 @@
 	"defaultScale" : 200,
 	"defaultDateString" : "1800",
 
+	"includefiles" : [
+		"timelines/eras_archaeology.json",
+		"timelines/events_iceage.json"
+	],
+
 	"eventlist" : [
 		{
 			"title" : "Modern",
@@ -34,7 +39,7 @@
 		},
 		{
 			"title" : "Classical Antiquity",
-			"dateString" : "800 BC",
+			"dateString" : "550 BC",
 			"endDateString" : "476",
 			"minScale" : 500,
 			"maxScale" : 50000,
