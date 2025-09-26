@@ -3,52 +3,13 @@
 	"category" : "Rome",
 	"colorString" : "#ff00dd55",
 	"tags" : ["rome"],
-	"defaultScale" : 500,
-	"defaultDateString" : "500 BC",
+	"defaultScale" : 1000,
+	"defaultDateString" : "1 AD",
 
 	"eventlist" : [
 
 	
 	
-	{
-		"title" : "Roman Republic",
-		"dateString" : "509 BC",
-		"endDateString" : "27 BC",
-		"minScale" : 1,
-		"maxScale" : 5000,
-		"type" : "era"
-	},
-	{
-		"title" : "Roman Empire",
-		"dateString" : "27 BC",
-		"endDateString" : "476 AD",
-		"minScale" : 501,
-		"maxScale" : 5000,
-		"type" : "era"
-	},
-	{
-		"title" : "Eastern Empire",
-		"dateString" : "476",
-		"endDateString" : "717 AD",
-		"minScale" : 151,
-		"maxScale" : 5000,
-		"type" : "era"
-	},
-	{
-		"title" : "Byzantine Empire",
-		"dateString" : "717",
-		"endDateString" : "1453 AD",
-		"minScale" : 151,
-		"maxScale" : 5000,
-		"type" : "era"
-	},
-	{
-		"title" : "Twenty Years Anarchy",
-		"dateString" : "695",
-		"endDateString" : "717",
-		"maxScale" : 151,
-		"type" : "era"
-	},
 	{
 		"title" : "Rome",
 		"dateString" : "509 BC",
@@ -65,11 +26,51 @@
 		"maxScale" : 50000,
 		"type" : "era"
 	},
+		{
+			"title" : "Roman Republic",
+			"dateString" : "509 BC",
+			"endDateString" : "27 BC",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Roman Empire",
+			"dateString" : "27 BC",
+			"endDateString" : "476 AD",
+			"minScale" : 500,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+
+		{
+			"title" : "Eastern Empire",
+			"dateString" : "476",
+			"endDateString" : "717 AD",
+			"minScale" : 200,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Byzantine Empire",
+			"dateString" : "717",
+			"endDateString" : "1453 AD",
+			"minScale" : 200,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+	{
+		"title" : "Twenty Years Anarchy",
+		"dateString" : "695",
+		"endDateString" : "717",
+		"maxScale" : 200,
+		"type" : "era"
+	},
 	{
 		"title" : "Roman Empire (Principate)",
 		"dateString" : "27 BC",
 		"endDateString" : "235 AD",
-		"minScale" : 151,
+		"minScale" : 200,
 		"maxScale" : 500,
 		"type" : "era"
 	},
@@ -84,7 +85,7 @@
 		"title" : "Roman Empire (Dominate)",
 		"dateString" : "284",
 		"endDateString" : "476",
-		"minScale" : 151,
+		"minScale" : 200,
 		"maxScale" : 500,
 		"type" : "era"
 	},
@@ -92,56 +93,77 @@
 		"title" : "Julio-Claudian Dynasty",
 		"dateString" : "27 BC",
 		"endDateString" : "69 AD",
-		"maxScale" : 151,
+		"maxScale" : 200,
 		"type" : "era"
 	},
 	{
 		"title" : "Flavian Dynasty",
 		"dateString" : "69 AD",
 		"endDateString" : "96 AD",
-		"maxScale" : 151,
+		"maxScale" : 200,
 		"type" : "era"
 	},
 	{
 		"title" : "Nerva-Antonine Dynasty",
 		"dateString" : "96 AD",
 		"endDateString" : "192 AD",
-		"maxScale" : 151,
+		"maxScale" : 200,
 		"type" : "era"
 	},
 	{
 		"title" : "Severan Dynasty",
 		"dateString" : "193 AD",
 		"endDateString" : "235 AD",
-		"maxScale" : 151,
+		"maxScale" : 200,
 		"type" : "era"
 	},
 	{
 		"title" : "Tetrarchy",
 		"dateString" : "290 AD",
 		"endDateString" : "313 AD",
-		"maxScale" : 151,
+		"maxScale" : 200,
 		"type" : "era"
 	},
 	{
 		"title" : "Constantinian Dynasty",
 		"dateString" : "313 AD",
 		"endDateString" : "363 AD",
-		"maxScale" : 151,
+		"maxScale" : 200,
 		"type" : "era"
 	},
 	{
 		"title" : "Valentinian Dynasty",
 		"dateString" : "364 AD",
 		"endDateString" : "392 AD",
-		"maxScale" : 151,
+		"maxScale" : 200,
 		"type" : "era"
 	},
 	{
-		"title" : "Theodosian Dynasty",
+		"title" : "Valentinian-Theodosian Dynasty",
 		"dateString" : "392 AD",
-		"endDateString" : "455 AD",
-		"maxScale" : 151,
+		"endDateString" : "457 AD",
+		"maxScale" : 200,
+		"type" : "era"
+	},
+	{
+		"title" : "Leonid Dynasty",
+		"dateString" : "457 AD",
+		"endDateString" : "518 AD",
+		"maxScale" : 200,
+		"type" : "era"
+	},
+	{
+		"title" : "Justinian Dynasty",
+		"dateString" : "518 AD",
+		"endDateString" : "602 AD",
+		"maxScale" : 200,
+		"type" : "era"
+	},
+	{
+		"title" : "Heraclian Dynasty",
+		"dateString" : "610 AD",
+		"endDateString" : "711 AD",
+		"maxScale" : 200,
 		"type" : "era"
 	},
 	

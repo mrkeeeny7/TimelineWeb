@@ -3,8 +3,6 @@
 	"category" : "Ice Age",
 	"colorString" : "#00990ff55",
 	"tags" : ["ice age"],
-	"defaultScale" : 1000000,
-	"defaultDateString" : "2586000 BC",
 	"preferredColumn" : 0,
 
 	"eventlist" : [
@@ -127,16 +125,6 @@
 				},
 
 
-				{
-					"title" : "Penultimate Glacial Period",
-					"dateString" : "192000 BC",
-					"endDateString" : "127000 BC",
-					"minScale" : 1,
-					"maxScale" : 500000,
-					"type" : "era",
-					"tags" : ["climate"]
-				},
-
 
 
 		{
@@ -249,4 +237,21 @@
 		}
 
 
-] }
+	] ,
+
+	"obsolete" : [
+		
+
+					{
+						"title" : "Penultimate Glacial Period",
+						"dateString" : "192000 BC",
+						"endDateString" : "127000 BC",
+						"minScale" : 1,
+						"maxScale" : 500000,
+						"type" : "era",
+						"tags" : ["climate"]
+					}
+	]
+
+}
+

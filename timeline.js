@@ -607,6 +607,7 @@ class Timeline {
         if(jsonObj.preferredColumn != undefined)
         {
             currentColumn = Number(jsonObj.preferredColumn);
+            removeItemOnce(this.availableColumns, currentColumn);
             //this.availableColumns.remove(currentColumn)
             //TODO make next available column currentColumn+1 (looping around after max)
         }
@@ -719,7 +720,7 @@ class Timeline {
         }
         //document.getElementById("mainTable").innerHTML = eventsString;
         this.SortEventsList();
-        this.recentreTimeline();
+        //this.recentreTimeline(); //this is conflicting with set default scale (below) when including other json data
 
         if(jsonObj.personlist != undefined)
         {
@@ -1852,12 +1853,44 @@ function tableClicked(timelineIndex)
     }
 }
 
+//helpers
+
 function myLerp(x,y, a)
 {
     return x*(1-a) + y*a;
 }
 
+/**
+ * 
+ * @param {*[]} arr an array
+ * @param {*} value value to be removed from the array
+ * @returns 
+ */
+function removeItemOnce(arr, value) {
+  var index = arr.indexOf(value);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
 
+/**
+ * 
+ * @param {*[]} arr an array
+ * @param {*} value value to be removed from the array
+ * @returns 
+ */
+function removeItemAll(arr, value) {
+  var i = 0;
+  while (i < arr.length) {
+    if (arr[i] === value) {
+      arr.splice(i, 1);
+    } else {
+      ++i;
+    }
+  }
+  return arr;
+}
 /**
  * Bugtracker
  * 
@@ -1865,6 +1898,7 @@ function myLerp(x,y, a)
  * 
  * 2. Lifelines should only appear when big enough to be meaningful
  * 
- * 3. Add num columns to table definition; timeline events can then be assigned a column number. Optional: reserve an 'empty' column on the right for persons
+ * 3. Add num columns to table definition; timeline events can then be assigned a column number. 
+ *      Optional: reserve an 'empty' column on the right for persons
  * 
  */
