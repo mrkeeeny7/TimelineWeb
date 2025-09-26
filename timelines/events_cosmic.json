@@ -2,24 +2,17 @@
  
 	"category" : "Cosmic Eras",
 	"colorString" : "#aa22ff55",
+	"preferredColumn" : 0,
 	"eventlist" : [
 
-		{
-			"title" : "Late Heavy Bombardment",
-			"dateString" : "4100000000 BC",
-			"endDateString" : "3800000000 BC",
-			"minScale" : 500000000,
-			"maxScale" : 50000000000,
-			"type" : "era",
-			"tags" : ["prehistory"]
-		},	
+
 
 
 
 
 	{
 		"title" : "Big Bang",
-		"dateString" : "13800000000 BC",
+		"dateString" : "13787000000 BC",
 		"tags" : ["prehistory"]
 	},
 	{
@@ -30,4 +23,19 @@
 	}
 	
 
-] }
+] ,
+
+
+"obsolete" : [
+			{
+		"title" : "Late Heavy Bombardment",
+		"dateString" : "4100000000 BC",
+		"endDateString" : "3800000000 BC",
+		"minScale" : 500000000,
+		"maxScale" : 50000000000,
+		"type" : "era",
+		"tags" : ["prehistory"]
+	}	
+]
+
+}

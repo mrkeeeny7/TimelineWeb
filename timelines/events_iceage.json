@@ -5,6 +5,7 @@
 	"tags" : ["ice age"],
 	"defaultScale" : 1000000,
 	"defaultDateString" : "2586000 BC",
+	"preferredColumn" : 0,
 
 	"eventlist" : [
 
@@ -50,33 +51,93 @@
 			"type" : "era"
 		},
 		{
-			"title" : "Pleistocene",
+			"title" : "Pleistocene Epoch",
 			"dateString" : "2586000 BC",
 			"endDateString" : "9700 BC",
-			"minScale" : 500000,
+			"minScale" : 10000000,
 			"maxScale" : 50000000,
 			"type" : "era",
 			"tags" : ["geological epochs"]
 		},
-		{
-			"title" : "Holocene",
-			"dateString" : "9700 BC",
-			"endDateString" : "2019",
-			"minScale" : 50000,
-			"maxScale" : 500000,
-			"type" : "era",
-			"tags" : ["geological epochs"]
-		},
+			{
+				"title" : "Gelasian Age",
+				"dateString" : "2586000 BC",
+				"endDateString" : "1800000 BC",
+				"minScale" : 1,
+				"maxScale" : 10000000,
+				"type" : "era",
+				"tags" : ["geological ages"]
+			},
+			{
+				"title" : "Calabrian Age",
+				"dateString" : "1800000 BC",
+				"endDateString" : "774000 BC",
+				"minScale" : 1,
+				"maxScale" : 10000000,
+				"type" : "era",
+				"tags" : ["geological ages"]
+			},
+			{
+				"title" : "Chibanian Age (Middle Pleistocene)",
+				"dateString" : "774000 BC",
+				"endDateString" : "129000 BC",
+				"minScale" : 1,
+				"maxScale" : 10000000,
+				"type" : "era",
+				"tags" : ["geological ages"]
+			},
+			{
+				"title" : "Late Pleistocene",
+				"dateString" : "129000 BC",
+				"endDateString" : "11700 BC",
+				"minScale" : 500000,
+				"maxScale" : 10000000,
+				"type" : "era",
+				"tags" : ["geological ages"]
+			},
 
-		{
-			"title" : "Last Glacial Period",
-			"dateString" : "113000 BC",
-			"endDateString" : "9700 BC",
-			"minScale" : 5000,
-			"maxScale" : 500000,
-			"type" : "era",
-			"tags" : ["climate"]
-		},
+				{
+					"title" : "Holocene Epoch",
+					"dateString" : "9700 BC",
+					"endDateString" : "2019",
+					"minScale" : 50000,
+					"maxScale" : 50000000,
+					"type" : "era",
+					"tags" : ["geological epochs"]
+				},
+
+				{
+					"title" : "Last Glacial Period",
+					"dateString" : "113000 BC",
+					"endDateString" : "9700 BC",
+					"minScale" : 1,
+					"maxScale" : 500000,
+					"type" : "era",
+					"tags" : ["climate"]
+				},
+
+				{
+					"title" : "Last Interglacial",
+					"dateString" : "127000 BC",
+					"endDateString" : "113000 BC",
+					"minScale" : 1,
+					"maxScale" : 500000,
+					"type" : "era",
+					"tags" : ["climate"]
+				},
+
+
+				{
+					"title" : "Penultimate Glacial Period",
+					"dateString" : "192000 BC",
+					"endDateString" : "127000 BC",
+					"minScale" : 1,
+					"maxScale" : 500000,
+					"type" : "era",
+					"tags" : ["climate"]
+				},
+
+
 
 		{
 			"title" : "First Mammoths",

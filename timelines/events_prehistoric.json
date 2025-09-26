@@ -2,6 +2,7 @@
  
 	"category" : "Prehistory",
 	"colorString" : "#aaaaaa55",
+	"preferredColumn" : 0,
 	"tags" : ["prehistory", "geology"],
 	"eventlist" : [
 
@@ -184,20 +185,31 @@
 
 
 		{
-			"title" : "Big Bang",
-			"searchstring" : "Big Bang",
-			"dateString" : "13787000000 BC"
-		},
-		{
 			"title" : "Sun formation",
 			"searchstring" : "Sun forms",
-			"dateString" : "4567000000 BC"
+			"dateString" : "4567000000 BC",
+			"maxScale" : 700000000
 		},
 		{
 			"title" : "Primordial Earth formation",
 			"searchstring" : "Primordial Eath",
-			"dateString" : "4540000000 BC"
+			"dateString" : "4540000000 BC",
+			"maxScale" : 700000000
 		},
+		{
+			"title" : "Moon formation",
+			"searchstring" : "Moon",
+			"dateString" : "4510000000 BC",
+			"maxScale" : 700000000
+		},
+		{
+			"title" : "Late Heavy Bombardment",
+			"dateString" : "4100000000 BC",
+			"maxScale" : 5000000000,
+			"tags" : ["prehistory"]
+	
+		},
+
 		{
 			"title" : "Oceans form on Earth",
 			"searchstring" : "Origin of water on Earth",

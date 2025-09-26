@@ -4,7 +4,7 @@
 //var currentSelectedEvent;
 
 //timeline files
-var jsonFileQueue = [];
+//var jsonFileQueue = [];
 
 /** @type {Timeline} */
 var mainTimeline = undefined;
@@ -604,8 +604,13 @@ class Timeline {
 
          // find an available column for this list
         var currentColumn=0;
-
-        if(this.availableColumns.length > 0)
+        if(jsonObj.preferredColumn != undefined)
+        {
+            currentColumn = Number(jsonObj.preferredColumn);
+            //this.availableColumns.remove(currentColumn)
+            //TODO make next available column currentColumn+1 (looping around after max)
+        }
+        else if(this.availableColumns.length > 0)
         {
             currentColumn = this.availableColumns.pop();
         }
@@ -1237,21 +1242,11 @@ function initTimelines()
  */
 function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentre/scale timeline
 {
-
     //clear current selection
     targetTimeline.clearEventSelection();
 
     console.log("Loading from " + timelineFile);
     readJSONFile(timelineFile, loadTimelineFromJSON, targetTimeline);
-
-   /* jsonFileQueue.push(timelineFile); //add the first file to the queue. Included files will subsequently be added
-    while(jsonFileQueue.length > 0) //process the queue
-    {
-        let tf = jsonFileQueue.pop();
-        console.log("Loading from " + tf);
-        readJSONFile(tf, loadTimelineFromJSON, targetTimeline);
-    }
-*/
 }
 
 /**
@@ -1266,16 +1261,11 @@ function loadTimelineFromJSON(jsonObj, targetTimeline)
     //load events from this JSON file
     targetTimeline.createEventBubbles(jsonObj, false);
 
-    //load the included files
+    //now load the included files
     for(let i=0; i<jsonObj.includefiles.length; i++)
     {
-        //read the included timeline file
-       //readJSONFile(jsonObj.includefiles[i], loadTimelineFromJSON, targetTimeline);
-
-       //add the included file to the load queue
-       //jsonFileQueue.push(jsonObj.includefiles[i]);
-
-       //load the next timeline
+       // load the next timeline 
+       // (will recursively call this function for each JSON file read successfully)
        loadTimeline(jsonObj.includefiles[i], targetTimeline);
     }
 }

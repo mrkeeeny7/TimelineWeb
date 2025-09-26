@@ -5,10 +5,13 @@
 	"tags" : ["history"],
 	"defaultScale" : 200,
 	"defaultDateString" : "1800",
+	"preferredColumn" : 0,
 
 	"includefiles" : [
 		"timelines/eras_archaeology.json",
-		"timelines/events_iceage.json"
+		"timelines/events_iceage.json",
+		"timelines/events_prehistoric.json",
+		"timelines/events_cosmic.json"
 	],
 
 	"eventlist" : [
