@@ -40,7 +40,7 @@
 	{
 		"title" : "Britain",
 		"dateString" : "43 AD",
-		"endDateString" : "2021",
+		"endDateString" : "PRESENTDAY",
 		"minScale" : 5000,
 		"maxScale" : 50000,
 		"type" : "era"
@@ -80,7 +80,7 @@
 		{
 			"title" : "United Kingdom",
 			"dateString" : "1707",
-			"endDateString" : "2021",
+			"endDateString" : "PRESENTDAY",
 			"minScale" : 1000,
 			"maxScale" : 5000,
 			"type" : "era"
