@@ -7,156 +7,254 @@
 
 	"eventlist" : [
 
-	{
-		"title" : "Neolithic",
-		"dateString" : "10000 BC",	"endDateString" : "4500 BC",
-		"minScale" : 5000,			"maxScale" : 50000,
-		"type" : "era"
-	},
-	{
-		"title" : "Chalcolithic",
-		"dateString" : "4500 BC",	"endDateString" : "3300 BC",
-		"minScale" : 5000,			"maxScale" : 50000,
-		"type" : "era"
-	},
-	{
-		"title" : "Bronze Age",
-		"dateString" : "3300 BC",	"endDateString" : "1200 BC",
-		"minScale" : 5000,			"maxScale" : 50000,
-		"type" : "era"
-	},
-	{
-		"title" : "Iron Age",
-		"dateString" : "1200 BC",	"endDateString" : "550 BC",
-		"minScale" : 5000,
-		"type" : "era",
-		"tags" : []
-	},
-	{
-		"title" : "Classical Antiquity",
-		"dateString" : "550 BC",	"endDateString" : "285 AD",
-		"minScale" : 5000,
-		"type" : "era",
-		"tags" : []
-	},
-	{
-		"title" : "Late Antiquity",
-		"dateString" : "285",		"endDateString" : "634",
-		"minScale" : 5000,
-		"type" : "era",
-		"tags" : []
-	},
+		{
+			"title" : "Neolithic",
+			"dateString" : "10000 BC",	"endDateString" : "4500 BC",
+			"minScale" : 50000,			"maxScale" : 500000,
+			"type" : "era"
+		},
+		{
+			"title" : "Chalcolithic",
+			"dateString" : "4500 BC",	"endDateString" : "3300 BC",
+			"minScale" : 50000,			"maxScale" : 500000,
+			"type" : "era"
+		},
+		{
+			"title" : "Bronze Age",
+			"dateString" : "3300 BC",	"endDateString" : "1200 BC",
+			"minScale" : 50000,			"maxScale" : 500000,
+			"type" : "era"
+		},
+		{
+			"title" : "Iron Age",
+			"dateString" : "1200 BC",	"endDateString" : "550 BC",
+			"minScale" : 50000,
+			"type" : "era",
+			"tags" : []
+		},
+		{
+			"title" : "Classical Antiquity",
+			"dateString" : "550 BC",	"endDateString" : "285 AD",
+			"minScale" : 5000,
+			"type" : "era",
+			"tags" : []
+		},
+		{
+			"title" : "Late Antiquity",
+			"dateString" : "285",		"endDateString" : "634",
+			"minScale" : 5000,
+			"type" : "era",
+			"tags" : []
+		},
 
-	
-	{
-		"title" : "Neo-Assyrian Empire",
-		"dateString" : "911 BC",
-		"endDateString" : "609 BC",
-		"maxScale" : 5000,
-		"type" : "era",
-		"tags" : ["assyria"]
-	},
-	{
-		"title" : "Neo-Babylonian Empire",
-		"dateString" : "626 BC",
-		"endDateString" : "539 BC",
-		"maxScale" : 5000,
-		"type" : "era",
-		"tags" : ["babylon"]
-	},
-	{
-		"title" : "Persian (Achaemenid) Empire",
-		"dateString" : "550 BC",
-		"endDateString" : "330 BC",
-		"maxScale" : 5000,
-		"type" : "era",
-		"tags" : ["babylon", "persia"]
-	},
+		
+		{
+			"title" : "Sumer",
+			"dateString" : "c. 5500 BC",
+			"endDateString" : "c. 1800 BC",
+			"minScale" : 10000,
+			"maxScale" : 50000,
+			"type" : "era",
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Akkadian Empire",
+			"dateString" : "c. 2334 BC",
+			"endDateString" : "c. 2154 BC",
+			"maxScale" : 10000,
+			"type" : "era",
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Gutian Dynasty",
+			"dateString" : "c. 2141 BC",
+			"endDateString" : "c. 2050 BC",
+			"maxScale" : 10000,
+			"type" : "era",
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Third Dynasty of Ur",
+			"dateString" : "c. 2112 BC",
+			"endDateString" : "c. 2004 BC",
+			"maxScale" : 10000,
+			"type" : "era",
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Old Assyrian Period",
+			"dateString" : "c. 2025 BC",
+			"endDateString" : "c. 1364 BC",
+			"maxScale" : 10000,
+			"type" : "era",
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Old Babylonian Empire",
+			"dateString" : "c. 1894 BC",
+			"endDateString" : "c. 1595 BC",
+			"maxScale" : 10000,
+			"type" : "era",
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Middle Assyria",
+			"dateString" : "c. 1363 BC",
+			"endDateString" : "c. 912 BC",
+			"maxScale" : 10000,
+			"type" : "era",
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Kassite Kingdom (Babylonia)",
+			"dateString" : "c. 1531 BC",
+			"endDateString" : "c. 1155 BC",
+			"maxScale" : 10000,
+			"type" : "era",
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Neo-Assyrian Empire",
+			"dateString" : "911 BC",
+			"endDateString" : "609 BC",
+			"maxScale" : 5000,
+			"type" : "era",
+			"tags" : ["assyria"]
+		},
+		{
+			"title" : "Neo-Babylonian Empire",
+			"dateString" : "626 BC",
+			"endDateString" : "539 BC",
+			"maxScale" : 5000,
+			"type" : "era",
+			"tags" : ["babylon"]
+		},
+		{
+			"title" : "Persian (Achaemenid) Empire",
+			"dateString" : "550 BC",
+			"endDateString" : "330 BC",
+			"maxScale" : 5000,
+			"type" : "era",
+			"tags" : ["babylon", "persia"]
+		},
 
-	{
-		"title" : "Hellenistic Period",
-		"dateString" : "323 BC",
-		"endDateString" : "146 BC",
-		"maxScale" : 5000,
-		"type" : "era",
-		"tags" : ["babylon", "greece"]
-	},
+		{
+			"title" : "Hellenistic Period",
+			"dateString" : "323 BC",
+			"endDateString" : "146 BC",
+			"maxScale" : 5000,
+			"type" : "era",
+			"tags" : ["babylon", "greece"]
+		},
 
-	{
-		"title" : "Ashurbanipal",
-		"dateString" : "668 BC",
-		"maxScale" : 5000,
-		"tags" : ["assyria"]
-	},
+		{
+			"title" : "Ashurbanipal",
+			"dateString" : "668 BC",
+			"maxScale" : 5000,
+			"type" : "person",
+			"tags" : ["assyria"]
+		},
 
-	{
-		"title" : "Minoan Eruption",
-		"searchstring" : "Minoan eruption",
-		"dateString" : "1500 BC",
-		"maxScale" : 1000,
-		"tags" : ["greece"]
-	},
+		{
+			"title" : "Minoan Eruption",
+			"searchstring" : "Minoan eruption",
+			"dateString" : "1500 BC",
+			"maxScale" : 1000,
+			"tags" : ["greece"]
+		},
 
-	{
-		"title" : "King Solomon",
-		"dateString" : "970 BC",
-		"birthDateString" : "990 BC",
-		"deathDateString" : "931 BC",
-		"maxScale" : 5000,
-		"type" : "person",
-		"tags" : ["biblical"]
-	},
+		{
+			"title" : "King Solomon",
+			"dateString" : "970 BC",
+			"birthDateString" : "990 BC",
+			"deathDateString" : "931 BC",
+			"maxScale" : 5000,
+			"type" : "person",
+			"tags" : ["biblical"]
+		},
 
 
-	{
-		"title" : "Carthage Founded",
-		"searchstring" : "Carthage",
-		"dateString" : "814 BC",
-		"maxScale" : 1000,
-		"tags" : ["carthage"]
-	},
+		{
+			"title" : "Sack of Babylon by Hittites",
+			"dateString" : "c. 1595 BC",
+			"maxScale" : 5000,
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Hammurabi",
+			"dateString" : "c. 1792 BC",
+			"maxScale" : 5000,
+			"type" : "person",
+			"tags" : ["middle east"]
+		},
 
-	{
-		"title" : "Nebuchadnezzar II",
-		"dateString" : "605 BC",
-		"maxScale" : 500,
-		"tags" : ["babylon"]
-	},
+		{
+			"title" : "Bronze Age Collapse",
+			"dateString" : "c. 1200 BC",
+			"maxScale" : 5000,
+			"tags" : ["middle east"]
+		},
 
-	{
-		"title" : "Cyrus the Great",
-		"dateString" : "559 BC",
-		"maxScale" : 500,
-		"tags" : ["persia"]
-	},
+		{
+			"title" : "Carthage Founded",
+			"searchstring" : "Carthage",
+			"dateString" : "814 BC",
+			"maxScale" : 1000,
+			"tags" : ["carthage"]
+		},
 
-	{
-		"title" : "Battle of Thermopylae",
-		"dateString" : "480 BC",
-		"maxScale" : 500,
-		"tags" : ["greece"]
-	},
+		{
+			"title" : "Nebuchadnezzar II",
+			"dateString" : "605 BC",
+			"maxScale" : 500,
+			"type" : "person",
+			"tags" : ["babylon"]
+		},
 
-	{
-		"title" : "Peloponnesian War",
-		"dateString" : "431 BC",
-		"maxScale" : 1000,
-		"tags" : ["greece"]
-	},
+		{
+			"title" : "Cyrus the Great",
+			"dateString" : "559 BC",
+			"maxScale" : 500,
+			"type" : "person",
+			"tags" : ["persia"]
+		},
 
-	{
-		"title" : "Death of Socrates",
-		"searchstring" : "Socrates",
-		"dateString" : "399 BC",
-		"maxScale" : 500,
-		"tags" : ["greece"]
-	},
+		{
+			"title" : "Battle of Thermopylae",
+			"dateString" : "480 BC",
+			"maxScale" : 500,
+			"tags" : ["greece"]
+		},
 
-	{
-		"title" : "Alexander the Great",
-		"dateString" : "336 BC",
-		"maxScale" : 500,
-		"tags" : ["greece"]
-	}
+		{
+			"title" : "Peloponnesian War",
+			"dateString" : "431 BC",
+			"maxScale" : 1000,
+			"tags" : ["greece"]
+		},
 
-] }
+		{
+			"title" : "Death of Socrates",
+			"searchstring" : "Socrates",
+			"dateString" : "399 BC",
+			"maxScale" : 500,
+			"tags" : ["greece"]
+		},
+
+		{
+			"title" : "Alexander the Great",
+			"dateString" : "336 BC",
+			"maxScale" : 500,
+			"type" : "person",
+			"tags" : ["greece"]
+		}
+	],
+
+	"personlist" : [
+		{		"name" : "Hammurabi", "birthDateString" : "c. 1810 BC", "deathDateString" : "c. 1750 BC" 	, "ruled" : ["1792 BC", "1750 BC"]	},
+		{		"name" : "Solomon", "birthDateString" : "c. 1000 BC", "deathDateString" : "c. 931 BC" 	, "ruled" : ["970 BC", "931 BC"]	},
+		{		"name" : "Ashurbanipal", "birthDateString" : "c. 685 BC", "deathDateString" : "631 BC" 	, "ruled" : ["669 BC", "631 BC"]	},
+		{		"name" : "Nabopolassar", "birthDateString" : "c. 658 BC", "deathDateString" : "605 BC" 	, "ruled" : ["626 BC", "605 BC"]	},
+		{		"name" : "Nebuchadnezzar II", "birthDateString" : "c. 642 BC", "deathDateString" : "562 BC" 	, "ruled" : ["605 BC", "562 BC"]	}
+	]
+}
