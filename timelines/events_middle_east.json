@@ -49,11 +49,18 @@
 
 		
 		{
-			"title" : "Sumer",
+			"title" : "Sumerian City-states",
 			"dateString" : "c. 5500 BC",
 			"endDateString" : "c. 1800 BC",
-			"minScale" : 10000,
 			"maxScale" : 50000,
+			"type" : "era",
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Babylonia",
+			"dateString" : "c. 1890 BC",
+			"endDateString" : "539 BC",
+			"minScale" : 5000,
 			"type" : "era",
 			"tags" : ["middle east"]
 		},
@@ -61,7 +68,7 @@
 			"title" : "Akkadian Empire",
 			"dateString" : "c. 2334 BC",
 			"endDateString" : "c. 2154 BC",
-			"maxScale" : 10000,
+			"maxScale" : 5000,
 			"type" : "era",
 			"tags" : ["middle east"]
 		},
@@ -69,7 +76,7 @@
 			"title" : "Gutian Dynasty",
 			"dateString" : "c. 2141 BC",
 			"endDateString" : "c. 2050 BC",
-			"maxScale" : 10000,
+			"maxScale" : 5000,
 			"type" : "era",
 			"tags" : ["middle east"]
 		},
@@ -77,7 +84,7 @@
 			"title" : "Third Dynasty of Ur",
 			"dateString" : "c. 2112 BC",
 			"endDateString" : "c. 2004 BC",
-			"maxScale" : 10000,
+			"maxScale" : 5000,
 			"type" : "era",
 			"tags" : ["middle east"]
 		},
@@ -85,7 +92,7 @@
 			"title" : "Old Assyrian Period",
 			"dateString" : "c. 2025 BC",
 			"endDateString" : "c. 1364 BC",
-			"maxScale" : 10000,
+			"maxScale" : 5000,
 			"type" : "era",
 			"tags" : ["middle east"]
 		},
@@ -93,7 +100,7 @@
 			"title" : "Old Babylonian Empire",
 			"dateString" : "c. 1894 BC",
 			"endDateString" : "c. 1595 BC",
-			"maxScale" : 10000,
+			"maxScale" : 5000,
 			"type" : "era",
 			"tags" : ["middle east"]
 		},
@@ -101,7 +108,7 @@
 			"title" : "Middle Assyria",
 			"dateString" : "c. 1363 BC",
 			"endDateString" : "c. 912 BC",
-			"maxScale" : 10000,
+			"maxScale" : 5000,
 			"type" : "era",
 			"tags" : ["middle east"]
 		},
@@ -109,7 +116,7 @@
 			"title" : "Kassite Kingdom (Babylonia)",
 			"dateString" : "c. 1531 BC",
 			"endDateString" : "c. 1155 BC",
-			"maxScale" : 10000,
+			"maxScale" : 5000,
 			"type" : "era",
 			"tags" : ["middle east"]
 		},
@@ -146,6 +153,41 @@
 			"type" : "era",
 			"tags" : ["babylon", "greece"]
 		},
+		{
+			"title" : "Parthian Empire",
+			"dateString" : "247 BC",
+			"endDateString" : "224 AD",
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Sasanian Empire",
+			"dateString" : "224 AD",
+			"endDateString" : "651 AD",
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Rashidun Caliphate",
+			"dateString" : "632 AD",
+			"endDateString" : "661 AD",
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
+			"title" : "Umayyad Caliphate",
+			"dateString" : "661",
+			"endDateString" : "750",
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Abbasid Caliphate",
+			"dateString" : "750",
+			"endDateString" : "1258",
+			"maxScale" : 5000,
+			"type" : "era"
+		},
 
 		{
 			"title" : "Ashurbanipal",
@@ -174,6 +216,24 @@
 		},
 
 
+		{
+			"title" : "Uruk",
+			"dateString" : "c. 5000 BC",
+			"maxScale" : 10000,
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Proto-cuneiform",
+			"dateString" : "c. 3300 BC",
+			"maxScale" : 10000,
+			"tags" : ["middle east"]
+		},
+		{
+			"title" : "Cuneiform writing",
+			"dateString" : "c. 2900 BC",
+			"maxScale" : 10000,
+			"tags" : ["middle east"]
+		},
 		{
 			"title" : "Sack of Babylon by Hittites",
 			"dateString" : "c. 1595 BC",

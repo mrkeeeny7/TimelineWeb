@@ -45,6 +45,20 @@
 			"maxScale" : 50000,
 			"type" : "era"
 		},
+		{
+			"title" : "British Protectorate of Egypt",
+			"dateString" : "1882",
+			"endDateString" : "1952",
+			"maxScale" : 50000,
+			"type" : "era"
+		},
+		{
+			"title" : "Republican Egypt",
+			"dateString" : "1952",
+			"endDateString" : "PRESENTDAY",
+			"maxScale" : 50000,
+			"type" : "era"
+		},
 
 
 	{
@@ -150,10 +164,55 @@
 
 
 	{
+		"title" : "Hieroglyph writing",
+		"dateString" : "3250 BC",
+		"maxScale" : 10000
+	},
+	{
 		"title" : "Great Pyramid",
 		"searchstring": "Great Pyramid of Giza",
 		"dateString" : "2600 BC",
 		"maxScale" : 500000
+	},
+	{
+		"title" : "Karnak",
+		"dateString" : "1970 BC",
+		"maxScale" : 10000
+	},
+	{
+		"title" : "Alexandria founded",
+		"dateString" : "331 BC",
+		"maxScale" : 10000
+	},
+	{
+		"title" : "Lighthouse of Alexandria completed",
+		"dateString" : "246 BC",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Cairo founded",
+		"dateString" : "969",
+		"maxScale" : 10000
+	},
+	{
+		"title" : "Napoleon's Egyptian Expedition",
+		"dateString" : "1798",
+		"maxScale" : 10000
+	},
+	{
+		"title" : "Suez Canal",
+		"dateString" : "1869",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Revolution of 1952",
+		"dateString" : "1952",
+		"maxScale" : 500
+	},
+	{
+		"title" : "2011 Egyptian Revolution",
+		"dateString" : "2011",
+		"maxScale" : 500
 	},
 
 	{
