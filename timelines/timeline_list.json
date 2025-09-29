@@ -37,12 +37,12 @@
         },
 
         {
-            "title" : "Medieval",
+            "title" : "Europe",
             "filename" : "timelines/events_medieval.json"
         },
 
         {
-            "title" : "UK",
+            "title" : "Britain",
             "filename" : "timelines/events_ukdynasties.json"
         },
 
@@ -52,7 +52,7 @@
         },
 
         {
-            "title" : "Modern",
+            "title" : "Overview",
             "filename" : "timelines/events_recent.json"
         }
     ]
