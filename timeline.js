@@ -874,7 +874,7 @@ class Timeline {
             }
             _tlevent.domElement.style.left = ((columnNumber + leftoffset)*width) + "%";
 
-            console.log("Set column width to " + width);
+            //console.log("Set column width to " + width);
         }
     }
     
@@ -902,7 +902,7 @@ class Timeline {
      */
     setCurrentScale(newScale, propagate=true)
     {
-        console.log("Setting scale " + newScale);
+      //  console.log("Setting scale " + newScale);
         this.currentScale = newScale;
         //clamp scale
         this.currentScale = Math.min(this.currentScale, MAX_SCALE);
@@ -1128,10 +1128,16 @@ function clearSelectedTimeline()
     }
 }
 
+/**
+ * THIS is the function that gets called when the page loads
+ */
 function loadSelectorOptions()
 {
+    initTimelines(); //better to just do this first
+
     console.log("Loading selector options");
     readJSONFile(TIMELINES_SELECTOR_FILE, createAllSelectorOptions);
+
 }
 
 function createAllSelectorOptions(jsonObj)
@@ -1140,6 +1146,11 @@ function createAllSelectorOptions(jsonObj)
     var selectorDOM_second = document.getElementById("timelineSelect2");
     createSelectorOptions(jsonObj, selectorDOM);
     createSelectorOptions(jsonObj, selectorDOM_second);
+
+
+    
+    //load default timeline (1st in list)
+    loadTimeline("timelines/events_recent.json", mainTimeline); //TODO change this from hardcoded file
 }
     
 function createSelectorOptions(jsonObj, selectorDOM)
@@ -1158,12 +1169,12 @@ function createSelectorOptions(jsonObj, selectorDOM)
 
 }
 
-function timelineSelectorChanged(timelineIndex, value)
+function timelineSelectorChanged(timelineIndex, timelineFile)
 {    
-    if(mainTimeline==undefined)
+   /* if(mainTimeline==undefined)
     {
         initTimelines();    //SHOULD initialize all timelines
-    }
+    }*/
 
     var targetTimeline = mainTimeline;
     if(timelineIndex==1)
@@ -1171,7 +1182,7 @@ function timelineSelectorChanged(timelineIndex, value)
         targetTimeline = secondTimeline;
     }
 
-    loadTimeline(value, targetTimeline);
+    loadTimeline(timelineFile, targetTimeline);
 }
 
 // update the value of the HTML year field
@@ -1232,6 +1243,7 @@ function initTimelines()
 
     //set initial focus
     mainTimeline.selectTable();
+
 }
 
 /**
@@ -1242,7 +1254,12 @@ function initTimelines()
  * @param {Timeline} targetTimeline the Timeline to load the data into
  */
 function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentre/scale timeline
-{
+{    
+    if(targetTimeline==undefined)
+    {
+        initTimelines();    //SHOULD initialize all timelines
+    }
+
     //clear current selection
     targetTimeline.clearEventSelection();
 
@@ -1263,11 +1280,14 @@ function loadTimelineFromJSON(jsonObj, targetTimeline)
     targetTimeline.createEventBubbles(jsonObj, false);
 
     //now load the included files
-    for(let i=0; i<jsonObj.includefiles.length; i++)
+    if(jsonObj.includefiles != undefined)
     {
-       // load the next timeline 
-       // (will recursively call this function for each JSON file read successfully)
-       loadTimeline(jsonObj.includefiles[i], targetTimeline);
+        for(let i=0; i<jsonObj.includefiles.length; i++)
+        {
+        // load the next timeline 
+        // (will recursively call this function for each JSON file read successfully)
+        loadTimeline(jsonObj.includefiles[i], targetTimeline);
+        }
     }
 }
 

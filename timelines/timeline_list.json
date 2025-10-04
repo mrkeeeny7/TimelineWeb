@@ -2,8 +2,18 @@
     "timelinelist" : [
 
         {
+            "title" : "Overview",
+            "filename" : "timelines/events_recent.json"
+        },
+
+        {
             "title" : "Archaeology",
             "filename" : "timelines/eras_archaeology.json"
+        },
+
+        {
+            "title" : "America (US)",
+            "filename" : "timelines/events_america.json"
         },
 
         {
@@ -49,11 +59,6 @@
         {
             "title" : "Science",
             "filename" : "timelines/events_science.json"
-        },
-
-        {
-            "title" : "Overview",
-            "filename" : "timelines/events_recent.json"
         }
     ]
 }

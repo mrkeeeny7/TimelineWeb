@@ -1,0 +1,54 @@
+{
+ 
+	"category" : "America (US)",
+	"colorString" : "#ff335555",
+	"tags" : ["america"],
+	"eventlist" : [
+
+	{
+		"title" : "Pre-Columbian America",
+		"dateString" : "~ 18000 BC",
+		"endDateString" : "1492 AD",
+		"minScale" : 1,
+		"maxScale" : 150000,
+		"type" : "era"
+	},
+	{
+		"title" : "Post-Columbian America",
+		"dateString" : "1492 AD",
+		"endDateString" : "PRESENTDAY",
+		"minScale" : 1000,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+		{
+			"title" : "Colonial America",
+			"dateString" : "1585 AD",
+			"endDateString" : "1765",
+			"minScale" : 200,
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
+			"title" : "American Revolution",
+			"dateString" : "1765",
+			"endDateString" : "1783",
+			"minScale" : 200,
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
+			"title" : "United States of America",
+			"dateString" : "1783",
+			"endDateString" : "PRESENTDAY",
+			"minScale" : 200,
+			"maxScale" : 1000,
+			"type" : "era"
+		}
+		
+
+	
+	
+	
+
+] }
