@@ -25,7 +25,6 @@
 			"title" : "Colonial America",
 			"dateString" : "1585 AD",
 			"endDateString" : "1765",
-			"minScale" : 200,
 			"maxScale" : 1000,
 			"type" : "era"
 		},
@@ -33,7 +32,6 @@
 			"title" : "American Revolution",
 			"dateString" : "1765",
 			"endDateString" : "1783",
-			"minScale" : 200,
 			"maxScale" : 1000,
 			"type" : "era"
 		},
@@ -44,8 +42,137 @@
 			"minScale" : 200,
 			"maxScale" : 1000,
 			"type" : "era"
-		}
+		},
 		
+            {
+                "title" : "Confederation Period",
+                "dateString" : "1783",
+                "endDateString" : "1789",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Federalist Era",
+                "dateString" : "1789",
+                "endDateString" : "1801",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Jeffersonian Era",
+                "dateString" : "1801",
+                "endDateString" : "1817",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Era of Good Feelings",
+                "dateString" : "1817",
+                "endDateString" : "1825",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Jacksonian Era",
+                "dateString" : "1825",
+                "endDateString" : "1849",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Pre-Civil War Era",
+                "dateString" : "1849",
+                "endDateString" : "1861",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "American Civil War",
+                "dateString" : "1861",
+                "endDateString" : "1865",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Reconstruction Era",
+                "dateString" : "1865",
+                "endDateString" : "1877",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Gilded Age",
+                "dateString" : "1877",
+                "endDateString" : "1896",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Progressive Era",
+                "dateString" : "1896",
+                "endDateString" : "1917",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "World War I (US involvement)",
+                "dateString" : "1917",
+                "endDateString" : "1918",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Roaring Twenties",
+                "dateString" : "1918",
+                "endDateString" : "1929",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Great Depression Era",
+                "dateString" : "1929",
+                "endDateString" : "1941",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "World War II Era (US involvement)",
+                "dateString" : "1941",
+                "endDateString" : "1945",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Postwar / Atomic Age",
+                "dateString" : "1945",
+                "endDateString" : "1954",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Civil Rights Era",
+                "dateString" : "1954",
+                "endDateString" : "1968",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+		
+        
+    {
+        "title" : "Roanoke Colony",
+        "dateString" : "1585",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Virginia Colony",
+        "dateString" : "1607",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Plymouth Colony (New England)",
+        "dateString" : "1620",
+        "maxScale" : 5000
+    }
 
 	
 	
