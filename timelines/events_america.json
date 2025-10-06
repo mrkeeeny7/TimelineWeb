@@ -214,6 +214,11 @@
         "title" : "Cahokia",
         "dateString" : "c. 1050",
         "maxScale" : 5000
+    },  
+    {
+        "title" : "Iroqouis Confederacy",
+        "dateString" : "c. 1450",
+        "maxScale" : 5000
     },    
     {
         "title" : "Juan Ponce de Leon lands in Florida",
@@ -271,8 +276,88 @@
         "maxScale" : 1000
     }, 
     {
+        "title" : "Blackbeard's blockade of Charles Town",
+        "dateString" : "1718",
+        "maxScale" : 1000
+    },  
+    {
         "title" : "French and Indian War",
         "dateString" : "1754",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Boston Tea Party",
+        "dateString" : "1773",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Battle of Saratoga",
+        "dateString" : "1777",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Siege of Yorktown",
+        "dateString" : "1781",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "US Constitution adopted",
+        "dateString" : "1789",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "War of 1812",
+        "dateString" : "1812",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Trail of Tears",
+        "dateString" : "1830",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Texas Revolution",
+        "dateString" : "1835",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Annexation of Texas",
+        "dateString" : "1845",
+        "maxScale" : 50
+    }, 
+    {
+        "title" : "Mexican-American War",
+        "dateString" : "1846",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "California Gold Rush",
+        "dateString" : "1848",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Emancipation Proclamation",
+        "dateString" : "1863",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Alaska Purchase",
+        "dateString" : "1867",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Transcontinental Railroad",
+        "dateString" : "1869",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Battle of Little Bighorn",
+        "dateString" : "1876",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Gunfight at the O.K. Corral",
+        "dateString" : "1881",
         "maxScale" : 1000
     }
 
