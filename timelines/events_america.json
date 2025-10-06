@@ -22,6 +22,13 @@
 		"type" : "era"
 	},
 		{
+			"title" : "European Contact",
+			"dateString" : "1492",
+			"endDateString" : "1585",
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
 			"title" : "Colonial America",
 			"dateString" : "1585 AD",
 			"endDateString" : "1765",
@@ -156,8 +163,68 @@
                 "maxScale" : 200,
                 "type" : "era"
             },
+            {
+                "title" : "Vietnam War",
+                "dateString" : "1964",
+                "endDateString" : "1975",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Reagan Era",
+                "dateString" : "1980",
+                "endDateString" : "1991",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Clinton Era",
+                "dateString" : "1993",
+                "endDateString" : "2001",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "War on Terror",
+                "dateString" : "2001",
+                "endDateString" : "2021",
+                "maxScale" : 200,
+                "type" : "era"
+            },
+            {
+                "title" : "Iraq War",
+                "dateString" : "2003",
+                "endDateString" : "2011",
+                "maxScale" : 200,
+                "type" : "era"
+            },
 		
         
+    {
+        "title" : "Mound Builders",
+        "dateString" : "c. 600 BC",
+        "maxScale" : 50000
+    },  
+    {
+        "title" : "Mississippian Culture",
+        "dateString" : "c. 800",
+        "maxScale" : 50000
+    },  
+    {
+        "title" : "Cahokia",
+        "dateString" : "c. 1050",
+        "maxScale" : 5000
+    },    
+    {
+        "title" : "Juan Ponce de Leon lands in Florida",
+        "dateString" : "1513",
+        "maxScale" : 1000
+    },   
+    {
+        "title" : "Hernando de Soto expedition",
+        "dateString" : "1539",
+        "maxScale" : 1000
+    },  
     {
         "title" : "Roanoke Colony",
         "dateString" : "1585",
@@ -167,11 +234,46 @@
         "title" : "Virginia Colony",
         "dateString" : "1607",
         "maxScale" : 1000
+    },
+    {
+        "title" : "Beaver Wars",
+        "dateString" : "1609",
+        "maxScale" : 100
     }, 
     {
         "title" : "Plymouth Colony (New England)",
         "dateString" : "1620",
         "maxScale" : 5000
+    }, 
+    {
+        "title" : "New Amsterdam founded",
+        "dateString" : "1624",
+        "maxScale" : 1000
+    },  
+    {
+        "title" : "Fort Christina (first Swedish settlement)",
+        "dateString" : "1638",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "New Amsterdam becomes New York",
+        "dateString" : "1667",
+        "maxScale" : 1000
+    },  
+    {
+        "title" : "Pennsylvania established",
+        "dateString" : "1681",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "Salem Witch Trials",
+        "dateString" : "1692",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "French and Indian War",
+        "dateString" : "1754",
+        "maxScale" : 1000
     }
 
 	

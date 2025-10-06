@@ -274,6 +274,23 @@
 		"dateString" : "3100 BC",
 		"maxScale" : 50000
 	},
+		
+	{
+		"title" : "Pytheas' circumnavigation",
+		"dateString" : "325 BC",
+		"maxScale" : 5000
+	},
+		
+	{
+		"title" : "Caesar's invasions",
+		"dateString" : "55 BC",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Roman conquest",
+		"dateString" : "43 AD",
+		"maxScale" : 5000
+	},
 
 	{
 		"title" : "Caratacus",
