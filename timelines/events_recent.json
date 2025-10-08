@@ -299,13 +299,6 @@
 			"maxScale" : 200
 		},
 		{
-			"title" : "Nixon Resigns",
-			"searchstring" : "Watergate scandal",
-			"dateString" : "1974",
-			"minScale" : 1,
-			"maxScale" : 100
-		},
-		{
 			"title" : "Apollo 11",
 			"dateString" : "1969",
 			"minScale" : 1,
@@ -331,7 +324,7 @@
 			"maxScale" : 100
 		},
 		{
-			"title" : "Surrender of Axis powers",
+			"title" : "Atomic bombings of Japan",
 			"dateString" : "1945",
 			"minScale" : 1,
 			"maxScale" : 100
@@ -435,8 +428,8 @@
 			"maxScale" : 100
 		},
 		{
-			"title" : "Great Exhibition",
-			"dateString" : "1851",
+			"title" : "Revolutions of 1848",
+			"dateString" : "1848",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
@@ -457,12 +450,6 @@
 			"title" : "Spanish America Independence",
 			"searchstring" : "Spanish American wars of independence",
 			"dateString" : "1820",
-			"minScale" : 1,
-			"maxScale" : 100
-		},
-		{
-			"title" : "War of 1812",
-			"dateString" : "1812",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
@@ -712,25 +699,7 @@
 		{		"name" : "Winston Churchill", "birthDateString" : "1874", "deathDateString" : "1965"	, "ruled" : ["1940", "1945", "1951", "1955"]			},
 		{		"name" : "Benjamin Franklin", "birthDateString" : "1706", "deathDateString" : "1790"				},
 
-		{		"name" : "George Washington", "birthDateString" : "1732", "deathDateString" : "1799"	, "ruled" : ["1789", "1797"]				},
-		{		"name" : "Thomas Jefferson", "birthDateString" : "1743", "deathDateString" : "1826"		, "ruled" : ["1801", "1809"]			},
-		{		"name" : "Andrew Jackson", "birthDateString" : "1767", "deathDateString" : "1845"		, "ruled" : ["1829", "1837"]			},
-		{		"name" : "Abraham Lincoln", "birthDateString" : "1809", "deathDateString" : "1865"		, "ruled" : ["1861", "1865"]			},
-		{		"name" : "Theodore Roosevelt", "birthDateString" : "1858", "deathDateString" : "1919"	, "ruled" : ["1901", "1909"]				},
-		{		"name" : "Franklin Roosevelt", "birthDateString" : "1882", "deathDateString" : "1945"	, "ruled" : ["1933", "1945"]				},
-		{		"name" : "Harry Truman", "birthDateString" : "1884", "deathDateString" : "1972"		, "ruled" : ["1945", "1953"]			},
-		{		"name" : "Dwight D. Eisenhower", "birthDateString" : "1890", "deathDateString" : "1969"		, "ruled" : ["1953", "1961"]			},
-		{		"name" : "Richard Nixon", "birthDateString" : "1913", "deathDateString" : "1994"		, "ruled" : ["1969", "1974"]			},
-		{		"name" : "John F. Kennedy", "birthDateString" : "1917", "deathDateString" : "1963"		, "ruled" : ["1961", "1963"]			},
-		{		"name" : "Lyndon B. Johnson", "birthDateString" : "1908", "deathDateString" : "1973"		, "ruled" : ["1963", "1969"]			},
-		{		"name" : "Gerald Ford", "birthDateString" : "1913", "deathDateString" : "2006"		, "ruled" : ["1974", "1977"]			},
-		{		"name" : "Jimmy Carter", "birthDateString" : "1924", "deathDateString" : "2024"			, "ruled" : ["1977", "1981"]		},
-		{		"name" : "Ronald Reagan", "birthDateString" : "1911", "deathDateString" : "2004"		, "ruled" : ["1981", "1989"]			},
-		{		"name" : "George H.W. Bush", "birthDateString" : "1924", "deathDateString" : "2018"		, "ruled" : ["1989", "1993"]			},
-		{		"name" : "Bill Clinton", "birthDateString" : "1946"		, "ruled" : ["1993", "2001"]			},
-		{		"name" : "George W. Bush", "birthDateString" : "1946"		, "ruled" : ["2001", "2009"]			},
-		{		"name" : "Barack Obama", "birthDateString" : "1961"	, "ruled" : ["2009", "2017"]			},
-				
+					
 		{		"name" : "Toussaint Louverture", "birthDateString" : "1743", "deathDateString" : "1803"				},
 		{		"name" : "Marquis de Lafayette", "birthDateString" : "1757", "deathDateString" : "1834"				},
 		{		"name" : "Maximilien Robespierre", "birthDateString" : "1758", "deathDateString" : "1794"				},

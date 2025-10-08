@@ -238,7 +238,7 @@
     {
         "title" : "Virginia Colony",
         "dateString" : "1607",
-        "maxScale" : 1000
+        "maxScale" : 200
     },
     {
         "title" : "Beaver Wars",
@@ -253,22 +253,22 @@
     {
         "title" : "New Amsterdam founded",
         "dateString" : "1624",
-        "maxScale" : 1000
+        "maxScale" : 200
     },  
     {
         "title" : "Fort Christina (first Swedish settlement)",
         "dateString" : "1638",
-        "maxScale" : 1000
+        "maxScale" : 200
     }, 
     {
         "title" : "New Amsterdam becomes New York",
         "dateString" : "1667",
-        "maxScale" : 1000
+        "maxScale" : 200
     },  
     {
         "title" : "Pennsylvania established",
         "dateString" : "1681",
-        "maxScale" : 1000
+        "maxScale" : 200
     }, 
     {
         "title" : "Salem Witch Trials",
@@ -278,7 +278,7 @@
     {
         "title" : "Blackbeard's blockade of Charles Town",
         "dateString" : "1718",
-        "maxScale" : 1000
+        "maxScale" : 200
     },  
     {
         "title" : "French and Indian War",
@@ -303,22 +303,22 @@
     {
         "title" : "US Constitution adopted",
         "dateString" : "1789",
-        "maxScale" : 1000
+        "maxScale" : 5000
     }, 
     {
         "title" : "War of 1812",
         "dateString" : "1812",
-        "maxScale" : 1000
+        "maxScale" : 200
     }, 
     {
         "title" : "Trail of Tears",
         "dateString" : "1830",
-        "maxScale" : 1000
+        "maxScale" : 200
     }, 
     {
         "title" : "Texas Revolution",
         "dateString" : "1835",
-        "maxScale" : 1000
+        "maxScale" : 200
     }, 
     {
         "title" : "Annexation of Texas",
@@ -328,7 +328,7 @@
     {
         "title" : "Mexican-American War",
         "dateString" : "1846",
-        "maxScale" : 1000
+        "maxScale" : 200
     }, 
     {
         "title" : "California Gold Rush",
@@ -338,7 +338,7 @@
     {
         "title" : "Emancipation Proclamation",
         "dateString" : "1863",
-        "maxScale" : 1000
+        "maxScale" : 200
     }, 
     {
         "title" : "Alaska Purchase",
@@ -353,14 +353,89 @@
     {
         "title" : "Battle of Little Bighorn",
         "dateString" : "1876",
-        "maxScale" : 1000
+        "maxScale" : 200
     }, 
     {
         "title" : "Gunfight at the O.K. Corral",
         "dateString" : "1881",
-        "maxScale" : 1000
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "18th Amendment (Prohibition of Alcohol)",
+        "dateString" : "1917",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Dust Bowl",
+        "dateString" : "1930",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Rosa Parks arrest",
+        "dateString" : "1955",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Cuban Missile Crisis",
+        "dateString" : "1962",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "JFK Assassination",
+        "dateString" : "1963",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Gulf of Tonkin incident",
+        "dateString" : "1964",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Civil Rights Act",
+        "dateString" : "1964",
+        "maxScale" : 5000
+    }, 
+    {
+        "title" : "Assassinations of M.L. King and R.F. Kennedy",
+        "dateString" : "1968",
+        "maxScale" : 200
+    },
+    {
+        "title" : "Nixon Resigns",
+        "searchstring" : "Watergate scandal",
+        "dateString" : "1974",
+        "minScale" : 1,
+        "maxScale" : 200
+    },
+    {
+        "title" : "9/11",
+        "searchstring" : "September 11 attacks",
+        "dateString" : "2001",
+        "minScale" : 1,
+        "maxScale" : 200
     }
+],
 
+"personlist" : [
+
+	{		"name" : "George Washington", "birthDateString" : "1732", "deathDateString" : "1799"	, "ruled" : ["1789", "1797"]				},
+    {		"name" : "Thomas Jefferson", "birthDateString" : "1743", "deathDateString" : "1826"		, "ruled" : ["1801", "1809"]			},
+    {		"name" : "Andrew Jackson", "birthDateString" : "1767", "deathDateString" : "1845"		, "ruled" : ["1829", "1837"]			},
+    {		"name" : "Abraham Lincoln", "birthDateString" : "1809", "deathDateString" : "1865"		, "ruled" : ["1861", "1865"]			},
+    {		"name" : "Theodore Roosevelt", "birthDateString" : "1858", "deathDateString" : "1919"	, "ruled" : ["1901", "1909"]				},
+    {		"name" : "Franklin Roosevelt", "birthDateString" : "1882", "deathDateString" : "1945"	, "ruled" : ["1933", "1945"]				},
+    {		"name" : "Harry Truman", "birthDateString" : "1884", "deathDateString" : "1972"		, "ruled" : ["1945", "1953"]			},
+    {		"name" : "Dwight D. Eisenhower", "birthDateString" : "1890", "deathDateString" : "1969"		, "ruled" : ["1953", "1961"]			},
+    {		"name" : "Richard Nixon", "birthDateString" : "1913", "deathDateString" : "1994"		, "ruled" : ["1969", "1974"]			},
+    {		"name" : "John F. Kennedy", "birthDateString" : "1917", "deathDateString" : "1963"		, "ruled" : ["1961", "1963"]			},
+    {		"name" : "Lyndon B. Johnson", "birthDateString" : "1908", "deathDateString" : "1973"		, "ruled" : ["1963", "1969"]			},
+    {		"name" : "Gerald Ford", "birthDateString" : "1913", "deathDateString" : "2006"		, "ruled" : ["1974", "1977"]			},
+    {		"name" : "Jimmy Carter", "birthDateString" : "1924", "deathDateString" : "2024"			, "ruled" : ["1977", "1981"]		},
+    {		"name" : "Ronald Reagan", "birthDateString" : "1911", "deathDateString" : "2004"		, "ruled" : ["1981", "1989"]			},
+    {		"name" : "George H.W. Bush", "birthDateString" : "1924", "deathDateString" : "2018"		, "ruled" : ["1989", "1993"]			},
+    {		"name" : "Bill Clinton", "birthDateString" : "1946"		, "ruled" : ["1993", "2001"]			},
+    {		"name" : "George W. Bush", "birthDateString" : "1946"		, "ruled" : ["2001", "2009"]			},
+    {		"name" : "Barack Obama", "birthDateString" : "1961"	, "ruled" : ["2009", "2017"]			}
 	
 	
 	

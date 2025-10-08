@@ -929,7 +929,7 @@ class Timeline {
         /* update the HTML field */
         /* TODO maybe a generic UIChanged() / updateUI() function would clean this up */
         updateScaleInput();
-        UpdatePersonPanel();
+        RefreshPersonPanel();
     }
 
     /**
@@ -971,7 +971,7 @@ class Timeline {
         updateYearInput();
         //update the HTML in the person panel
         //TODO maybe need a callback/event handler
-        UpdatePersonPanel();
+        RefreshPersonPanel();
     } 
 
 
@@ -1278,6 +1278,9 @@ function loadTimelineFromJSON(jsonObj, targetTimeline)
 {
     //load events from this JSON file
     targetTimeline.createEventBubbles(jsonObj, false);
+    
+    //refresh the persons alive list
+    RefreshPersonPanel();
 
     //now load the included files
     if(jsonObj.includefiles != undefined)
@@ -1615,7 +1618,7 @@ function UpdateInfoPanel()
 /**
  * Clears and updates the inner HTML of the Person Panel
  */
-function UpdatePersonPanel()
+function RefreshPersonPanel()
 {
     var personPanel = document.getElementById("personPanel");
     personPanel.innerHTML = ""; //clears the  Panel 
