@@ -356,6 +356,11 @@ class TimelineColumnWidget
     columnNumber;
 
     /**
+     * @type {boolean}
+     */
+    isEnabled = true;
+
+    /**
      * 
      * @param {string} groupName 
      * @param {Timeline} timeline 
@@ -375,9 +380,18 @@ class TimelineColumnWidget
     CreateDOMElement(timeline)
     {           
         this.domElement = document.createElement("div");
-        this.domElement.setAttribute("class", "tlColumnWidget");  
+        this.domElement.setAttribute("class", "tlColumnWidget"); 
+        this.domElement.setAttribute("category", this.groupName);  //use this in the callback below
         var widgetText=document.createTextNode(this.groupName);
         this.domElement.appendChild(widgetText);
+
+        //add the onClick callback
+        this.domElement.addEventListener("click", 
+            function() { 
+                onCategoryClick(timeline.timelineIndex, this.getAttribute("category")); 
+            }
+        );
+           
 
         //TODO position the element (parent to timeline window) above the relevant column
 
@@ -427,6 +441,12 @@ class TimelineColumnWidget
         //TODO - make containers ('columnHeaders') for multiple widgets and arrange them within this box
     }
 
+    toggleEnabled()
+    {
+        this.isEnabled = !this.isEnabled;
+        this.domElement.setAttribute("isEnabled", this.isEnabled);
+    }
+
 }
 
 class Timeline {
@@ -440,6 +460,13 @@ class Timeline {
      * @type {PersonListSorted}
      */
     personlist = new PersonListSorted();
+
+    /**
+     * @type {TimelineColumnWidget[]}
+     * indexed by category name
+     */
+    tlCategories = [];
+    
 
     //current timeline variables
     currentMin = -50; //min year
@@ -623,6 +650,7 @@ class Timeline {
 
         // make a widget for the selected column
         var newWidget =  new TimelineColumnWidget();
+        this.tlCategories[jsonObj.category] = newWidget;
         newWidget.Init(jsonObj.category, this, currentColumn);
     
         for(let i=0; i<jsonObj.eventlist.length; i++)
@@ -671,6 +699,7 @@ class Timeline {
             newEventDomElement.setAttribute("selected", false);
             newEventDomElement.setAttribute("eventIndex", eventIndex);
             newEventDomElement.setAttribute("eventType", eventType);
+            newEventDomElement.setAttribute("category", jsonObj.category);
 
             if(eventType=="horizline")
             {
@@ -1834,7 +1863,6 @@ function FinishDrag(timelineIndex)
 
 
 //TODO
-// 'People alive' table - for current year, list living persons of significance + their ages
 // 'current year' info window - link to wikipedia info
 
 function onEventClick(timelineIndex, eventIndex, startDate) //event handler for eventBubble DOM element
@@ -1874,6 +1902,18 @@ function tableClicked(timelineIndex)
         //target.clearEventSelection();
         target.selectTable();
     }
+}
+
+/**
+ * 
+ * @param {string} groupName
+ * @param {number} timelineIndex 
+ */
+function onCategoryClick(timelineIndex, groupName)
+{
+    //toggle enabled
+    var categoryWidget = getTimeline(timelineIndex).tlCategories[groupName];
+    categoryWidget.toggleEnabled();
 }
 
 //helpers

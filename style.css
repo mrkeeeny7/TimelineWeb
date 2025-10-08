@@ -671,6 +671,12 @@ select {
 
 }
 
+.tlColumnWidget[isEnabled=false]
+{    
+    background-color: lightgray;
+    color: gray;
+}
+
 .lifelineMarker 
 {
     width: 20px;
