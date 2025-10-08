@@ -388,6 +388,7 @@ class TimelineColumnWidget
         //add the onClick callback
         this.domElement.addEventListener("click", 
             function() { 
+                //TODO check that this timelineIndex works for both
                 onCategoryClick(timeline.timelineIndex, this.getAttribute("category")); 
             }
         );
