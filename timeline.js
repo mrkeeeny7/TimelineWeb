@@ -445,6 +445,9 @@ class TimelineColumnWidget
     {
         this.isEnabled = !this.isEnabled;
         this.domElement.setAttribute("isEnabled", this.isEnabled);
+            
+        //TODO now loop through all the events in this Timeline and show/hide the ones that are in disabled categories
+        //e.g. use isEnabled (or isHidden) attribute
     }
 
 }
@@ -1915,8 +1918,6 @@ function onCategoryClick(timelineIndex, groupName)
     var categoryWidget = getTimeline(timelineIndex).tlCategories[groupName];
     categoryWidget.toggleEnabled();
 
-    //TODO now loop through all the events in this Timeline and show/hide the ones that are in disabled categories
-    //e.g. use isEnabled (or isHidden) attribute
 }
 
 //helpers
