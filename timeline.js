@@ -373,18 +373,18 @@ class TimelineColumnWidget
      */
     Init(groupName, timeline, initialColumn)
     {
+        this.timeline = timeline;
         this.groupName=groupName;
         this.columnNumber = initialColumn;
-        this.CreateDOMElement(timeline);
-        this.timeline = timeline;
+        this.CreateDOMElement();
 
     }
 
     /**
      * 
-     * @param {Timeline} timeline 
+     * 
      */
-    CreateDOMElement(timeline)
+    CreateDOMElement()
     {           
         this.domElement = document.createElement("div");
         this.domElement.setAttribute("class", "tlColumnWidget"); 
@@ -392,11 +392,13 @@ class TimelineColumnWidget
         var widgetText=document.createTextNode(this.groupName);
         this.domElement.appendChild(widgetText);
 
+        let tI = this.timeline.timelineIndex;
+
         //add the onClick callback
         this.domElement.addEventListener("click", 
             function() { 
                 //TODO check that this timelineIndex works for both
-                onCategoryClick(timeline.timelineIndex, this.getAttribute("category")); 
+                onCategoryClick(tI, this.getAttribute("category")); 
             }
         );
            
@@ -416,7 +418,7 @@ class TimelineColumnWidget
 
         }
         // add to the document (use the container element of the table which allows overflow)
-        if(timeline == mainTimeline) //TODO need a cleaner way to track which timeline is active
+        if(this.timeline == mainTimeline) //TODO need a cleaner way to track which timeline is active
         {
             colHeaderDOMLeft[this.columnNumber].appendChild(this.domElement); //append to the column header
         }
@@ -432,7 +434,7 @@ class TimelineColumnWidget
         //TODO make a box to contain multiple widgets. One box on top of each column ('columnHeader')
 
         // get timeline window position
-        const rect = timeline.containerDom.getBoundingClientRect();
+        const rect = this.timeline.containerDom.getBoundingClientRect();
 
         //set position of widget
         this.domElement.style.top = rect.top + "px" - this.domElement.getBoundingClientRect().height;
