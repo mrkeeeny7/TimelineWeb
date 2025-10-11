@@ -361,6 +361,12 @@ class TimelineColumnWidget
     isEnabled = true;
 
     /**
+     * @type {Timeline}
+     * the timeline this widget belongs to
+     */
+    timeline;
+
+    /**
      * 
      * @param {string} groupName 
      * @param {Timeline} timeline 
@@ -370,6 +376,7 @@ class TimelineColumnWidget
         this.groupName=groupName;
         this.columnNumber = initialColumn;
         this.CreateDOMElement(timeline);
+        this.timeline = timeline;
 
     }
 
@@ -447,8 +454,9 @@ class TimelineColumnWidget
         this.isEnabled = !this.isEnabled;
         this.domElement.setAttribute("isEnabled", this.isEnabled);
             
-        //TODO now loop through all the events in this Timeline and show/hide the ones that are in disabled categories
+        //now loop through all the events in this Timeline and show/hide the ones that are in disabled categories
         //e.g. use isEnabled (or isHidden) attribute
+        this.timeline.refresh();
     }
 
 }
@@ -653,9 +661,9 @@ class Timeline {
         }
 
         // make a widget for the selected column
-        var newWidget =  new TimelineColumnWidget();
-        this.tlCategories[jsonObj.category] = newWidget;
-        newWidget.Init(jsonObj.category, this, currentColumn);
+        var newColumnWidget =  new TimelineColumnWidget();
+        this.tlCategories[jsonObj.category] = newColumnWidget;
+        newColumnWidget.Init(jsonObj.category, this, currentColumn);
     
         for(let i=0; i<jsonObj.eventlist.length; i++)
         {
@@ -738,7 +746,7 @@ class Timeline {
             var newEvent = new TimelineEvent(
                 jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
                 jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
-                newEventDomElement, lifelineDomElement, currentColumn);
+                newEventDomElement, lifelineDomElement, newColumnWidget, currentColumn);
                 
             let tlIndex = this.timelineIndex;
             newEventDomElement.addEventListener("click", function() { onEventClick(tlIndex, this.getAttribute("eventIndex"), this.getAttribute("startDate")); });
@@ -814,8 +822,14 @@ class Timeline {
             if(_tlevent.minScale > 0 && this.currentScale < _tlevent.minScale){
                 withinVisibleScale = false;
             }
+
+            //check if tag is disabled
+            let tagEnabled = _tlevent.columnWidget.isEnabled;
+
+            // visible if both are true
+            let isVisible = withinVisibleScale && tagEnabled;
         
-            setVisibility(_tlevent.domElement, withinVisibleScale);
+            setVisibility(_tlevent.domElement, isVisible);
            // setVisibility(tlEvents[i].domElement, false);
     
     
@@ -1067,10 +1081,11 @@ class TimelineEvent {
      * @param {number} maxScale this is an upper bound (not inclusive) - event will NOT be visible at this scale or above
      * @param {HTMLDivElement} domElement 
      * @param {HTMLDivElement} lifelineDomElement 
+     * @param {TimelineColumnWidget} columnWidget 
      * @param {number} preferredColumn 
      */
     constructor(title, date, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
-         domElement, lifelineDomElement, preferredColumn=0)
+         domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
         this.title = title;
         this.date = Number(date);
@@ -1087,6 +1102,7 @@ class TimelineEvent {
 
         //other fields
         this.selected=false;
+        this.columnWidget=columnWidget;
         this.preferredColumn=preferredColumn;
     }
 
