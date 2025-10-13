@@ -490,12 +490,6 @@
 
 		{		"name" : "Leonidas I", "birthDateString" : "540 BC", "deathDateString" : "480 BC" 	, "ruled" : ["489 BC", "480 BC"]	},
 
-		{		"name" : "Pythagoras", "birthDateString" : "570 BC", "deathDateString" : "495 BC" 		},
-		{		"name" : "Socrates", "birthDateString" : "470 BC", "deathDateString" : "399 BC" 		},
-		{		"name" : "Plato", "birthDateString" : "428 BC", "deathDateString" : "347 BC" 		},
-		{		"name" : "Aristotle", "birthDateString" : "384 BC", "deathDateString" : "322 BC" 		},
-		{		"name" : "Archimedes", "birthDateString" : "287 BC", "deathDateString" : "212 BC" 		},
-		{		"name" : "Galen", "birthDateString" : "129", "deathDateString" : "216" 		},
 
 		{		"name" : "Alexander the Great", "birthDateString" : "356 BC", "deathDateString" : "323 BC" 	, "ruled" : ["336 BC", "323 BC"]		},
 		{		"name" : "Hannibal", "birthDateString" : "247 BC", "deathDateString" : "182 BC" 			},
@@ -577,7 +571,6 @@
 		{		"name" : "Zenobia", "birthDateString" : "240", "deathDateString" : "274" 	, "ruled" : ["267", "272"]		},
 		{		"name" : "Saint Valentine", "birthDateString" : "225", "deathDateString" : "270" 		},
 		{		"name" : "Saint Nicholas", "birthDateString" : "270", "deathDateString" : "343" 		},
-		{		"name" : "Hypatia", "birthDateString" : "350", "deathDateString" : "415" 		},
 
 
 		{		"name" : "Diocletian", "birthDateString" : "242", "deathDateString" : "311" 		, "ruled" : ["284", "305"]		},
@@ -677,15 +670,7 @@
 		{		"name" : "Daniel Defoe", "birthDateString" : "1660", "deathDateString" : "1731"				},
 		{		"name" : "Blackbeard", "birthDateString" : "1680", "deathDateString" : "1718"				},
 		
-		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850"				},
-		{		"name" : "Nicolaus Copernicus", "birthDateString" : "1473", "deathDateString" : "1543"				},
-		{		"name" : "Johannes Kepler", "birthDateString" : "1571", "deathDateString" : "1630"				},
-		{		"name" : "Galileo Galilei", "birthDateString" : "1564", "deathDateString" : "1642"				},
-		{		"name" : "Isaac Newton", "birthDateString" : "1643", "deathDateString" : "1727"				},
-		{		"name" : "Charles Darwin", "birthDateString" : "1809", "deathDateString" : "1882"				},
-		{		"name" : "Charles Dickens", "birthDateString" : "1812", "deathDateString" : "1870"				},
-		{		"name" : "Albert Einstein", "birthDateString" : "1879", "deathDateString" : "1955"				},
-		
+	
 		{		"name" : "Emperor Franz Joseph I", "birthDateString" : "1830", "deathDateString" : "1916"	, "ruled" : ["1848", "1916"]			},
 		{		"name" : "Captain Cook", "birthDateString" : "1728", "deathDateString" : "1779"				},
 		{		"name" : "Ivan the Terrible", "birthDateString" : "1530", "deathDateString" : "1584"				},

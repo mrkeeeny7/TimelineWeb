@@ -6,27 +6,154 @@
 	"eventlist" : [
 			
 		{
-			"title" : "Isaac Newton born",
-			"searchstring" : "Isaac Newton",
-			"dateString" : "1643",
+			"title" : "Neolithic",
+			"dateString" : "10000 BC",	"endDateString" : "4500 BC",
+			"minScale" : 1,			"maxScale" : 500000,
+			"type" : "era"
+		},
+		{
+			"title" : "Chalcolithic",
+			"dateString" : "4500 BC",	"endDateString" : "3300 BC",
+			"minScale" : 1,			"maxScale" : 500000,
+			"type" : "era"
+		},
+		{
+			"title" : "Bronze Age",
+			"dateString" : "3300 BC",	"endDateString" : "1200 BC",
+			"minScale" : 1,			"maxScale" : 500000,
+			"type" : "era"
+		},
+		{
+			"title" : "Iron Age",
+			"dateString" : "1200 BC",	"endDateString" : "550 BC",
 			"minScale" : 1,
-			"maxScale" : 100
+			"type" : "era",
+			"tags" : []
+		},
+		{
+			"title" : "Scientific Revolution",
+			"dateString" : "1543",	"endDateString" : "1687",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
+			"title" : "Age of Enlightenment",
+			"dateString" : "1687",	"endDateString" : "1789",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
+			"title" : "Industrial Age",
+			"dateString" : "1789",	"endDateString" : "1945",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
+			"title" : "Atomic Age",
+			"dateString" : "1945",	"endDateString" : "1989",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
+			"title" : "Information Age",
+			"dateString" : "1989",	"endDateString" : "PRESENTDAY",
+			"minScale" : 1,
+			"type" : "era"
+		},
+
+
+		{
+			"title" : "Approximation of π",
+			"searchstring" : "Isaac Newton",
+			"dateString" : "250 BC",
+			"minScale" : 1,
+			"maxScale" : 50000
+		},
+		{
+			"title" : "Euclid's Elements",
+			"dateString" : "c. 300 BC",
+			"minScale" : 1,
+			"maxScale" : 10000
 		},
 		{
 			"title" : "Newton's Principia",
 			"searchstring" : "Philosophiæ Naturalis Principia Mathematica",
 			"dateString" : "1687",
 			"minScale" : 1,
-			"maxScale" : 500
+			"maxScale" : 50000
 		},
 		{
 			"title" : "Halley predicts comet return",
 			"searchstring" : "Edmond Halley",
 			"dateString" : "1705",
 			"minScale" : 1,
-			"maxScale" : 100
+			"maxScale" : 200
+		},
+		{
+			"title" : "Industrial Revolution",
+			"dateString" : "1760",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Second Industrial Revolution",
+			"dateString" : "1870",
+			"minScale" : 1,
+			"maxScale" : 1000
 		}
 	
-	
 
-] }
+		,	
+		{
+			"title" : "Pythagoras", "birthDateString" : "c. 570 BC", "deathDateString" : "c. 495 BC",	
+			"dateString" : "530 BC",
+			"maxScale" : 5000,
+			"type" : "person"
+		},
+		{
+			"title" : "Aristotle", "birthDateString" : "384 BC", "deathDateString" : "322 BC" ,	
+			"dateString" : "368 BC",
+			"maxScale" : 5000,
+			"type" : "person"
+		},
+		{
+			"title" : "Archimedes", "birthDateString" : "c. 287 BC", "deathDateString" : "c. 212 BC" ,	
+			"dateString" : "214 BC",
+			"maxScale" : 5000,
+			"type" : "person"
+		},
+		{
+			"title" : "Hypatia", "birthDateString" : "c. 350", "deathDateString" : "415" ,	
+			"dateString" : "400 AD",
+			"maxScale" : 5000,
+			"type" : "person"
+		},
+		{
+			"title" : "Isaac Newton", "birthDateString" : "1643", "deathDateString" : "1727",
+			"dateString" : "1666 AD",
+			"maxScale" : 5000,
+			"type" : "person"
+		}
+	],
+
+	"personlist" : [
+
+
+		{		"name" : "Pythagoras", "birthDateString" : "c. 570 BC", "deathDateString" : "c. 495 BC"	},
+		{		"name" : "Socrates", "birthDateString" : "470 BC", "deathDateString" : "399 BC" 		},
+		{		"name" : "Plato", "birthDateString" : "428 BC", "deathDateString" : "347 BC" 		},
+		{		"name" : "Aristotle", "birthDateString" : "384 BC", "deathDateString" : "322 BC" 		},
+		{		"name" : "Archimedes", "birthDateString" : "c. 287 BC", "deathDateString" : "c. 212 BC" 		},
+		{		"name" : "Galen", "birthDateString" : "129", "deathDateString" : "216" 		},
+		{		"name" : "Hypatia", "birthDateString" : "350", "deathDateString" : "415" 		},
+		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850"				},
+		{		"name" : "Nicolaus Copernicus", "birthDateString" : "1473", "deathDateString" : "1543"				},
+		{		"name" : "Johannes Kepler", "birthDateString" : "1571", "deathDateString" : "1630"				},
+		{		"name" : "Galileo Galilei", "birthDateString" : "1564", "deathDateString" : "1642"				},
+		{		"name" : "Isaac Newton", "birthDateString" : "1643", "deathDateString" : "1727"				},
+		{		"name" : "Charles Darwin", "birthDateString" : "1809", "deathDateString" : "1882"				},
+		{		"name" : "Charles Dickens", "birthDateString" : "1812", "deathDateString" : "1870"				},
+		{		"name" : "Albert Einstein", "birthDateString" : "1879", "deathDateString" : "1955"				}
+	
+	] 
+}
