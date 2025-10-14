@@ -31,6 +31,24 @@
 			"tags" : []
 		},
 		{
+			"title" : "Classical World",
+			"dateString" : "550 BC",	"endDateString" : "786",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
+			"title" : "Islamic Golden Age",
+			"dateString" : "786",	"endDateString" : "1258",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
+			"title" : "European Renaissance",
+			"dateString" : "1350",	"endDateString" : "1543",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
 			"title" : "Scientific Revolution",
 			"dateString" : "1543",	"endDateString" : "1687",
 			"minScale" : 1,
@@ -63,8 +81,25 @@
 
 
 		{
+			"title" : "Earliest steel",
+			"dateString" : "c. 1800 BC",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Glassmaking (Mesopotamia)",
+			"dateString" : "c. 1600 BC",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Wheeled chariots",
+			"dateString" : "c. 1950 BC",
+			"minScale" : 1,
+			"maxScale" : 50000
+		},
+		{
 			"title" : "Approximation of π",
-			"searchstring" : "Isaac Newton",
 			"dateString" : "250 BC",
 			"minScale" : 1,
 			"maxScale" : 50000
@@ -76,9 +111,51 @@
 			"maxScale" : 10000
 		},
 		{
+			"title" : "Papermaking (China)",
+			"dateString" : "c. 105",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "Toilet paper (China)",
+			"dateString" : "c. 589",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "Gunpowder (China)",
+			"dateString" : "c. 808",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Baghdad House of Wisdom",
+			"dateString" : "c. 800",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "University of Bologna",
+			"dateString" : "1088",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "Oxford University",
+			"dateString" : "1167",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
 			"title" : "Newton's Principia",
 			"searchstring" : "Philosophiæ Naturalis Principia Mathematica",
 			"dateString" : "1687",
+			"minScale" : 1,
+			"maxScale" : 50000
+		},
+		{
+			"title" : "Aryabhatiya",
+			"dateString" : "510",
 			"minScale" : 1,
 			"maxScale" : 50000
 		},
@@ -92,6 +169,12 @@
 		{
 			"title" : "Industrial Revolution",
 			"dateString" : "1760",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Railway",
+			"dateString" : "1830",
 			"minScale" : 1,
 			"maxScale" : 1000
 		},
@@ -146,6 +229,7 @@
 		{		"name" : "Archimedes", "birthDateString" : "c. 287 BC", "deathDateString" : "c. 212 BC" 		},
 		{		"name" : "Galen", "birthDateString" : "129", "deathDateString" : "216" 		},
 		{		"name" : "Hypatia", "birthDateString" : "350", "deathDateString" : "415" 		},
+		{		"name" : "Aryabhata", "birthDateString" : "476", "deathDateString" : "550" 		},
 		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850"				},
 		{		"name" : "Nicolaus Copernicus", "birthDateString" : "1473", "deathDateString" : "1543"				},
 		{		"name" : "Johannes Kepler", "birthDateString" : "1571", "deathDateString" : "1630"				},
