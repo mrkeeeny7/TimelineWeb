@@ -422,6 +422,12 @@
 	},
 
 	{
+		"title" : "NHS formed",
+		"dateString" : "1948",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+	{
 		"title" : "Suez Crisis",
 		"dateString" : "1956",
 		"minScale" : 1,
@@ -443,12 +449,39 @@
 	},
 
 	{
+		"title" : "Falklands War",
+		"dateString" : "1982",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+
+	{
+		"title" : "Good Friday Agreement",
+		"dateString" : "1998",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+
+	{
+		"title" : "Iraq War",
+		"dateString" : "2003",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+
+	{
 		"title" : "7/7 bombings",
 		"dateString" : "2005",
 		"minScale" : 1,
 		"maxScale" : 200
 	},
 
+	{
+		"title" : "London Olympics",
+		"dateString" : "2012",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
 	{
 		"title" : "Brexit referendum",
 		"dateString" : "2016",

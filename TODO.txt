@@ -1,13 +1,11 @@
 
 * Set a default zoom level (Scale) and center date for each timeline, if it is the first selected
 * Separate 'persons' into separate data file
-X Show current year prominently and allow to enter a specific year 
+
  - and zoom level (span in years)
 
 
-X == Person browsing mode: list of persons alive in current year (dynamically updating) + current ages and title
-
- - mouse over persons for more info
+ - mouse over persons for more info (and current title)
  - click persons for expanded info or wiki page
 
 
@@ -23,6 +21,8 @@ X == Person browsing mode: list of persons alive in current year (dynamically up
  - left column for 'eras' (Western + others)
  - right, middle for 'empires' (can overlap)
 
+- Dynamic columns? -> number expands; info box is on the right
+
 more flexibility in column placement
  (arrange into 'threads')
 
@@ -31,9 +31,7 @@ more flexibility in column placement
 (Roman, Modern, Medieval) ==> Western
 (Prehistoric, Ice Age) ==> Prehistoric
 
--- create a 'Default' load
-* persons
-* Western history (Modern)
+
 
 == at high zoom levels, show years as discrete bands (special/adapted kind of era)
 
@@ -52,3 +50,13 @@ more flexibility in column placement
 
 == Age unknown for persons if an 'alive' period can be determined through length of rule or other dates
 	if minimum age is known in a given year (e.g. was adult) then latest birth date can be deduced and show as alive from that date
+
+
+==DONE==
+
+X Show current year prominently and allow to enter a specific year
+ X == Person browsing mode: list of persons alive in current year (dynamically updating) + current ages and title
+
+-- create a 'Default' load
+* persons
+* Western history (Modern)
