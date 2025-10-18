@@ -62,9 +62,22 @@ more flexibility in column placement
 	-Natural disasters, and pandemics (events-only, no eras)
 	-Religion and philosophy
 	-Culture and arts
-	-Exploration
-	-Geology
-	-Famous people
+	-Exploration & colonization (events-only)
+	-Geology / mountain orogeny
+	-Famous people (events-only)
+	-British Empire (events-only)
+	-Sports (events-only)
+
+	-Canada
+	-Australia
+	-France
+	-Germany
+	-China
+	-Japan
+	-Russia
+	-Mexico
+	-....
+
 
 --> add events-only categories that can overlay existing timelines
 
