@@ -57,6 +57,10 @@ more flexibility in column placement
 	: Species (for macro scale), showing time range
 	: Improved person event bubble
 	: Inventions
+	
+	: Globally significant events(e.g. Pyramids) on main (default) timeline
+		- then more detailed events on Egypt page (e.g. Great Pyramid; Step pyramid; etc.)
+		- similar for Stonehenge (initial site use, later constructions)
 
 === More categories
 	-Natural disasters, and pandemics (events-only, no eras)
