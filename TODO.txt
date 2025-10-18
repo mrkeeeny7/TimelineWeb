@@ -52,7 +52,30 @@ more flexibility in column placement
 	if minimum age is known in a given year (e.g. was adult) then latest birth date can be deduced and show as alive from that date
 
 
-==DONE==
+=== More event types
+	: Wars and conflicts (showing the time range)
+	: Species (for macro scale), showing time range
+	: Improved person event bubble
+	: Inventions
+
+=== More categories
+	-Natural disasters, and pandemics (events-only, no eras)
+	-Religion and philosophy
+	-Culture and arts
+	-Exploration
+	-Geology
+	-Famous people
+
+--> add events-only categories that can overlay existing timelines
+
+== Allow filtering the person list by cetegory
+	
+
+=== Category colours
+	- affecting era bubbles and widgets
+	- colours picked to not clash with overall scheme
+
+==DONE=========
 
 X Show current year prominently and allow to enter a specific year
  X == Person browsing mode: list of persons alive in current year (dynamically updating) + current ages and title
