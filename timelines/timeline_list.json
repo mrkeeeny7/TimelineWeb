@@ -59,6 +59,11 @@
         {
             "title" : "Science",
             "filename" : "timelines/events_science.json"
+        },
+
+        {
+            "title" : "Disasters and Pandemics",
+            "filename" : "timelines/events_disaster.json"
         }
     ]
 }

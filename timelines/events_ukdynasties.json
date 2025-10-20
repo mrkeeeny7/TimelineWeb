@@ -387,6 +387,12 @@
 	},
 
 	{
+		"title" : "Great Fire of London",
+		"dateString" : "1666",
+		"maxScale" : 1000
+	},
+
+	{
 		"title" : "Glorious Revolution",
 		"dateString" : "1688",
 		"maxScale" : 5000

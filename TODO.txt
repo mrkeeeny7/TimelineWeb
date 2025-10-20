@@ -82,10 +82,19 @@ more flexibility in column placement
 	-Mexico
 	-....
 
+	Fictional
+	-------
+	- Star Trek
+	- Terminator
+	- Matrix
+	- Asimov (Foundation, Robots)
+
 
 --> add events-only categories that can overlay existing timelines
 
 == Allow filtering the person list by cetegory
+
+== Events in same year should be stacked so they are visible
 	
 
 === Category colours

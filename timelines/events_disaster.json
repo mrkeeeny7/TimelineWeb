@@ -1,0 +1,101 @@
+{
+ 
+	"category" : "Natural disasters",
+	"colorString" : "#22ddbb55",
+	"tags" : ["science"],
+	"eventlist" : [
+		
+
+
+		{
+			"title" : "Black Death",
+			"dateString" : "1346",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Spanish Flu",
+			"dateString" : "1918",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "HIV/AIDS pandemic",
+			"dateString" : "1981",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+
+		{
+			"title" : "Plague of Justinian",
+			"dateString" : "541",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+
+		{
+			"title" : "Third Plague pandemic",
+			"dateString" : "1855",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+
+		{
+			"title" : "Cocolitzli Epdemic (Mexico)",
+			"dateString" : "1545",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+
+		{
+			"title" : "Antonine Plague (Roman Empire)",
+			"dateString" : "165",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+
+		{
+			"title" : "1520 Mexico Smallpox Epidemic",
+			"dateString" : "1520",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+
+		{
+			"title" : "1918 Russia Typhus epidemic",
+			"dateString" : "1918",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+
+
+		{
+			"title" : "2010 Haiti Earthquake",
+			"dateString" : "2010",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+
+		{
+			"title" : "1970 Bhola Cyclone (Bangladesh)",
+			"dateString" : "1970",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+
+		{
+			"title" : "1887 Yellow River flood",
+			"dateString" : "1887",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+
+		{
+			"title" : "1931 China floods",
+			"dateString" : "1931",
+			"minScale" : 1,
+			"maxScale" : 5000
+		}
+	]
+
+}
