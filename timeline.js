@@ -354,6 +354,7 @@ class TimelineColumnWidget
 
     domElement;
     columnNumber;
+    colorString;
 
     /**
      * @type {boolean}
@@ -371,11 +372,12 @@ class TimelineColumnWidget
      * @param {string} groupName 
      * @param {Timeline} timeline 
      */
-    Init(groupName, timeline, initialColumn)
+    Init(groupName, timeline, initialColumn, colorString)
     {
         this.timeline = timeline;
         this.groupName=groupName;
         this.columnNumber = initialColumn;
+        this.colorString = colorString;
         this.CreateDOMElement();
 
     }
@@ -391,6 +393,7 @@ class TimelineColumnWidget
         this.domElement.setAttribute("category", this.groupName);  //use this in the callback below
         var widgetText=document.createTextNode(this.groupName);
         this.domElement.appendChild(widgetText);
+        this.refreshColours();
 
         let tI = this.timeline.timelineIndex;
 
@@ -455,10 +458,36 @@ class TimelineColumnWidget
     {
         this.isEnabled = !this.isEnabled;
         this.domElement.setAttribute("isEnabled", this.isEnabled);
+
+        this.refreshColours();
             
         //now loop through all the events in this Timeline and show/hide the ones that are in disabled categories
         //e.g. use isEnabled (or isHidden) attribute
         this.timeline.refresh();
+    }
+
+    refreshColours()
+    {       
+        //NB this overrides the setting in style.css
+        if(this.isEnabled)
+        {
+            if(this.colorString!=undefined)
+            {
+                this.domElement.style.backgroundColor = this.colorString;
+                this.domElement.style.color = "white";
+            }
+            else
+            {
+                this.domElement.style.backgroundColor = "lightblue";
+                this.domElement.style.color = "darkblue";
+            }
+        }
+        else
+        {            
+            this.domElement.style.backgroundColor = "lightgrey";
+            this.domElement.style.color = "grey";
+        }
+
     }
 
 }
@@ -665,7 +694,7 @@ class Timeline {
         // make a widget for the selected column
         var newColumnWidget =  new TimelineColumnWidget();
         this.tlCategories[jsonObj.category] = newColumnWidget;
-        newColumnWidget.Init(jsonObj.category, this, currentColumn);
+        newColumnWidget.Init(jsonObj.category, this, currentColumn, jsonObj.colorString);
     
         for(let i=0; i<jsonObj.eventlist.length; i++)
         {

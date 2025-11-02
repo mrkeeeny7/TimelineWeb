@@ -1,7 +1,8 @@
 {
  
 	"category" : "Ice Age",
-	"colorString" : "#00990ffff",
+	"colorString" : "lightSeaGreen",
+	"colorBString" : "lightSeaGreen",
 	"tags" : ["ice age"],
 	"preferredColumn" : 0,
 
