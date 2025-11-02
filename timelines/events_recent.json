@@ -1,7 +1,7 @@
 {
  
 	"category" : "Western history",
-	"colorString" : "#22aadd55",
+	"colorString" : "#22aaddff",
 	"tags" : ["history"],
 	"defaultScale" : 200,
 	"defaultDateString" : "1800",
@@ -465,6 +465,12 @@
 			"dateString" : "1756",
 			"minScale" : 1,
 			"maxScale" : 200
+		},
+		{
+			"title" : "Thirty Years' War",
+			"dateString" : "1618",
+			"minScale" : 1,
+			"maxScale" : 5000
 		},
 		{
 			"title" : "Black Death",

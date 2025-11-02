@@ -754,6 +754,15 @@ class Timeline {
             newEventDomElement.addEventListener("click", function() { onEventClick(tlIndex, this.getAttribute("eventIndex"), this.getAttribute("startDate")); });
             newEventDomElement.addEventListener("mouseover", function() { onEventMouseOver(tlIndex, this.getAttribute("eventIndex")); });
             newEventDomElement.addEventListener("mouseout", function() { onEventMouseOut(tlIndex, this.getAttribute("eventIndex")); });
+
+            //set background colour
+            if(jsonObj.colorString != undefined)
+            {
+                if(eventType=="basic" || eventType=="era")
+                {
+                    newEventDomElement.style.backgroundColor = jsonObj.colorString;
+                }
+            }
             
             //save a reference
             this.tlEvents.push(newEvent);

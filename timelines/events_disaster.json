@@ -1,20 +1,20 @@
 {
  
 	"category" : "Natural disasters",
-	"colorString" : "#22ddbb55",
+	"colorString" : "darkorange",
 	"tags" : ["science"],
 	"eventlist" : [
 		
 
 
 		{
-			"title" : "Black Death",
+			"title" : "Black Death pandemic",
 			"dateString" : "1346",
 			"minScale" : 1,
 			"maxScale" : 5000
 		},
 		{
-			"title" : "Spanish Flu",
+			"title" : "Spanish Flu pandemic",
 			"dateString" : "1918",
 			"minScale" : 1,
 			"maxScale" : 1000
@@ -27,7 +27,7 @@
 		},
 
 		{
-			"title" : "Plague of Justinian",
+			"title" : "Plague of Justinian panedemic",
 			"dateString" : "541",
 			"minScale" : 1,
 			"maxScale" : 5000
@@ -55,14 +55,14 @@
 		},
 
 		{
-			"title" : "1520 Mexico Smallpox Epidemic",
+			"title" : "1520 Smallpox Epidemic (Mexico)",
 			"dateString" : "1520",
 			"minScale" : 1,
 			"maxScale" : 1000
 		},
 
 		{
-			"title" : "1918 Russia Typhus epidemic",
+			"title" : "1918 Typhus epidemic (Russia)",
 			"dateString" : "1918",
 			"minScale" : 1,
 			"maxScale" : 1000
@@ -70,28 +70,42 @@
 
 
 		{
-			"title" : "2010 Haiti Earthquake",
+			"title" : "Great Kanto Earthquake\n(Japan)",
+			"dateString" : "1923",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+
+		{
+			"title" : "Indian Ocean Tsunami",
+			"dateString" : "2004",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+
+		{
+			"title" : "Haiti Earthquake",
 			"dateString" : "2010",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
 
 		{
-			"title" : "1970 Bhola Cyclone (Bangladesh)",
+			"title" : "Bhola Cyclone (Bangladesh)",
 			"dateString" : "1970",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
 
 		{
-			"title" : "1887 Yellow River flood",
+			"title" : "Yellow River flood",
 			"dateString" : "1887",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
 
 		{
-			"title" : "1931 China floods",
+			"title" : "China floods",
 			"dateString" : "1931",
 			"minScale" : 1,
 			"maxScale" : 5000

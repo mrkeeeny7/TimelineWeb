@@ -500,6 +500,8 @@ select {
     /* text */
     font-size: 16px;
     user-select: none; /* prevent selecting of text */
+
+    border-radius: 0px;
     
 }
 
@@ -511,6 +513,8 @@ select {
 
     -ms-transform: translate(0%,0px); 
     transform: translate(0%,0px);
+
+    
 }
 
 .eventBubble[eventType='horizline'] {
@@ -527,6 +531,8 @@ select {
     transform: translate(0%,0px);
     
     background-color: rgba(245, 65, 89, 0.829);
+
+    
     
     position: absolute;
     top: 0px; /* this should be overridden in Javascript */
@@ -561,9 +567,9 @@ select {
 }
 .eventBubble[eventType='person'] {
    /* margin-left: 200px;*/
-    margin-top: -22px; /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-top: -11px; /* = half total height, accounting for padding+height+border = (2+2)+20+(0) = 22 */
+    margin-bottom: 0px;
+    padding: 2px;
 
     /* right align in a column */
     -ms-transform: translate(-100%,0px); 
@@ -582,6 +588,9 @@ select {
     font-size: 16px;
     font-style: italic;
     user-select: none; /* prevent selecting of text */
+
+    
+    border-radius: 0px;
 
     /* TODO make background invisible when not highlighted */
     
