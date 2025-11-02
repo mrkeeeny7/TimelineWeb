@@ -1,25 +1,69 @@
 {
  
 	"category" : "Cosmic Eras",
-	"colorString" : "#aa22ff55",
+	"colorString" : "#aa22ffff",
 	"preferredColumn" : 0,
 	"eventlist" : [
 
 
-
+	{
+		"title" : "Early Universe",
+		"dateString" : "13787000000 BC",
+		"endDateString" : "13784000000 BC",
+		"type" : "era",
+		"tags" : ["cosmic"]
+	},
+	{
+		"title" : "Galaxies",
+		"dateString" : "13784000000 BC",
+		"endDateString" : "4600000000 BC",
+		"type" : "era",
+		"tags" : ["cosmic"]
+	},	
 
 
 
 	{
 		"title" : "Big Bang",
 		"dateString" : "13787000000 BC",
-		"tags" : ["prehistory"]
+		"tags" : ["cosmic"]
+	},
+	{
+		"title" : "First galaxies",
+		"dateString" : "13784000000 BC",
+		"maxScale" : 100000000,
+		"tags" : ["cosmic"]
+	},
+	{
+		"title" : "Betelgeuse",
+		"dateString" : "8000000 BC",
+		"tags" : ["cosmic"]
+	},
+	{
+		"title" : "Achernar",
+		"dateString" : "63000000 BC",
+		"tags" : ["cosmic"]
+	},
+	{
+		"title" : "Sirius",
+		"dateString" : "242000000 BC",
+		"tags" : ["cosmic"]
+	},
+	{
+		"title" : "Alpha Centauri",
+		"dateString" : "5260000000 BC",
+		"tags" : ["cosmic"]
+	},
+	{
+		"title" : "Barnard's Star",
+		"dateString" : "10000000000 BC",
+		"tags" : ["cosmic"]
 	},
 	{
 		"title" : "Solar System forms",
 		"searchstring": "Formation and evolution of the Solar System",
 		"dateString" : "4600000000 BC",
-		"tags" : ["prehistory"]
+		"tags" : ["cosmic"]
 	}
 	
 
