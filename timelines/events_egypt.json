@@ -2,22 +2,24 @@
  
 	"category" : "Egypt",
 	"colorString" : "#999900ff",
+	"colorBString" : "#708033",
 	"tags" : ["egypt"],
 	"defaultScale" : 2000,
 	"defaultDateString" : "1000 BC",
 
 	"eventlist" : [
 
+
 		{
-			"title" : "Ancient Egypt",
+			"title" : "Dynastic Egypt",
 			"dateString" : "3150 BC",
 			"endDateString" : "332 BC",
 			"minScale" : 5000,
-			"maxScale" : 50000,
+			"maxScale" : 20000,
 			"type" : "era"
 		},	
 		{
-			"title" : "Greek Egypt",
+			"title" : "Ptolemaic Egypt",
 			"dateString" : "332 BC",
 			"endDateString" : "30 BC",
 			"minScale" : 5000,
@@ -60,6 +62,43 @@
 			"type" : "era"
 		},
 
+
+	{
+		"title" : "Paleolithic Period",
+		"dateString" : "c. 300000 BC",
+		"endDateString" : "c. 17000 BC",
+		"maxScale" : 50000000,
+		"type" : "era"
+	},
+	{
+		"title" : "Mesolithic Period",
+		"dateString" : "c. 17000 BC",
+		"endDateString" : "c. 9000 BC",
+		"maxScale" : 500000,
+		"type" : "era"
+	},
+	{
+		"title" : "Predynastic Period",
+		"dateString" : "6210 BC",
+		"endDateString" : "3150 BC",
+		"maxScale" : 500000,
+		"type" : "era"
+	},
+		{
+				"title" : "Ancient Egypt",
+				"dateString" : "3150 BC",
+				"endDateString" : "30 BC",
+				"minScale" : 20000,
+				"maxScale" : 50000,
+				"type" : "era"
+		},	
+	{
+			"title" : "Egypt",
+			"dateString" : "3150 BC",
+			"endDateString" : "PRESENTDAY",
+			"minScale" : 50000,
+			"type" : "era"
+	},		
 
 	{
 		"title" : "Early Dynastic Period",
@@ -167,6 +206,11 @@
 		"title" : "Hieroglyph writing",
 		"dateString" : "3250 BC",
 		"maxScale" : 10000
+	},
+	{
+		"title" : "Thebes",
+		"dateString" : "3200 BC",
+		"maxScale" : 5000
 	},
 	{
 		"title" : "Step Pyramid of Djoser",

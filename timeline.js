@@ -763,6 +763,13 @@ class Timeline {
                     newEventDomElement.style.backgroundColor = jsonObj.colorString;
                 }
             }
+            if(jsonObj.colorBString != undefined)
+            {
+                if(eventType=="era")
+                {
+                    newEventDomElement.style.backgroundColor = jsonObj.colorBString;
+                }
+            }
             
             //save a reference
             this.tlEvents.push(newEvent);

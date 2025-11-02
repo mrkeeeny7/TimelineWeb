@@ -2,6 +2,7 @@
  
 	"category" : "Western history",
 	"colorString" : "coral",
+	"colorBString" : "#802200",
 	"tags" : ["history"],
 	"defaultScale" : 200,
 	"defaultDateString" : "1800",
@@ -491,36 +492,6 @@
 			"minScale" : 1,
 			"maxScale" : 50000
 		},
-		{
-			"title" : "Minoan Palaces at Knossos",
-			"dateString" : "1900 BC",
-			"minScale" : 1,
-			"maxScale" : 10000
-		},
-		{
-			"title" : "Ziggurat of Ur",
-			"dateString" : "2000 BC",
-			"minScale" : 1,
-			"maxScale" : 10000
-		},
-		{
-			"title" : "Mohenjo-Daro",
-			"dateString" : "c. 2500 BC",
-			"minScale" : 1,
-			"maxScale" : 10000
-		},
-		{
-			"title" : "Pyramids",
-			"dateString" : "2670 BC",
-			"minScale" : 1,
-			"maxScale" : 50000
-		},
-		{
-			"title" : "Stonehenge",
-			"dateString" : "3000 BC",
-			"minScale" : 1,
-			"maxScale" : 10000
-		},
 
 		{
 			"title" : "Buddha",
@@ -530,7 +501,6 @@
 			"maxScale" : 5000,
 			"type" : "person"
 		}
-	
 
 	],
 
