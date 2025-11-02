@@ -169,6 +169,11 @@
 		"maxScale" : 10000
 	},
 	{
+		"title" : "Step Pyramid of Djoser",
+		"dateString" : "2670 BC",
+		"maxScale" : 2000
+	},
+	{
 		"title" : "Great Pyramid",
 		"searchstring": "Great Pyramid of Giza",
 		"dateString" : "2600 BC",
@@ -177,6 +182,16 @@
 	{
 		"title" : "Karnak",
 		"dateString" : "1970 BC",
+		"maxScale" : 10000
+	},
+	{
+		"title" : "Amarna",
+		"dateString" : "1346 BC",
+		"maxScale" : 2000
+	},
+	{
+		"title" : "Abu Simbel",
+		"dateString" : "1264 BC",
 		"maxScale" : 10000
 	},
 	{
@@ -241,7 +256,8 @@
 
 	{
 		"title" : "Seti I",
-		"deathDateString" : "1279 BC",
+		"birthDateString" : "c. 1319 BC",
+		"deathDateString" : "c. 1279 BC",
 		"dateString" : "1290 BC",
 		"maxScale" : 500,
 		"type" : "person"
@@ -251,7 +267,7 @@
 		"title" : "Ramesses II",
 		"birthDateString" : "1303 BC",
 		"deathDateString" : "1213 BC",
-		"dateString" : "1220 BC",
+		"dateString" : "1279 BC",
 		"maxScale" : 5000,
 		"type" : "person"
 	},

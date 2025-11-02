@@ -1,7 +1,7 @@
 {
  
 	"category" : "Western history",
-	"colorString" : "#22aaddff",
+	"colorString" : "coral",
 	"tags" : ["history"],
 	"defaultScale" : 200,
 	"defaultDateString" : "1800",
@@ -484,12 +484,59 @@
 			"dateString" : "1096",
 			"minScale" : 1,
 			"maxScale" : 5000
+		},
+		{
+			"title" : "Teracotta Army",
+			"dateString" : "210 BC",
+			"minScale" : 1,
+			"maxScale" : 50000
+		},
+		{
+			"title" : "Minoan Palaces at Knossos",
+			"dateString" : "1900 BC",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "Ziggurat of Ur",
+			"dateString" : "2000 BC",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "Mohenjo-Daro",
+			"dateString" : "c. 2500 BC",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "Pyramids",
+			"dateString" : "2670 BC",
+			"minScale" : 1,
+			"maxScale" : 50000
+		},
+		{
+			"title" : "Stonehenge",
+			"dateString" : "3000 BC",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+
+		{
+			"title" : "Buddha",
+			"birthDateString" : "563 BC",
+			"deathDateString" : "483 BC",
+			"dateString" : "523 BC",
+			"maxScale" : 5000,
+			"type" : "person"
 		}
 	
 
 	],
 
 	"personlist" : [
+		{		"name" : "Buddha", "birthDateString" : "c. 563 BC", "deathDateString" : "c. 483 BC"	},
+
 		{		"name" : "Cyrus the Great", "birthDateString" : "600 BC", "deathDateString" : "530 BC" 	, "ruled" : ["559 BC", "530 BC"]	},
 		{		"name" : "Darius the Great", "birthDateString" : "550 BC", "deathDateString" : "486 BC" 	, "ruled" : ["522 BC", "486 BC"]	},
 		{		"name" : "Xerxes I", "birthDateString" : "518 BC", "deathDateString" : "465 BC" 	, "ruled" : ["486 BC", "465 BC"]	},
