@@ -388,9 +388,13 @@ class TimelineColumnWidget
      */
     CreateDOMElement()
     {           
+        let elementID = "columnWidget" + this.groupName;
+
         this.domElement = document.createElement("div");
         this.domElement.setAttribute("class", "tlColumnWidget"); 
+        this.domElement.setAttribute("id", elementID);  //TODO really need to ensure this is unique; maybe maintain a hashtable reference
         this.domElement.setAttribute("category", this.groupName);  //use this in the callback below
+        this.domElement.setAttribute("draggable", "true"); //make draggable
         var widgetText=document.createTextNode(this.groupName);
         this.domElement.appendChild(widgetText);
         this.refreshColours();
@@ -677,7 +681,7 @@ class Timeline {
         if(jsonObj.preferredColumn != undefined)
         {
             currentColumn = Number(jsonObj.preferredColumn);
-            removeItemOnce(this.availableColumns, currentColumn);
+            TimelineHelper.removeItemOnce(this.availableColumns, currentColumn);
             //this.availableColumns.remove(currentColumn)
             //TODO make next available column currentColumn+1 (looping around after max)
         }
@@ -1089,7 +1093,7 @@ function AnimateMove()
     animProgress += ANIMATION_INTERVAL/ANIMATION_TIME;
     if (animProgress < 1.0) {
         //lerp between old date and new date...
-        var newYear = myLerp( animTimeline.oldCurrentYear, animTargetDate, animProgress);
+        var newYear = TimelineHelper.Lerp(animTimeline.oldCurrentYear, animTargetDate, animProgress);
         animTimeline.SetCurrentYear(newYear);
     }
     else
@@ -1833,38 +1837,59 @@ function myWheelHandler(event, timelineIndex)
         return;
     }
     var y = event.deltaY / Math.abs(event.deltaY);  //value should be 1 or -1
-    targetTimeline.sliderScale = TimelineScaleToSliderScale(targetTimeline.currentScale);
+    targetTimeline.sliderScale = TimelineHelper.TimelineScaleToSliderScale(targetTimeline.currentScale);
     targetTimeline.sliderScale += y * MWHEEL_SCROLL_FACTOR;
-    targetTimeline.setCurrentScale(SliderScaleToTimelineScale(targetTimeline.sliderScale));
+    targetTimeline.setCurrentScale(TimelineHelper.SliderScaleToTimelineScale(targetTimeline.sliderScale));
 
     
    // console.log("scaling timeline " + timelineIndex + " deltaY=" + y);
 
 }
 
+// ***  Event handlers for drag-and-drop
 
+/**
+ * 
+ * @param {DragEvent} ev 
+ */
+function dragstartHandler(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
 
-function SliderScaleToTimelineScale(sliderVal)
-{
-    var zoomlevel = sliderVal * (maxZoom - minZoom) + minZoom;
-    var timelineVal = 500.0 * Math.exp (zoomlevel);
+/**
+ * 
+ * @param {DragEvent} ev 
+ */
+function dragoverHandler(ev) {
+  ev.preventDefault();
+}
 
-    return timelineVal;
+/**
+ * 
+ * @param {DragEvent} ev 
+ */
+function dropHandler(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
 }
 
 
-function TimelineScaleToSliderScale(timelineVal)
-{
-    var zoomlevel = Math.log (timelineVal / 500.0);
-    var sliderVal = ((zoomlevel - minZoom) / (maxZoom - minZoom));
-
-    return sliderVal;
-}
 
 
-//handle timeline dragging
+
+
+
+// *** Functions that handle timeline dragging
 var isDragging = false;
 var mouseDownY;
+
+/**
+ * 
+ * @param {MouseEvent} event 
+ * @param {number} timelineIndex 
+ * @returns 
+ */
 function timelineMouseDown(event, timelineIndex)
 {    
     if(!isTimelineInitialized(timelineIndex))
@@ -1879,6 +1904,11 @@ function timelineMouseDown(event, timelineIndex)
     isDragging = true;
 }
 
+/**
+ * 
+ * @param {MouseEvent} event 
+ * @param {number} timelineIndex 
+ */
 function timelineMouseMove(event, timelineIndex)
 {   
     if(!isTimelineInitialized(timelineIndex))
@@ -1894,6 +1924,10 @@ function timelineMouseMove(event, timelineIndex)
     }
 }
 
+/**
+ * 
+ * @param {number} timelineIndex 
+ */
 function timelineMouseUp(timelineIndex)
 {   
     if(!isTimelineInitialized(timelineIndex))
@@ -1984,44 +2018,82 @@ function onCategoryClick(timelineIndex, groupName)
 
 }
 
-//helpers
-
-function myLerp(x,y, a)
+//Static helpers
+class TimelineHelper
 {
-    return x*(1-a) + y*a;
-}
+    //LOG SCALE HELPERS
+    /**
+     * Convert value from log scale (zoom level) back to linear scale (timeline value)
+     * @param {number} sliderVal 
+     * @returns timeline value
+     * */
+    static SliderScaleToTimelineScale(sliderVal)
+    {
+        var zoomlevel = sliderVal * (maxZoom - minZoom) + minZoom;
+        var timelineVal = 500.0 * Math.exp (zoomlevel);
 
-/**
- * 
- * @param {*[]} arr an array
- * @param {*} value value to be removed from the array
- * @returns 
- */
-function removeItemOnce(arr, value) {
-  var index = arr.indexOf(value);
-  if (index > -1) {
-    arr.splice(index, 1);
-  }
-  return arr;
-}
-
-/**
- * 
- * @param {*[]} arr an array
- * @param {*} value value to be removed from the array
- * @returns 
- */
-function removeItemAll(arr, value) {
-  var i = 0;
-  while (i < arr.length) {
-    if (arr[i] === value) {
-      arr.splice(i, 1);
-    } else {
-      ++i;
+        return timelineVal;
     }
-  }
-  return arr;
+
+    /**
+     * Convert timeline value from linear scale to log scale (zoom level)
+     * @param {number} timelineVal 
+     * @returns zoom slider scale value
+     */
+    static TimelineScaleToSliderScale(timelineVal)
+    {
+        var zoomlevel = Math.log (timelineVal / 500.0);
+        var sliderVal = ((zoomlevel - minZoom) / (maxZoom - minZoom));
+
+        return sliderVal;
+    }
+
+    //ARRAY HELPERS
+    /**
+     * 
+     * @param {*[]} arr an array
+     * @param {*} value value to be removed from the array
+     * @returns 
+     */
+    static removeItemOnce(arr, value) {
+        var index = arr.indexOf(value);
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
+        return arr;
+    }
+
+    
+    /**
+     * 
+     * @param {*[]} arr an array
+     * @param {*} value value to be removed from the array
+     * @returns 
+     */
+    static removeItemAll(arr, value) {
+        var i = 0;
+        while (i < arr.length) {
+            if (arr[i] === value) {
+            arr.splice(i, 1);
+            } else {
+            ++i;
+            }
+        }
+        return arr;
+    }
+
+    //MATH HELPERS
+    static Lerp(x,y, a)
+    {
+        return x*(1-a) + y*a;
+    }
+
 }
+
+
+
+
+
 /**
  * Bugtracker
  * 
