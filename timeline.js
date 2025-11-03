@@ -394,7 +394,10 @@ class TimelineColumnWidget
         this.domElement.setAttribute("class", "tlColumnWidget"); 
         this.domElement.setAttribute("id", elementID);  //TODO really need to ensure this is unique; maybe maintain a hashtable reference
         this.domElement.setAttribute("category", this.groupName);  //use this in the callback below
+
         this.domElement.setAttribute("draggable", "true"); //make draggable
+        this.domElement.setAttribute("ondragstart", "dragstartHandler(event)");
+
         var widgetText=document.createTextNode(this.groupName);
         this.domElement.appendChild(widgetText);
         this.refreshColours();
@@ -1117,7 +1120,10 @@ function ZoomToDate(date, timelineIndex)
 
 
 
-
+/**
+ * This is the main class for objects (tlEvents) that appear on the Timeline including events,
+ * eras, persons, wars, etc.
+ */
 class TimelineEvent {
     /**
      * 
@@ -1428,6 +1434,11 @@ function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
     xmlhttp.open("GET", jsonfile, true);
     xmlhttp.send();
 }
+
+
+//DATE & STRING FUCNTIONS
+//TODO - organize as (static?) methods in a TimelineDate class
+
 
 /**
  * 
@@ -1853,7 +1864,7 @@ function myWheelHandler(event, timelineIndex)
  * @param {DragEvent} ev 
  */
 function dragstartHandler(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
+    ev.dataTransfer.setData("text", ev.target.id);
 }
 
 /**
@@ -1861,7 +1872,7 @@ function dragstartHandler(ev) {
  * @param {DragEvent} ev 
  */
 function dragoverHandler(ev) {
-  ev.preventDefault();
+    ev.preventDefault();
 }
 
 /**
@@ -1869,9 +1880,25 @@ function dragoverHandler(ev) {
  * @param {DragEvent} ev 
  */
 function dropHandler(ev) {
-  ev.preventDefault();
-  const data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+
+    //need to find the column header to drop into
+    var targetElement;
+    if(ev.target.getAttribute("class")=="tableColumnHeader")
+    {
+        targetElement = ev.target;
+    }
+    else if(ev.target.getAttribute("class")=="tlColumnWidget")
+    {
+        targetElement = ev.target.parentNode;
+    }
+
+    //add the widget to the new header
+    targetElement.appendChild(document.getElementById(data)); 
+
+    //TODO : move all the events into the new column
+    //......
 }
 
 
