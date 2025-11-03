@@ -1005,7 +1005,7 @@ class Timeline {
         for(let i=0; i<this.tlEvents.length; i++)
         {
             let _tlevent = this.tlEvents[i];
-            if(_tlevent.category==category)
+            if(_tlevent.columnWidget.groupName==category)
             {
                 this.changeColumn(_tlevent, newColumn);
             }
@@ -1928,6 +1928,7 @@ function dragoverHandler(ev) {
 function dropHandler(ev, columnID, timelineIndex) {
     ev.preventDefault();
     const data = ev.dataTransfer.getData("text");
+    let widgetElement = document.getElementById(data);
 
     //need to find the column header to drop into
     var targetElement;
@@ -1941,12 +1942,12 @@ function dropHandler(ev, columnID, timelineIndex) {
     }
 
     //add the widget to the new header
-    targetElement.appendChild(document.getElementById(data)); 
+    targetElement.appendChild(widgetElement); 
 
     //move all the events into the new column
     //TODO nb need to handle moving from one timeline to another...
     //......
-    let categoryString = "Ice Age";//?
+    let categoryString = widgetElement.getAttribute("category");
     all_timelines[timelineIndex].moveCategoryColumn(categoryString, columnID);
 }
 
