@@ -407,6 +407,18 @@
 	},
 
 	{
+		"title" : "Battle of Trafalgar",
+		"dateString" : "1805",
+		"minScale" : 1,
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Abolition of Slavery",
+		"dateString" : "1834",
+		"minScale" : 1,
+		"maxScale" : 5000
+	},
+	{
 		"title" : "Great Exhibition",
 		"dateString" : "1851",
 		"minScale" : 1,
