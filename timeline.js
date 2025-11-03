@@ -787,9 +787,12 @@ class Timeline {
                 newEventDomElement, lifelineDomElement, newColumnWidget, currentColumn);
                 
             let tlIndex = this.timelineIndex;
-            newEventDomElement.addEventListener("click", function() { onEventClick(tlIndex, this.getAttribute("eventIndex"), this.getAttribute("startDate")); });
-            newEventDomElement.addEventListener("mouseover", function() { onEventMouseOver(tlIndex, this.getAttribute("eventIndex")); });
-            newEventDomElement.addEventListener("mouseout", function() { onEventMouseOut(tlIndex, this.getAttribute("eventIndex")); });
+            newEventDomElement.addEventListener("click", 
+                function() { onEventClick(tlIndex, this.getAttribute("eventIndex"), this.getAttribute("startDate")); });
+            newEventDomElement.addEventListener("mouseover", 
+                function() { onEventMouseOver(tlIndex, this.getAttribute("eventIndex")); });
+            newEventDomElement.addEventListener("mouseout", 
+                function() { onEventMouseOut(tlIndex, this.getAttribute("eventIndex")); });
 
             //set background colour
             if(jsonObj.colorString != undefined)
@@ -923,7 +926,7 @@ class Timeline {
 
             }
             //position in preferred column
-            this.setColumn(_tlevent, _tlevent.preferredColumn);
+            this.positionInColumn(_tlevent, _tlevent.preferredColumn);
         }
     
         
@@ -938,11 +941,11 @@ class Timeline {
      * @param {TimelineEvent} _tlevent 
      * @param {number} columnNumber 
      */
-    setColumn(_tlevent, columnNumber)
+    positionInColumn(_tlevent, columnNumber)
     {
         if(columnNumber > this.numColumns-1)
         {
-            this.setColumn(_tlevent, 0);
+            this.positionInColumn(_tlevent, 0);
         }
         else
         {
@@ -977,6 +980,39 @@ class Timeline {
 
             //console.log("Set column width to " + width);
         }
+    }
+
+    /**
+     * 
+     * @param {TimelineEvent} _tlevent 
+     * @param {number} newColumn 
+     */
+    changeColumn(_tlevent, newColumn)
+    {
+        _tlevent.preferredColumn = newColumn;
+    }
+
+    /**
+     * 
+     * @param {string} category 
+     * @param {number} newColumn 
+     */
+    moveCategoryColumn(category, newColumn)
+    {
+        //TODO need a better way of uniquely assigning category (e.g. a Category link in the tlEvent)
+               
+        //for now, loop through all events and pick the ones matching the category string
+        for(let i=0; i<this.tlEvents.length; i++)
+        {
+            let _tlevent = this.tlEvents[i];
+            if(_tlevent.category==category)
+            {
+                this.changeColumn(_tlevent, newColumn);
+            }
+        }
+
+        //call this to update all positions
+        this.refresh();
     }
     
     recentreTimeline()
@@ -1494,9 +1530,12 @@ function unpackDateString(dateString)
     else
     {        
 
+        /** first, split string by whitespace
+         */
     //    var tokens = dateString.split(" ");
-        var tokens = dateString.match(/\S+/g); //split string by whitespace
+        var tokens = dateString.match(/\S+/g); 
 
+        //handle 'approximate' dates
         if(tokens[0].toLowerCase() == "c." || tokens[0].toLowerCase() == "c"|| tokens[0].toLowerCase() == "~")
         {
             //date is approx
@@ -1829,7 +1868,12 @@ function isTimelineInitialized(timelineIndex)
 }
 
 
-//handle mousewheel scaling
+
+/**
+ * Handle mousewheel scaling
+ * @param {WheelEvent} event 
+ * @param {number} timelineIndex 
+ */
 function myWheelHandler(event, timelineIndex)
 {     
     if(!isTimelineInitialized(timelineIndex))
@@ -1878,8 +1922,10 @@ function dragoverHandler(ev) {
 /**
  * 
  * @param {DragEvent} ev 
+ * @param {number} columnID 
+ * @param {number} timelineIndex 
  */
-function dropHandler(ev) {
+function dropHandler(ev, columnID, timelineIndex) {
     ev.preventDefault();
     const data = ev.dataTransfer.getData("text");
 
@@ -1897,8 +1943,11 @@ function dropHandler(ev) {
     //add the widget to the new header
     targetElement.appendChild(document.getElementById(data)); 
 
-    //TODO : move all the events into the new column
+    //move all the events into the new column
+    //TODO nb need to handle moving from one timeline to another...
     //......
+    let categoryString = "Ice Age";//?
+    all_timelines[timelineIndex].moveCategoryColumn(categoryString, columnID);
 }
 
 
