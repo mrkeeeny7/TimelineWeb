@@ -291,6 +291,26 @@
 		"dateString" : "43 AD",
 		"maxScale" : 5000
 	},
+	{
+		"title" : "Hadrian's Wall",
+		"dateString" : "122 AD",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Clodius Albinus's revolt",
+		"dateString" : "193 AD",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Roman invasion of Caledonia",
+		"dateString" : "208 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Great Conspiracy",
+		"dateString" : "367 AD",
+		"maxScale" : 5000
+	},
 
 	{
 		"title" : "Caratacus",
@@ -301,6 +321,13 @@
 	{
 		"title" : "Boudica",
 		"dateString" : "60 AD",
+		"maxScale" : 5000,
+		"type" : "person"
+	},
+	{
+		"title" : "Agricola",
+		"dateString" : "77 AD",
+		"birthDateString" : "40 AD", "deathDateString" : "93 AD",
 		"maxScale" : 5000,
 		"type" : "person"
 	},
@@ -321,11 +348,24 @@
 	{
 		"title" : "Alfred the Great",
 		"dateString" : "871 AD",
+		"birthDateString" : "c. 849", "deathDateString" : "899",
 		"maxScale" : 5000,
 		"type" : "person"
 	},
 
 
+	{
+		"title" : "Viking Raid on Lindisfarne",
+		"dateString" : "793",
+		"maxScale" : 5000
+	},
+		
+	{
+		"title" : "Great Heathen Army",
+		"dateString" : "865",
+		"maxScale" : 5000
+	},
+		
 	{
 		"title" : "Norman Conquest",
 		"dateString" : "1066",
@@ -527,9 +567,11 @@
 		{		"name" : "Simon de Montfort", "birthDateString" : "1208", "deathDateString" : "1265"				},
 
 		
+		{		"name" : "St. Aiden of Lindisfarne", "birthDateString" : "c. 590", "deathDateString" : "651"	},
+		{		"name" : "Alcuin of York", "birthDateString" : "c. 735", "deathDateString" : "804"	},
 
 		{		"name" : "Offa of Mercia", "birthDateString" : "730", "deathDateString" : "796"		, "ruled" : ["757", "796"]		},
-		{		"name" : "Alfred the Great", "birthDateString" : "849", "deathDateString" : "899"	, "ruled" : ["871", "899"]			},
+		{		"name" : "Alfred the Great", "birthDateString" : "c. 849", "deathDateString" : "899"	, "ruled" : ["871", "899"]			},
 		{		"name" : "Aethelflaed", "birthDateString" : "870", "deathDateString" : "918"	, "ruled" : ["911", "918"]			},
 		{		"name" : "Aethelstan", "birthDateString" : "894", "deathDateString" : "939"		, "ruled" : ["924", "939"]		},
 		{		"name" : "Aethelred the Unready", "birthDateString" : "996", "deathDateString" : "1016"	, "ruled" : ["978", "1013", "1014", "1016"]			},

@@ -233,6 +233,12 @@
 			"type" : "horizline"
 		},
 		{
+			"title" : "October 7 attacks / Gaza War",
+			"dateString" : "2023",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
 			"title" : "Russia-Ukraine invasion",
 			"searchstring" : "Russia Ukraine invasion",
 			"dateString" : "2022",
