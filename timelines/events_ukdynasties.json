@@ -307,6 +307,21 @@
 		"maxScale" : 500
 	},
 	{
+		"title" : "Gallic Empire",
+		"dateString" : "260 AD",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Carausian revolt",
+		"dateString" : "286 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Constantine declared Emperor",
+		"dateString" : "306 AD",
+		"maxScale" : 500
+	},
+	{
 		"title" : "Great Conspiracy",
 		"dateString" : "367 AD",
 		"maxScale" : 5000

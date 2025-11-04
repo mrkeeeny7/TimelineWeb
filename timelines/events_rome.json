@@ -337,13 +337,19 @@
 		"title" : "Crisis of the Third Century",
 		"dateString" : "235 AD",
 		"minScale" : 501,
-		"maxScale" : 5000
+		"maxScale" : 2000
 	},
 
 	
 
 
 
+	{
+		"title" : "Plague of Justinian",
+		"dateString" : "541 AD",
+		"maxScale" : 2000,
+		"tags" : ["europe", "byzantium", "pandemic"]
+	},
 	{
 		"title" : "Sack of Rome",
 		"searchstring" : "Sack of Rome (410)",
@@ -355,6 +361,21 @@
 		"title" : "Fall of the Western Empire",
 		"searchstring" : "Fall of the Western Roman Empire",
 		"dateString" : "476 AD",
+		"maxScale" : 2000
+	},
+	{
+		"title" : "Battle of Adrianople",
+		"dateString" : "378 AD",
+		"maxScale" : 2000
+	},
+	{
+		"title" : "Battle of Milvian Bridge",
+		"dateString" : "312 AD",
+		"maxScale" : 2000
+	},
+	{
+		"title" : "Constantinople founded",
+		"dateString" : "330 AD",
 		"maxScale" : 5000
 	},
 	{
@@ -370,12 +391,6 @@
 		"maxScale" : 500,
 		"type" : "person",
 		"tags" : ["byzantium"]
-	},
-	{
-		"title" : "Plague of Justinian",
-		"dateString" : "541 AD",
-		"maxScale" : 5000,
-		"tags" : ["europe", "byzantium", "pandemic"]
 	},
 
 	{
@@ -408,11 +423,6 @@
 		"type" : "person"
 	},
 
-	{
-		"title" : "Battle of Adrianople",
-		"dateString" : "378 AD",
-		"maxScale" : 5000
-	},
 
 	{
 		"title" : "Theodosius I",
