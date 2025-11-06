@@ -101,6 +101,13 @@ more flexibility in column placement
 	- affecting era bubbles and widgets
 	- colours picked to not clash with overall scheme
 
+
+=== Multiples and duplicates
+	- Italy timeline to auto-include Rome (but not Byzantium)
+	- Rome timeline to auto-include Byzantium
+	- check if a timeline is already loaded in column & do not duplicate
+
+
 ==DONE=========
 
 X Show current year prominently and allow to enter a specific year
