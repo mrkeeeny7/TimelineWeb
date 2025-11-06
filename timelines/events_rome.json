@@ -11,6 +11,14 @@
 	
 	
 	{
+		"title" : "Roman Kingdom (Legendary)",
+		"dateString" : "753 BC",
+		"endDateString" : "509 BC",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
 		"title" : "Rome",
 		"dateString" : "509 BC",
 		"endDateString" : "476 AD",
@@ -169,17 +177,6 @@
 	
 
 	{
-		"title" : "Roman Republic begins",
-		"searchstring" : "Roman Republic",
-		"dateString" : "509 BC",
-		"maxScale" : 500
-	},	
-	{
-		"title" : "First Punic War",
-		"dateString" : "264 BC",
-		"maxScale" : 500
-	},
-	{
 		"title" : "Hannibal",
 		"dateString" : "218 BC",
 		"birthDateString" : "247 BC",
@@ -336,12 +333,68 @@
 	{
 		"title" : "Crisis of the Third Century",
 		"dateString" : "235 AD",
-		"minScale" : 501,
+		"minScale" : 500,
 		"maxScale" : 2000
 	},
 
 	
 
+	{
+		"title" : "Roman Republic begins",
+		"searchstring" : "Roman Republic",
+		"dateString" : "509 BC",
+		"maxScale" : 500
+	},	
+	{
+		"title" : "Gallic Sack of Rome",
+		"dateString" : "387 BC",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Second Latin War",
+		"dateString" : "340 BC",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Third Samnite War",
+		"dateString" : "298 BC",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Pyrrhic War",
+		"dateString" : "281 BC",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "First Punic War",
+		"dateString" : "264 BC",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Second Punic War",
+		"dateString" : "218 BC",
+		"maxScale" : 5000
+	},
+	{
+		"title" : "Foundation of Aquileia",
+		"dateString" : "181 BC",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Third Servile War",
+		"dateString" : "73 BC",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Gallic Wars",
+		"dateString" : "58 BC",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Assassination of Julius Caesar",
+		"dateString" : "44 BC",
+		"maxScale" : 2000
+	},
 
 
 	{
@@ -351,10 +404,10 @@
 		"tags" : ["europe", "byzantium", "pandemic"]
 	},
 	{
-		"title" : "Sack of Rome",
+		"title" : "(Visigothic) Sack of Rome",
 		"searchstring" : "Sack of Rome (410)",
 		"dateString" : "410 AD",
-		"maxScale" : 5000
+		"maxScale" : 2000
 	}
 	,
 	{
@@ -379,10 +432,60 @@
 		"maxScale" : 5000
 	},
 	{
+		"title" : "Valerian captured at Edessa",
+		"dateString" : "260 AD",
+		"maxScale" : 200
+	},
+	{
+		"title" : "Plague of Cyprian",
+		"dateString" : "249 AD",
+		"maxScale" : 200
+	},
+	{
+		"title" : "Year of the Six Emperors",
+		"dateString" : "238 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Year of the Five Emperors",
+		"dateString" : "193 AD",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Antonine Plague",
+		"dateString" : "165 AD",
+		"maxScale" : 200
+	},
+	{
+		"title" : "Parthian War",
+		"dateString" : "114 AD",
+		"maxScale" : 200
+	},
+	{
+		"title" : "Dacian Wars",
+		"dateString" : "101 AD",
+		"maxScale" : 200
+	},
+	{
+		"title" : "Colosseum completed",
+		"dateString" : "80 AD",
+		"maxScale" : 200
+	},
+	{
+		"title" : "Vesuvius Eruption",
+		"dateString" : "79 AD",
+		"maxScale" : 200
+	},
+	{
+		"title" : "Year of the Four Emperors",
+		"dateString" : "69 AD",
+		"maxScale" : 500
+	},
+	{
 		"title" : "Boudicca's Revolt",
 		"searchstring" : "Boudica",
 		"dateString" : "60 AD",
-		"maxScale" : 5000,
+		"maxScale" : 200,
 		"tags" : ["britain"]
 	},
 	{

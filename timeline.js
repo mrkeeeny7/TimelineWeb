@@ -1945,10 +1945,13 @@ function dropHandler(ev, columnID, timelineIndex) {
     targetElement.appendChild(widgetElement); 
 
     //move all the events into the new column
-    //TODO nb need to handle moving from one timeline to another...
-    //......
     let categoryString = widgetElement.getAttribute("category");
     all_timelines[timelineIndex].moveCategoryColumn(categoryString, columnID);
+    //TODO nb need to handle moving from one timeline to another...
+    // 1. unload events from this timeline
+    // 2. load events in new timeline
+    // 3. allow to shortcut this by copying the events over without unloading/realoading
+    //......
 }
 
 
