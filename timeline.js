@@ -1418,6 +1418,15 @@ function loadTimeline(timelineFile, targetTimeline) //TODO add option to recentr
  */
 function loadTimelineFromJSON(jsonObj, targetTimeline)
 {
+    //first, check if this data is already loaded
+    if(targetTimeline.tlCategories[jsonObj.category]!=undefined)
+    {
+        console.log("Category " + jsonObj.category + "already exists in this Timeline; loading cancelled.");
+        return;
+    }
+
+
+
     //load events from this JSON file
     targetTimeline.createEventBubbles(jsonObj, false);
     
