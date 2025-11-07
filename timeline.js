@@ -1325,6 +1325,9 @@ function timelineSelectorChanged(timelineIndex, timelineFile)
     }
 
     loadTimeline(timelineFile, targetTimeline);
+
+    //TODO disable the selector option just loaded, re-enable it if the category is unloaded
+    //Maybe just remove the existing selector and have it part of the Timeline (in the headers)
 }
 
 // update the value of the HTML year field
