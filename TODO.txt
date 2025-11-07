@@ -108,6 +108,11 @@ more flexibility in column placement
 	- check if a timeline is already loaded in column & do not duplicate
 
 
+BUG when same category is loaded on both Timelines, drag and drop doesn't move the right category widget
+
+=== Half-column eras
+	- To avoid overlaps allow json data to specify half-column (0 or 1) or onethird-column (0, 1, 2) for eras
+
 ==DONE=========
 
 X Show current year prominently and allow to enter a specific year
