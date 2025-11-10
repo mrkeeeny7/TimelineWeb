@@ -46,11 +46,7 @@ h2 {
     padding-top: 18px;
 }
 
-select {
-
-
-
-  
+select{
     padding: 2px;
     z-index: 2;
     
@@ -641,7 +637,22 @@ select {
     border-color: var(--markerLineColor);
 }
 
+.plusButton
+{
+    width:20px;
+    height:20px;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
 .tlColumnWidget
+{
+    width: max-content;
+}
+
+.tlColumnWidget, .plusButton
 {
      /* = half total height, accounting for padding+height+border = (10+10)+20+(2+2) = 44 */
 /*    margin-top: -22px;
@@ -655,7 +666,6 @@ select {
     left: 20px;
     */z-index: 2;
     
-    width: max-content;
     height: 20px;
     background-color: var(--buttonColour);
     color: var(--buttonTextColour);
@@ -668,6 +678,7 @@ select {
     /* shape */
     border-radius: 5px;
 }
+
 
 .tlColumnWidget:hover 
 {

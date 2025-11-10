@@ -1294,12 +1294,42 @@ function createAllSelectorOptions(jsonObj)
     //load default timeline (1st in list)
     loadTimeline("timelines/events_recent.json", mainTimeline); //TODO change this from hardcoded file
 }
+
+
+/**
+ * 
+ * @param {HTMLElement} containerDOM 
+ */
+function showSelector(containerDOM)
+{
+    var plusbuttonDOM = containerDOM.querySelector('.plusButton') 
+    var selectorDOM = containerDOM.querySelector('.tlDropDown');  
+    setVisibility(plusbuttonDOM, false);
+    setVisibility(selectorDOM, true);
+    selectorDOM.showPicker(); //open the menu: may not be supported by browser
+}
+function hideSelector(containerDOM)
+{
+    var plusbuttonDOM = containerDOM.querySelector('.plusButton') 
+    var selectorDOM = containerDOM.querySelector('.tlDropDown');  
+    setVisibility(selectorDOM, false);
+    setVisibility(plusbuttonDOM, true);
+}
+    
     
 function createSelectorOptions(jsonObj, selectorDOM)
 {    
 
     //clear existing options
     selectorDOM.innerHTML="";
+
+    /** not supported on firefox */
+    //add a button for the custom look
+  //  var selectorButton = document.createElement("button");
+  //  selectorButton.appendChild(document.createTextNode("Test Button"));
+   // selectorDOM.appendChild(selectorButton);
+    
+
     for(let i=0; i<jsonObj.timelinelist.length; i++)
     {        
         var newSelectorOption = document.createElement("option");
@@ -1710,6 +1740,14 @@ function setWidth(domElement, width)//TODO remove if redundant
     domElement.style.width = width;
 }
 
+/**
+ * 
+ * @param {HTMLElement} domElement 
+ * @param {boolean} isVisible 
+ * 
+ * turn on or off visibility of specified HTML element
+ * 
+ */
 function setVisibility(domElement, isVisible)
 {    
     if(isVisible)
