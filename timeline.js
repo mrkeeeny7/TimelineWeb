@@ -1304,7 +1304,7 @@ function showSelector(containerDOM)
 {
     var plusbuttonDOM = containerDOM.querySelector('.plusButton') 
     var selectorDOM = containerDOM.querySelector('.tlDropDown');  
-    setVisibility(plusbuttonDOM, false);
+   // setVisibility(plusbuttonDOM, false);
     setVisibility(selectorDOM, true);
     selectorDOM.showPicker(); //open the menu: may not be supported by browser
 }
@@ -1313,7 +1313,7 @@ function hideSelector(containerDOM)
     var plusbuttonDOM = containerDOM.querySelector('.plusButton') 
     var selectorDOM = containerDOM.querySelector('.tlDropDown');  
     setVisibility(selectorDOM, false);
-    setVisibility(plusbuttonDOM, true);
+   // setVisibility(plusbuttonDOM, true);
 }
     
     

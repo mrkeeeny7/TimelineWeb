@@ -109,6 +109,11 @@ more flexibility in column placement
 
 
 BUG when same category is loaded on both Timelines, drag and drop doesn't move the right category widget
+BUG selecting an event can make it stuck to zooming to that event, so scrolling doesn't work.
+	-Fix this bug
+	-Also change select to double click to avoid accidental selecting
+
+== Custom selector for picking a timeline (see tutorial on W3 CSS dropdowns)
 
 === Half-column eras
 	- To avoid overlaps allow json data to specify half-column (0 or 1) or onethird-column (0, 1, 2) for eras
