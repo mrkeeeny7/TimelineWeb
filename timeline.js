@@ -1286,8 +1286,8 @@ function createAllSelectorOptions(jsonObj)
 {    
     var selectorDOM = document.getElementById("timelineSelect");
     var selectorDOM_second = document.getElementById("timelineSelect2");
-    createSelectorOptions(jsonObj, selectorDOM);
-    createSelectorOptions(jsonObj, selectorDOM_second);
+    createSelectorOptions(jsonObj, selectorDOM, 0);
+    createSelectorOptions(jsonObj, selectorDOM_second, 1);
 
 
     
@@ -1306,7 +1306,7 @@ function showSelector(containerDOM)
     var selectorDOM = containerDOM.querySelector('.tlDropDown');  
    // setVisibility(plusbuttonDOM, false);
     setVisibility(selectorDOM, true);
-    selectorDOM.showPicker(); //open the menu: may not be supported by browser
+ //   selectorDOM.showPicker(); //open the menu: may not be supported by browser
 }
 function hideSelector(containerDOM)
 {
@@ -1317,7 +1317,13 @@ function hideSelector(containerDOM)
 }
     
     
-function createSelectorOptions(jsonObj, selectorDOM)
+/**
+ * 
+ * @param {JSON} jsonObj 
+ * @param {HTMLElement} selectorDOM 
+ * @param {number} timelineIndex 
+ */
+function createSelectorOptions(jsonObj, selectorDOM, timelineIndex)
 {    
 
     //clear existing options
@@ -1328,18 +1334,37 @@ function createSelectorOptions(jsonObj, selectorDOM)
   //  var selectorButton = document.createElement("button");
   //  selectorButton.appendChild(document.createTextNode("Test Button"));
    // selectorDOM.appendChild(selectorButton);
+
+   //create the picker
+    var newSelectorPicker = document.createElement("div");
+    newSelectorPicker.setAttribute("class", "tlDropdownPicker"); 
+    selectorDOM.appendChild(newSelectorPicker);
+
     
 
     for(let i=0; i<jsonObj.timelinelist.length; i++)
     {        
-        var newSelectorOption = document.createElement("option");
-        newSelectorOption.setAttribute("value", jsonObj.timelinelist[i].filename);      //set the value as filename so we can use it when selecting
+        //var newSelectorOption = document.createElement("option");
+        //newSelectorOption.setAttribute("value", jsonObj.timelinelist[i].filename);      //set the value as filename so we can use it when selecting
+
+        var newSelectorOption = document.createElement("div");
+        newSelectorOption.setAttribute("jsonfile", jsonObj.timelinelist[i].filename);      //set the value as filename so we can use it when selecting
+        newSelectorOption.setAttribute("timelineIndex", timelineIndex);      //set the value as filename so we can use it when selecting
+        newSelectorOption.setAttribute("class", "tlDropdownOption"); 
         //newSelectorOption.setAttribute("value", jsonObj.timelinelist[i].title);
         newSelectorOption.appendChild(document.createTextNode(jsonObj.timelinelist[i].title));
-        selectorDOM.appendChild(newSelectorOption);
+
+
+        //add the on click action
+     //   newSelectorOption.setAttribute("onclick", "timelineSelectorChanged(0,this.attributes.jsonfile.value)"); //another ay to do it
+        newSelectorOption.setAttribute("onclick", "timelineSelectorChanged(this.getAttribute('timelineIndex'), this.getAttribute('jsonfile'))");
+
+        //add to the menu
+        newSelectorPicker.appendChild(newSelectorOption);
     }
 
 }
+
 
 function timelineSelectorChanged(timelineIndex, timelineFile)
 {    

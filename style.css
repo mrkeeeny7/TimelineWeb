@@ -67,6 +67,39 @@ select{
     border: none;
 }
 
+.tlDropdownPicker
+{
+    background-color: var(--buttonColour);
+   /* background-color: lightgreen;    */
+    
+    position: absolute; /* make it float on top*/
+
+    width: max-content;
+    height: max-content;
+    padding: 5px;
+    color: white;
+    opacity: 0.8;
+
+    /* shape */
+    border-radius: 5px;
+    border: none;
+}
+
+.tlDropdownOption
+{
+    background-color: var(--buttonColour);
+
+    /* text */
+    font-size: 16px;
+    color: var(--buttonTextColour);
+    user-select: none; /* prevent selecting of text */
+}
+.tlDropdownOption:hover
+{
+    
+   /* background-color: rgb(144, 238, 211); */
+    background-color: rgb(89, 188, 160); 
+}
 
 /*debug*/
 /*#mainSection, #headerBar, #mainBar, #mainTable {*/
