@@ -62,6 +62,11 @@
         },
 
         {
+            "title" : "Art",
+            "filename" : "timelines/events_art.json"
+        },
+
+        {
             "title" : "Disasters and Pandemics",
             "filename" : "timelines/events_disaster.json"
         }

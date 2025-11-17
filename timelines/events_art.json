@@ -1,0 +1,75 @@
+{
+ 
+	"category" : "Art",
+	"colorString" : "#cc0022",
+	"colorBString" : "#990022",
+	"tags" : ["art"],
+	"eventlist" : [
+			
+		
+		{
+			"title" : "European Renaissance",
+			"dateString" : "1350",	"endDateString" : "1543",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		
+		{
+			"title" : "Mannerism",
+			"dateString" : "1530",
+			"minScale" : 1
+		},
+		{
+			"title" : "Baroque Period",
+			"dateString" : "1620",			"endDateString" : "1715",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
+			"title" : "Rococo",
+			"dateString" : "1730",
+			"minScale" : 1
+		},
+		{
+			"title" : "Neoclassicism",
+			"dateString" : "1760",
+			"minScale" : 1
+		},
+
+
+		{
+			"title" : "Mona Lisa",
+			"dateString" : "1506",
+            "author" : "Leonardo da Vinci",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Second Industrial Revolution",
+			"dateString" : "1870",
+			"minScale" : 1,
+			"maxScale" : 1000
+		}
+	
+
+		,	
+
+		{
+			"title" : "Leonardo da Vinci", "birthDateString" : "1452", "deathDateString" : "1519" ,	
+			"dateString" : "1472",
+			"maxScale" : 5000,
+			"type" : "person"
+		},
+		{
+			"title" : "Vincent van Gogh", "birthDateString" : "1853", "deathDateString" : "1890",
+			"dateString" : "1883 AD",
+			"maxScale" : 5000,
+			"type" : "person"
+		}
+	],
+
+	"personlist" : [
+
+
+	] 
+}
