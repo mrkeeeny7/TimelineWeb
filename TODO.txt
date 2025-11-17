@@ -118,6 +118,13 @@ BUG selecting an event can make it stuck to zooming to that event, so scrolling 
 === Half-column eras
 	- To avoid overlaps allow json data to specify half-column (0 or 1) or onethird-column (0, 1, 2) for eras
 
+
+== Cutoff line for recorded history
+	- show notable persons in ~5000BC to present day
+	- show archaeological sites
+	- show living species in earth-scale
+	- show cosmic bodies prior to that
+
 ==DONE=========
 
 X Show current year prominently and allow to enter a specific year
