@@ -83,6 +83,7 @@ select{
     /* shape */
     border-radius: 5px;
     border: none;
+
 }
 
 .tlDropdownOption
@@ -91,7 +92,7 @@ select{
 
     
     height: 20px;
-    
+
     /* text */
     font-size: 16px;
     color: var(--buttonTextColour);
@@ -259,9 +260,17 @@ select{
     column-gap: 2px;
 
     /* debug */
-    border-width: 2px;
+   /* border-width: 2px;*/
+    border-width: 0px;
     border-style: solid;
     border-color: rgb(0, 225, 255);
+}
+
+.tableColumnHeader[isDragTarget=true]
+{
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(255, 111, 0);
 }
 
 .tableColumnHeader:hover {

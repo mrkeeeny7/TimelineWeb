@@ -20,11 +20,6 @@ var selectedTimeline = undefined;
 /** @type {boolean} */
 var timelinesLocked=false;
 
-//HTML DOM elements
-/** @type {HTMLElement[]} */
-var colHeaderDOMLeft;
-/** @type {HTMLElement[]} */
-var colHeaderDOMRight;
 
 const MIN_SCALE = 10;        //years
 const MAX_SCALE = 1e10;      //years
@@ -395,8 +390,13 @@ class TimelineColumnWidget
         this.domElement.setAttribute("id", elementID);  //TODO really need to ensure this is unique; maybe maintain a hashtable reference
         this.domElement.setAttribute("category", this.groupName);  //use this in the callback below
 
-        this.domElement.setAttribute("draggable", "true"); //make draggable
+        //make draggable
+        this.domElement.setAttribute("draggable", "true"); 
         this.domElement.setAttribute("ondragstart", "dragstartHandler(event)");
+
+        //other widgets may be dragged onto this, need to define this behaviour
+        this.domElement.setAttribute("ondragenter", "dragenterHandler(event)");
+        this.domElement.setAttribute("ondragleave", "dragleaveHandler(event)");
 
         var widgetText=document.createTextNode(this.groupName);
         this.domElement.appendChild(widgetText);
@@ -428,14 +428,8 @@ class TimelineColumnWidget
 
         }
         // add to the document (use the container element of the table which allows overflow)
-        if(this.timeline == mainTimeline) //TODO need a cleaner way to track which timeline is active
-        {
-            colHeaderDOMLeft[this.columnNumber].appendChild(this.domElement); //append to the column header
-        }
-        else
-        {
-            colHeaderDOMRight[this.columnNumber].appendChild(this.domElement); //append to the column header
-        }
+        this.timeline.columnHeaderDOM[this.columnNumber].appendChild(this.domElement); //append to the column header
+
       //  document.getElementById("colHeader1").appendChild(this.domElement);
         //timeline.containerDom.parentNode.appendChild(this.domElement); //append to the 'mainBar' element
         // timeline.containerDom.appendChild(this.domElement); 
@@ -444,7 +438,7 @@ class TimelineColumnWidget
         //TODO make a box to contain multiple widgets. One box on top of each column ('columnHeader')
 
         // get timeline window position
-        const rect = this.timeline.containerDom.getBoundingClientRect();
+        const rect = this.timeline.containerDOM.getBoundingClientRect();
 
         //set position of widget
         this.domElement.style.top = rect.top + "px" - this.domElement.getBoundingClientRect().height;
@@ -546,7 +540,12 @@ class Timeline {
     /**
      * @type {HTMLDivElement}
      */
-    containerDom;
+    containerDOM;
+
+    /** @type {HTMLElement[]} 
+     * 
+    */
+    columnHeaderDOM;
 
     /**
      * 
@@ -566,7 +565,7 @@ class Timeline {
          * @type {HTMLDivElement}
          * e.g. the "tableContainer"
          */
-        this.containerDom = tableDom.parentNode;
+        this.containerDOM = tableDom.parentNode;
         this.timelineIndex = timelineIndex;
 
         this.currentYearLabelDom = document.getElementById("currentYearLabel" + timelineIndex);
@@ -1284,8 +1283,8 @@ function loadSelectorOptions()
 
 function createAllSelectorOptions(jsonObj)
 {    
-    var selectorDOM = document.getElementById("timelineSelect");
-    var selectorDOM_second = document.getElementById("timelineSelect2");
+  //  var selectorDOM = document.getElementById("timelineSelect");
+  //  var selectorDOM_second = document.getElementById("timelineSelect2");
  //   createSelectorOptions(jsonObj, selectorDOM, 0);
  //  createSelectorOptions(jsonObj, selectorDOM_second, 1); //TODO clean this up - need 1 selector per column; 
 
@@ -1293,27 +1292,23 @@ function createAllSelectorOptions(jsonObj)
     //  TODO get each timeline index from selector attribute
     //  TODO add isLoaded attribute to grey out options that are already loaded
 
-    var headerDOM = document.getElementById("colHeader3");
     let column=2; let tlIndex=0;
     var selectorA = new TimelineSelector(
         tlIndex,
         column,
-        headerDOM, //need to fill this in
         jsonObj); //TODO make this a mimber of the Timeline object
 
-    headerDOM = document.getElementById("colHeader7");
     column=2; 
     tlIndex=1;
     var selectorB = new TimelineSelector(
         tlIndex,
         column,
-        headerDOM, //need to fill this in
         jsonObj); //TODO make this a mimber of the Timeline object
 
 
     
     //load default timeline (1st in list)
-    loadTimeline("timelines/events_recent.json", mainTimeline); //TODO change this from hardcoded file
+    loadTimeline(jsonObj.timelinelist[0].filename, mainTimeline); 
 }
 
 
@@ -1361,14 +1356,16 @@ class TimelineSelector
      * @param {HTMLElement} parentElement 
      * @param {JSON} jsonObj 
      */
-    constructor(timelineIndex, column, parentElement, jsonObj)
+    constructor(timelineIndex, column, jsonObj)
     {
         this.timelineIndex = timelineIndex;
         this.columnNumber = column;
         this.jsonObj = jsonObj
         this.CreateSelectorDOM();
         this.CreateOptions();
+        this.HidePicker();
 
+        let parentElement = all_timelines[timelineIndex].columnHeaderDOM[column];
         parentElement.appendChild(this.containerDOM);
     }
 
@@ -1570,22 +1567,22 @@ function initTimelines()
 {
     //init variables
     
-    colHeaderDOMLeft =  [ 
+
+    mainTimeline = new Timeline(document.getElementById("mainTable"), 0);
+    secondTimeline = new Timeline(document.getElementById("secondTable"), 1);
+
+    mainTimeline.columnHeaderDOM = [ 
         document.getElementById("colHeader1"),
         document.getElementById("colHeader2"),
         document.getElementById("colHeader3"),
         //skip 4 (central column)
-    ];    
-    
-    colHeaderDOMRight =  [ 
+    ];   
+
+    secondTimeline.columnHeaderDOM = [ 
         document.getElementById("colHeader5"),
         document.getElementById("colHeader6"),
         document.getElementById("colHeader7") 
     ];
-
-
-    mainTimeline = new Timeline(document.getElementById("mainTable"), 0);
-    secondTimeline = new Timeline(document.getElementById("secondTable"), 1);
 
     secondTimeline.inverted=false;
 
@@ -2140,6 +2137,58 @@ function dragstartHandler(ev) {
  */
 function dragoverHandler(ev) {
     ev.preventDefault();
+
+
+}
+
+/**
+ * This is a helper function to get the header DOM appropriate to a current drag event
+ * @param {DragEvent} ev the drag event
+ */
+function getDragTargetHeader(ev)
+{   
+     //need to find the column header to drop into
+    var targetElement;
+    if(ev.target.getAttribute("class")=="tableColumnHeader")
+    {
+        targetElement = ev.target;
+    }
+    else if(ev.target.getAttribute("class")=="tlColumnWidget")
+    {
+        targetElement = ev.target.parentNode;
+    }
+
+    return targetElement;
+}
+
+/**
+ * 
+ * @param {DragEvent} ev 
+ */
+function dragenterHandler(ev)
+{
+    //need to find the column header to drop into
+    var targetElement = getDragTargetHeader(ev);
+
+    //change the style
+   // targetElement.style.borderColor="magenta";
+  //  targetElement.style.borderWidth="2px";
+   targetElement.setAttribute("isDragTarget", true);
+}
+
+/**
+ * 
+ * @param {DragEvent} ev 
+ */
+function dragleaveHandler(ev)
+{
+    //need to find the column header to drop into
+    var targetElement = getDragTargetHeader(ev);
+
+    //change the style
+   // targetElement.style.borderColor="green";
+   // targetElement.style.borderWidth="0px";
+   targetElement.setAttribute("isDragTarget", false);
 }
 
 /**
@@ -2154,15 +2203,7 @@ function dropHandler(ev, columnID, timelineIndex) {
     let widgetElement = document.getElementById(data);
 
     //need to find the column header to drop into
-    var targetElement;
-    if(ev.target.getAttribute("class")=="tableColumnHeader")
-    {
-        targetElement = ev.target;
-    }
-    else if(ev.target.getAttribute("class")=="tlColumnWidget")
-    {
-        targetElement = ev.target.parentNode;
-    }
+    var targetElement = getDragTargetHeader(ev);
 
     //add the widget to the new header
     targetElement.appendChild(widgetElement); 
