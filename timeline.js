@@ -395,8 +395,7 @@ class TimelineColumnWidget
         this.domElement.setAttribute("ondragstart", "dragstartHandler(event)");
 
         //other widgets may be dragged onto this, need to define this behaviour
-        this.domElement.setAttribute("ondragenter", "dragenterHandler(event)");
-        this.domElement.setAttribute("ondragleave", "dragleaveHandler(event)");
+        makeDraggableTarget(this.domElement);
 
         var widgetText=document.createTextNode(this.groupName);
         this.domElement.appendChild(widgetText);
@@ -2153,14 +2152,24 @@ function getDragTargetHeader(ev)
     {
         targetElement = ev.target;
     }
-    else if(ev.target.getAttribute("class")=="tlColumnWidget")
+    else// if(ev.target.getAttribute("class")=="tlColumnWidget")
     {
         targetElement = ev.target.parentNode;
     }
 
     return targetElement;
 }
+/**
+ * This is a helper function to set up the behaviour of a drag target
+ */
+function makeDraggableTarget(domElement)
+{
+    //other widgets may be dragged onto this, need to define this behaviour
+    domElement.setAttribute("ondragenter", "dragenterHandler(event)");
+    domElement.setAttribute("ondragleave", "dragleaveHandler(event)");
 
+    //TODO set this up for the selector widgets too.
+}
 /**
  * 
  * @param {DragEvent} ev 
