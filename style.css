@@ -89,6 +89,9 @@ select{
 {
     background-color: var(--buttonColour);
 
+    
+    height: 20px;
+    
     /* text */
     font-size: 16px;
     color: var(--buttonTextColour);

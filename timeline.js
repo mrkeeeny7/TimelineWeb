@@ -1286,13 +1286,167 @@ function createAllSelectorOptions(jsonObj)
 {    
     var selectorDOM = document.getElementById("timelineSelect");
     var selectorDOM_second = document.getElementById("timelineSelect2");
-    createSelectorOptions(jsonObj, selectorDOM, 0);
-    createSelectorOptions(jsonObj, selectorDOM_second, 1);
+ //   createSelectorOptions(jsonObj, selectorDOM, 0);
+ //  createSelectorOptions(jsonObj, selectorDOM_second, 1); //TODO clean this up - need 1 selector per column; 
+
+
+    //  TODO get each timeline index from selector attribute
+    //  TODO add isLoaded attribute to grey out options that are already loaded
+
+    var headerDOM = document.getElementById("colHeader3");
+    let column=2; let tlIndex=0;
+    var selectorA = new TimelineSelector(
+        tlIndex,
+        column,
+        headerDOM, //need to fill this in
+        jsonObj); //TODO make this a mimber of the Timeline object
+
+    headerDOM = document.getElementById("colHeader7");
+    column=2; 
+    tlIndex=1;
+    var selectorB = new TimelineSelector(
+        tlIndex,
+        column,
+        headerDOM, //need to fill this in
+        jsonObj); //TODO make this a mimber of the Timeline object
 
 
     
     //load default timeline (1st in list)
     loadTimeline("timelines/events_recent.json", mainTimeline); //TODO change this from hardcoded file
+}
+
+
+class TimelineSelector 
+{
+    /**
+     * @type {number}
+     */
+    timelineIndex;
+    /**
+     * @type {number}
+     */
+    columnNumber;
+    /**
+     * @type {JSON}
+     */
+    jsonObj;
+
+    // hierarchy:
+    // container -> {button, selector}
+    // selector -> picker
+    // picker -> [options]
+
+    /**
+     * @type {HTMLElement}
+     */
+    containerDOM=null;   
+    /**
+     * @type {HTMLElement}
+     */
+    buttonDOM=null;    
+    /**
+     * @type {HTMLElement}
+     */
+    selectorDOM=null;    
+    /**
+     * @type {HTMLElement}
+     */
+    pickerDOM=null;
+
+    /**
+     * 
+     * @param {number} timelineIndex 
+     * @param {number} column 
+     * @param {HTMLElement} parentElement 
+     * @param {JSON} jsonObj 
+     */
+    constructor(timelineIndex, column, parentElement, jsonObj)
+    {
+        this.timelineIndex = timelineIndex;
+        this.columnNumber = column;
+        this.jsonObj = jsonObj
+        this.CreateSelectorDOM();
+        this.CreateOptions();
+
+        parentElement.appendChild(this.containerDOM);
+    }
+
+    CreateSelectorDOM()
+    {
+           /*                 
+           <div class="selectContainer" onclick="showSelector(this)" onmouseleave="hideSelector(this)">
+                <div class="plusButton">+</div>
+                <div class="tlDropDown" id="timelineSelect" name="timelineSelect"
+                targetTimeline=0 onchange="timelineSelectorChanged(0, this.value)"
+                style="display: none;">
+                     <!-- options to be added by script -->
+                </div> 
+            </div>
+            */
+
+        this.containerDOM = document.createElement("div");
+        this.containerDOM .setAttribute("class", "selectContainer");
+        this.containerDOM .setAttribute("onclick", "showSelector(this)");
+        this.containerDOM .setAttribute("onmouseleave", "hideSelector(this)");
+
+        this.buttonDOM = document.createElement("div");
+        this.buttonDOM.setAttribute("class", "plusButton");
+        this.buttonDOM.appendChild(document.createTextNode("+")); //just put a + symbol on the button for now
+        this.containerDOM .appendChild(this.buttonDOM);
+
+        this.selectorDOM = document.createElement("div");
+        this.selectorDOM.setAttribute("class", "tlDropDown");
+        this.selectorDOM.setAttribute("id", "timelineSelect");
+        this.containerDOM .appendChild(this.selectorDOM);
+
+    }
+
+    CreateOptions()
+    {  
+         //clear existing options
+        this.selectorDOM.innerHTML="";
+
+        //create the picker
+        this.pickerDOM = document.createElement("div");
+        this.pickerDOM.setAttribute("class", "tlDropdownPicker"); 
+        this.selectorDOM.appendChild(this.pickerDOM);
+
+        
+        // create the options
+        for(let i=0; i<this.jsonObj.timelinelist.length; i++)
+        {        
+            //var newSelectorOption = document.createElement("option");
+            //newSelectorOption.setAttribute("value", jsonObj.timelinelist[i].filename);      //set the value as filename so we can use it when selecting
+
+            var newSelectorOption = document.createElement("div");
+            newSelectorOption.setAttribute("jsonfile", this.jsonObj.timelinelist[i].filename);      //set the value as filename so we can use it when selecting
+            newSelectorOption.setAttribute("timelineIndex", this.timelineIndex);      //set the value as filename so we can use it when selecting
+            newSelectorOption.setAttribute("class", "tlDropdownOption"); 
+            newSelectorOption.appendChild(document.createTextNode(this.jsonObj.timelinelist[i].title));
+
+
+            //add the on click action
+        //   newSelectorOption.setAttribute("onclick", "timelineSelectorChanged(0,this.attributes.jsonfile.value)"); //another ay to do it
+            newSelectorOption.setAttribute("onclick", "timelineSelectorChanged(this.getAttribute('timelineIndex'), this.getAttribute('jsonfile'))");
+
+            //add to the menu
+            this.pickerDOM.appendChild(newSelectorOption);
+        }
+    }
+
+
+    //maybe not used...
+    ShowPicker()
+    {
+        setVisibility(this.selectorDOM, true);
+    }
+
+    HidePicker()
+    {
+        setVisibility(this.selectorDOM, false);
+
+    }
 }
 
 
@@ -1328,12 +1482,6 @@ function createSelectorOptions(jsonObj, selectorDOM, timelineIndex)
 
     //clear existing options
     selectorDOM.innerHTML="";
-
-    /** not supported on firefox */
-    //add a button for the custom look
-  //  var selectorButton = document.createElement("button");
-  //  selectorButton.appendChild(document.createTextNode("Test Button"));
-   // selectorDOM.appendChild(selectorButton);
 
    //create the picker
     var newSelectorPicker = document.createElement("div");
