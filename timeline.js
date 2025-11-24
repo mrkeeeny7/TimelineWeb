@@ -1110,7 +1110,21 @@ class Timeline {
     } 
 
 
+    /**
+     * Assigns the column header DOM elements to this Timeline
+     * 
+     * @param {string []} headerIDs array of strings that are id values corresponding to the HTML elements of the column headers
+     */
+    SetHeaders(headerIDs)
+    {
+        this.columnHeaderDOM = [];
 
+        for(let i=0; i<headerIDs.length; i++)
+        {
+          this.columnHeaderDOM[i] = document.getElementById(headerIDs[i]);
+          makeDraggableTarget(this.columnHeaderDOM[i]);  
+        }
+    }
 
 }  
 
@@ -1570,18 +1584,10 @@ function initTimelines()
     mainTimeline = new Timeline(document.getElementById("mainTable"), 0);
     secondTimeline = new Timeline(document.getElementById("secondTable"), 1);
 
-    mainTimeline.columnHeaderDOM = [ 
-        document.getElementById("colHeader1"),
-        document.getElementById("colHeader2"),
-        document.getElementById("colHeader3"),
-        //skip 4 (central column)
-    ];   
 
-    secondTimeline.columnHeaderDOM = [ 
-        document.getElementById("colHeader5"),
-        document.getElementById("colHeader6"),
-        document.getElementById("colHeader7") 
-    ];
+
+    mainTimeline.SetHeaders(["colHeader1", "colHeader2", "colHeader3"]);
+    secondTimeline.SetHeaders(["colHeader5", "colHeader6", "colHeader7"]);
 
     secondTimeline.inverted=false;
 
@@ -2176,12 +2182,12 @@ function makeDraggableTarget(domElement)
  */
 function dragenterHandler(ev)
 {
+    ev.target.setAttribute("isDragTarget", true); //this is the 'leaf node' that we are immediately over
+
     //need to find the column header to drop into
     var targetElement = getDragTargetHeader(ev);
 
     //change the style
-   // targetElement.style.borderColor="magenta";
-  //  targetElement.style.borderWidth="2px";
    targetElement.setAttribute("isDragTarget", true);
 }
 
@@ -2192,12 +2198,18 @@ function dragenterHandler(ev)
 function dragleaveHandler(ev)
 {
     //need to find the column header to drop into
-    var targetElement = getDragTargetHeader(ev);
+    var targetElement = getDragTargetHeader(ev); //this is the header node
 
-    //change the style
-   // targetElement.style.borderColor="green";
-   // targetElement.style.borderWidth="0px";
-   targetElement.setAttribute("isDragTarget", false);
+    if(ev.target==targetElement) //mouse is leaving the header node
+    {
+        targetElement.setAttribute("isDragTarget", false);
+    }
+    else if(ev.target.getAttribute("isDragTarget")!=true) //mouse is leaving a child node of the header
+    {
+        //change the style
+        targetElement.setAttribute("isDragTarget", false);
+        ev.target.setAttribute("isDragTarget", false);
+    }
 }
 
 /**
@@ -2225,6 +2237,9 @@ function dropHandler(ev, columnID, timelineIndex) {
     // 2. load events in new timeline
     // 3. allow to shortcut this by copying the events over without unloading/realoading
     //......
+
+    //undo the highlight    
+   targetElement.setAttribute("isDragTarget", false);
 }
 
 
