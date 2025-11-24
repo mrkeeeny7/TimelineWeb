@@ -697,6 +697,14 @@ select{
 .tlColumnWidget
 {
     width: max-content;
+    border-width: 0px;
+}
+
+.tlColumnWidget[isDragTarget=true]
+{
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(157, 255, 0);
 }
 
 .tlColumnWidget, .plusButton
