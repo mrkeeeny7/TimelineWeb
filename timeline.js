@@ -1412,6 +1412,9 @@ class TimelineSelector
         this.selectorDOM.setAttribute("id", "timelineSelect");
         this.containerDOM .appendChild(this.selectorDOM);
 
+        //make draggable target so that highlight works correctly
+        makeDraggableTarget(this.containerDOM);
+
     }
 
     CreateOptions()
@@ -2145,6 +2148,8 @@ function dragstartHandler(ev) {
 function dragoverHandler(ev) {
     ev.preventDefault();
 
+    var targetElement = getDragTargetHeader(ev);
+    targetElement.setAttribute("isDragTarget", true); 
 
 }
 
@@ -2175,6 +2180,7 @@ function makeDraggableTarget(domElement)
     //other widgets may be dragged onto this, need to define this behaviour
     domElement.setAttribute("ondragenter", "dragenterHandler(event)");
     domElement.setAttribute("ondragleave", "dragleaveHandler(event)");
+    domElement.setAttribute("ondragover", "dragoverHandler(event)");
 
     //TODO set this up for the selector widgets too.
 }
@@ -2186,15 +2192,16 @@ function dragenterHandler(ev)
 {
     ev.preventDefault();
     dragOverCounter++;
+    setDebugText("drag over counter: " + dragOverCounter);
 
-    ev.target.setAttribute("isDragTarget", true); //this is the 'leaf node' 
+    //ev.target.setAttribute("isDragTarget", true); //this is the 'leaf node' 
     // that we are immediately over
 
     //need to find the column header to drop into
     var targetElement = getDragTargetHeader(ev);
 
     //change the style
-   targetElement.setAttribute("isDragTarget", true);
+   //targetElement.setAttribute("isDragTarget", true); 
 }
 
 /**
@@ -2205,6 +2212,7 @@ function dragleaveHandler(ev)
 {
     ev.preventDefault();
     dragOverCounter--;
+    setDebugText("drag over counter: " + dragOverCounter);
 
     //need to find the column header to drop into
     var targetElement = getDragTargetHeader(ev); //this is the header node
@@ -2220,7 +2228,7 @@ function dragleaveHandler(ev)
         //ev.target.setAttribute("isDragTarget", false);
     }
 
-    if(dragOverCounter==0)
+    if(dragOverCounter<=1)
     {
         targetElement.setAttribute("isDragTarget", false);
         ev.target.setAttribute("isDragTarget", false);
@@ -2254,7 +2262,10 @@ function dropHandler(ev, columnID, timelineIndex) {
     //......
 
     //undo the highlight    
-   targetElement.setAttribute("isDragTarget", false);
+    
+    dragOverCounter=0;
+    setDebugText("drag over counter: " + dragOverCounter);
+    targetElement.setAttribute("isDragTarget", false);
 }
 
 
@@ -2399,6 +2410,15 @@ function onCategoryClick(timelineIndex, groupName)
     var categoryWidget = getTimeline(timelineIndex).tlCategories[groupName];
     categoryWidget.toggleEnabled();
 
+}
+
+/**
+ * 
+ * @param {string} debugStr 
+ */
+function setDebugText(debugStr)
+{
+    document.getElementById("debugText").innerText = debugStr;
 }
 
 //Static helpers
