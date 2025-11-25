@@ -278,6 +278,12 @@ select{
     height:fit-content;
     min-height: 100%;
     z-index: 3;
+
+    
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(0, 255, 38);
+    background-color: white;
 }
 
 #colHeader1{

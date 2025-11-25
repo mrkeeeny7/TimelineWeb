@@ -125,6 +125,9 @@ BUG selecting an event can make it stuck to zooming to that event, so scrolling 
 	- show living species in earth-scale
 	- show cosmic bodies prior to that
 
+== handle overlapping events (same year) with a little tab to cycle between them, bringing the next one to the front
+ - show the other ones underneath as 'pages'
+
 ==DONE=========
 
 X Show current year prominently and allow to enter a specific year
