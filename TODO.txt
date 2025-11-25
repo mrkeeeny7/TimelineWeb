@@ -128,6 +128,12 @@ BUG selecting an event can make it stuck to zooming to that event, so scrolling 
 == handle overlapping events (same year) with a little tab to cycle between them, bringing the next one to the front
  - show the other ones underneath as 'pages'
 
+== rename 'timeline' files to 'categories'; 'collections' can contain multiple categories
+== US history: category{ Pre-Columbian North America; Post-Columbian USA}
+== Canada history: category{ Pre-Columbian North America; Post-Columbian Canada}
+== Mexico, etc.
+== Americas: category{ Pre-Columbian North America; Pre-Columbian South America; Pre-Columbian Caribbean; Post-Columbian Americas}
+
 ==DONE=========
 
 X Show current year prominently and allow to enter a specific year
