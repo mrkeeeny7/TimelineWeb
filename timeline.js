@@ -526,8 +526,8 @@ class Timeline {
     
     sliderScale;
     inverted=false;
-    numColumns=3;
-    availableColumns=[2,1,0];
+   // numColumns=3;
+    availableColumns=[2,1,0]; //TODO deprecate
 
     //the offset from the main timeline, if timelines are locked
     lockOffset=0;
@@ -543,18 +543,26 @@ class Timeline {
      */
     containerDOM;
 
-    /** @type {HTMLElement[]} 
+    /**
+     *  @type {HTMLElement[]} 
      * 
-    */
+     */
     columnHeaderDOM;
+
+    /**
+     * @type {TimelineSelector[]}
+     */
+    timelineSelectors;
 
     /**
      * 
      * @param {HTMLDivElement} tableDom 
      * @param {number} timelineIndex 
      */
-    constructor(tableDom, timelineIndex)
+    constructor(tableDom, headerIDs, timelineIndex)
     {
+        all_timelines[timelineIndex] = this;
+
         /**
          * 
          * @type {HTMLDivElement}
@@ -573,7 +581,14 @@ class Timeline {
         this.minYearLabelDom = document.getElementById("minYearLabel" + timelineIndex);
         this.maxYearLabelDom = document.getElementById("maxYearLabel" + timelineIndex);
 
-        all_timelines.push(this);
+        //set the headers first; this will also set the number of columns
+        this.SetHeaders(headerIDs);
+
+        //create the selectors; options to be added later        
+        this.CreateColumnSelectors();
+
+
+        //all_timelines.push(this);
     }
 
     get currentSelectedEvent()
@@ -586,6 +601,12 @@ class Timeline {
         {
             return undefined;
         }
+    }
+
+    getNumColumns()
+    {
+        return this.columnHeaderDOM.length; 
+      //  return this.numColumns;
     }
     
     clearEventSelection()
@@ -641,7 +662,8 @@ class Timeline {
         this.tableDom.setAttribute("selected", true);
     }
 
-    deselectTable(){
+    deselectTable()
+    {
 
         //clear current event selection
         this.clearEventSelection();
@@ -649,6 +671,32 @@ class Timeline {
         // deselect the timeline
         selectedTimeline = undefined;
         this.tableDom.setAttribute("selected", false);
+    }
+
+    /**
+     * Creates the selector DOM for each columb but does not yet add the options
+     */
+    CreateColumnSelectors()
+    {
+        this.timelineSelectors=[];
+        for(let i=0; i<this.getNumColumns(); i++)
+        {
+            this.timelineSelectors[i] = new TimelineSelector(this.timelineIndex, i); 
+        }
+    }
+
+    /**
+     * Adds the options from JSON data to the selectors in each column
+     * @param {JSON} jsonObj 
+     */
+    AddSelectorOptions(jsonObj){
+
+        //add options to selector in each column
+        for(let i=0; i<this.timelineSelectors.length; i++)
+        {
+            this.timelineSelectors[i].CreateOptions(jsonObj);
+        }
+
     }
 
     /**
@@ -943,13 +991,13 @@ class Timeline {
      */
     positionInColumn(_tlevent, columnNumber)
     {
-        if(columnNumber > this.numColumns-1)
+        if(columnNumber > this.getNumColumns()-1)
         {
             this.positionInColumn(_tlevent, 0);
         }
         else
         {
-            var width = (100.0 / this.numColumns); // as a %
+            var width = (100.0 / this.getNumColumns()); // as a %
 
             const columnspacing = 0.1; //10% of table width
             //derived
@@ -1307,7 +1355,7 @@ function createAllSelectorOptions(jsonObj)
     //  TODO get each timeline index from selector attribute
     //  TODO add isLoaded attribute to grey out options that are already loaded
 
-    let column=2; let tlIndex=0;
+  /*  let column=2; let tlIndex=0;
     var selectorA = new TimelineSelector(
         tlIndex,
         column,
@@ -1319,7 +1367,9 @@ function createAllSelectorOptions(jsonObj)
         tlIndex,
         column,
         jsonObj); //TODO make this a mimber of the Timeline object
-
+*/
+    mainTimeline.AddSelectorOptions(jsonObj);
+    secondTimeline.AddSelectorOptions(jsonObj);
 
     
     //load default timeline (1st in list)
@@ -1368,18 +1418,15 @@ class TimelineSelector
      * 
      * @param {number} timelineIndex 
      * @param {number} column 
-     * @param {HTMLElement} parentElement 
-     * @param {JSON} jsonObj 
      */
-    constructor(timelineIndex, column, jsonObj)
+    constructor(timelineIndex, column)
     {
         this.timelineIndex = timelineIndex;
         this.columnNumber = column;
-        this.jsonObj = jsonObj
         this.CreateSelectorDOM();
-        this.CreateOptions();
         this.HidePicker();
 
+        // find the correct parent element in the DOM
         let parentElement = all_timelines[timelineIndex].columnHeaderDOM[column];
         parentElement.appendChild(this.containerDOM);
     }
@@ -1410,15 +1457,23 @@ class TimelineSelector
         this.selectorDOM = document.createElement("div");
         this.selectorDOM.setAttribute("class", "tlDropDown");
         this.selectorDOM.setAttribute("id", "timelineSelect");
-        this.containerDOM .appendChild(this.selectorDOM);
+        this.containerDOM.appendChild(this.selectorDOM);
 
         //make draggable target so that highlight works correctly
         makeDraggableTarget(this.containerDOM);
 
     }
 
-    CreateOptions()
+    /**
+     * 
+     * @param {JSON} jsonObj 
+     */
+    CreateOptions(jsonObj)
     {  
+        
+        this.jsonObj = jsonObj;
+
+
          //clear existing options
         this.selectorDOM.innerHTML="";
 
@@ -1586,13 +1641,17 @@ function initTimelines()
     //init variables
     
 
-    mainTimeline = new Timeline(document.getElementById("mainTable"), 0);
-    secondTimeline = new Timeline(document.getElementById("secondTable"), 1);
+    mainTimeline = new Timeline(
+        document.getElementById("mainTable"),
+        ["colHeader1", "colHeader2", "colHeader3"], 0);
+    secondTimeline = new Timeline(
+        document.getElementById("secondTable"),
+        ["colHeader5", "colHeader6", "colHeader7"], 1);
 
 
 
-    mainTimeline.SetHeaders(["colHeader1", "colHeader2", "colHeader3"]);
-    secondTimeline.SetHeaders(["colHeader5", "colHeader6", "colHeader7"]);
+   // mainTimeline.SetHeaders(["colHeader1", "colHeader2", "colHeader3"]);
+   // secondTimeline.SetHeaders(["colHeader5", "colHeader6", "colHeader7"]);
 
     secondTimeline.inverted=false;
 

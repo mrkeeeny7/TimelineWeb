@@ -24,131 +24,126 @@
             </div>
 
             <!-- row 2 -->
-            <!--<div id="controlsBar">   -->
-                <div class="controls" id="controlsL">                        
-
-                    
-                    <label for="yearInput">Year:</label>
-                    <input type="text" id="yearInput" name="yearInput" onchange="submitYearInput()"><br>
-                    <label for="scaleInput">Scale (yrs):</label>
-                    <input type="text" id="scaleInput" name="scaleInput" onchange="submitScaleInput()"><br>
+            <div class="controls" id="controlsL">                        
 
                 
-                </div>
-
-                <div class="controls" id="controlsR">   
-
-                    <!--<label for="timelineSelect2">Select timeline:</label>-->
-                  <!--  <select class="tlDropDown" id="timelineSelect2" name="timelineSelect" targetTimeline=1 onchange="timelineSelectorChanged(1,this.value)">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="audi">Audi</option>
-                    </select> 
-                    -->
-                    <button type="button" class="togglebutton" toggledStatus=false onClick="toggleSecondTimelineInvert(this)">Invert</button>
-                </div> 
-           <!-- </div> -->     
-
-            <!-- row 3 -->
-            <!--<div id="mainBar"> -->
-
-                <div id="colHeader1" class="tableColumnHeader" ondrop="dropHandler(event, 0, 0)" ondragover="dragoverHandler(event)"
-                 ondragenter="dragenterHandler(event)" ondragleave="dragleaveHandler(event)">
-                    <!--
-                    COL A
-                    <label for="timelineSelect">Select timeline:</label>-->
-                    
-                </div>
-                <div id="colHeader2" class="tableColumnHeader" ondrop="dropHandler(event, 1, 0)" ondragover="dragoverHandler(event)">
-                    <div class="selectContainer" onclick="showSelector(this)" onmouseleave="hideSelector(this)">
-                         <div class="plusButton">+</div>
-                         <div class="tlDropDown" id="timelineSelect" name="timelineSelect"
-                          targetTimeline=0 onchange="timelineSelectorChanged(0, this.value)"
-                          style="display: none;">
-                            <!-- options to be added by script -->
-                        </div> 
-                    </div>
-                </div>
-                <div id="colHeader3" class="tableColumnHeader" ondrop="dropHandler(event, 2, 0)" ondragover="dragoverHandler(event)"></div>
-                <div id="colHeader4" class="tableColumnHeader">      <!-- middle column -->         
-      
-                    <div class="controls">   
-                            <!--   <button type="button" onClick=myfunc()>Test</button>    
-                                <button type="button" onClick="loadTimeline('timelines/events_rome.json')">JSON</button>
-                            -->
-                                <button type="button" class="togglebutton" toggledStatus=false onClick="toggleTimelineLock(this)">Lock Timelines</button>
-                                <!--<label id="lockStatusLabel">Placeholder</label>-->
-                        </div>  
-                </div>
-                <div id="colHeader5" class="tableColumnHeader" ondrop="dropHandler(event, 0, 1)" ondragover="dragoverHandler(event)">
-                    <div class="selectContainer" onclick="showSelector(this)" onmouseleave="hideSelector(this)">
-                         <div class="plusButton">+</div>
-                         <div class="tlDropDown" id="timelineSelect2" name="timelineSelect"
-                          targetTimeline=0 onchange="timelineSelectorChanged(0, this.value)"
-                          style="display: none;">
-                            <!-- options to be added by script -->
-                        </div> 
-                    </div>
-                </div>
-                <div id="colHeader6" class="tableColumnHeader" ondrop="dropHandler(event, 1, 1)" ondragover="dragoverHandler(event)"></div>
-                <div id="colHeader7" class="tableColumnHeader" ondrop="dropHandler(event, 2, 1)" ondragover="dragoverHandler(event)"></div>
+                <label for="yearInput">Year:</label>
+                <input type="text" id="yearInput" name="yearInput" onchange="submitYearInput()"><br>
+                <label for="scaleInput">Scale (yrs):</label>
+                <input type="text" id="scaleInput" name="scaleInput" onchange="submitScaleInput()"><br>
 
             
-               <!-- row 4 -->
+            </div>
 
-                <div class="tableContainer" id="tableContainerLeft">
-                    <div id="mainTable" class="timelineTable" selected=false onwheel="myWheelHandler(event, 0)" onmousedown="timelineMouseDown(event, 0)" onmousemove="timelineMouseMove(event, 0)"
-                        onmouseup="timelineMouseUp(0)" onclick="tableClicked(0)">
-                        <!-- <div class="eventBubble">Placeholder Event</div>
-                            <div class="eventBubble">Placeholder Event</div>
-                            <div class="eventBubble">Placeholder Event</div>
+            <div class="controls" id="controlsR">   
 
-                            <div class="lifelineMarker">Some test stuff</div>
+                <!--<label for="timelineSelect2">Select timeline:</label>-->
+                <!--  <select class="tlDropDown" id="timelineSelect2" name="timelineSelect" targetTimeline=1 onchange="timelineSelectorChanged(1,this.value)">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select> 
+                -->
+
+                <button type="button" class="togglebutton" toggledStatus=false onClick="toggleSecondTimelineInvert(this)">Invert</button>
+            </div> 
+
+            <!-- row 3 -->
+            <div id="colHeader1" class="tableColumnHeader" ondrop="dropHandler(event, 0, 0)">
+                <!--
+                COL A
+                <label for="timelineSelect">Select timeline:</label>-->
+                
+            </div>
+            <div id="colHeader2" class="tableColumnHeader" ondrop="dropHandler(event, 1, 0)">
+
+                <!--
+                <div class="selectContainer" onclick="showSelector(this)" onmouseleave="hideSelector(this)">
+                        <div class="plusButton">+</div>
+                        <div class="tlDropDown" id="timelineSelect" name="timelineSelect"
+                        targetTimeline=0 onchange="timelineSelectorChanged(0, this.value)"
+                        style="display: none;">
+                    </div> 
+                </div>
+                -->
+
+            </div>
+            <div id="colHeader3" class="tableColumnHeader" ondrop="dropHandler(event, 2, 0)"></div>
+            <div id="colHeader4" class="tableColumnHeader">      <!-- middle column -->         
+    
+                <div class="controls">   
+                        <!--   <button type="button" onClick=myfunc()>Test</button>    
+                            <button type="button" onClick="loadTimeline('timelines/events_rome.json')">JSON</button>
                         -->
-                        
-                    
-                            <div class="yearMarkerLine" id="currentYearMarker0" timelinePosition="middle">
-                                <div class="yearLabel" id="currentYearLabel0"></div>
-                            </div>
-                            <div class="yearMarkerLine" id="minYearMarker0" timelinePosition="top">
-                                <div class="yearLabel" id="minYearLabel0"></div>
-                            </div>
-                            <div class="yearMarkerLine" id="maxYearMarker0" timelinePosition="bottom">
-                                <div class="yearLabel" id="maxYearLabel0"></div>
-                            </div>
-                    </div>
+                            <button type="button" class="togglebutton" toggledStatus=false onClick="toggleTimelineLock(this)">Lock Timelines</button>
+                            <!--<label id="lockStatusLabel">Placeholder</label>-->
+                    </div>  
+            </div>
+            <div id="colHeader5" class="tableColumnHeader" ondrop="dropHandler(event, 0, 1)">
+                
+                <!--
+                <div class="selectContainer" onclick="showSelector(this)" onmouseleave="hideSelector(this)">
+                        <div class="plusButton">+</div>
+                        <div class="tlDropDown" id="timelineSelect2" name="timelineSelect"
+                        targetTimeline=0 onchange="timelineSelectorChanged(0, this.value)"
+                        style="display: none;">
+                    </div> 
                 </div>
-                 
-                <div id="centerFrame">
-                    <div id="infoPanel">
-                        Default text...info panel
-                        <!-- <iframe id="wikiFrame" src="https://en.wikipedia.org" title="Wikipedia"> </iframe> -->
-                    </div> <br>
-                    <div id="personPanel">
-                        Default text...person panel
-                    </div>
-                </div>
+            -->
+            </div>
+            <div id="colHeader6" class="tableColumnHeader" ondrop="dropHandler(event, 1, 1)"></div>
+            <div id="colHeader7" class="tableColumnHeader" ondrop="dropHandler(event, 2, 1)"></div>
 
-                <div class="tableContainer" id="tableContainerRight">
-               
-                    <div id="secondTable" class="timelineTable" selected=false onwheel="myWheelHandler(event, 1)" onmousedown="timelineMouseDown(event, 1)" onmousemove="timelineMouseMove(event, 1)"
-                    onmouseup="timelineMouseUp(1)" onclick="tableClicked(1)">            
-                        <div class="yearMarkerLine" id="currentYearMarker1" timelinePosition="middle">
-                            <div class="yearLabel" id="currentYearLabel1"></div>
+        
+            <!-- row 4 -->
+
+            <div class="tableContainer" id="tableContainerLeft">
+                <div id="mainTable" class="timelineTable" selected=false 
+                    onwheel="myWheelHandler(event, 0)" onmousedown="timelineMouseDown(event, 0)" onmousemove="timelineMouseMove(event, 0)"
+                    onmouseup="timelineMouseUp(0)" onclick="tableClicked(0)">                    
+                
+                        <div class="yearMarkerLine" id="currentYearMarker0" timelinePosition="middle">
+                            <div class="yearLabel" id="currentYearLabel0"></div>
                         </div>
-                        <div class="yearMarkerLine" id="minYearMarker1" timelinePosition="top">
-                            <div class="yearLabel" id="minYearLabel1"></div>
+                        <div class="yearMarkerLine" id="minYearMarker0" timelinePosition="top">
+                            <div class="yearLabel" id="minYearLabel0"></div>
                         </div>
-                        <div class="yearMarkerLine" id="maxYearMarker1" timelinePosition="bottom">
-                            <div class="yearLabel" id="maxYearLabel1"></div>
+                        <div class="yearMarkerLine" id="maxYearMarker0" timelinePosition="bottom">
+                            <div class="yearLabel" id="maxYearLabel0"></div>
                         </div>
+                </div>
+            </div>
+                
+            <div id="centerFrame">
+                <div id="infoPanel">
+                    Default text...info panel
+                    <!-- <iframe id="wikiFrame" src="https://en.wikipedia.org" title="Wikipedia"> </iframe> -->
+                </div> <br>
+                <div id="personPanel">
+                    Default text...person panel
+                </div>
+            </div>
+
+            <div class="tableContainer" id="tableContainerRight">
+            
+                <div id="secondTable" class="timelineTable" selected=false onwheel="myWheelHandler(event, 1)" onmousedown="timelineMouseDown(event, 1)" onmousemove="timelineMouseMove(event, 1)"
+                onmouseup="timelineMouseUp(1)" onclick="tableClicked(1)">            
+                    <div class="yearMarkerLine" id="currentYearMarker1" timelinePosition="middle">
+                        <div class="yearLabel" id="currentYearLabel1"></div>
+                    </div>
+                    <div class="yearMarkerLine" id="minYearMarker1" timelinePosition="top">
+                        <div class="yearLabel" id="minYearLabel1"></div>
+                    </div>
+                    <div class="yearMarkerLine" id="maxYearMarker1" timelinePosition="bottom">
+                        <div class="yearLabel" id="maxYearLabel1"></div>
                     </div>
                 </div>
+            </div>
 
  
-            <!-- mainbar</div>-->
-        </div>
+            
+        </div> <!-- mainSection-->
         
      
     </body>
