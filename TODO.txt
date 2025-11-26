@@ -134,6 +134,8 @@ BUG selecting an event can make it stuck to zooming to that event, so scrolling 
 == Mexico, etc.
 == Americas: category{ Pre-Columbian North America; Pre-Columbian South America; Pre-Columbian Caribbean; Post-Columbian Americas}
 
+== Compare / lock real & fictional timelines (history vs LOTR)
+
 ==DONE=========
 
 X Show current year prominently and allow to enter a specific year

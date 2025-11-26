@@ -729,6 +729,7 @@ class Timeline {
 
          // find an available column for this list
         var currentColumn=0;
+
         if(jsonObj.preferredColumn != undefined)
         {
             currentColumn = Number(jsonObj.preferredColumn);
@@ -736,11 +737,12 @@ class Timeline {
             //this.availableColumns.remove(currentColumn)
             //TODO make next available column currentColumn+1 (looping around after max)
         }
-        else if(this.availableColumns.length > 0)
+        else if(this.availableColumns.length > 0) 
         {
-            currentColumn = this.availableColumns.pop();
+           currentColumn = this.availableColumns.pop();
+           // currentColumn = this.availableColumns[0];
         }
-        else
+        else 
         {
             //need to free up a column or something
             // check overlaps
@@ -757,15 +759,7 @@ class Timeline {
             var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
     
             eventDate = unpackDateString(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things)
-            
-            /*if(jsonEventObj.endDateString == undefined)
-            {
-                eventEndDate = eventDate;
-            }
-            else
-            {
-                eventEndDate = dateIntGregorian(jsonEventObj.endDateString);
-            }  */      
+        
             eventEndDate = dateIntIfDefined(jsonEventObj.endDateString, eventDate);
             eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, undefined); //set birth and death to undefined if not known
             eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, undefined);
@@ -784,13 +778,7 @@ class Timeline {
     
     
             var eventIndex = i;
-    
-        //    eventsString += jsonObj.eventlist[i].title + ", ";
-    
-        //    eventsString += "<div class=\"eventBubble\" startDate=\"" + jsonObj.eventlist[i].date + "\">"        
-        //    + jsonObj.eventlist[i].title    + "  " + eventDate
-        //    + "</div>";
-    
+        
             var newEventDomElement = document.createElement("div");
             newEventDomElement.setAttribute("class", "eventBubble");
             newEventDomElement.setAttribute("startDate", eventDate);
@@ -829,6 +817,12 @@ class Timeline {
                 setVisibility(lifelineDomElement, false); //hide until mouse over evetn bubble
             }
     
+            //DEBUG
+            // if(currentColumn!=0 && currentColumn!=1 && currentColumn!=2)
+            // {
+            //     console.log(jsonEventObj.title + ": current Column = " + currentColumn);
+            // }
+
             var newEvent = new TimelineEvent(
                 jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
                 jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
@@ -891,7 +885,6 @@ class Timeline {
         }
 
         this.refresh();
-    
     }
 
     
@@ -974,6 +967,12 @@ class Timeline {
 
             }
             //position in preferred column
+            //DEBUG
+            let c = _tlevent.preferredColumn
+            if(c!=0 && c!=1 && c!=2)
+            {
+                console.log(_tlevent.title + ": current Column = " + c);
+            }
             this.positionInColumn(_tlevent, _tlevent.preferredColumn);
         }
     
@@ -991,6 +990,10 @@ class Timeline {
      */
     positionInColumn(_tlevent, columnNumber)
     {
+        // if(_tlevent.columnWidget.groupName=="America (US)")
+        // {
+        //     _tlevent.domElement.style.width = '200px'; //DEBUG
+        // }
         if(columnNumber > this.getNumColumns()-1)
         {
             this.positionInColumn(_tlevent, 0);
@@ -1024,7 +1027,15 @@ class Timeline {
                 // set lifeline column
                 _tlevent.lifelineDomElement.style.left = ((columnNumber + leftoffset)*width) + "%";
             }
-            _tlevent.domElement.style.left = ((columnNumber + leftoffset)*width) + "%";
+
+            let leftValue = (columnNumber + leftoffset)*width;
+            _tlevent.domElement.style.left = leftValue + "%";
+
+            if(leftValue > 100)
+            {
+                //DEBUG
+                console.log("Setting " + _tlevent.title + " left to " + leftValue);
+            }
 
             //console.log("Set column width to " + width);
         }
@@ -1486,19 +1497,19 @@ class TimelineSelector
         // create the options
         for(let i=0; i<this.jsonObj.timelinelist.length; i++)
         {        
-            //var newSelectorOption = document.createElement("option");
-            //newSelectorOption.setAttribute("value", jsonObj.timelinelist[i].filename);      //set the value as filename so we can use it when selecting
-
             var newSelectorOption = document.createElement("div");
             newSelectorOption.setAttribute("jsonfile", this.jsonObj.timelinelist[i].filename);      //set the value as filename so we can use it when selecting
             newSelectorOption.setAttribute("timelineIndex", this.timelineIndex);      //set the value as filename so we can use it when selecting
+            newSelectorOption.setAttribute("columnIndex", this.columnNumber);
             newSelectorOption.setAttribute("class", "tlDropdownOption"); 
             newSelectorOption.appendChild(document.createTextNode(this.jsonObj.timelinelist[i].title));
 
 
             //add the on click action
         //   newSelectorOption.setAttribute("onclick", "timelineSelectorChanged(0,this.attributes.jsonfile.value)"); //another ay to do it
-            newSelectorOption.setAttribute("onclick", "timelineSelectorChanged(this.getAttribute('timelineIndex'), this.getAttribute('jsonfile'))");
+            newSelectorOption.setAttribute("onclick", 
+                "timelineSelectorChanged(this.getAttribute('timelineIndex'), this.getAttribute('columnIndex'),\
+                this.getAttribute('jsonfile'))");
 
             //add to the menu
             this.pickerDOM.appendChild(newSelectorOption);
@@ -1542,13 +1553,15 @@ function hideSelector(containerDOM)
     
     
 /**
- * 
+ * DEPRECATED
  * @param {JSON} jsonObj 
  * @param {HTMLElement} selectorDOM 
  * @param {number} timelineIndex 
  */
 function createSelectorOptions(jsonObj, selectorDOM, timelineIndex)
 {    
+
+    console.log("FUNCTION DEPRECATED: createSelectorOptions");
 
     //clear existing options
     selectorDOM.innerHTML="";
@@ -1583,19 +1596,18 @@ function createSelectorOptions(jsonObj, selectorDOM, timelineIndex)
 
 }
 
-
-function timelineSelectorChanged(timelineIndex, timelineFile)
+/**
+ * 
+ * Handler for when the drop down selects a new timeline (category) to load
+ * @param {string} timelineIndexStr attribute from HTML element; needs cast to number
+ * @param {string} columnIndexStr attribute from HTML element; needs cast to number
+ * @param {string} timelineFile 
+ */
+function timelineSelectorChanged(timelineIndexStr, columnIndexStr, timelineFile)
 {    
-   /* if(mainTimeline==undefined)
-    {
-        initTimelines();    //SHOULD initialize all timelines
-    }*/
 
-    var targetTimeline = mainTimeline;
-    if(timelineIndex==1)
-    {
-        targetTimeline = secondTimeline;
-    }
+   var targetTimeline = all_timelines[Number(timelineIndexStr)];
+   targetTimeline.availableColumns = [Number(columnIndexStr)];     //passing in from attribute may end up as a string
 
     loadTimeline(timelineFile, targetTimeline);
 

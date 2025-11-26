@@ -84,6 +84,9 @@ select{
     border-radius: 5px;
     border: none;
 
+    /* put in front */
+    z-index: 3;
+
 }
 
 .tlDropdownOption
