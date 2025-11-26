@@ -2192,16 +2192,8 @@ function dragenterHandler(ev)
 {
     ev.preventDefault();
     dragOverCounter++;
-    setDebugText("drag over counter: " + dragOverCounter);
+    //setDebugText("drag over counter: " + dragOverCounter);
 
-    //ev.target.setAttribute("isDragTarget", true); //this is the 'leaf node' 
-    // that we are immediately over
-
-    //need to find the column header to drop into
-    var targetElement = getDragTargetHeader(ev);
-
-    //change the style
-   //targetElement.setAttribute("isDragTarget", true); 
 }
 
 /**
@@ -2212,21 +2204,10 @@ function dragleaveHandler(ev)
 {
     ev.preventDefault();
     dragOverCounter--;
-    setDebugText("drag over counter: " + dragOverCounter);
+    //setDebugText("drag over counter: " + dragOverCounter);
 
     //need to find the column header to drop into
     var targetElement = getDragTargetHeader(ev); //this is the header node
-
-    if(ev.target==targetElement) //mouse is leaving the header node
-    {
-        //targetElement.setAttribute("isDragTarget", false);
-    }
-    else if(ev.target.getAttribute("isDragTarget")!=true) //mouse is leaving a child node of the header
-    {
-        //change the style
-        //targetElement.setAttribute("isDragTarget", false);
-        //ev.target.setAttribute("isDragTarget", false);
-    }
 
     if(dragOverCounter<=1)
     {
@@ -2264,7 +2245,7 @@ function dropHandler(ev, columnID, timelineIndex) {
     //undo the highlight    
     
     dragOverCounter=0;
-    setDebugText("drag over counter: " + dragOverCounter);
+    //setDebugText("drag over counter: " + dragOverCounter);
     targetElement.setAttribute("isDragTarget", false);
 }
 
