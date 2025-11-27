@@ -789,7 +789,7 @@ class Timeline {
                         dateString: person.bubbleDate,
                         birthDateString : person.birthDateString,
                         deathDateString : person.deathDateString,
-                        maxScale : 1000,
+                        maxScale : 500,
                         type : "person",
                     };
                     this.CreateBubble(newEventData, //make sure this has all the needed data 
