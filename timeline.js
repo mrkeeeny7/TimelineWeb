@@ -730,17 +730,17 @@ class Timeline {
          // find an available column for this list
         var currentColumn=0;
 
-        if(jsonObj.preferredColumn != undefined)
+        if(this.availableColumns.length > 0) //go to available columns first
+        {
+           //currentColumn = this.availableColumns.pop();
+            currentColumn = this.availableColumns[0];
+        }
+        else if(jsonObj.preferredColumn != undefined)
         {
             currentColumn = Number(jsonObj.preferredColumn);
             TimelineHelper.removeItemOnce(this.availableColumns, currentColumn);
             //this.availableColumns.remove(currentColumn)
             //TODO make next available column currentColumn+1 (looping around after max)
-        }
-        else if(this.availableColumns.length > 0) 
-        {
-           currentColumn = this.availableColumns.pop();
-           // currentColumn = this.availableColumns[0];
         }
         else 
         {
@@ -1384,6 +1384,7 @@ function createAllSelectorOptions(jsonObj)
 
     
     //load default timeline (1st in list)
+    mainTimeline.availableColumns = [0]; //set to load in left column
     loadTimeline(jsonObj.timelinelist[0].filename, mainTimeline); 
 }
 

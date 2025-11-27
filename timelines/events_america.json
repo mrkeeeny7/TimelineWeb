@@ -3,16 +3,15 @@
 	"category" : "America (US)",
 	"colorString" : "navy",
 	"tags" : ["america"],
+
+    
+	"includefiles" : [
+		"timelines/events_northamerica_precolumbian.json"
+	],
+
+
 	"eventlist" : [
 
-	{
-		"title" : "Pre-Columbian America",
-		"dateString" : "~ 18000 BC",
-		"endDateString" : "1492 AD",
-		"minScale" : 1,
-		"maxScale" : 150000,
-		"type" : "era"
-	},
 	{
 		"title" : "Post-Columbian America",
 		"dateString" : "1492 AD",
@@ -200,26 +199,7 @@
             },
 		
         
-    {
-        "title" : "Mound Builders",
-        "dateString" : "c. 600 BC",
-        "maxScale" : 50000
-    },  
-    {
-        "title" : "Mississippian Culture",
-        "dateString" : "c. 800",
-        "maxScale" : 50000
-    },  
-    {
-        "title" : "Cahokia",
-        "dateString" : "c. 1050",
-        "maxScale" : 5000
-    },  
-    {
-        "title" : "Iroqouis Confederacy",
-        "dateString" : "c. 1450",
-        "maxScale" : 5000
-    },    
+   
     {
         "title" : "Juan Ponce de Leon lands in Florida",
         "dateString" : "1513",
