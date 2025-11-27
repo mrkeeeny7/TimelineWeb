@@ -753,111 +753,20 @@ class Timeline {
         this.tlCategories[jsonObj.category] = newColumnWidget;
         newColumnWidget.Init(jsonObj.category, this, currentColumn, jsonObj.colorString);
     
+        var eventIndex = 0;
         for(let i=0; i<jsonObj.eventlist.length; i++)
         {
             var jsonEventObj = jsonObj.eventlist[i];        
-            var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
-    
-            eventDate = unpackDateString(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things)
-        
-            eventEndDate = dateIntIfDefined(jsonEventObj.endDateString, eventDate);
-            eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, undefined); //set birth and death to undefined if not known
-            eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, undefined);
-            
-    
-    
-            if(jsonEventObj.type == undefined)
-            {
-                eventType = "basic";
-            }
-            else
-            {
-                eventType = jsonEventObj.type;
-            }
-    
-    
-    
-            var eventIndex = i;
-        
-            var newEventDomElement = document.createElement("div");
-            newEventDomElement.setAttribute("class", "eventBubble");
-            newEventDomElement.setAttribute("startDate", eventDate);
-            newEventDomElement.setAttribute("selected", false);
-            newEventDomElement.setAttribute("eventIndex", eventIndex);
-            newEventDomElement.setAttribute("eventType", eventType);
-            newEventDomElement.setAttribute("category", jsonObj.category);
-
-            if(eventType=="horizline")
-            {
-                //instead of adding text to the box, create a sub-element (label) and add the text to that
-                var newLabel = document.createElement("div");
-                newLabel.setAttribute("class", "yearLabel");         
-                newLabel.setAttribute("id", "presentDayLabel");                
-                var newEventText=document.createTextNode(jsonEventObj.title);
-                newLabel.appendChild(newEventText);
-
-                newEventDomElement.appendChild(newLabel);
-            }
-            else
-            {
-                var newEventText=document.createTextNode(jsonEventObj.title);
-                newEventDomElement.appendChild(newEventText);
-            }
-            var lifelineDomElement = undefined;
-            if(eventType=="person")
-            {
-                //add a lifeline
-                lifelineDomElement = document.createElement("div");
-                lifelineDomElement.setAttribute("class", " lifelineBracket");
-                //lifelineDomElement.appendChild(newEventLifeline);
-            
-    
-                //add to document
-                this.tableDom.appendChild(lifelineDomElement);
-                setVisibility(lifelineDomElement, false); //hide until mouse over evetn bubble
-            }
-    
-            //DEBUG
-            // if(currentColumn!=0 && currentColumn!=1 && currentColumn!=2)
-            // {
-            //     console.log(jsonEventObj.title + ": current Column = " + currentColumn);
-            // }
-
-            var newEvent = new TimelineEvent(
-                jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
-                jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
-                newEventDomElement, lifelineDomElement, newColumnWidget, currentColumn);
-                
-            let tlIndex = this.timelineIndex;
-            newEventDomElement.addEventListener("click", 
-                function() { onEventClick(tlIndex, this.getAttribute("eventIndex"), this.getAttribute("startDate")); });
-            newEventDomElement.addEventListener("mouseover", 
-                function() { onEventMouseOver(tlIndex, this.getAttribute("eventIndex")); });
-            newEventDomElement.addEventListener("mouseout", 
-                function() { onEventMouseOut(tlIndex, this.getAttribute("eventIndex")); });
-
-            //set background colour
-            if(jsonObj.colorString != undefined)
-            {
-                if(eventType=="basic" || eventType=="era")
-                {
-                    newEventDomElement.style.backgroundColor = jsonObj.colorString;
-                }
-            }
-            if(jsonObj.colorBString != undefined)
-            {
-                if(eventType=="era")
-                {
-                    newEventDomElement.style.backgroundColor = jsonObj.colorBString;
-                }
-            }
-            
-            //save a reference
-            this.tlEvents.push(newEvent);
-    
-            // add to the document
-            this.tableDom.appendChild(newEventDomElement);
+            this.CreateBubble(
+                jsonEventObj, 
+                jsonObj.category, //TODO consider just passing in the jsonObj
+                newColumnWidget, 
+                jsonObj.colorString, 
+                jsonObj.colorBString, 
+                eventIndex++,
+                currentColumn);
         }
+
         //document.getElementById("mainTable").innerHTML = eventsString;
         this.SortEventsList();
         //this.recentreTimeline(); //this is conflicting with set default scale (below) when including other json data
@@ -868,7 +777,30 @@ class Timeline {
             for(let i=0; i<jsonObj.personlist.length; i++)
             {
                 //var newPerson = new PersonData(jsonObj.personlist[i])
-                this.personlist.Insert(jsonObj.personlist[i]);
+                let person = jsonObj.personlist[i];
+                this.personlist.Insert(person);
+
+                // Create extra event bubbles for persons
+                if(person.bubbleDate != undefined)
+                {
+                    // create a bubble
+                    let newEventData = {
+                        title: person.name,
+                        dateString: person.bubbleDate,
+                        birthDateString : person.birthDateString,
+                        deathDateString : person.deathDateString,
+                        maxScale : 1000,
+                        type : "person",
+                    };
+                    this.CreateBubble(newEventData, //make sure this has all the needed data 
+                        jsonObj.category, //TODO consider just passing in the jsonObj
+                        newColumnWidget, 
+                        jsonObj.colorString, 
+                        jsonObj.colorBString, 
+                        eventIndex++,
+                        currentColumn);
+                    
+                }
             }
         }
 
@@ -885,6 +817,111 @@ class Timeline {
         }
 
         this.refresh();
+    }
+
+    CreateBubble(jsonEventObj, category, columnWidget, colorString, colorBString, eventIndex, columnIndex)
+    {
+        var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
+    
+        eventDate = unpackDateString(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things)
+    
+        eventEndDate = dateIntIfDefined(jsonEventObj.endDateString, eventDate);
+        eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, undefined); //set birth and death to undefined if not known
+        eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, undefined);
+        
+
+
+        if(jsonEventObj.type == undefined)
+        {
+            eventType = "basic";
+        }
+        else
+        {
+            eventType = jsonEventObj.type;
+        }
+
+
+
+        //var eventIndex = i;
+    
+        var newEventDomElement = document.createElement("div");
+        newEventDomElement.setAttribute("class", "eventBubble");
+        newEventDomElement.setAttribute("startDate", eventDate);
+        newEventDomElement.setAttribute("selected", false);
+        newEventDomElement.setAttribute("eventIndex", eventIndex);
+        newEventDomElement.setAttribute("eventType", eventType);
+        newEventDomElement.setAttribute("category", category);
+
+        if(eventType=="horizline")
+        {
+            //instead of adding text to the box, create a sub-element (label) and add the text to that
+            var newLabel = document.createElement("div");
+            newLabel.setAttribute("class", "yearLabel");         
+            newLabel.setAttribute("id", "presentDayLabel");                
+            var newEventText=document.createTextNode(jsonEventObj.title);
+            newLabel.appendChild(newEventText);
+
+            newEventDomElement.appendChild(newLabel);
+        }
+        else
+        {
+            var newEventText=document.createTextNode(jsonEventObj.title);
+            newEventDomElement.appendChild(newEventText);
+        }
+        var lifelineDomElement = undefined;
+        if(eventType=="person")
+        {
+            //add a lifeline
+            lifelineDomElement = document.createElement("div");
+            lifelineDomElement.setAttribute("class", " lifelineBracket");
+            //lifelineDomElement.appendChild(newEventLifeline);
+        
+
+            //add to document
+            this.tableDom.appendChild(lifelineDomElement);
+            setVisibility(lifelineDomElement, false); //hide until mouse over evetn bubble
+        }
+
+        //DEBUG
+        // if(currentColumn!=0 && currentColumn!=1 && currentColumn!=2)
+        // {
+        //     console.log(jsonEventObj.title + ": current Column = " + currentColumn);
+        // }
+
+        var newEvent = new TimelineEvent(
+            jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
+            jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
+            newEventDomElement, lifelineDomElement, columnWidget, columnIndex);
+            
+        let tlIndex = this.timelineIndex;
+        newEventDomElement.addEventListener("click", 
+            function() { onEventClick(tlIndex, this.getAttribute("eventIndex"), this.getAttribute("startDate")); });
+        newEventDomElement.addEventListener("mouseover", 
+            function() { onEventMouseOver(tlIndex, this.getAttribute("eventIndex")); });
+        newEventDomElement.addEventListener("mouseout", 
+            function() { onEventMouseOut(tlIndex, this.getAttribute("eventIndex")); });
+
+        //set background colour
+        if(colorString != undefined)
+        {
+            if(eventType=="basic" || eventType=="era")
+            {
+                newEventDomElement.style.backgroundColor = colorString;
+            }
+        }
+        if(colorBString != undefined)
+        {
+            if(eventType=="era")
+            {
+                newEventDomElement.style.backgroundColor = colorBString;
+            }
+        }
+        
+        //save a reference
+        this.tlEvents.push(newEvent);
+
+        // add to the document
+        this.tableDom.appendChild(newEventDomElement);
     }
 
     
