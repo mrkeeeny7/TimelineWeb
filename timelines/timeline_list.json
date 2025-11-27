@@ -15,6 +15,14 @@
             "title" : "America (US)",
             "filename" : "timelines/events_america.json"
         },
+        {
+            "title" : "Canada",
+            "filename" : "timelines/events_canada.json"
+        },
+        {
+            "title" : "Pre-Columbian North America",
+            "filename" : "timelines/events_northamerica_precolumbian.json"
+        },
 
         {
             "title" : "Cosmic",
