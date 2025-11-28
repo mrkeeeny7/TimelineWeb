@@ -78,91 +78,66 @@
                 "endDateString" : "PRESENTDAY",
                 "maxScale" : 200,
                 "type" : "era"
-            },
+            },  
+    {
+        "title" : "Jaques Cartier expedition",
+        "dateString" : "1534",
+        "maxScale" : 1000
+    },  
     {
         "title" : "St. John's, Newfoundland founded",
         "dateString" : "1583",
         "maxScale" : 1000
-    },   
-    {
-        "title" : "Hernando de Soto expedition",
-        "dateString" : "1539",
-        "maxScale" : 1000
-    },  
-    {
-        "title" : "Roanoke Colony",
-        "dateString" : "1585",
-        "maxScale" : 1000
     }, 
     {
-        "title" : "Virginia Colony",
-        "dateString" : "1607",
-        "maxScale" : 200
-    },
+        "title" : "Quebec City founded",
+        "dateString" : "1608",
+        "maxScale" : 1000
+    }, 
     {
         "title" : "Beaver Wars",
         "dateString" : "1609",
-        "maxScale" : 100
+        "maxScale" : 200
     }, 
     {
-        "title" : "Plymouth Colony (New England)",
-        "dateString" : "1620",
+        "title" : "Montreal founded",
+        "dateString" : "1642",
+        "maxScale" : 200
+    },
+    {
+        "title" : "Hudson's Bay Company charter",
+        "dateString" : "1670",
         "maxScale" : 5000
     }, 
     {
-        "title" : "New Amsterdam founded",
-        "dateString" : "1624",
-        "maxScale" : 200
-    },  
-    {
-        "title" : "Fort Christina (first Swedish settlement)",
-        "dateString" : "1638",
-        "maxScale" : 200
-    }, 
-    {
-        "title" : "New Amsterdam becomes New York",
-        "dateString" : "1667",
-        "maxScale" : 200
-    },  
-    {
-        "title" : "Pennsylvania established",
-        "dateString" : "1681",
-        "maxScale" : 200
-    }, 
-    {
-        "title" : "Salem Witch Trials",
-        "dateString" : "1692",
-        "maxScale" : 1000
-    }, 
-    {
-        "title" : "Blackbeard's blockade of Charles Town",
-        "dateString" : "1718",
+        "title" : "York (Toronto) established",
+        "dateString" : "1793",
         "maxScale" : 200
     },  
     {
         "title" : "French and Indian War",
         "dateString" : "1754",
         "maxScale" : 1000
-    }, 
+    },
     {
-        "title" : "Boston Tea Party",
-        "dateString" : "1773",
+        "title" : "Treaty of Paris",
+        "dateString" : "1763",
         "maxScale" : 1000
     }, 
     {
-        "title" : "Battle of Saratoga",
-        "dateString" : "1777",
+        "title" : "American Revolution",
+        "dateString" : "1775",
         "maxScale" : 200
     }, 
     {
-        "title" : "Siege of Yorktown",
-        "dateString" : "1781",
+        "title" : "Colony of New Brunswick",
+        "dateString" : "1784",
         "maxScale" : 200
     }, 
     {
-        "title" : "US Constitution adopted",
-        "dateString" : "1789",
-        "maxScale" : 5000
+        "title" : "Upper and Lower Canada",
+        "dateString" : "1791",
+        "maxScale" : 200
     }, 
     {
         "title" : "War of 1812",
@@ -170,114 +145,66 @@
         "maxScale" : 200
     }, 
     {
-        "title" : "Trail of Tears",
-        "dateString" : "1830",
+        "title" : "Rebellions of 1837",
+        "dateString" : "1837",
         "maxScale" : 200
     }, 
     {
-        "title" : "Texas Revolution",
-        "dateString" : "1835",
+        "title" : "Burning of Montreal Parliament",
+        "dateString" : "1849",
         "maxScale" : 200
     }, 
     {
-        "title" : "Annexation of Texas",
-        "dateString" : "1845",
-        "maxScale" : 50
-    }, 
-    {
-        "title" : "Mexican-American War",
-        "dateString" : "1846",
+        "title" : "Colony of Vancouver Island",
+        "dateString" : "1849",
         "maxScale" : 200
     }, 
     {
-        "title" : "California Gold Rush",
-        "dateString" : "1848",
-        "maxScale" : 1000
-    }, 
-    {
-        "title" : "Emancipation Proclamation",
-        "dateString" : "1863",
+        "title" : "Colony of Queen Charlotte Islands",
+        "dateString" : "1853",
         "maxScale" : 200
     }, 
     {
-        "title" : "Alaska Purchase",
+        "title" : "Colony of British Columbia",
+        "dateString" : "1849",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Confederation",
         "dateString" : "1867",
-        "maxScale" : 200
-    }, 
-    {
-        "title" : "Transcontinental Railroad",
-        "dateString" : "1869",
         "maxScale" : 1000
     }, 
     {
-        "title" : "Battle of Little Bighorn",
-        "dateString" : "1876",
+        "title" : "Manitoba created",
+        "dateString" : "1870",
         "maxScale" : 200
     }, 
     {
-        "title" : "Gunfight at the O.K. Corral",
-        "dateString" : "1881",
+        "title" : "British Columbia joins Canada",
+        "dateString" : "1871",
         "maxScale" : 200
     }, 
     {
-        "title" : "18th Amendment (Prohibition of Alcohol)",
-        "dateString" : "1917",
+        "title" : "Canadian Pacific Railway",
+        "dateString" : "1882",
         "maxScale" : 200
     }, 
     {
-        "title" : "Dust Bowl",
-        "dateString" : "1930",
+        "title" : "Red River Rebellion",
+        "dateString" : "1869",
         "maxScale" : 200
     }, 
     {
-        "title" : "Rosa Parks arrest",
-        "dateString" : "1955",
-        "maxScale" : 200
-    }, 
-    {
-        "title" : "Cuban Missile Crisis",
-        "dateString" : "1962",
-        "maxScale" : 200
-    }, 
-    {
-        "title" : "JFK Assassination",
-        "dateString" : "1963",
-        "maxScale" : 200
-    }, 
-    {
-        "title" : "Gulf of Tonkin incident",
-        "dateString" : "1964",
-        "maxScale" : 200
-    }, 
-    {
-        "title" : "Civil Rights Act",
-        "dateString" : "1964",
-        "maxScale" : 5000
-    }, 
-    {
-        "title" : "Assassinations of M.L. King and R.F. Kennedy",
-        "dateString" : "1968",
-        "maxScale" : 200
-    },
-    {
-        "title" : "Nixon's Resignation",
-        "searchstring" : "Watergate scandal",
-        "dateString" : "1974",
-        "minScale" : 1,
-        "maxScale" : 200
-    },
-    {
-        "title" : "9/11",
-        "searchstring" : "September 11 attacks",
-        "dateString" : "2001",
-        "minScale" : 1,
+        "title" : "North-West Rebellion",
+        "dateString" : "1885",
         "maxScale" : 200
     }
 ],
 
 "personlist" : [
 
-	{		"name" : "John Cabot", "birthDateString" : "c. 1450", "deathDateString" : "c. 1499", "bubbleDate" : "1497"					}
+	{		"name" : "John Cabot", "birthDateString" : "c. 1450", "deathDateString" : "c. 1499", "bubbleDate" : "1497"					},
+	{		"name" : "Louis Riel", "birthDateString" : "1844", "deathDateString" : "1885", "bubbleDate" : "1869"					}
 	
 	
 	

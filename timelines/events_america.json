@@ -388,6 +388,18 @@
         "maxScale" : 200
     },
     {
+        "title" : "MTV launched",
+        "dateString" : "1981",
+        "minScale" : 1,
+        "maxScale" : 200
+    },
+    {
+        "title" : "Gulf War",
+        "dateString" : "1991",
+        "minScale" : 1,
+        "maxScale" : 200
+    },
+    {
         "title" : "9/11",
         "searchstring" : "September 11 attacks",
         "dateString" : "2001",
