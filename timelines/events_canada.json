@@ -28,7 +28,7 @@
 			"type" : "era"
 		},
 		{
-			"title" : "French Colonies",
+			"title" : "New France",
 			"dateString" : "1608 AD",
 			"endDateString" : "1763",
 			"maxScale" : 1000,
@@ -44,13 +44,13 @@
 		{
 			"title" : "Dominion of Canada",
 			"dateString" : "1867",
-			"endDateString" : "1948",
+			"endDateString" : "1931",
 			"maxScale" : 1000,
 			"type" : "era"
 		},
 		{
 			"title" : "Canada",
-			"dateString" : "1948",
+			"dateString" : "1931",
 			"endDateString" : "PRESENTDAY",
 			"minScale" : 200,
 			"maxScale" : 1000,
@@ -58,6 +58,13 @@
 		},
         
    
+            {
+                "title" : "Depression and World War II Era",
+                "dateString" : "1931",
+                "endDateString" : "1948",
+                "maxScale" : 200,
+                "type" : "era"
+            },
             {
                 "title" : "Postwar Era",
                 "dateString" : "1948",
@@ -80,14 +87,14 @@
                 "type" : "era"
             },  
     {
-        "title" : "Jaques Cartier expedition",
+        "title" : "Jacques Cartier expedition",
         "dateString" : "1534",
         "maxScale" : 1000
     },  
     {
         "title" : "St. John's, Newfoundland founded",
         "dateString" : "1583",
-        "maxScale" : 1000
+        "maxScale" : 500
     }, 
     {
         "title" : "Quebec City founded",
@@ -195,8 +202,153 @@
         "maxScale" : 200
     }, 
     {
+        "title" : "North-West Mounted Police created",
+        "dateString" : "1873",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Residential Schools era",
+        "dateString" : "1876",
+        "maxScale" : 200
+    }, 
+    {
         "title" : "North-West Rebellion",
         "dateString" : "1885",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Klondike Gold Rush",
+        "dateString" : "1896",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Saskatchewan and Alberta",
+        "dateString" : "1905",
+        "maxScale" : 200
+    },
+    {
+        "title" : "Dominion of Newfoundland",
+        "dateString" : "1907",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "World War I",
+        "dateString" : "1914",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Halifax Explosion",
+        "dateString" : "1917",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Great Depression",
+        "dateString" : "1929",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Statute of Westminster",
+        "dateString" : "1931",
+        "maxScale" : 500
+    }, 
+    {
+        "title" : "Newfoundland returns to British rule",
+        "dateString" : "1934",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Canadian Broadcasting Corporation",
+        "dateString" : "1936",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "World War II",
+        "dateString" : "1939",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Japanese-Canadian Internment",
+        "dateString" : "1941",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Newfoundland joins Canada",
+        "dateString" : "1949",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Korean War",
+        "dateString" : "1950",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Maple Leaf Flag adopted",
+        "dateString" : "1965",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Expo 67 in Montreal",
+        "dateString" : "1967",
+        "maxScale" : 1000
+    }, 
+    {
+        "title" : "October Crisis",
+        "dateString" : "1970",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Parti Quebecois elected in Quebec",
+        "dateString" : "1976",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "First Quebec Independence Referendum",
+        "dateString" : "1980",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Patriation of the Constitution",
+        "dateString" : "1982",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Air India Flight 182 bombing",
+        "dateString" : "1985",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "NAFTA",
+        "dateString" : "1994",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Second Quebec Independence Referendum",
+        "dateString" : "1995",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Afghanistan War",
+        "dateString" : "2001",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Same-sex marriage legalized",
+        "dateString" : "2005",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Cananbis legalized",
+        "dateString" : "2018",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "COVID-19",
+        "dateString" : "2020",
+        "maxScale" : 200
+    }, 
+    {
+        "title" : "Trump tariffs and trade war",
+        "dateString" : "2025",
         "maxScale" : 200
     }
 ],
@@ -204,7 +356,11 @@
 "personlist" : [
 
 	{		"name" : "John Cabot", "birthDateString" : "c. 1450", "deathDateString" : "c. 1499", "bubbleDate" : "1497"					},
-	{		"name" : "Louis Riel", "birthDateString" : "1844", "deathDateString" : "1885", "bubbleDate" : "1869"					}
+	{		"name" : "Jacques Cartier", "birthDateString" : "1491", "deathDateString" : "1557", "bubbleDate" : "1534"					},
+	{		"name" : "Samuel de Champlain", "birthDateString" : "1574", "deathDateString" : "1635", "bubbleDate" : "1603"					},
+	{		"name" : "Louis Riel", "birthDateString" : "1844", "deathDateString" : "1885", "bubbleDate" : "1869"					},
+	{		"name" : "Lester B. Pearson", "birthDateString" : "1897", "deathDateString" : "1972", "bubbleDate" : "1963", "ruled" : [ "1963", "1968"]					},
+	{		"name" : "Pierre Trudeau", "birthDateString" : "1919", "deathDateString" : "2000", "bubbleDate" : "1968", "ruled" : ["1968", "1979", "1980", "1984"]					}
 	
 	
 	
