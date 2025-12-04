@@ -74,6 +74,12 @@ class PersonData
      */
     ruled;
 
+
+    /**
+     * @type {boolean}
+     */
+    isLiving;
+
     /**
      * @constructor
      * @param {{name: string, birthDateString: string, deathDateString: string} personDataJSObj}
@@ -88,8 +94,29 @@ class PersonData
         this.birthYear = birthYearObj.date;
         this.ageIsAppox = birthYearObj.isApprox;
 
-        this.deathYear = unpackDateString(this.deathDateString).date;
-
+        if(this.deathDateString == undefined)
+        {
+            this.deathYear = undefined;
+            this.isLiving = true; // this may be redundant if we take undefined death year as still living
+        }
+        else
+        {
+            let dthStr = this.deathDateString.toLowerCase();
+            if(dthStr =="alive" || dthStr=="living" || dthStr == undefined)
+            {
+                this.deathYear = undefined;
+                this.isLiving = true; // this may be redundant if we take undefined death year as still living
+            }
+            else
+            {
+                this.deathYear = unpackDateString(this.deathDateString).date;
+                if(this.deathYear == undefined)
+                {
+                    throw new Error (this.name + ": Death year could not be parsed");
+                }
+                this.isLiving = false;
+            }
+        }
        
 
         if(personDataJSObj.ruled != undefined )
@@ -182,6 +209,7 @@ class PersonListSorted {
     /**
      * 
      * @param {Object} jsonPersonObj 
+     * @returns {PersonData} the new person data created
      */
     Insert(jsonPersonObj)
     {
@@ -199,6 +227,8 @@ class PersonListSorted {
             //TODO or could just insert at the correct position by iterating
             this.theList.sort(function(a,b) { return a.birthYear - b.birthYear; })
         }
+
+        return newPerson;
     }
 
     /**
@@ -715,7 +745,8 @@ class Timeline {
         if(clearExistingFlag)
         {
             //clear existing stuff
-            this.tlEvents = [];
+           // this.tlEvents = [];
+            this.tlEvents.length = 0;
       
         
             //remove existing eventBubbles
@@ -753,7 +784,8 @@ class Timeline {
         this.tlCategories[jsonObj.category] = newColumnWidget;
         newColumnWidget.Init(jsonObj.category, this, currentColumn, jsonObj.colorString);
     
-        var eventIndex = 0;
+        var eventIndex = this.tlEvents.length; //start at the end of the existing list TODO clean this up (use AddEvent method)
+
         for(let i=0; i<jsonObj.eventlist.length; i++)
         {
             var jsonEventObj = jsonObj.eventlist[i];        
@@ -778,7 +810,7 @@ class Timeline {
             {
                 //var newPerson = new PersonData(jsonObj.personlist[i])
                 let person = jsonObj.personlist[i];
-                this.personlist.Insert(person);
+                let newPersonData = this.personlist.Insert(person);
 
                 // Create extra event bubbles for persons
                 if(person.bubbleDate != undefined)
@@ -792,13 +824,16 @@ class Timeline {
                         maxScale : 500,
                         type : "person",
                     };
-                    this.CreateBubble(newEventData, //make sure this has all the needed data 
+                    
+                    let newEvent = this.CreateBubble(newEventData, //make sure this has all the needed data 
                         jsonObj.category, //TODO consider just passing in the jsonObj
                         newColumnWidget, 
                         jsonObj.colorString, 
                         jsonObj.colorBString, 
                         eventIndex++,
                         currentColumn);
+
+                    newEvent.personData = newPersonData;
                     
                 }
             }
@@ -819,6 +854,17 @@ class Timeline {
         this.refresh();
     }
 
+    /**
+     * 
+     * @param {Object} jsonEventObj 
+     * @param {string} category 
+     * @param {TimelineColumnWidget} columnWidget 
+     * @param {string} colorString 
+     * @param {string} colorBString 
+     * @param {number} eventIndex 
+     * @param {number} columnIndex 
+     * @returns {TimelineEvent} the created event
+     */
     CreateBubble(jsonEventObj, category, columnWidget, colorString, colorBString, eventIndex, columnIndex)
     {
         var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
@@ -920,8 +966,26 @@ class Timeline {
         //save a reference
         this.tlEvents.push(newEvent);
 
+        //check for correct index
+        if(this.tlEvents.length != eventIndex + 1)
+        {
+            throw new Error("Event list indexing problem 1.");
+        } 
+        
+        if(this.tlEvents[eventIndex] != newEvent)
+        {
+            throw new Error("Event list indexing problem 2.");
+        }
+
         // add to the document
         this.tableDom.appendChild(newEventDomElement);
+
+        return newEvent; //return a reference to the event that was created
+    }
+
+    AddEventToList(newEvent)
+    {
+
     }
 
     
@@ -1271,6 +1335,12 @@ function ZoomToDate(date, timelineIndex)
  * eras, persons, wars, etc.
  */
 class TimelineEvent {
+
+    /**
+     * @type {PersonData}
+     */
+    personData;
+
     /**
      * 
      * @param {string} title 
