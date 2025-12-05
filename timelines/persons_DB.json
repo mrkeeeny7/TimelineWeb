@@ -8,6 +8,24 @@
 		{		"id": "leonidas", "name" : "Leonidas I", "birthDateString" : "540 BC", "deathDateString" : "480 BC" 	, "ruled" : ["489 BC", "480 BC"]	},
 		{		"id": "alexander", "name" : "Alexander the Great", "birthDateString" : "356 BC", "deathDateString" : "323 BC" 	, "ruled" : ["336 BC", "323 BC"]		},
 	
-        {		"id": "cleopatra", "name" : "Cleopatra", "birthDateString" : "70 BC", "deathDateString" : "30 BC" 	, "ruled" :  ["51 BC", "30 BC"]	}
+        {		"id": "cleopatra", "name" : "Cleopatra", "birthDateString" : "70 BC", "deathDateString" : "30 BC" 	, "ruled" :  ["51 BC", "30 BC"]	},
+        
+		{		"id": "saladin", "name" : "Saladin", "birthDateString" : "1137", "deathDateString" : "1193"	, "ruled" : ["1174", "1193"]			},
+		{		"id": "genghis_khan", "name" : "Genghis Khan", "birthDateString" : "1162", "deathDateString" : "1227"	, "ruled" : ["1206", "1227"]			},
+		{		"id": "joan_of_arc", "name" : "Joan of Arc", "birthDateString" : "1412", "deathDateString" : "1431"				},
+		{		"id": "columbus", "name" : "Christopher Columbus", "birthDateString" : "1451", "deathDateString" : "1506"				},
+		{		"id": "leonardo_da_vinci", "name" : "Leonardo da Vinci", "birthDateString" : "1452", "deathDateString" : "1519"				},
+		{		"id": "ivan_the_terrible", "name" : "Ivan the Terrible", "birthDateString" : "1530", "deathDateString" : "1584"	, "ruled" : ["1533", "1584"]			},
+		{		"id": "shakespeare", "name" : "William Shakespeare", "birthDateString" : "1564", "deathDateString" : "1616"				},
+		{		"id": "blackbeard", "name" : "Blackbeard", "birthDateString" : "1680", "deathDateString" : "1718"				},
+		{		"id": "captain_cook", "name" : "Captain Cook", "birthDateString" : "1728", "deathDateString" : "1779"				},
+		{		"id": "daniel_defoe", "name" : "Daniel Defoe", "birthDateString" : "1660", "deathDateString" : "1731"				},
+		{		"id": "benjamin_franklin", "name" : "Benjamin Franklin", "birthDateString" : "1706", "deathDateString" : "1790"				},
+		{		"id": "napoleon", "name" : "Napoleon", "birthDateString" : "1769", "deathDateString" : "1821"		, "ruled" : ["1799", "1815"]		},
+		{		"id": "geronimo", "name" : "Geronimo", "birthDateString" : "1829", "deathDateString" : "1909"				},
+		{		"id": "gandhi", "name" : "Mahatma Gandhi", "birthDateString" : "1869", "deathDateString" : "1948"				},
+		{		"id": "lenin", "name" : "Vladimir Lenin", "birthDateString" : "1870", "deathDateString" : "1924", "ruled" : ["1917", "1924"]				},
+		{		"id": "winston_churchill", "name" : "Winston Churchill", "birthDateString" : "1874", "deathDateString" : "1965"	, "ruled" : ["1940", "1945", "1951", "1955"]			},
+		{		"id": "elvis_presley", "name" : "Elvis Presley", "birthDateString" : "1935", "deathDateString" : "1977"			}
     ]
 }

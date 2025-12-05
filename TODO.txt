@@ -137,11 +137,11 @@ BUG selecting an event can make it stuck to zooming to that event, so scrolling 
 == Compare / lock real & fictional timelines (history vs LOTR)
 
 == Allow same person in multiple timelines:
-	- reference 'Person Database' instead of storing info in Timeline file
-	- use a recognizable but unique ID e.g. 'CharlesII_England', 'ToussaintLouverture', 'SamuelDeChamplain'
-	- throw error if any ID is not unique
-	- make sure duplicate references don't show up in 'Persons Alive' list
-	- trial with 'hybrid' approach: use database + references for Most Notable people; existing system for others
+	X- reference 'Person Database' instead of storing info in Timeline file
+	X- use a recognizable but unique ID e.g. 'CharlesII_England', 'ToussaintLouverture', 'SamuelDeChamplain'
+	X- throw error if any ID is not unique
+TODO	- make sure duplicate references don't show up in 'Persons Alive' list
+	X- trial with 'hybrid' approach: use database + references for Most Notable people; existing system for others
 
 
 
