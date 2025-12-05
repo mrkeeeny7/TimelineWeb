@@ -509,14 +509,6 @@
 		{		"id" : "alexander" , "bubbleDate" : "336 BC"	, "bubbleScale" : [0, 5000]	},
 		{		"id" : "cleopatra" , "bubbleDate" : "51 BC"	, "bubbleScale" : [0, 5000]	},
 
-		{		"name" : "Cyrus the Great", "birthDateString" : "600 BC", "deathDateString" : "530 BC" 	, "ruled" : ["559 BC", "530 BC"]	},
-		{		"name" : "Darius the Great", "birthDateString" : "550 BC", "deathDateString" : "486 BC" 	, "ruled" : ["522 BC", "486 BC"]	},
-		{		"name" : "Xerxes I", "birthDateString" : "518 BC", "deathDateString" : "465 BC" 	, "ruled" : ["486 BC", "465 BC"]	},
-
-		{		"name" : "Leonidas I", "birthDateString" : "540 BC", "deathDateString" : "480 BC" 	, "ruled" : ["489 BC", "480 BC"]	},
-
-
-		{		"name" : "Alexander the Great", "birthDateString" : "356 BC", "deathDateString" : "323 BC" 	, "ruled" : ["336 BC", "323 BC"]		},
 		{		"name" : "Hannibal", "birthDateString" : "247 BC", "deathDateString" : "182 BC" 			},
 		{		"name" : "Marius", "birthDateString" : "157 BC", "deathDateString" : "86 BC", "ruled" : ["107 BC", "107 BC", "104 BC", "100 BC", "86 BC", "86 BC"]			},
 		{		"name" : "Sulla", "birthDateString" : "138 BC", "deathDateString" : "78 BC"	, "ruled" : ["63 BC", "63 BC"]				},
