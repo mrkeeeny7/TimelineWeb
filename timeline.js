@@ -29,6 +29,7 @@ var minZoom = Math.log(MIN_SCALE / 500.0);
 var maxZoom = Math.log(MAX_SCALE / 500.0);
 
 const TIMELINES_SELECTOR_FILE = "timelines/timeline_list.json";
+const PERSON_DATABASE_FILE = "timelines/persons_DB.json";
 const MEGA_ANNUM = 1000000; //1 million yrs = 1 Ma
 const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
@@ -41,6 +42,12 @@ const ANIMATION_NUMFRAMES = ANIMATION_TIME / ANIMATION_INTERVAL;
 
 class PersonData
 {
+    /**
+     * unique ID
+     * @type {string}
+     */
+    id;
+
     /**
      * @type {string}
      */
@@ -86,6 +93,7 @@ class PersonData
      */
     constructor(personDataJSObj)
     {
+        this.id                 = personDataJSObj.id; //may be undefined
         this.name               = personDataJSObj.name;
         this.birthDateString    = personDataJSObj.birthDateString;
         this.deathDateString    = personDataJSObj.deathDateString;
@@ -199,6 +207,46 @@ class PersonData
 
 }
 
+class PersonDatabase {
+    static personMap = new Map();
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {PersonData} person 
+     */
+    static Add(id, person)
+    {
+        if(this.personMap.get(id) != undefined)
+        {
+            throw new Error("Person ID is not unique: " + id);
+        }
+
+        this.personMap.set(id, person);
+    }
+
+    static Get(id)
+    {
+        return this.personMap.get(id);
+    }
+
+    static LoadFromJSON(jsonData, _)
+    {
+        for(let i=0; i<jsonData.list.length; i++)
+        {
+            let newPerson = new PersonData(jsonData.list[i]);
+            PersonDatabase.Add(newPerson.id, newPerson);
+        }
+    }
+
+    static LoadFromFile(jsonFilePath)
+    {
+        
+        console.log("Loading from " + jsonFilePath);
+        readJSONFile(jsonFilePath, this.LoadFromJSON, undefined);
+    }
+}
+
 class PersonListSorted {
 
     /**
@@ -213,8 +261,24 @@ class PersonListSorted {
      */
     Insert(jsonPersonObj)
     {
-        var newPerson = new PersonData(jsonPersonObj);
+        var newPerson;
 
+        // check if we are loading from the database
+        if(jsonPersonObj.id != undefined)
+        {
+            newPerson = PersonDatabase.Get(jsonPersonObj.id);
+            if(newPerson==undefined)
+            {
+                throw new Error("Person ID not found in database: " + jsonPersonObj.id);
+            }
+        }
+        else
+        {
+            // create new person data
+            newPerson = new PersonData(jsonPersonObj);
+        }
+
+        //now add to this list
         if(this.theList.length == 0)
         {
             this.theList.push(newPerson);
@@ -737,7 +801,7 @@ class Timeline {
      * @param {Object} jsonObj the JSON data for this timeline
      * @param {boolean} clearExistingFlag whether to clear existing data before loading new data
      */
-    createEventBubbles(jsonObj, clearExistingFlag)
+    CreateEventBubbles(jsonObj, clearExistingFlag)
     {
         //var eventsString = "";
         //eventsString += jsonObj.category + ": ";
@@ -809,19 +873,27 @@ class Timeline {
             for(let i=0; i<jsonObj.personlist.length; i++)
             {
                 //var newPerson = new PersonData(jsonObj.personlist[i])
-                let person = jsonObj.personlist[i];
-                let newPersonData = this.personlist.Insert(person);
+                let jsonPersonData = jsonObj.personlist[i];
+                let newPersonData = this.personlist.Insert(jsonPersonData);
 
                 // Create extra event bubbles for persons
-                if(person.bubbleDate != undefined)
+                if(jsonPersonData.bubbleDate != undefined)
                 {
+                    let maxScale = 500;
+                    let minScale = 0;
+                    if(jsonPersonData.bubbleScale != undefined)
+                    {
+                        minScale = jsonPersonData.bubbleScale[0];
+                        maxScale = jsonPersonData.bubbleScale[1];
+                    }
                     // create a bubble
                     let newEventData = {
-                        title: person.name,
-                        dateString: person.bubbleDate,
-                        birthDateString : person.birthDateString,
-                        deathDateString : person.deathDateString,
-                        maxScale : 500,
+                        title: newPersonData.name,
+                        dateString: jsonPersonData.bubbleDate, //note: use this data from json (will not exist in person database)
+                        birthDateString : newPersonData.birthDateString,
+                        deathDateString : newPersonData.deathDateString,
+                        maxScale : maxScale,
+                        minScale : minScale,
                         type : "person",
                     };
                     
@@ -1460,6 +1532,11 @@ function loadSelectorOptions()
     console.log("Loading selector options");
     readJSONFile(TIMELINES_SELECTOR_FILE, createAllSelectorOptions);
 
+    //load the persons database
+    console.log("Loading person database");
+    PersonDatabase.LoadFromFile(PERSON_DATABASE_FILE);
+
+
 }
 
 function createAllSelectorOptions(jsonObj)
@@ -1820,7 +1897,7 @@ function loadTimelineFromJSON(jsonObj, targetTimeline)
 
 
     //load events from this JSON file
-    targetTimeline.createEventBubbles(jsonObj, false);
+    targetTimeline.CreateEventBubbles(jsonObj, false);
     
     //refresh the persons alive list
     RefreshPersonPanel();

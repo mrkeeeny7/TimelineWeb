@@ -27,7 +27,7 @@
 		},
 
 		{
-			"title" : "Plague of Justinian panedemic",
+			"title" : "Plague of Justinian pandemic",
 			"dateString" : "541",
 			"minScale" : 1,
 			"maxScale" : 5000
@@ -50,6 +50,13 @@
 		{
 			"title" : "Antonine Plague (Roman Empire)",
 			"dateString" : "165",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+
+		{
+			"title" : "Plague of Cyprian (Roman Empire)",
+			"dateString" : "249",
 			"minScale" : 1,
 			"maxScale" : 1000
 		},

@@ -1,0 +1,13 @@
+{
+    "list" : [
+        
+		{		"id": "buddha", "name" : "Buddha", "birthDateString" : "c. 563 BC", "deathDateString" : "c. 483 BC"	},
+		{		"id": "cyrus", "name" : "Cyrus the Great", "birthDateString" : "600 BC", "deathDateString" : "530 BC" 	, "ruled" : ["559 BC", "530 BC"]	},
+		{		"id": "darius", "name" : "Darius the Great", "birthDateString" : "550 BC", "deathDateString" : "486 BC" 	, "ruled" : ["522 BC", "486 BC"]	},
+		{		"id": "xerxes", "name" : "Xerxes I", "birthDateString" : "518 BC", "deathDateString" : "465 BC" 	, "ruled" : ["486 BC", "465 BC"]	},
+		{		"id": "leonidas", "name" : "Leonidas I", "birthDateString" : "540 BC", "deathDateString" : "480 BC" 	, "ruled" : ["489 BC", "480 BC"]	},
+		{		"id": "alexander", "name" : "Alexander the Great", "birthDateString" : "356 BC", "deathDateString" : "323 BC" 	, "ruled" : ["336 BC", "323 BC"]		},
+	
+        {		"id": "cleopatra", "name" : "Cleopatra", "birthDateString" : "70 BC", "deathDateString" : "30 BC" 	, "ruled" :  ["51 BC", "30 BC"]	}
+    ]
+}

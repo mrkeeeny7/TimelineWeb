@@ -496,21 +496,18 @@
 			"dateString" : "210 BC",
 			"minScale" : 1,
 			"maxScale" : 50000
-		},
-
-		{
-			"title" : "Buddha",
-			"birthDateString" : "563 BC",
-			"deathDateString" : "483 BC",
-			"dateString" : "523 BC",
-			"maxScale" : 5000,
-			"type" : "person"
 		}
 
 	],
 
 	"personlist" : [
-		{		"name" : "Buddha", "birthDateString" : "c. 563 BC", "deathDateString" : "c. 483 BC"	},
+		{		"id" : "buddha" , "bubbleDate" : "523 BC", "bubbleScale" : [0, 5000]	},
+		{		"id" : "cyrus", "bubbleDate" : "539 BC"	, "bubbleScale" : [0, 500]	},
+		{		"id" : "darius" , "bubbleDate" : "522 BC"	, "bubbleScale" : [0, 500]	},
+		{		"id" : "xerxes" , "bubbleDate" : "486 BC", "bubbleScale" : [0, 500]		},
+		{		"id" : "leonidas" , "bubbleDate" : "489 BC"	, "bubbleScale" : [0, 500]	},
+		{		"id" : "alexander" , "bubbleDate" : "336 BC"	, "bubbleScale" : [0, 5000]	},
+		{		"id" : "cleopatra" , "bubbleDate" : "51 BC"	, "bubbleScale" : [0, 5000]	},
 
 		{		"name" : "Cyrus the Great", "birthDateString" : "600 BC", "deathDateString" : "530 BC" 	, "ruled" : ["559 BC", "530 BC"]	},
 		{		"name" : "Darius the Great", "birthDateString" : "550 BC", "deathDateString" : "486 BC" 	, "ruled" : ["522 BC", "486 BC"]	},
@@ -569,7 +566,6 @@
 		{		"name" : "Rameses II", "birthDateString" : "c. 1303 BC", "deathDateString" : "1213 BC" , "ruled" : ["1279 BC", "1213 BC"]			},
 		{		"name" : "Rameses III", "birthDateString" : "1217 BC", "deathDateString" : "1155 BC" , "ruled" : ["1186 BC", "1155 BC"]			},
 		{		"name" : "Ptolemy I", "birthDateString" : "369 BC", "deathDateString" : "282 BC" , "ruled" : ["305 BC", "282 BC"]			},
-		{		"name" : "Cleopatra", "birthDateString" : "70 BC", "deathDateString" : "30 BC" 	, "ruled" :  ["51 BC", "30 BC"]	},
 
 		{		"name" : "Nefertiti", "birthDateString" : "1370 BC", "deathDateString" : "1330 BC" , "ruled" : ["1334 BC", "1332 BC"]			},
 		{		"name" : "Agrippina the Younger", "birthDateString" : "15 AD", "deathDateString" : "59 AD" 		},
