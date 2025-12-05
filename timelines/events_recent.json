@@ -512,7 +512,7 @@
 		
 		{		"id": "saladin",  "bubbleDate" : "1174"	, "bubbleScale" : [0, 5000]},
 		{		"id": "genghis_khan", 	 "bubbleDate" : "1206"	, "bubbleScale" : [0, 5000]},
-		{		"id": "joan_of_arc", 	 "bubbleDate" : "523 BC"	, "bubbleScale" : [0, 5000]},
+		{		"id": "joan_of_arc", 	 "bubbleDate" : "1429"	, "bubbleScale" : [0, 5000]},
 		{		"id": "columbus", 	 "bubbleDate" : "1492"	, "bubbleScale" : [0, 5000]},
 		{		"id": "leonardo_da_vinci",		 "bubbleDate" : "1472"	, "bubbleScale" : [0, 5000]},
 		{		"id": "ivan_the_terrible", 	 "bubbleDate" : "1547"	, "bubbleScale" : [0, 5000]},
