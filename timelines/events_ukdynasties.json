@@ -569,7 +569,7 @@
 
 "personlist" : [		
 		{		"name" : "Kenneth MacAlpin", "birthDateString" : "810", "deathDateString" : "858"	, "ruled" : ["841", "858"], "bubbleDate" : "841"		},
-		{		"name" : "Macbeth", "birthDateString" : "1005", "deathDateString" : "1057"	, "ruled" : ["1040", "1057"], "bubbleDate" : "1040"			},
+		{		"id": "macbeth", 		"bubbleDate" : "1040", "bubbleScale" : [0, 5000]},
 		{		"name" : "William Wallace", "birthDateString" : "1270", "deathDateString" : "1305"	, "ruled" : ["1297", "1298"], "bubbleDate" : "1297"			},
 		{		"name" : "Robert the Bruce", "birthDateString" : "1274", "deathDateString" : "1329"	, "ruled" : ["1306", "1329"], "bubbleDate" : "1306"			},
 		
@@ -580,7 +580,7 @@
 		{		"name" : "Alcuin of York", "birthDateString" : "c. 735", "deathDateString" : "804", "bubbleDate" : "782"	},
 
 		{		"name" : "Offa of Mercia", "birthDateString" : "730", "deathDateString" : "796"		, "ruled" : ["757", "796"], "bubbleDate" : "757"		},
-		{		"name" : "Alfred the Great", "birthDateString" : "c. 849", "deathDateString" : "899"	, "ruled" : ["871", "899"], "bubbleDate" : "871"			},
+		{		"id": "alfred_the_great", 		"bubbleDate" : "871", "bubbleScale" : [0, 5000]},
 		{		"name" : "Aethelflaed", "birthDateString" : "870", "deathDateString" : "918"	, "ruled" : ["911", "918"], "bubbleDate" : "911"			},
 		{		"name" : "Aethelstan", "birthDateString" : "894", "deathDateString" : "939"		, "ruled" : ["924", "939"], "bubbleDate" : "924"		},
 		{		"name" : "Aethelred the Unready", "birthDateString" : "c. 968", "deathDateString" : "1016"	, "ruled" : ["978", "1013", "1014", "1016"], "bubbleDate" : "978"			},

@@ -26,6 +26,21 @@
 		{		"id": "gandhi", "name" : "Mahatma Gandhi", "birthDateString" : "1869", "deathDateString" : "1948"				},
 		{		"id": "lenin", "name" : "Vladimir Lenin", "birthDateString" : "1870", "deathDateString" : "1924", "ruled" : ["1917", "1924"]				},
 		{		"id": "winston_churchill", "name" : "Winston Churchill", "birthDateString" : "1874", "deathDateString" : "1965"	, "ruled" : ["1940", "1945", "1951", "1955"]			},
-		{		"id": "elvis_presley", "name" : "Elvis Presley", "birthDateString" : "1935", "deathDateString" : "1977"			}
+		{		"id": "elvis_presley", "name" : "Elvis Presley", "birthDateString" : "1935", "deathDateString" : "1977"			},
+
+        
+		{		"id": "trajan", "name" : "Trajan", "birthDateString" : "53", "deathDateString" : "117" , "ruled" : ["98", "117"] },
+		{		"id": "constantine", "name" : "Constantine the Great", "birthDateString" : "272", "deathDateString" : "337", "ruled" : ["306", "337"]	},
+		{		"id": "attila", "name" : "Attila the Hun", "birthDateString" : "406", "deathDateString" : "453"		, "ruled" : ["434", "453"]		},
+		{		"id": "justinian", "name" : "Justinian the Great"	, "birthDateString" : "482", "deathDateString" : "565", "ruled" : ["527", "565"]	},
+    
+		{		"id": "taizong","name" : "Emperor Taizong"	, "birthDateString" : "598", "deathDateString" : "649", "ruled" : ["626", "649"]		},
+		{		"id": "harun_al-rashid","name" : "Harun al-Rashid"	, "birthDateString" : "763", "deathDateString" : "809", "ruled" : ["786", "809"]		},
+		{		"id": "charlemagne","name" : "Charlemagne"	, "birthDateString" : "748", "deathDateString" : "814", "ruled" : ["768", "814"]		},
+
+		{		"id": "alfred_the_great", "name" : "Alfred the Great", "birthDateString" : "c. 849", "deathDateString" : "899"	, "ruled" : ["871", "899"]		},
+
+		{		"id": "macbeth", "name" : "Macbeth", "birthDateString" : "1005", "deathDateString" : "1057"	, "ruled" : ["1040", "1057"]			},
+		{		"id": "baybars","name" : "Baybars"	, "birthDateString" : "c. 1223", "deathDateString" : "1277", "ruled" : ["1260", "1277"]		}	
     ]
 }

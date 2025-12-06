@@ -510,6 +510,16 @@
 		{		"id" : "cleopatra" , "bubbleDate" : "51 BC"	, "bubbleScale" : [0, 5000]	},
 
 		
+		{		"id": "attila", 		 "bubbleDate" : "450"	, "bubbleScale" : [0, 5000]},
+		{		"id": "taizong", 		 "bubbleDate" : "598"	, "bubbleScale" : [0, 5000]},
+		{		"id": "harun_al-rashid", 		 "bubbleDate" : "763"	, "bubbleScale" : [0, 5000]},
+		{		"id": "charlemagne", 		 "bubbleDate" : "748"	, "bubbleScale" : [0, 5000]},
+		
+		{		"id": "alfred_the_great", "bubbleDate" : "871"	, "bubbleScale" : [0, 5000]},
+
+		{		"id": "macbeth", "bubbleDate" : "1040"	, "bubbleScale" : [0, 5000]},
+		{		"id": "baybars","bubbleDate" : "1260"	, "bubbleScale" : [0, 5000]},
+
 		{		"id": "saladin",  "bubbleDate" : "1174"	, "bubbleScale" : [0, 5000]},
 		{		"id": "genghis_khan", 	 "bubbleDate" : "1206"	, "bubbleScale" : [0, 5000]},
 		{		"id": "joan_of_arc", 	 "bubbleDate" : "1429"	, "bubbleScale" : [0, 5000]},
@@ -549,8 +559,8 @@
 		{		"name" : "Titus", "birthDateString" : "39", "deathDateString" : "81"  , "ruled" : ["79", "81"]},
 		{		"name" : "Domitian", "birthDateString" : "51", "deathDateString" : "96" , "ruled" : ["81", "96"] },
 		{		"name" : "Nerva", "birthDateString" : "30", "deathDateString" : "98", "ruled" : ["96", "98"]  },
-		{		"name" : "Trajan", "birthDateString" : "53", "deathDateString" : "117" , "ruled" : ["98", "117"] },
 		{		"name" : "Hadrian", "birthDateString" : "76", "deathDateString" : "138" , "ruled" : ["117", "138"] },
+		{		"id": "trajan", 		 "bubbleDate" : "98"	, "bubbleScale" : [0, 5000]},
 		{		"name" : "Antoninus Pius", "birthDateString" : "86", "deathDateString" : "161" , "ruled" : ["138", "161"]},
 		{		"name" : "Lucius Verus", "birthDateString" : "130", "deathDateString" : "169" , "ruled" : ["161", "169"]},
 		{		"name" : "Marcus Aurelius", "birthDateString" : "121", "deathDateString" : "180" , "ruled" : ["161", "180"]},
@@ -614,7 +624,7 @@
 		{		"name" : "Galerius", "birthDateString" : "258", "deathDateString" : "311" 		, "ruled" : ["293", "311"]		},
 		{		"name" : "Maximinus Daza", "birthDateString" : "270", "deathDateString" : "313" 		, "ruled" : ["305", "313"]		},
 		{		"name" : "Licinius", "birthDateString" : "265", "deathDateString" : "325" 		, "ruled" : ["308", "325"]		},
-		{		"name" : "Constantine the Great", "birthDateString" : "272", "deathDateString" : "337", "ruled" : ["306", "337"]			},
+		{		"id": "constantine", 		 "bubbleDate" : "306"	, "bubbleScale" : [0, 5000]},
 		{		"name" : "Constantine II", "birthDateString" : "316", "deathDateString" : "340", "ruled" : ["337", "340"]			},
 		{		"name" : "Constans", "birthDateString" : "323", "deathDateString" : "350", "ruled" : ["337", "350"]			},
 		{		"name" : "Constantius II", "birthDateString" : "317", "deathDateString" : "361", "ruled" : ["337", "361"]			},
@@ -651,8 +661,8 @@
 		{		"name" : "Marcian"	, "birthDateString" : "392", "deathDateString" : "457"					},	
 		{		"name" : "Leo I"	, "birthDateString" : "401", "deathDateString" : "474"					},	
 		{		"name" : "Zeno"	, "birthDateString" : "425", "deathDateString" : "491"					},	
-		{		"name" : "Anastasius"	, "birthDateString" : "431", "deathDateString" : "518"					},	
-		{		"name" : "Justinian the Great"	, "birthDateString" : "482", "deathDateString" : "565", "ruled" : ["527", "565"]					},	
+		{		"name" : "Anastasius"	, "birthDateString" : "431", "deathDateString" : "518"					},
+		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 5000]},
 		{		"name" : "Heraclius"	, "birthDateString" : "575", "deathDateString" : "641", "ruled" : ["610", "641"]					},	
 		{		"name" : "Irene of Athens"	, "birthDateString" : "750", "deathDateString" : "803", "ruled" : ["792", "802"]		},	
 		{		"name" : "Basil I the Macedonian"	, "birthDateString" : "811", "deathDateString" : "886", "ruled" : ["867", "886"]		},	
@@ -660,15 +670,11 @@
 
 		{		"name" : "Pope Gregory the Great"	, "birthDateString" : "540", "deathDateString" : "604", "ruled" : ["590", "604"]		},
 		{		"name" : "Khosrow II"	, "birthDateString" : "570", "deathDateString" : "628", "ruled" : ["590", "628"]		},	
-		{		"name" : "Emperor Taizong"	, "birthDateString" : "598", "deathDateString" : "649", "ruled" : ["626", "649"]		},
-		{		"name" : "Harun al-Rashid"	, "birthDateString" : "763", "deathDateString" : "809", "ruled" : ["786", "809"]		},
-		{		"name" : "Charlemagne"	, "birthDateString" : "748", "deathDateString" : "814", "ruled" : ["768", "814"]		},	
 
 
 		{		"name" : "Jesus of Nazareth"	, "birthDateString" : "4 BC", "deathDateString" : "33"					},	
 		{		"name" : "Muhammad"	, "birthDateString" : "570", "deathDateString" : "632"					},	
 
-		{		"name" : "Attila the Hun", "birthDateString" : "406", "deathDateString" : "453"		, "ruled" : ["434", "453"]		},
 		{		"name" : "Ogedei Khan", "birthDateString" : "1186", "deathDateString" : "1241"	, "ruled" : ["1229", "1241"]			},
 		{		"name" : "Guyuk Khan", "birthDateString" : "1206", "deathDateString" : "1248"	, "ruled" : ["1246", "1248"]			},
 		{		"name" : "Mongke Khan", "birthDateString" : "1209", "deathDateString" : "1259"	, "ruled" : ["1251", "1259"]			},
