@@ -436,6 +436,18 @@
 	},
 
 	{
+		"title" : "Gunpowder Plot",
+		"dateString" : "1605",
+		"maxScale" : 500
+	},
+	
+	{
+		"title" : "Wars of the Three Kingdoms",
+		"dateString" : "1639",
+		"maxScale" : 500
+	},
+
+	{
 		"title" : "Execution of Charles I",
 		"dateString" : "1649",
 		"maxScale" : 500
