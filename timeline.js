@@ -741,7 +741,8 @@ class Timeline {
 
         //get info from wikipedia
         UpdateInfoPanel();
-
+        //UpdateInfoPanelWikpedia();
+        //UpdateInfoPanelWikpedia2();
     }
 
     selectTable()
@@ -2202,6 +2203,11 @@ function setVisibility(domElement, isVisible)
  */
 function UpdateInfoPanel()
 {
+    //temp
+//    UpdateInfoPanelWikpedia2();
+ //   return;
+
+
     var infoPanel = document.getElementById("infoPanel");
     infoPanel.innerHTML = ""; //clears the info Panel
 
@@ -2331,7 +2337,42 @@ function UpdateInfoPanelWikpedia()
       */      
     xmlhttp.open("GET", url, true); //currently using POST to avoid caching; TODO look into best options for this
   //  xmlhttp.send("title="+requestString+"&origin='https://www.mediawiki.org'&action=parse&prop=wikitext&section=0&format=json");
-    xmlhttp.send("title="+requestString+"&origin='https://www.mediawiki.org'&action=query&format=jsonp");
+  
+  //xmlhttp.send("title="+requestString+"&origin='https://www.mediawiki.org'&action=query&format=jsonp");
+    
+    xmlhttp.send("origin=*&action=opensearch&search=bee&limit=1&format=json");
+  
+    
+//    https://en.wikipedia.org/w/api.php?action=opensearch&search=bee&limit=1&format=json
+
+}
+
+function  UpdateInfoPanelWikpedia2()
+{    
+    var requestString = "pizza";//mainTimeline.currentSelectedEvent.searchstring;
+    getWikipediaContent(requestString);
+}
+
+//from google AI example
+async function getWikipediaContent(searchTerm) {
+  const url = `https://en.wikipedia.org/w/api.php?action=opensearch&origin=*&search=${encodeURIComponent(searchTerm)}&format=json`;
+  //const url = `https://en.wikipedia.org/w/api.php?action=opensearch&origin=*&search=${encodeURIComponent(searchTerm)}&redirects=1&format=json`;
+  //const url = 'https://en.wikipedia.org/w/api.php?origin=*&action=query&prop=extracts&exlimit=1&titles=pizza&explaintext=1&exsectionformat=plain';
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+    // Process the data here, for example:
+    // const titles = data[1];
+    // const descriptions = data[2];
+    // const links = data[3];
+  } catch (error) {
+    console.error("Error fetching Wikipedia content:", error);
+  }
 }
 
 function requestWikipediaContent(searchResult)
