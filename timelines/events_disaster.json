@@ -1,7 +1,7 @@
 {
  
 	"category" : "Natural disasters",
-	"colorString" : "darkorange",
+	"colorString" : "#ff5500",
 	"tags" : ["science"],
 	"eventlist" : [
 		
@@ -83,12 +83,6 @@
 			"maxScale" : 500
 		},
 
-		{
-			"title" : "Indian Ocean Tsunami",
-			"dateString" : "2004",
-			"minScale" : 1,
-			"maxScale" : 500
-		},
 
 		{
 			"title" : "Haiti Earthquake",
@@ -112,8 +106,39 @@
 		},
 
 		{
+			"title" : "Lisbon Earthquake",
+			"dateString" : "1755",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
 			"title" : "China floods",
 			"dateString" : "1931",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+
+		{
+			"title" : "Mt. Tambora Eruption / Year Without a Summer",
+			"dateString" : "1815",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Indian Ocean Tsunami",
+			"dateString" : "2004",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Vesuvius Eruption",
+			"dateString" : "79",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Minoan Eruption of Thera",
+			"dateString" : "c. 1600 BC",
 			"minScale" : 1,
 			"maxScale" : 5000
 		}
