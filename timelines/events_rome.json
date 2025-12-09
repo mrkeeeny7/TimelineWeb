@@ -485,6 +485,7 @@
 
 	"personlist": [
 
+		{		"name" : "Spartacus", "birthDateString" : "c. 103 BC", "deathDateString" : "71 BC", "bubbleDate" : "73 BC"	, "bubbleScale" : [0, 5000]		},
 		{		"id": "attila", 		 "bubbleDate" : "450"	, "bubbleScale" : [0, 5000]}
 	]
 }

@@ -113,9 +113,40 @@
         {
             "title" : "Plague of Justinian",
             "dateString" : "541 AD",
-            "maxScale" : 2000,
+            "maxScale" : 5000,
             "tags" : ["europe", "byzantium", "pandemic"]
+        },
+        {
+            "title" : "Battle of the Yarmuk",
+            "dateString" : "636 AD",
+            "maxScale" : 5000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Battle of Manzikert",
+            "dateString" : "1071 AD",
+            "maxScale" : 5000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "First Crusade",
+            "dateString" : "1096 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Fourth Crusade / Sack of Constantinople",
+            "dateString" : "1204 AD",
+            "maxScale" : 5000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Fall of Constantinople",
+            "dateString" : "1453 AD",
+            "maxScale" : 5000,
+            "tags" : ["europe", "byzantium"]
         }
+
 
     ],
     
