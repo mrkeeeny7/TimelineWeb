@@ -266,11 +266,21 @@ class PersonListSorted {
         // check if we are loading from the database
         if(jsonPersonObj.id != undefined)
         {
+            //first check if the person is already in this list (do not duplicate)
+            let foundPerson = this.theList.find(p => p.id === jsonPersonObj.id);
+            if(foundPerson != undefined)
+            {
+                //skip adding to the list, it is already present
+                return foundPerson;
+            }
+
+            //check if the person is in the database
             newPerson = PersonDatabase.Get(jsonPersonObj.id);
             if(newPerson==undefined)
             {
                 throw new Error("Person ID not found in database: " + jsonPersonObj.id);
             }
+
         }
         else
         {

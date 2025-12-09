@@ -49,6 +49,12 @@
             "filename" : "timelines/events_rome.json"
         },
 
+
+        {
+            "title" : "Byzantium",
+            "filename" : "timelines/events_byzantium.json"
+        },
+
         {
             "title" : "Egypt",
             "filename" : "timelines/events_egypt.json"
