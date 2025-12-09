@@ -152,7 +152,18 @@
     
     "personlist" : [	
     
-		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 5000]}
+		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 5000]},
+        {		"name" : "Maurice", "birthDateString" : "539", "deathDateString" : "602", "ruled" : ["582","602"], "bubbleDate" : "582"				},
+        {		"name" : "Phocas", "birthDateString" : "547", "deathDateString" : "610", "ruled" : ["602","610"], "bubbleDate" : "602"				},
+		{		"id": "heraclius", 		 "bubbleDate" : "610"	, "bubbleScale" : [0, 5000]},
+        {		"name" : "Justinian II Rhinometos", "birthDateString" : "668", "deathDateString" : "711", "ruled" : ["685","695","705","711"], 
+                "bubbleDate" : "685", "bubbleScale" : [0, 1000]				},
+        {		"name" : "Leo III the Isaurian", "birthDateString" : "c. 685", "deathDateString" : "741", "ruled" : ["717","741"], 
+                "bubbleDate" : "717", "bubbleScale" : [0, 5000]				},
+        {		"name" : "Constantine V Kopronymos", "birthDateString" : "718", "deathDateString" : "775", "ruled" : ["741","775"], 
+                "bubbleDate" : "741", "bubbleScale" : [0, 1000]				},
+		{		"id": "irene_of_athens", 		 "bubbleDate" : "792"	, "bubbleScale" : [0, 5000]}
+		
 
     ]
 

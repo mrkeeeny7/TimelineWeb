@@ -511,9 +511,9 @@
 
 		
 		{		"id": "attila", 		 "bubbleDate" : "450"	, "bubbleScale" : [0, 5000]},
-		{		"id": "taizong", 		 "bubbleDate" : "598"	, "bubbleScale" : [0, 5000]},
-		{		"id": "harun_al-rashid", 		 "bubbleDate" : "763"	, "bubbleScale" : [0, 5000]},
-		{		"id": "charlemagne", 		 "bubbleDate" : "748"	, "bubbleScale" : [0, 5000]},
+		{		"id": "taizong", 		 "bubbleDate" : "626"	, "bubbleScale" : [0, 5000]},
+		{		"id": "harun_al-rashid", 		 "bubbleDate" : "786"	, "bubbleScale" : [0, 5000]},
+		{		"id": "charlemagne", 		 "bubbleDate" : "768"	, "bubbleScale" : [0, 5000]},
 		
 		{		"id": "alfred_the_great", "bubbleDate" : "871"	, "bubbleScale" : [0, 5000]},
 
@@ -663,8 +663,8 @@
 		{		"name" : "Zeno"	, "birthDateString" : "425", "deathDateString" : "491"					},	
 		{		"name" : "Anastasius"	, "birthDateString" : "431", "deathDateString" : "518"					},
 		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 5000]},
-		{		"name" : "Heraclius"	, "birthDateString" : "575", "deathDateString" : "641", "ruled" : ["610", "641"]					},	
-		{		"name" : "Irene of Athens"	, "birthDateString" : "750", "deathDateString" : "803", "ruled" : ["792", "802"]		},	
+		{		"id": "heraclius", 		 "bubbleDate" : "610"	, "bubbleScale" : [0, 5000]},
+		{		"id": "irene_of_athens", 		 "bubbleDate" : "792"	, "bubbleScale" : [0, 5000]},
 		{		"name" : "Basil I the Macedonian"	, "birthDateString" : "811", "deathDateString" : "886", "ruled" : ["867", "886"]		},	
 
 
