@@ -6,6 +6,10 @@
 	"defaultScale" : 1000,
 	"defaultDateString" : "1 AD",
 
+	"includefiles" : [
+		"timelines/events_byzantium.json"
+	],
+
 	"eventlist" : [
 
 	
@@ -22,14 +26,6 @@
 		"title" : "Rome",
 		"dateString" : "509 BC",
 		"endDateString" : "476 AD",
-		"minScale" : 5000,
-		"maxScale" : 50000,
-		"type" : "era"
-	},
-	{
-		"title" : "Byzantium",
-		"dateString" : "476",
-		"endDateString" : "1453",
 		"minScale" : 5000,
 		"maxScale" : 50000,
 		"type" : "era"
@@ -51,29 +47,7 @@
 			"type" : "era"
 		},
 
-		{
-			"title" : "Eastern Empire",
-			"dateString" : "476",
-			"endDateString" : "717 AD",
-			"minScale" : 200,
-			"maxScale" : 5000,
-			"type" : "era"
-		},
-		{
-			"title" : "Byzantine Empire",
-			"dateString" : "717",
-			"endDateString" : "1453 AD",
-			"minScale" : 200,
-			"maxScale" : 5000,
-			"type" : "era"
-		},
-	{
-		"title" : "Twenty Years Anarchy",
-		"dateString" : "695",
-		"endDateString" : "717",
-		"maxScale" : 200,
-		"type" : "era"
-	},
+
 	{
 		"title" : "Roman Empire (Principate)",
 		"dateString" : "27 BC",
@@ -153,28 +127,6 @@
 		"maxScale" : 200,
 		"type" : "era"
 	},
-	{
-		"title" : "Leonid Dynasty",
-		"dateString" : "457 AD",
-		"endDateString" : "518 AD",
-		"maxScale" : 200,
-		"type" : "era"
-	},
-	{
-		"title" : "Justinian Dynasty",
-		"dateString" : "518 AD",
-		"endDateString" : "602 AD",
-		"maxScale" : 200,
-		"type" : "era"
-	},
-	{
-		"title" : "Heraclian Dynasty",
-		"dateString" : "610 AD",
-		"endDateString" : "711 AD",
-		"maxScale" : 200,
-		"type" : "era"
-	},
-	
 
 	{
 		"title" : "Hannibal",
@@ -398,12 +350,6 @@
 
 
 	{
-		"title" : "Plague of Justinian",
-		"dateString" : "541 AD",
-		"maxScale" : 2000,
-		"tags" : ["europe", "byzantium", "pandemic"]
-	},
-	{
 		"title" : "(Visigothic) Sack of Rome",
 		"searchstring" : "Sack of Rome (410)",
 		"dateString" : "410 AD",
@@ -488,13 +434,6 @@
 		"maxScale" : 200,
 		"tags" : ["britain"]
 	},
-	{
-		"title" : "Justinian",
-		"dateString" : "527 AD",
-		"maxScale" : 500,
-		"type" : "person",
-		"tags" : ["byzantium"]
-	},
 
 	{
 		"title" : "Diocletian",
@@ -540,17 +479,12 @@
 		"dateString" : "393 AD",
 		"maxScale" : 500,
 		"type" : "person"
-	},
-	
-	{
-		"title" : "Attila the Hun",
-		"searchstring" : "Attila",
-		"dateString" : "450 AD",
-		"maxScale" : 500,
-		"type" : "person"
 	}
 
-]
+],
 
+	"personlist": [
 
+		{		"id": "attila", 		 "bubbleDate" : "450"	, "bubbleScale" : [0, 5000]}
+	]
 }

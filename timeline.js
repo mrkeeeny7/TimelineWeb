@@ -948,6 +948,18 @@ class Timeline {
         eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, undefined); //set birth and death to undefined if not known
         eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, undefined);
         
+        // new: use date range for more concise data
+        if(jsonEventObj.dates != undefined)
+        {
+            if(jsonEventObj.dateString!= undefined)
+            {
+                console.warn("Clashing date definitions for event: " + jsonEventObj.title + "; using date range.");
+            }
+
+            //get the dates from the array of strings
+            eventDate = dateIntIfDefined(jsonEventObj.dates[0]);
+            eventEndDate = dateIntIfDefined(jsonEventObj.dates[1]);
+        }
 
 
         if(jsonEventObj.type == undefined)

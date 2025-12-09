@@ -1,0 +1,128 @@
+{
+ 
+	"category" : "Byzantium",
+	"colorString" : "#702963",
+	"tags" : ["rome", "byzantium"],
+	"defaultScale" : 1000,
+	"defaultDateString" : "476 AD",
+
+	"eventlist" : [	
+        {
+            "title" : "Byzantium",
+            "dates" : ["476", "1453"],
+            "minScale" : 5000,
+            "maxScale" : 50000,
+            "type" : "era"
+        },	
+            {
+                "title" : "Eastern Empire",
+                "dates" : ["476", "717"],
+                "minScale" : 500,
+                "maxScale" : 5000,
+                "type" : "era"
+            },
+            {
+                "title" : "Byzantine Empire",
+                "dates" : ["717", "1453"],
+                "minScale" : 500,
+                "maxScale" : 5000,
+                "type" : "era"
+            },
+        {
+            "title" : "Leonid Dynasty",
+            "dates" : ["457 AD", "518"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        {
+            "title" : "Justinian Dynasty",
+            "dates" : ["518", "602"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        {
+            "title" : "Heraclian Dynasty",
+            "dates" : ["610", "711"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        
+        {
+            "title" : "Twenty Years Anarchy",
+            "dates" : ["695", "717"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+
+        {
+            "title" : "Isaurian Dynasty",
+            "dates" : ["717", "802"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        {
+            "title" : "Nikephorian Dynasty",
+            "dates" : ["802", "813"],
+            "maxScale" : 200,
+            "type" : "era"
+        },
+        {
+            "title" : "Amorian Dynasty",
+            "dates" : ["820", "867"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        {
+            "title" : "Macedonian Dynasty",
+            "dates" : ["867", "1056"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        {
+            "title" : "Doukas Dynasty",
+            "dates" : ["1059", "1078"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        {
+            "title" : "Komnenos Dynasty",
+            "dates" : ["1081", "1185"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        {
+            "title" : "Angelos Dynasty",
+            "dates" : ["1185", "1204"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        {
+            "title" : "Laskaris Dynasty",
+            "dates" : ["1205", "1261"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+        {
+            "title" : "Palaiologos Dynasty",
+            "dates" : ["1259", "1453"],
+            "maxScale" : 500,
+            "type" : "era"
+        },
+
+        
+        {
+            "title" : "Plague of Justinian",
+            "dateString" : "541 AD",
+            "maxScale" : 2000,
+            "tags" : ["europe", "byzantium", "pandemic"]
+        }
+
+    ],
+    
+    "personlist" : [	
+    
+		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 5000]}
+
+    ]
+
+}
