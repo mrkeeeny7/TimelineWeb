@@ -231,8 +231,57 @@ class PersonData
             
         }
 
+
         return lifetimetext;
     }
+    
+    infoBlock()
+    {
+        //block to return
+        var infoBlock = document.createElement("div");
+        infoBlock.setAttribute("class", "infoBlock");
+
+        //paragraph 1
+        var lifetimePara = document.createElement("p");
+        let lifetimetext = "Lived: " + ( (this.birthYear==undefined)? "unknown date" : dateString(this.birthYear) ) 
+            + " to " + ((this.deathYear==undefined)? "unknown date" : dateString(this.deathYear));
+
+        if(this.birthYear!=undefined && this.deathYear!=undefined)
+        {
+            lifetimetext = lifetimetext + " (" + (this.deathYear-this.birthYear) + " years)"
+        }
+        lifetimePara.appendChild(document.createTextNode(lifetimetext));
+        infoBlock.appendChild(lifetimePara);
+
+
+        //paragraph 2
+
+        if(this.ruled != undefined)
+        {
+            var start, end;
+            let i=0;
+            const lineBegin = "Ruled: ";
+            while(i<this.ruled.length)
+            {
+                var ruledPara = document.createElement("p");
+                //read next pair of values from the array
+                start = this.ruled[i++];
+                end = this.ruled[i++]; //should be undefined if we run past the end of the array
+                let ruledstr = dateString(start) + " to " + dateString(end) 
+                    + " (" + Number(end-start) + " years).";
+
+                ruledPara.appendChild(TimelineHelper.BoldBlock(lineBegin));
+                ruledPara.appendChild(document.createTextNode(ruledstr));
+
+                infoBlock.appendChild(ruledPara);
+            }
+            
+        }
+
+        return infoBlock;
+
+    }
+    
 
 }
 
@@ -2304,7 +2353,8 @@ function UpdateInfoPanel()
             }   
             else
             {
-                TimelineHelper.AddParagraph(newDiv, tlEvent.personData.infoString());
+                //TimelineHelper.AddParagraph(newDiv, tlEvent.personData.infoString());
+                newDiv.appendChild(tlEvent.personData.infoBlock());
             }
         }
 
@@ -2834,7 +2884,7 @@ class TimelineHelper
     static ItalicBlock(text)
     {
         var newBlock = document.createElement("i");
-        newBlock.textContent = text;
+        newBlock.appendChild(document.createTextNode(text));
         return newBlock;
     }    
     
@@ -2848,7 +2898,13 @@ class TimelineHelper
     static BoldBlock(text)
     {
         var newBlock = document.createElement("b");
-        newBlock.textContent = text;
+        newBlock.appendChild(document.createTextNode(text));
+        return newBlock;
+    }
+
+    static TextBlock(text)
+    {       
+        var newBlock = document.createTextNode(text);
         return newBlock;
     }
 

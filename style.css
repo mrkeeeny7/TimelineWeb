@@ -409,6 +409,14 @@ select{
      
 
 }
+
+.infoBlock
+{    
+    font-size: 16px; 
+    margin-bottom: 0.1em; /* Use 'em' for spacing relative to font size */
+
+}
+
 #personPanel {
     margin: auto;
     padding: 20px;
