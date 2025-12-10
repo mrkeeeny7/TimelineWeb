@@ -215,6 +215,22 @@ class PersonData
             lifetimetext = lifetimetext + " (" + (this.deathYear-this.birthYear) + " years)"
         }
 
+        if(this.ruled != undefined)
+        {
+            var start, end;
+            let i=0;
+            while(i<this.ruled.length)
+            {
+                //read next pair of values from the array
+                start = this.ruled[i++];
+                end = this.ruled[i++]; //should be undefined if we run past the end of the array
+                lifetimetext = lifetimetext + "\nRuled: " 
+                    + dateString(start) + " to " + dateString(end) 
+                    + " (" + Number(end-start) + " years).";
+            }
+            
+        }
+
         return lifetimetext;
     }
 
@@ -2283,12 +2299,12 @@ function UpdateInfoPanel()
                 }
                 lifetimetext = lifetimetext;
 
-                addParagraph(newDiv, lifetimetext);
-                addParagraph(newDiv,  "(NB: data is using old-style person info)", true)
+                TimelineHelper.AddParagraph(newDiv, lifetimetext);
+                TimelineHelper.AddParagraph(newDiv,  "(NB: data is using old-style person info)", true)
             }   
             else
             {
-                addParagraph(newDiv, tlEvent.personData.infoString());
+                TimelineHelper.AddParagraph(newDiv, tlEvent.personData.infoString());
             }
         }
 
@@ -2336,33 +2352,6 @@ function RefreshPersonPanel()
 
 }
 
-/**
- * 
- * Adds a paragraph
- * 
- * @param {HTMLElement} parent 
- * @param {string} text 
- * @param {boolean} italicise 
- * @returns 
- */
-function addParagraph(parent, text, italicise)
-{
-    var newPara = document.createElement("p");
-    parent.appendChild(newPara);
-    
-    if(italicise!=undefined && italicise==true)
-    {
-        var newBlock = document.createElement("i");
-        newBlock.innerText = text;
-        newPara.appendChild(newBlock);
-    }
-    else
-    {
-        newPara.innerText = text;
-    }
-
-    return newPara;
-}
 
 function UpdateInfoPanelWikpedia()
 {
@@ -2833,6 +2822,61 @@ class TimelineHelper
         return x*(1-a) + y*a;
     }
 
+
+    //HTML Helpers
+    /**
+     * 
+     * Create an HTML element <i></i> block surrounding the text
+     * 
+     * @param {string} text 
+     * @returns 
+     */
+    static ItalicBlock(text)
+    {
+        var newBlock = document.createElement("i");
+        newBlock.textContent = text;
+        return newBlock;
+    }    
+    
+    /**
+     * 
+     * Create an HTML element <b></b> block surrounding the text
+     * 
+     * @param {string} text 
+     * @returns 
+     */
+    static BoldBlock(text)
+    {
+        var newBlock = document.createElement("b");
+        newBlock.textContent = text;
+        return newBlock;
+    }
+
+    /**
+     * 
+     * Adds a paragraph
+     * 
+     * @param {HTMLElement} parent 
+     * @param {string} text 
+     * @param {boolean} italicise 
+     * @returns 
+     */
+    static AddParagraph(parent, text, italicise)
+    {
+        var newPara = document.createElement("p");
+        parent.appendChild(newPara);
+        
+        if(italicise!=undefined && italicise==true)
+        {
+            newPara.appendChild(TimelineHelper.ItalicBlock(text));
+        }
+        else
+        {
+            newPara.innerText = text;
+        }
+
+        return newPara;
+    }
 }
 
 
