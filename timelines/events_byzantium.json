@@ -111,9 +111,21 @@
 
         
         {
+            "title" : "Nika Riots",
+            "dateString" : "532 AD",
+            "maxScale" : 500,
+            "tags" : ["europe", "byzantium", "pandemic"]
+        },
+        {
+            "title" : "Hagia Sophia rebuilt",
+            "dateString" : "537 AD",
+            "maxScale" : 100,
+            "tags" : ["europe", "byzantium", "pandemic"]
+        },
+        {
             "title" : "Plague of Justinian",
             "dateString" : "541 AD",
-            "maxScale" : 5000,
+            "maxScale" : 1000,
             "tags" : ["europe", "byzantium", "pandemic"]
         },
         {
@@ -125,7 +137,7 @@
         {
             "title" : "Battle of Manzikert",
             "dateString" : "1071 AD",
-            "maxScale" : 5000,
+            "maxScale" : 1000,
             "tags" : ["europe", "byzantium"]
         },
         {
@@ -162,7 +174,22 @@
                 "bubbleDate" : "717", "bubbleScale" : [0, 5000]				},
         {		"name" : "Constantine V Kopronymos", "birthDateString" : "718", "deathDateString" : "775", "ruled" : ["741","775"], 
                 "bubbleDate" : "741", "bubbleScale" : [0, 1000]				},
-		{		"id": "irene_of_athens", 		 "bubbleDate" : "792"	, "bubbleScale" : [0, 5000]}
+		{		"id": "irene_of_athens", 		 "bubbleDate" : "792"	, "bubbleScale" : [0, 5000]},
+
+        {		"name" : "Nikephoros I", "birthDateString" : "750", "deathDateString" : "811", "ruled" : ["802","811"], 
+                "bubbleDate" : "802", "bubbleScale" : [0, 1000]				},
+        {		"name" : "Leo V the Armenian", "birthDateString" : "c. 775", "deathDateString" : "820", "ruled" : ["813","820"], 
+                "bubbleDate" : "813", "bubbleScale" : [0, 1000]				},
+
+        {		"name" : "Michael II the Amorian", "birthDateString" : "770", "deathDateString" : "829", "ruled" : ["820","829"], 
+                "bubbleDate" : "820", "bubbleScale" : [0, 1000]				},
+        {		"name" : "Theophilos", "birthDateString" : "c. 812", "deathDateString" : "842", "ruled" : ["829","842"], 
+                "bubbleDate" : "829", "bubbleScale" : [0, 1000]				},
+        {		"name" : "Michael III the Drunkard", "birthDateString" : "840", "deathDateString" : "867", "ruled" : ["842","867"], 
+                "bubbleDate" : "842", "bubbleScale" : [0, 1000]				},
+
+
+		{		"id": "basil_i", 		 "bubbleDate" : "867"	, "bubbleScale" : [0, 5000]}
 		
 
     ]

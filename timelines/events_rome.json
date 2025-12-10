@@ -42,7 +42,7 @@
 			"title" : "Roman Empire",
 			"dateString" : "27 BC",
 			"endDateString" : "476 AD",
-			"minScale" : 500,
+			"minScale" : 1000,
 			"maxScale" : 5000,
 			"type" : "era"
 		},
@@ -52,79 +52,79 @@
 		"title" : "Roman Empire (Principate)",
 		"dateString" : "27 BC",
 		"endDateString" : "235 AD",
-		"minScale" : 200,
-		"maxScale" : 500,
+		"minScale" : 500,
+		"maxScale" : 1000,
 		"type" : "era"
 	},
 	{
 		"title" : "Roman Empire (Crisis of the Third Century)",
 		"dateString" : "235",
 		"endDateString" : "284",
-		"maxScale" : 500,
+		"maxScale" : 1000,
 		"type" : "era"
 	},
 	{
 		"title" : "Roman Empire (Dominate)",
 		"dateString" : "284",
 		"endDateString" : "476",
-		"minScale" : 200,
-		"maxScale" : 500,
+		"minScale" : 500,
+		"maxScale" : 1000,
 		"type" : "era"
 	},
 	{
 		"title" : "Julio-Claudian Dynasty",
 		"dateString" : "27 BC",
 		"endDateString" : "69 AD",
-		"maxScale" : 200,
+		"maxScale" : 500,
 		"type" : "era"
 	},
 	{
 		"title" : "Flavian Dynasty",
 		"dateString" : "69 AD",
 		"endDateString" : "96 AD",
-		"maxScale" : 200,
+		"maxScale" : 500,
 		"type" : "era"
 	},
 	{
 		"title" : "Nerva-Antonine Dynasty",
 		"dateString" : "96 AD",
 		"endDateString" : "192 AD",
-		"maxScale" : 200,
+		"maxScale" : 500,
 		"type" : "era"
 	},
 	{
 		"title" : "Severan Dynasty",
 		"dateString" : "193 AD",
 		"endDateString" : "235 AD",
-		"maxScale" : 200,
+		"maxScale" : 500,
 		"type" : "era"
 	},
 	{
 		"title" : "Tetrarchy",
 		"dateString" : "290 AD",
 		"endDateString" : "313 AD",
-		"maxScale" : 200,
+		"maxScale" : 500,
 		"type" : "era"
 	},
 	{
 		"title" : "Constantinian Dynasty",
 		"dateString" : "313 AD",
 		"endDateString" : "363 AD",
-		"maxScale" : 200,
+		"maxScale" : 500,
 		"type" : "era"
 	},
 	{
 		"title" : "Valentinian Dynasty",
 		"dateString" : "364 AD",
 		"endDateString" : "392 AD",
-		"maxScale" : 200,
+		"maxScale" : 500,
 		"type" : "era"
 	},
 	{
 		"title" : "Valentinian-Theodosian Dynasty",
 		"dateString" : "392 AD",
 		"endDateString" : "457 AD",
-		"maxScale" : 200,
+		"maxScale" : 500,
 		"type" : "era"
 	},
 
@@ -361,6 +361,11 @@
 		"searchstring" : "Fall of the Western Roman Empire",
 		"dateString" : "476 AD",
 		"maxScale" : 2000
+	},
+	{
+		"title" : "Theodosian Walls",
+		"dateString" : "413 AD",
+		"maxScale" : 100
 	},
 	{
 		"title" : "Battle of Adrianople",

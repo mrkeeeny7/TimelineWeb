@@ -205,6 +205,19 @@ class PersonData
         return false; //default return false
     }
 
+    infoString()
+    {
+        let lifetimetext = "Lived: " + ( (this.birthYear==undefined)? "unknown date" : dateString(this.birthYear) ) 
+             + " to " + ((this.deathYear==undefined)? "unknown date" : dateString(this.deathYear));
+
+        if(this.birthYear!=undefined && this.deathYear!=undefined)
+        {
+            lifetimetext = lifetimetext + " (" + (this.deathYear-this.birthYear) + " years)"
+        }
+
+        return lifetimetext;
+    }
+
 }
 
 class PersonDatabase {
@@ -2258,15 +2271,25 @@ function UpdateInfoPanel()
 
         if(tlEvent.type=="person")
         {
-            var lifetimetext = "Lived: " + ( (tlEvent.birthDate==undefined)? "unknown date" : dateString(tlEvent.birthDate) ) 
-            + " to " + ((tlEvent.deathDate==undefined)? "unknown date" : dateString(tlEvent.deathDate));
-
-            if(tlEvent.birthDate!=undefined && tlEvent.deathDate!=undefined)
+            if(tlEvent.personData==undefined)
             {
-                lifetimetext = lifetimetext + " (" + (tlEvent.deathDate-tlEvent.birthDate) + " years)"
-            }
+                //TODO this should be slowly deprecated - use PersonData instead
+                var lifetimetext = "Lived: " + ( (tlEvent.birthDate==undefined)? "unknown date" : dateString(tlEvent.birthDate) ) 
+                + " to " + ((tlEvent.deathDate==undefined)? "unknown date" : dateString(tlEvent.deathDate));
 
-            addParagraph(newDiv, lifetimetext);
+                if(tlEvent.birthDate!=undefined && tlEvent.deathDate!=undefined)
+                {
+                    lifetimetext = lifetimetext + " (" + (tlEvent.deathDate-tlEvent.birthDate) + " years)"
+                }
+                lifetimetext = lifetimetext;
+
+                addParagraph(newDiv, lifetimetext);
+                addParagraph(newDiv,  "(NB: data is using old-style person info)", true)
+            }   
+            else
+            {
+                addParagraph(newDiv, tlEvent.personData.infoString());
+            }
         }
 
         infoPanel.appendChild(newDiv);
@@ -2313,11 +2336,30 @@ function RefreshPersonPanel()
 
 }
 
-function addParagraph(parent, text)
+/**
+ * 
+ * Adds a paragraph
+ * 
+ * @param {HTMLElement} parent 
+ * @param {string} text 
+ * @param {boolean} italicise 
+ * @returns 
+ */
+function addParagraph(parent, text, italicise)
 {
     var newPara = document.createElement("p");
-    newPara.innerText = text;
     parent.appendChild(newPara);
+    
+    if(italicise!=undefined && italicise==true)
+    {
+        var newBlock = document.createElement("i");
+        newBlock.innerText = text;
+        newPara.appendChild(newBlock);
+    }
+    else
+    {
+        newPara.innerText = text;
+    }
 
     return newPara;
 }

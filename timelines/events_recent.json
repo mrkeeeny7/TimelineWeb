@@ -664,8 +664,8 @@
 		{		"name" : "Anastasius"	, "birthDateString" : "431", "deathDateString" : "518"					},
 		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 5000]},
 		{		"id": "heraclius", 		 "bubbleDate" : "610"	, "bubbleScale" : [0, 5000]},
-		{		"id": "irene_of_athens", 		 "bubbleDate" : "792"	, "bubbleScale" : [0, 5000]},
-		{		"name" : "Basil I the Macedonian"	, "birthDateString" : "811", "deathDateString" : "886", "ruled" : ["867", "886"]		},	
+		{		"id": "irene_of_athens", 		 "bubbleDate" : "792"	, "bubbleScale" : [0, 500]},
+		{		"id": "basil_i", 		 "bubbleDate" : "867"	, "bubbleScale" : [0, 500]},	
 
 
 		{		"name" : "Pope Gregory the Great"	, "birthDateString" : "540", "deathDateString" : "604", "ruled" : ["590", "604"]		},
