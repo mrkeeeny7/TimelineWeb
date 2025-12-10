@@ -410,6 +410,10 @@
 
 "personlist" : [
 
+		{		"id": "benjamin_franklin", 		 "bubbleDate" : "1736"	, "bubbleScale" : [0, 5000]},
+		{		"id": "columbus", 	 "bubbleDate" : "1492"	, "bubbleScale" : [0, 5000]},
+		{		"id": "geronimo", 	 "bubbleDate" : "1878"			, "bubbleScale" : [0, 5000]},
+		{		"id": "elvis_presley", 		 "bubbleDate" : "1954"	, "bubbleScale" : [0, 5000]},
 	{		"name" : "George Washington", "birthDateString" : "1732", "deathDateString" : "1799"	, "ruled" : ["1789", "1797"], "bubbleDate" : "1776"					},
     {		"name" : "Thomas Jefferson", "birthDateString" : "1743", "deathDateString" : "1826"		, "ruled" : ["1801", "1809"], "bubbleDate" : "1801"				},
     {		"name" : "Andrew Jackson", "birthDateString" : "1767", "deathDateString" : "1845"		, "ruled" : ["1829", "1837"], "bubbleDate" : "1829"				},

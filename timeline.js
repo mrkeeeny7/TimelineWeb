@@ -242,13 +242,13 @@ class PersonData
         infoBlock.setAttribute("class", "infoBlock");
 
         //paragraph 1
-        var lifetimePara = document.createElement("p");
+        var lifetimePara = document.createElement("span");
         let lifetimetext = "Lived: " + ( (this.birthYear==undefined)? "unknown date" : dateString(this.birthYear) ) 
             + " to " + ((this.deathYear==undefined)? "unknown date" : dateString(this.deathYear));
 
         if(this.birthYear!=undefined && this.deathYear!=undefined)
         {
-            lifetimetext = lifetimetext + " (" + (this.deathYear-this.birthYear) + " years)"
+            lifetimetext = lifetimetext + " (" + (this.deathYear-this.birthYear) + " years)."
         }
         lifetimePara.appendChild(document.createTextNode(lifetimetext));
         infoBlock.appendChild(lifetimePara);
@@ -263,7 +263,7 @@ class PersonData
             const lineBegin = "Ruled: ";
             while(i<this.ruled.length)
             {
-                var ruledPara = document.createElement("p");
+                var ruledPara = document.createElement("span");
                 //read next pair of values from the array
                 start = this.ruled[i++];
                 end = this.ruled[i++]; //should be undefined if we run past the end of the array
@@ -273,6 +273,7 @@ class PersonData
                 ruledPara.appendChild(TimelineHelper.BoldBlock(lineBegin));
                 ruledPara.appendChild(document.createTextNode(ruledstr));
 
+                infoBlock.appendChild(document.createElement("br"));
                 infoBlock.appendChild(ruledPara);
             }
             

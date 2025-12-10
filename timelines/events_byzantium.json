@@ -189,7 +189,21 @@
                 "bubbleDate" : "842", "bubbleScale" : [0, 1000]				},
 
 
-		{		"id": "basil_i", 		 "bubbleDate" : "867"	, "bubbleScale" : [0, 5000]}
+		{		"id": "basil_i", 		 "bubbleDate" : "867"	, "bubbleScale" : [0, 5000]},
+
+        {		"name" : "Leo VI the Wise", "birthDateString" : "866", "deathDateString" : "867", "ruled" : ["886","912"], 
+                "bubbleDate" : "886", "bubbleScale" : [0, 1000]				},        
+        {		"name" : "Constantine VII Porphyrogenitus", "birthDateString" : "905", "deathDateString" : "959", "ruled" : ["913","959"], 
+                "bubbleDate" : "913", "bubbleScale" : [0, 1000]				},        
+        {		"name" : "Romanos I Lekapenos", "birthDateString" : "c. 870", "deathDateString" : "948", "ruled" : ["920","944"], 
+                "bubbleDate" : "920", "bubbleScale" : [0, 1000]				},        
+        {		"name" : "Nikephoros II Phocas", "birthDateString" : "c. 912", "deathDateString" : "969", "ruled" : ["963","969"], 
+                "bubbleDate" : "963", "bubbleScale" : [0, 1000]				},        
+        {		"name" : "John I Tzimiskes", "birthDateString" : "925", "deathDateString" : "976", "ruled" : ["969","976"], 
+                "bubbleDate" : "969", "bubbleScale" : [0, 1000]				},
+
+
+		{		"id": "basil_ii", 		 "bubbleDate" : "976"	, "bubbleScale" : [0, 5000]}
 		
 
     ]

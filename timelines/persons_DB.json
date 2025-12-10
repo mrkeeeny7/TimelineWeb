@@ -35,7 +35,8 @@
 		{		"id": "justinian", "name" : "Justinian the Great"	, "birthDateString" : "482", "deathDateString" : "565", "ruled" : ["527", "565"]	},
 		{		"id": "heraclius", "name" : "Heraclius"	, "birthDateString" : "575", "deathDateString" : "641", "ruled" : ["610", "641"]					},	
 		{		"id": "irene_of_athens", "name" : "Irene of Athens"	, "birthDateString" : "750", "deathDateString" : "803", "ruled" : ["792", "802"]		},
-		{		"id": "basil_i", "name" : "Basil I the Macedonian"	, "birthDateString" : "811", "deathDateString" : "886", "ruled" : ["867", "886"]		},		
+		{		"id": "basil_i", "name" : "Basil I the Macedonian"	, "birthDateString" : "811", "deathDateString" : "886", "ruled" : ["867", "886"]		},	
+		{		"id": "basil_ii", "name" : "Basil II"	, "birthDateString" : "958", "deathDateString" : "1025", "ruled" : ["963", "1025"]		},		
     
 		{		"id": "taizong","name" : "Emperor Taizong"	, "birthDateString" : "598", "deathDateString" : "649", "ruled" : ["626", "649"]		},
 		{		"id": "harun_al-rashid","name" : "Harun al-Rashid"	, "birthDateString" : "763", "deathDateString" : "809", "ruled" : ["786", "809"]		},
