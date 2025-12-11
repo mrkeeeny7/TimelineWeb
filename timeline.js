@@ -1252,9 +1252,9 @@ class Timeline {
         }
     
         
-        this.currentYearLabelDom.innerHTML = dateString(this.currentYear); //refresh the year labels
-        this.minYearLabelDom.innerHTML = dateString(this.currentMin); 
-        this.maxYearLabelDom.innerHTML = dateString(this.currentMax); 
+        this.currentYearLabelDom.textContent = dateString(this.currentYear); //refresh the year labels
+        this.minYearLabelDom.textContent = dateString(this.currentMin); 
+        this.maxYearLabelDom.textContent = dateString(this.currentMax); 
         //TODO other labels
     }
 
@@ -1590,7 +1590,7 @@ function getTimeline(timelineIndex)
 function myfunc()
 {
     document.getElementById("mainTable")
-    .innerHTML = "Testing";
+    .textContent = "Testing";
 }
 
 function toggleTimelineLock(button)
@@ -1773,7 +1773,7 @@ class TimelineSelector
 
 
          //clear existing options
-        this.selectorDOM.innerHTML="";
+        this.selectorDOM.innerHTML=""; //TODO is there a better way to do this?
 
         //create the picker
         this.pickerDOM = document.createElement("div");
@@ -2310,7 +2310,7 @@ function UpdateInfoPanel()
 
 
     var infoPanel = document.getElementById("infoPanel");
-    infoPanel.innerHTML = ""; //clears the info Panel
+    infoPanel.innerHTML = ""; //clears the info Panel - TODO is there a better way?
 
     if(selectedTimeline!=undefined && selectedTimeline.currentSelectedEvent != undefined)
     {
@@ -2375,7 +2375,7 @@ function UpdateInfoPanel()
 function RefreshPersonPanel()
 {
     var personPanel = document.getElementById("personPanel");
-    personPanel.innerHTML = ""; //clears the  Panel 
+    personPanel.innerHTML = ""; //clears the  Panel TODO find a better way (make a clearElement function if doesnt exist)
     
     // add the persons alive list
     // TODO infoPanel gets cleared every click update

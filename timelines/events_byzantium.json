@@ -203,7 +203,15 @@
                 "bubbleDate" : "969", "bubbleScale" : [0, 1000]				},
 
 
-		{		"id": "basil_ii", 		 "bubbleDate" : "976"	, "bubbleScale" : [0, 5000]}
+		{		"id": "basil_ii", 		 "bubbleDate" : "976"	, "bubbleScale" : [0, 5000]},        
+        {		"name" : "Zoe Porphyrogenita", "birthDateString" : "c. 978", "deathDateString" : "1050", "ruled" : ["1028","1041","1042","1050"], 
+                "bubbleDate" : "1042", "bubbleScale" : [0, 5000]				},        
+        {		"name" : "Alexios I Komnenos", "birthDateString" : "1057", "deathDateString" : "1118", "ruled" : ["1081","1118"], 
+                "bubbleDate" : "1081", "bubbleScale" : [0, 5000]				},        
+        {		"name" : "John II Komnenos", "birthDateString" : "1087", "deathDateString" : "1143", "ruled" : ["1118","1143"], 
+                "bubbleDate" : "1118", "bubbleScale" : [0, 1000]				},        
+        {		"name" : "Manuel I Komnenos", "birthDateString" : "1118", "deathDateString" : "1180", "ruled" : ["1143","1180"], 
+                "bubbleDate" : "1143", "bubbleScale" : [0, 1000]				}
 		
 
     ]
