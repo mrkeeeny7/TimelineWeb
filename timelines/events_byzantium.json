@@ -97,7 +97,7 @@
             "type" : "era"
         },
         {
-            "title" : "Laskaris Dynasty",
+            "title" : "Laskaris Dynasty (Empire of Nicaea)",
             "dates" : ["1205", "1261"],
             "maxScale" : 500,
             "type" : "era"
@@ -135,6 +135,42 @@
             "tags" : ["europe", "byzantium"]
         },
         {
+            "title" : "Umayyad Siege of Constantinople",
+            "dateString" : "674 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "First Iconoclasm",
+            "dateString" : "726 AD",
+            "maxScale" : 5000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "First Iconoclasm ends",
+            "dateString" : "787 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Second Iconoclasm",
+            "dateString" : "814 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Second Iconoclasm ends",
+            "dateString" : "843 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Byantine-Norman wars",
+            "dateString" : "1059 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
             "title" : "Battle of Manzikert",
             "dateString" : "1071 AD",
             "maxScale" : 1000,
@@ -153,7 +189,13 @@
             "tags" : ["europe", "byzantium"]
         },
         {
-            "title" : "Fall of Constantinople",
+            "title" : "Reconquest of Constantinople",
+            "dateString" : "1261 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Ottoman Conquest of Constantinople",
             "dateString" : "1453 AD",
             "maxScale" : 5000,
             "tags" : ["europe", "byzantium"]
@@ -165,13 +207,13 @@
     "personlist" : [	
     
 		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 5000]},
-        {		"name" : "Maurice", "birthDateString" : "539", "deathDateString" : "602", "ruled" : ["582","602"], "bubbleDate" : "582"				},
-        {		"name" : "Phocas", "birthDateString" : "547", "deathDateString" : "610", "ruled" : ["602","610"], "bubbleDate" : "602"				},
-		{		"id": "heraclius", 		 "bubbleDate" : "610"	, "bubbleScale" : [0, 5000]},
+        {		"name" : "Maurice", "birthDateString" : "539", "deathDateString" : "602", "ruled" : ["582","602"], "bubbleDate" : "582"		, "bubbleScale" : [0, 1000]		},
+        {		"name" : "Phocas", "birthDateString" : "547", "deathDateString" : "610", "ruled" : ["602","610"], "bubbleDate" : "602"		, "bubbleScale" : [0, 1000]		},
+		{		"id": "heraclius", 		 "bubbleDate" : "610"	, "bubbleScale" : [0, 2000]},
         {		"name" : "Justinian II Rhinometos", "birthDateString" : "668", "deathDateString" : "711", "ruled" : ["685","695","705","711"], 
                 "bubbleDate" : "685", "bubbleScale" : [0, 1000]				},
         {		"name" : "Leo III the Isaurian", "birthDateString" : "c. 685", "deathDateString" : "741", "ruled" : ["717","741"], 
-                "bubbleDate" : "717", "bubbleScale" : [0, 5000]				},
+                "bubbleDate" : "717", "bubbleScale" : [0, 2000]				},
         {		"name" : "Constantine V Kopronymos", "birthDateString" : "718", "deathDateString" : "775", "ruled" : ["741","775"], 
                 "bubbleDate" : "741", "bubbleScale" : [0, 1000]				},
 		{		"id": "irene_of_athens", 		 "bubbleDate" : "792"	, "bubbleScale" : [0, 5000]},
@@ -205,13 +247,28 @@
 
 		{		"id": "basil_ii", 		 "bubbleDate" : "976"	, "bubbleScale" : [0, 5000]},        
         {		"name" : "Zoe Porphyrogenita", "birthDateString" : "c. 978", "deathDateString" : "1050", "ruled" : ["1028","1041","1042","1050"], 
-                "bubbleDate" : "1042", "bubbleScale" : [0, 5000]				},        
+                "bubbleDate" : "1042", "bubbleScale" : [0, 2000]				},        
         {		"name" : "Alexios I Komnenos", "birthDateString" : "1057", "deathDateString" : "1118", "ruled" : ["1081","1118"], 
                 "bubbleDate" : "1081", "bubbleScale" : [0, 5000]				},        
         {		"name" : "John II Komnenos", "birthDateString" : "1087", "deathDateString" : "1143", "ruled" : ["1118","1143"], 
                 "bubbleDate" : "1118", "bubbleScale" : [0, 1000]				},        
         {		"name" : "Manuel I Komnenos", "birthDateString" : "1118", "deathDateString" : "1180", "ruled" : ["1143","1180"], 
-                "bubbleDate" : "1143", "bubbleScale" : [0, 1000]				}
+                "bubbleDate" : "1143", "bubbleScale" : [0, 1000]				},
+
+        {		"name" : "Isaac II Angelos", "birthDateString" : "1156", "deathDateString" : "1204", "ruled" : ["1185","1195", "1203", "1204"], 
+                "bubbleDate" : "1185", "bubbleScale" : [0, 2000]				},        
+        {		"name" : "Alexios II Angelos", "birthDateString" : "c. 1153", "deathDateString" : "1211", "ruled" : ["1195","1203"], 
+                "bubbleDate" : "1195", "bubbleScale" : [0, 1000]				},    
+
+        {		"name" : "Theodore I Laskaris", "birthDateString" : "c. 1175", "deathDateString" : "1221", "ruled" : ["1205","1221"], 
+                "bubbleDate" : "1205", "bubbleScale" : [0, 2000]				},        
+        {		"name" : "John III Vatatzes", "birthDateString" : "c. 1192", "deathDateString" : "1254", "ruled" : ["1221","1254"], 
+                "bubbleDate" : "1221", "bubbleScale" : [0, 1000]				},   
+
+        {		"name" : "Michael VIII Palaiologos", "birthDateString" : "1224", "deathDateString" : "1282", "ruled" : ["1261","1282"], 
+                "bubbleDate" : "1261", "bubbleScale" : [0, 5000]				},        
+        {		"name" : "Andronikos II Palaiologos", "birthDateString" : "1259", "deathDateString" : "1332", "ruled" : ["1282","1328"], 
+                "bubbleDate" : "1282", "bubbleScale" : [0, 1000]				}
 		
 
     ]
