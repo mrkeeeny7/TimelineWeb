@@ -136,13 +136,13 @@ X == Custom selector for picking a timeline (see tutorial on W3 CSS dropdowns)
 
 == Compare / lock real & fictional timelines (history vs LOTR)
 
-== Allow same person in multiple timelines:
-	X- reference 'Person Database' instead of storing info in Timeline file
-	X- use a recognizable but unique ID e.g. 'CharlesII_England', 'ToussaintLouverture', 'SamuelDeChamplain'
-	X- throw error if any ID is not unique
-	X- make sure duplicate references don't show up in 'Persons Alive' list
-	X- trial with 'hybrid' approach: use database + references for Most Notable people; existing system for others
 
+=== TimelineDate reorg
+	- new TimelineDate class, more all date related funtions
+	- use TimelineDate objects as data in EventBubbles, Timeline, PersonData, etc
+	- define standard operations between dates (compare two dates returns the number of years between them - can be negative): date1.Difference(date2) or TimelineDate.Difference(d1,d2)
+	- incorporate floating point years (currentYear etc) into TimelineDate format
+	- allow display in other formats: Roman, Chinese, Japanese, French Republican, Tolkien First/second/third age, Shire Reckoning etc.
 
 
 
@@ -154,3 +154,10 @@ X Show current year prominently and allow to enter a specific year
 -- create a 'Default' load
 * persons
 * Western history (Modern)
+
+== Allow same person in multiple timelines:
+	X- reference 'Person Database' instead of storing info in Timeline file
+	X- use a recognizable but unique ID e.g. 'CharlesII_England', 'ToussaintLouverture', 'SamuelDeChamplain'
+	X- throw error if any ID is not unique
+	X- make sure duplicate references don't show up in 'Persons Alive' list
+	X- trial with 'hybrid' approach: use database + references for Most Notable people; existing system for others
