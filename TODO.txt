@@ -140,7 +140,7 @@ X == Custom selector for picking a timeline (see tutorial on W3 CSS dropdowns)
 	X- reference 'Person Database' instead of storing info in Timeline file
 	X- use a recognizable but unique ID e.g. 'CharlesII_England', 'ToussaintLouverture', 'SamuelDeChamplain'
 	X- throw error if any ID is not unique
-TODO	- make sure duplicate references don't show up in 'Persons Alive' list
+	X- make sure duplicate references don't show up in 'Persons Alive' list
 	X- trial with 'hybrid' approach: use database + references for Most Notable people; existing system for others
 
 

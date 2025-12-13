@@ -98,7 +98,7 @@ class PersonData
         this.birthDateString    = personDataJSObj.birthDateString;
         this.deathDateString    = personDataJSObj.deathDateString;
 
-        var birthYearObj = unpackDateString(this.birthDateString);
+        var birthYearObj = new TimelineDate(this.birthDateString);
         this.birthYear = birthYearObj.date;
         this.ageIsAppox = birthYearObj.isApprox;
 
@@ -117,7 +117,7 @@ class PersonData
             }
             else
             {
-                this.deathYear = unpackDateString(this.deathDateString).date;
+                this.deathYear = new TimelineDate(this.deathDateString).date;
                 if(this.deathYear == undefined)
                 {
                     throw new Error (this.name + ": Death year could not be parsed");
@@ -138,7 +138,7 @@ class PersonData
                 }
                 else
                 {
-                    this.ruled[i] = unpackDateString(personDataJSObj.ruled[i]).date;
+                    this.ruled[i] = new TimelineDate(personDataJSObj.ruled[i]).date;
                 }
             }
         }
@@ -391,7 +391,7 @@ class PersonListSorted {
      */
     PersonsAliveList(date)
     {
-        var yearInt = dateInt(date); //date rounded to whole-year
+        var yearInt = dateRound(date); //date rounded to whole-year
         var alivelist = new Array();
         for(let i = 0; i<this.theList.length; i++)
         {
@@ -441,7 +441,7 @@ class PersonListSorted {
      */
     PersonStringHTML(person, dateNumber)
     {           
-        var yearInt = dateInt(dateNumber); //the current date in whole-years
+        var yearInt = dateRound(dateNumber); //the current date in whole-years
 
         var textline="";
         if(person.birthYear != undefined)
@@ -1004,7 +1004,7 @@ class Timeline {
 
         if(jsonObj.defaultDateString != undefined)
         {
-            var defaultDate = unpackDateString(jsonObj.defaultDateString).date;
+            var defaultDate = new TimelineDate(jsonObj.defaultDateString).date;
             this.SetCurrentYear(defaultDate);
         }
 
@@ -1031,7 +1031,7 @@ class Timeline {
     {
         var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
     
-        eventDate = unpackDateString(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things)
+        eventDate = new TimelineDate(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things)
     
         eventEndDate = dateIntIfDefined(jsonEventObj.endDateString, eventDate);
         eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, undefined); //set birth and death to undefined if not known
@@ -1915,7 +1915,7 @@ function updateYearInput()
 function submitYearInput()
 {
     var yearInputDOM = document.getElementById("yearInput");
-    mainTimeline.SetCurrentYear(unpackDateString(yearInputDOM.value).date);
+    mainTimeline.SetCurrentYear(new TimelineDate(yearInputDOM.value).date);
 }
 
 // update the value of the HTML year field
@@ -2055,17 +2055,69 @@ function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
 //DATE & STRING FUCNTIONS
 //TODO - organize as (static?) methods in a TimelineDate class
 
-
-/**
- * 
- * @returns {number} the current, real-world year (UTC)
- */
-function datePresentDay()
+class TimelineDate 
 {
-    const date = new Date();
-    const presentYear = date.getUTCFullYear();
-    return presentYear;
+    dateInt;
+    isApprox;
+
+    constructor(dateString)
+    {
+        this.isApprox = false;
+        //var dateInt; //return value
+
+        if(dateString==undefined)
+        {
+            this.dateInt = undefined;
+        } 
+        else if(dateString == "PRESENTDAY")
+        {
+            this.dateInt = TimelineDate.PresentDay();
+            this.isApprox = false;
+        }
+        else
+        {        
+
+            /** first, split string by whitespace
+             */
+            //var tokens = dateString.split(" ");
+            var tokens = dateString.match(/\S+/g); 
+
+            //handle 'approximate' dates
+            if(tokens[0].toLowerCase() == "c." || tokens[0].toLowerCase() == "c"|| tokens[0].toLowerCase() == "~")
+            {
+                //date is approx
+                this.isApprox = true;
+                tokens=tokens.slice(1); // remove first element from array and continue.
+            }
+
+            if(tokens[1] && tokens[1].toLowerCase() == "bc")
+            {
+                this.dateInt = tokens[0] * -1; //TODO this is temprary - it will cause an off by 1 error when calculating date differences
+            }
+            else
+            {
+                this.dateInt = tokens[0];
+            }
+        }
+        
+    }
+
+    get date() {
+        return this.dateInt;
+    }
+
+    /**
+     * 
+     * @returns {number} the current, real-world year (UTC)
+     */
+    static PresentDay()
+    {        
+        const date = new Date();
+        const presentYear = date.getUTCFullYear();
+        return presentYear;
+    }
 }
+
 
 /**
  * 
@@ -2082,7 +2134,7 @@ function dateIntIfDefined(dateString, backup)
     }
     else
     {
-        return unpackDateString(dateString).date;
+        return new TimelineDate(dateString).date;
     }
 }
 
@@ -2104,7 +2156,7 @@ function unpackDateString(dateString)
     } 
     else if(dateString == "PRESENTDAY")
     {
-        dateInt = datePresentDay();
+        dateInt = TimelineDate.PresentDay();
         isApprox = false;
     }
     else
@@ -2179,15 +2231,15 @@ function dateGregorian(dateNumber)
     var str;
     if(date <= 0)
     {
-        str = -dateInt(date)+ " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+        str = -dateRound(date)+ " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
     }
     else if(date < 1000)
     {
-        str = dateInt(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
+        str = dateRound(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
     }
     else
     {
-        str = dateInt(date) + ""; //so 1000 becomes '1000'
+        str = dateRound(date) + ""; //so 1000 becomes '1000'
     }
 
     return str;
@@ -2199,7 +2251,7 @@ function dateGregorian(dateNumber)
  * @param {number} dateNumber 
  * @returns input date, rounded to correct year
  */
-function dateInt(dateNumber)
+function dateRound(dateNumber)
 {
     var dateRounded;
     if(dateNumber <= 0)
