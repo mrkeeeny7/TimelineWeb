@@ -405,6 +405,7 @@ class PersonListSorted {
     }
 
     /**
+     * TODO ** THIS NEEDS TO BE REPLACED, RETURNING HTML ELEMENT INSTEAD OF HTML CODE
      * 
      * @param {number} date input year in usual floating point date
      * @returns {string} (HTML formatted) A summary string of the list of persons alive in given year
@@ -2057,9 +2058,15 @@ function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
 
 class TimelineDate 
 {
-    dateInt;
+    dateInt; //maybe rename this - not always Int?
     isApprox;
 
+    /**
+     * 
+     * create date int from string in format "[year]" or "[year] BC"
+     * 
+     * @param {string} dateString the input string 
+     */
     constructor(dateString)
     {
         this.isApprox = false;
@@ -2147,6 +2154,8 @@ function dateIntIfDefined(dateString, backup)
  */
 function unpackDateString(dateString)
 {
+    throw new Error("unpackDateString: this function is deprecated");
+
     var isApprox = false;
     var dateInt; //return value
 
