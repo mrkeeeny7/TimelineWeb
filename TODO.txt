@@ -144,6 +144,7 @@ X == Custom selector for picking a timeline (see tutorial on W3 CSS dropdowns)
 	- incorporate floating point years (currentYear etc) into TimelineDate format
 	- allow display in other formats: Roman, Chinese, Japanese, French Republican, Tolkien First/second/third age, Shire Reckoning etc.
 
+=== Add faint individual year stripes at highest magnification (scale = 10-20)
 
 
 ==DONE=========

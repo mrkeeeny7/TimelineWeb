@@ -64,11 +64,13 @@ class PersonData
     /**
     * @type {number}
     */
+   //DEPRECATED
    // birthYear;
     /**
     * @type {number}
     */
-    deathYear;
+   //TODO - DEPRECATED
+    //deathYear;
 
     /**
      * @type {TimelineDate}
@@ -109,12 +111,10 @@ class PersonData
         this.deathDateString    = personDataJSObj.deathDateString;
 
         this.birthDate = new TimelineDate(this.birthDateString);
-        this.birthYear = this.birthDate.date;
-       // this.ageIsAppox = this.birthDate.isApprox;
 
         if(this.deathDateString == undefined)
         {
-            this.deathYear = undefined;
+            this.deathDate = undefined;
             this.isLiving = true; // this may be redundant if we take undefined death year as still living
         }
         else
@@ -123,14 +123,12 @@ class PersonData
             if(dthStr =="alive" || dthStr=="living" || dthStr == undefined)
             {
                 this.deathDate = undefined;
-                this.deathYear = undefined;
                 this.isLiving = true; // this may be redundant if we take undefined death year as still living
             }
             else
             {
                 this.deathDate = new TimelineDate(this.deathDateString);
-                this.deathYear = this.deathDate.date;
-                if(this.deathYear == undefined)
+                if(this.deathDate.date == undefined)
                 {
                     throw new Error (this.name + ": Death year could not be parsed");
                 }
@@ -196,7 +194,7 @@ class PersonData
             }
         }
         //default - birth year known
-        return yearInt >= this.birthDate.date && (yearInt <= this.deathYear || this.deathYear==undefined );
+        return yearInt >= this.birthDate.date && (yearInt <= this.deathDate.date || this.deathDate.date==undefined );
     }
 
     /**
@@ -222,35 +220,6 @@ class PersonData
         return false; //default return false
     }
 
-    infoString()
-    {
-        let lifetimetext = "Lived: " + ( (this.birthDate.date==undefined)? "unknown date" : dateString(this.birthDate.date) ) 
-             + " to " + ((this.deathYear==undefined)? "unknown date" : dateString(this.deathYear));
-
-        if(this.birthDate.date!=undefined && this.deathYear!=undefined)
-        {
-            lifetimetext = lifetimetext + " (" + (this.deathYear-this.birthDate.date) + " years)"
-        }
-
-        if(this.ruled != undefined)
-        {
-            var start, end;
-            let i=0;
-            while(i<this.ruled.length)
-            {
-                //read next pair of values from the array
-                start = this.ruled[i++];
-                end = this.ruled[i++]; //should be undefined if we run past the end of the array
-                lifetimetext = lifetimetext + "\nRuled: " 
-                    + dateString(start) + " to " + dateString(end) 
-                    + " (" + Number(end-start) + " years).";
-            }
-            
-        }
-
-
-        return lifetimetext;
-    }
     
     infoBlock()
     {
@@ -279,7 +248,7 @@ class PersonData
             }
 
             lifetimetext = lifetimetext +  ( this.deathDate.makeString() );
-            maxAge = this.ageAtYear(this.deathYear);
+            maxAge = this.ageAtYear(this.deathDate.date);
         }
 
         lifetimetext = lifetimetext + " (" + maxAge + " years).";
@@ -502,7 +471,7 @@ class PersonListSorted {
         }
 
         //italic if in death year
-        if(person.deathYear != undefined && yearInt == person.deathYear)
+        if(person.deathDate.date != undefined && yearInt == person.deathDate.date)
         {
             textline = "<i>" + textline + " (year of death)" + "</i>";
         }
