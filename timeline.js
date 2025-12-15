@@ -64,16 +64,26 @@ class PersonData
     /**
     * @type {number}
     */
-    birthYear;
+   // birthYear;
     /**
     * @type {number}
     */
     deathYear;
 
     /**
+     * @type {TimelineDate}
+     */
+    birthDate;
+    /**
+     * @type {TimelineDate}
+     */
+    deathDate;
+
+    /**
      * @type {boolean}
      */
-    ageIsAppox;
+    //DEPRECATED
+    //ageIsAppox;
 
     /**
      * @type {number[]}
@@ -98,9 +108,9 @@ class PersonData
         this.birthDateString    = personDataJSObj.birthDateString;
         this.deathDateString    = personDataJSObj.deathDateString;
 
-        var birthYearObj = new TimelineDate(this.birthDateString);
-        this.birthYear = birthYearObj.date;
-        this.ageIsAppox = birthYearObj.isApprox;
+        this.birthDate = new TimelineDate(this.birthDateString);
+        this.birthYear = this.birthDate.date;
+       // this.ageIsAppox = this.birthDate.isApprox;
 
         if(this.deathDateString == undefined)
         {
@@ -112,12 +122,14 @@ class PersonData
             let dthStr = this.deathDateString.toLowerCase();
             if(dthStr =="alive" || dthStr=="living" || dthStr == undefined)
             {
+                this.deathDate = undefined;
                 this.deathYear = undefined;
                 this.isLiving = true; // this may be redundant if we take undefined death year as still living
             }
             else
             {
-                this.deathYear = new TimelineDate(this.deathDateString).date;
+                this.deathDate = new TimelineDate(this.deathDateString);
+                this.deathYear = this.deathDate.date;
                 if(this.deathYear == undefined)
                 {
                     throw new Error (this.name + ": Death year could not be parsed");
@@ -144,6 +156,11 @@ class PersonData
         }
     }
 
+    get ageIsApprox()
+    {
+        return this.birthDate.isApprox;
+    }
+
     /**
      * 
      * @param {number} yearInt using rounded int number
@@ -152,11 +169,11 @@ class PersonData
     ageAtYear(yearInt)
     {
         //need to handle AD/BC weirdness e.g. born in -1, current year 1 ==> 1 year old
-        if(this.birthYear < 0 && yearInt > 0)
+        if(this.birthDate.date < 0 && yearInt > 0)
         {
-            return (yearInt - this.birthYear) - 1;
+            return (yearInt - this.birthDate.date) - 1;
         }
-        return yearInt - this.birthYear;
+        return yearInt - this.birthDate.date;
     }
 
     /**
@@ -167,7 +184,7 @@ class PersonData
     aliveInYear(yearInt)
     {
         //birth year unknown
-        if(this.birthYear==undefined)
+        if(this.birthDate.date==undefined)
         {
             if(this.isRuling(yearInt))
             {
@@ -179,7 +196,7 @@ class PersonData
             }
         }
         //default - birth year known
-        return yearInt >= this.birthYear && (yearInt <= this.deathYear || this.deathYear==undefined );
+        return yearInt >= this.birthDate.date && (yearInt <= this.deathYear || this.deathYear==undefined );
     }
 
     /**
@@ -207,12 +224,12 @@ class PersonData
 
     infoString()
     {
-        let lifetimetext = "Lived: " + ( (this.birthYear==undefined)? "unknown date" : dateString(this.birthYear) ) 
+        let lifetimetext = "Lived: " + ( (this.birthDate.date==undefined)? "unknown date" : dateString(this.birthDate.date) ) 
              + " to " + ((this.deathYear==undefined)? "unknown date" : dateString(this.deathYear));
 
-        if(this.birthYear!=undefined && this.deathYear!=undefined)
+        if(this.birthDate.date!=undefined && this.deathYear!=undefined)
         {
-            lifetimetext = lifetimetext + " (" + (this.deathYear-this.birthYear) + " years)"
+            lifetimetext = lifetimetext + " (" + (this.deathYear-this.birthDate.date) + " years)"
         }
 
         if(this.ruled != undefined)
@@ -243,13 +260,30 @@ class PersonData
 
         //paragraph 1
         var lifetimePara = document.createElement("span");
-        let lifetimetext = "Lived: " + ( (this.birthYear==undefined)? "unknown date" : dateString(this.birthYear) ) 
-            + " to " + ((this.deathYear==undefined)? "unknown date" : dateString(this.deathYear));
+        let lifetimetext = "Lived: " 
+        + ( this.birthDate.makeString() )
+        + " to " ;
 
-        if(this.birthYear!=undefined && this.deathYear!=undefined)
+        var maxAge;
+
+        if(this.isLiving)
         {
-            lifetimetext = lifetimetext + " (" + (this.deathYear-this.birthYear) + " years)."
+            lifetimetext = lifetimetext + "present";            
+            maxAge = this.ageAtYear(TimelineDate.PresentDay());
         }
+        else
+        {
+            if(this.deathDate==undefined) //check
+            {
+                throw new Error("Non-living person " + this.name + " has no defined death date.");
+            }
+
+            lifetimetext = lifetimetext +  ( this.deathDate.makeString() );
+            maxAge = this.ageAtYear(this.deathYear);
+        }
+
+        lifetimetext = lifetimetext + " (" + maxAge + " years).";
+
         lifetimePara.appendChild(document.createTextNode(lifetimetext));
         infoBlock.appendChild(lifetimePara);
 
@@ -267,6 +301,12 @@ class PersonData
                 //read next pair of values from the array
                 start = this.ruled[i++];
                 end = this.ruled[i++]; //should be undefined if we run past the end of the array
+
+                if(end==undefined)
+                {
+                    end = TimelineDate.PresentDay(); //TODO, should really just put PRESENTDAY in the data
+                }
+
                 let ruledstr = dateString(start) + " to " + dateString(end) 
                     + " (" + Number(end-start) + " years).";
 
@@ -378,7 +418,7 @@ class PersonListSorted {
 
             //TODO only sort if new person is in the wrong order
             //TODO or could just insert at the correct position by iterating
-            this.theList.sort(function(a,b) { return a.birthYear - b.birthYear; })
+            this.theList.sort(function(a,b) { return a.birthDate.date - b.birthDate.date; })
         }
 
         return newPerson;
@@ -445,11 +485,11 @@ class PersonListSorted {
         var yearInt = dateRound(dateNumber); //the current date in whole-years
 
         var textline="";
-        if(person.birthYear != undefined)
+        if(person.birthDate.date != undefined)
         {
             var age = Math.floor(person.ageAtYear(yearInt));
             textline = age + " years: " + person.name;
-            if(person.ageIsAppox)
+            if(person.ageIsApprox)
             {
                 //add approx qualifier
                  textline = "~" + textline;
@@ -2058,6 +2098,7 @@ function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
 
 class TimelineDate 
 {
+    dateString;
     dateInt; //maybe rename this - not always Int?
     isApprox;
 
@@ -2069,6 +2110,7 @@ class TimelineDate
      */
     constructor(dateString)
     {
+        this.dateString = dateString;
         this.isApprox = false;
         //var dateInt; //return value
 
@@ -2111,6 +2153,27 @@ class TimelineDate
 
     get date() {
         return this.dateInt;
+    }
+
+    /**
+     * Generate a new string representation of the date
+     * If approx, include this in the string.
+     * @returns {string}
+     */
+    makeString()
+    {
+        if(this.date == undefined)
+        {
+            return "unknown date";
+        }
+
+
+        var str = dateString(this.date);
+        if(this.isApprox)
+        {
+            str = "c. " + str;
+        }
+        return str;
     }
 
     /**
