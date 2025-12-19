@@ -73,7 +73,7 @@ class PersonData
     /**
      * @type {boolean}
      */
-    isLiving;
+    //isNotDead; //DEPRECATED - use getter
 
     /**
      * @constructor
@@ -91,7 +91,7 @@ class PersonData
         if(ddString == undefined)
         {
             this.deathDate = undefined;
-            this.isLiving = true; // this may be redundant if we take undefined death year as still living
+           // this.isNotDead = true; // this may be redundant if we take undefined death year as still living
         }
         else
         {
@@ -99,7 +99,7 @@ class PersonData
             if(dthStr =="alive" || dthStr=="living" || dthStr == undefined)
             {
                 this.deathDate = undefined;
-                this.isLiving = true; // this may be redundant if we take undefined death year as still living
+             //   this.isNotDead = true; // this may be redundant if we take undefined death year as still living
             }
             else
             {
@@ -108,7 +108,7 @@ class PersonData
                 {
                     throw new Error (this.name + ": Death year could not be parsed");
                 }
-                this.isLiving = false;
+              //  this.isNotDead = false;
             }
         }
        
@@ -133,6 +133,11 @@ class PersonData
     get ageIsApprox()
     {
         return this.birthDate.isApprox;
+    }
+
+    get isNotDead()
+    {
+        return this.deathDate == undefined;
     }
 
     /**
@@ -170,7 +175,7 @@ class PersonData
             }
         }
         //default - birth year known
-        return yearInt >= this.birthDate.date && (yearInt <= this.deathDate.date || this.deathDate.date==undefined );
+        return yearInt >= this.birthDate.date && (this.isNotDead|| yearInt <= this.deathDate.date );
     }
 
     /**
@@ -211,7 +216,7 @@ class PersonData
 
         var maxAge;
 
-        if(this.isLiving)
+        if(this.isNotDead)
         {
             lifetimetext = lifetimetext + "present";            
             maxAge = this.ageAtYear(TimelineDate.PresentDay());
@@ -447,7 +452,7 @@ class PersonListSorted {
         }
 
         //italic if in death year
-        if(person.deathDate.date != undefined && yearInt == person.deathDate.date)
+        if(person.deathDate != undefined && yearInt == person.deathDate.date)
         {
             textline = "<i>" + textline + " (year of death)" + "</i>";
         }
