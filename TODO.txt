@@ -147,6 +147,9 @@ X == Custom selector for picking a timeline (see tutorial on W3 CSS dropdowns)
 === Add faint individual year stripes at highest magnification (scale = 10-20)
 
 
+BUG====
+ - when loading US or Britain timelines events are not correctly placed - to do with Date reorganization?
+
 ==DONE=========
 
 X Show current year prominently and allow to enter a specific year

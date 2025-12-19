@@ -52,25 +52,6 @@ class PersonData
      * @type {string}
      */
     name;
-    /**
-    * @type {string}
-    */
-    birthDateString;
-    /**
-    * @type {string}
-    */
-    deathDateString;
-
-    /**
-    * @type {number}
-    */
-   //DEPRECATED
-   // birthYear;
-    /**
-    * @type {number}
-    */
-   //TODO - DEPRECATED
-    //deathYear;
 
     /**
      * @type {TimelineDate}
@@ -81,11 +62,6 @@ class PersonData
      */
     deathDate;
 
-    /**
-     * @type {boolean}
-     */
-    //DEPRECATED
-    //ageIsAppox;
 
     /**
      * @type {number[]}
@@ -107,19 +83,19 @@ class PersonData
     {
         this.id                 = personDataJSObj.id; //may be undefined
         this.name               = personDataJSObj.name;
-        this.birthDateString    = personDataJSObj.birthDateString;
-        this.deathDateString    = personDataJSObj.deathDateString;
+        var bdString    = personDataJSObj.birthDateString;
+        var ddString    = personDataJSObj.deathDateString;
 
-        this.birthDate = new TimelineDate(this.birthDateString);
+        this.birthDate = new TimelineDate(bdString);
 
-        if(this.deathDateString == undefined)
+        if(ddString == undefined)
         {
             this.deathDate = undefined;
             this.isLiving = true; // this may be redundant if we take undefined death year as still living
         }
         else
         {
-            let dthStr = this.deathDateString.toLowerCase();
+            let dthStr = ddString.toLowerCase();
             if(dthStr =="alive" || dthStr=="living" || dthStr == undefined)
             {
                 this.deathDate = undefined;
@@ -127,7 +103,7 @@ class PersonData
             }
             else
             {
-                this.deathDate = new TimelineDate(this.deathDateString);
+                this.deathDate = new TimelineDate(ddString);
                 if(this.deathDate.date == undefined)
                 {
                     throw new Error (this.name + ": Death year could not be parsed");
@@ -990,13 +966,15 @@ class Timeline {
                     let newEventData = {
                         title: newPersonData.name,
                         dateString: jsonPersonData.bubbleDate, //note: use this data from json (will not exist in person database)
-                        birthDateString : newPersonData.birthDateString,
-                        deathDateString : newPersonData.deathDateString,
+                        birthDateString : newPersonData.birthDate==undefined? undefined : newPersonData.birthDate.dateString,
+                        deathDateString : newPersonData.deathDate==undefined? undefined : newPersonData.deathDate.dateString,
                         maxScale : maxScale,
                         minScale : minScale,
                         type : "person",
                     };
                     
+                    //TODO revamp CreateBubble to clean this up - just pass in a reference to the PersonData
+
                     let newEvent = this.CreateBubble(newEventData, //make sure this has all the needed data 
                         jsonObj.category, //TODO consider just passing in the jsonObj
                         newColumnWidget, 
@@ -1528,7 +1506,7 @@ class TimelineEvent {
     /**
      * 
      * @param {string} title 
-     * @param {number} date 
+     * @param {number} bubbleDate 
      * @param {number} endDate 
      * @param {number} birthDate 
      * @param {number} deathDate 
@@ -1541,26 +1519,61 @@ class TimelineEvent {
      * @param {TimelineColumnWidget} columnWidget 
      * @param {number} preferredColumn 
      */
-    constructor(title, date, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
+    constructor(title, bubbleDate, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
          domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
+        this.constructor_common(bubbleDate, searchstring, minScale, maxScale,
+         domElement, lifelineDomElement, columnWidget, preferredColumn);
+
         this.title = title;
-        this.date = Number(date);
         this.endDate = Number(endDate);
-        this.birthDate = birthDate;
-        this.deathDate = deathDate;
-        this.searchstring = searchstring;
+        this.birthDate = birthDate; //TODO needs to be deprecated
+        this.deathDate = deathDate; //TODO needs to be deprecated
         this.type = type;
-        this.minScale = Number(minScale);
-        this.maxScale = Number(maxScale);
+    }
+
+    //person constructor
+    /**
+     * 
+     * @param {PersonData} personData 
+     * @param {number} bubbleDate //TODO replace dates with TimelineDate
+     * @param {string} searchstring 
+     * @param {number} minScale 
+     * @param {number} maxScale 
+     * @param {HTMLElement} domElement 
+     * @param {HTMLElement} lifelineDomElement 
+     * @param {TimelineColumnWidget} columnWidget 
+     * @param {number} preferredColumn 
+     */
+    constructor_person(personData, bubbleDate, searchstring, minScale, maxScale,
+         domElement, lifelineDomElement, columnWidget, preferredColumn=0)
+    {
+        this.title = personData.name;
+        this.type = "person";
+
+        this.constructor_common(bubbleDate, searchstring, minScale, maxScale,
+         domElement, lifelineDomElement, columnWidget, preferredColumn);
+
+    
+    }
+
+    constructor_common(bubbleDate, searchstring, minScale, maxScale,
+         domElement, lifelineDomElement, columnWidget, preferredColumn=0)
+    {
+        this.date = Number(bubbleDate);
+        this.searchstring = searchstring;
         
         this.domElement = domElement; //html element
         this.lifelineDomElement = lifelineDomElement; //html element
+
+        this.minScale = minScale;
+        this.maxScale = maxScale;
 
         //other fields
         this.selected=false;
         this.columnWidget=columnWidget;
         this.preferredColumn=preferredColumn;
+
     }
 
     setSelectedStatus(value)
