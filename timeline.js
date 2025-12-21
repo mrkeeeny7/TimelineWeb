@@ -147,12 +147,7 @@ class PersonData
      */
     ageAtYear(yearInt)
     {
-        //need to handle AD/BC weirdness e.g. born in -1, current year 1 ==> 1 year old
-        if(this.birthDate.date < 0 && yearInt > 0)
-        {
-            return (yearInt - this.birthDate.date) - 1;
-        }
-        return yearInt - this.birthDate.date;
+        return TimelineDate.yearDifference(this.birthDate.date, yearInt);
     }
 
     /**
@@ -175,7 +170,7 @@ class PersonData
             }
         }
         //default - birth year known
-        return yearInt >= this.birthDate.date && (this.isNotDead|| yearInt <= this.deathDate.date );
+        return this.ageAtYear(yearInt) >= 0 && (this.isNotDead|| yearInt <= this.deathDate.date );
     }
 
     /**
@@ -1024,11 +1019,12 @@ class Timeline {
     {
         var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
     
-        eventDate = new TimelineDate(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things)
+        eventDate = new TimelineDate(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things) 
+        // TODO keep  these as TimelineDate objects
     
-        eventEndDate = dateIntIfDefined(jsonEventObj.endDateString, eventDate);
-        eventBirthDate = dateIntIfDefined(jsonEventObj.birthDateString, undefined); //set birth and death to undefined if not known
-        eventDeathDate = dateIntIfDefined(jsonEventObj.deathDateString, undefined);
+        eventEndDate = new TimelineDate(jsonEventObj.endDateString).date;
+        eventBirthDate = new TimelineDate(jsonEventObj.birthDateString).date; //set birth and death to undefined if not known
+        eventDeathDate = new TimelineDate(jsonEventObj.deathDateString).date;
         
         // new: use date range for more concise data
         if(jsonEventObj.dates != undefined)
@@ -1039,8 +1035,8 @@ class Timeline {
             }
 
             //get the dates from the array of strings
-            eventDate = dateIntIfDefined(jsonEventObj.dates[0]);
-            eventEndDate = dateIntIfDefined(jsonEventObj.dates[1]);
+            eventDate = new TimelineDate(jsonEventObj.dates[0]).date;
+            eventEndDate = new TimelineDate(jsonEventObj.dates[1]).date;
         }
 
 
@@ -2098,43 +2094,10 @@ class TimelineDate
     constructor(dateString)
     {
         this.dateString = dateString;
-        this.isApprox = false;
-        //var dateInt; //return value
 
-        if(dateString==undefined)
-        {
-            this.dateInt = undefined;
-        } 
-        else if(dateString == "PRESENTDAY")
-        {
-            this.dateInt = TimelineDate.PresentDay();
-            this.isApprox = false;
-        }
-        else
-        {        
-
-            /** first, split string by whitespace
-             */
-            //var tokens = dateString.split(" ");
-            var tokens = dateString.match(/\S+/g); 
-
-            //handle 'approximate' dates
-            if(tokens[0].toLowerCase() == "c." || tokens[0].toLowerCase() == "c"|| tokens[0].toLowerCase() == "~")
-            {
-                //date is approx
-                this.isApprox = true;
-                tokens=tokens.slice(1); // remove first element from array and continue.
-            }
-
-            if(tokens[1] && tokens[1].toLowerCase() == "bc")
-            {
-                this.dateInt = tokens[0] * -1; //TODO this is temprary - it will cause an off by 1 error when calculating date differences
-            }
-            else
-            {
-                this.dateInt = tokens[0];
-            }
-        }
+        let obj = TimelineDate.unpackDateString(this.dateString);
+        this.dateInt = obj.date;
+        this.isApprox = obj.isApprox;
         
     }
 
@@ -2173,6 +2136,81 @@ class TimelineDate
         const presentYear = date.getUTCFullYear();
         return presentYear;
     }
+
+    /**
+     * 
+     * @param {number} startYear 
+     * @param {number} endYear 
+     * @returns the difference in years between two dates, accounting for bc as negative numbers
+     */
+    static yearDifference(startYear, endYear)
+    {        
+        if(endYear < startYear)
+        {
+            //reverse the inputs & return a negative value
+            return - this.yearDifference(endYear, startYear);
+        }
+
+        //need to handle AD/BC weirdness e.g. born in -1, current year 1 ==> 1 year old
+        if(startYear < 0 && endYear > 0)
+        {
+            return (endYear - startYear) - 1;
+        }
+        return endYear - startYear;
+    }
+
+    /**
+     * 
+     * create date int from string in format "[year]" or "[year] BC"
+     * 
+     * @param {string} dateString the input string 
+     * @returns {{date: number | undefined, isApprox: boolean}} the year as an integer and whether it is approximate
+     */
+    static unpackDateString(dateString)
+    {
+
+        var isApprox = false;
+        var dateInt; //return value
+
+        if(dateString==undefined)
+        {
+            dateInt = undefined;
+        } 
+        else if(dateString == "PRESENTDAY")
+        {
+            dateInt = TimelineDate.PresentDay();
+            isApprox = false;
+        }
+        else
+        {        
+
+            /** first, split string by whitespace
+             */
+        //    var tokens = dateString.split(" ");
+            var tokens = dateString.match(/\S+/g); 
+
+            //handle 'approximate' dates
+            if(tokens[0].toLowerCase() == "c." || tokens[0].toLowerCase() == "c"|| tokens[0].toLowerCase() == "~")
+            {
+                //date is approx
+                isApprox = true;
+                tokens=tokens.slice(1); // remove first element from array and continue.
+            }
+
+            if(tokens[1] && tokens[1].toLowerCase() == "bc")
+            {
+                dateInt = tokens[0] * -1; //TODO this will cause an off by 1 error when calculating date differences; use apporpriate comparison methods
+            }
+            else
+            {
+                dateInt = tokens[0];
+            }
+        }
+        return {
+            date: dateInt, 
+            isApprox: isApprox
+        };
+    }
 }
 
 
@@ -2185,6 +2223,7 @@ class TimelineDate
  */
 function dateIntIfDefined(dateString, backup)
 {
+    throw new Error("dateIntIfDefined: function deprecated");
     if(dateString == undefined)
     {
         return backup;
@@ -2195,59 +2234,7 @@ function dateIntIfDefined(dateString, backup)
     }
 }
 
-/**
- * 
- * create date int from string in format "[year]" or "[year] BC"
- * 
- * @param {string} dateString the input string 
- * @returns {{date: number | undefined, isApprox: boolean}} the year as an integer and whether it is approximate
- */
-function unpackDateString(dateString)
-{
-    throw new Error("unpackDateString: this function is deprecated");
 
-    var isApprox = false;
-    var dateInt; //return value
-
-    if(dateString==undefined)
-    {
-        dateInt = undefined;
-    } 
-    else if(dateString == "PRESENTDAY")
-    {
-        dateInt = TimelineDate.PresentDay();
-        isApprox = false;
-    }
-    else
-    {        
-
-        /** first, split string by whitespace
-         */
-    //    var tokens = dateString.split(" ");
-        var tokens = dateString.match(/\S+/g); 
-
-        //handle 'approximate' dates
-        if(tokens[0].toLowerCase() == "c." || tokens[0].toLowerCase() == "c"|| tokens[0].toLowerCase() == "~")
-        {
-            //date is approx
-            isApprox = true;
-            tokens=tokens.slice(1); // remove first element from array and continue.
-        }
-
-        if(tokens[1] && tokens[1].toLowerCase() == "bc")
-        {
-            dateInt = tokens[0] * -1; //TODO this is temprary - it will cause an off by 1 error when calculating date differences
-        }
-        else
-        {
-            dateInt = tokens[0];
-        }
-    }
-    return {
-        date: dateInt, 
-        isApprox: isApprox
-    };
-}
 
 /**
  * 
