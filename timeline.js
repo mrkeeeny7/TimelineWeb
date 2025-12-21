@@ -1023,7 +1023,11 @@ class Timeline {
         // TODO keep  these as TimelineDate objects
     
         eventEndDate = new TimelineDate(jsonEventObj.endDateString).date;
-        eventBirthDate = new TimelineDate(jsonEventObj.birthDateString).date; //set birth and death to undefined if not known
+        if(eventEndDate==undefined)
+        {
+            eventEndDate = eventDate;
+        }
+        eventBirthDate = new TimelineDate(jsonEventObj.birthDateString).date; //sets birth and death to undefined if not known
         eventDeathDate = new TimelineDate(jsonEventObj.deathDateString).date;
         
         // new: use date range for more concise data
@@ -2096,7 +2100,7 @@ class TimelineDate
         this.dateString = dateString;
 
         let obj = TimelineDate.unpackDateString(this.dateString);
-        this.dateInt = obj.date;
+        this.dateInt = obj.dateInt;
         this.isApprox = obj.isApprox;
         
     }
@@ -2164,7 +2168,7 @@ class TimelineDate
      * create date int from string in format "[year]" or "[year] BC"
      * 
      * @param {string} dateString the input string 
-     * @returns {{date: number | undefined, isApprox: boolean}} the year as an integer and whether it is approximate
+     * @returns {{dateInt: number | undefined, isApprox: boolean}} the year as an integer and whether it is approximate
      */
     static unpackDateString(dateString)
     {
@@ -2199,15 +2203,15 @@ class TimelineDate
 
             if(tokens[1] && tokens[1].toLowerCase() == "bc")
             {
-                dateInt = tokens[0] * -1; //TODO this will cause an off by 1 error when calculating date differences; use apporpriate comparison methods
+                dateInt = Number(tokens[0]) * -1; //TODO this will cause an off by 1 error when calculating date differences; use apporpriate comparison methods
             }
             else
             {
-                dateInt = tokens[0];
+                dateInt = Number(tokens[0]);
             }
         }
         return {
-            date: dateInt, 
+            dateInt: dateInt, 
             isApprox: isApprox
         };
     }
