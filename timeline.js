@@ -1004,6 +1004,11 @@ class Timeline {
         this.refresh();
     }
 
+    CreatePersonBubble(personData)
+    {
+
+    }
+
     /**
      * 
      * @param {Object} jsonEventObj 
@@ -1017,18 +1022,19 @@ class Timeline {
      */
     CreateBubble(jsonEventObj, category, columnWidget, colorString, colorBString, eventIndex, columnIndex)
     {
-        var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
+        var eventDate, eventEndDate, eventType;
+        //var eventBirthDate, eventDeathDate;
     
-        eventDate = new TimelineDate(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things) 
+        eventDate = new TimelineDate(jsonEventObj.dateString) ; //convert to numerical (so can sort, among other things) 
         // TODO keep  these as TimelineDate objects
     
-        eventEndDate = new TimelineDate(jsonEventObj.endDateString).date;
+        eventEndDate = new TimelineDate(jsonEventObj.endDateString);
         if(eventEndDate==undefined)
         {
             eventEndDate = eventDate;
         }
-        eventBirthDate = new TimelineDate(jsonEventObj.birthDateString).date; //sets birth and death to undefined if not known
-        eventDeathDate = new TimelineDate(jsonEventObj.deathDateString).date;
+        //eventBirthDate = new TimelineDate(jsonEventObj.birthDateString).date; //sets birth and death to undefined if not known
+        //eventDeathDate = new TimelineDate(jsonEventObj.deathDateString).date;
         
         // new: use date range for more concise data
         if(jsonEventObj.dates != undefined)
@@ -1039,8 +1045,8 @@ class Timeline {
             }
 
             //get the dates from the array of strings
-            eventDate = new TimelineDate(jsonEventObj.dates[0]).date;
-            eventEndDate = new TimelineDate(jsonEventObj.dates[1]).date;
+            eventDate = new TimelineDate(jsonEventObj.dates[0]);
+            eventEndDate = new TimelineDate(jsonEventObj.dates[1]);
         }
 
 
@@ -1059,7 +1065,7 @@ class Timeline {
     
         var newEventDomElement = document.createElement("div");
         newEventDomElement.setAttribute("class", "eventBubble");
-        newEventDomElement.setAttribute("startDate", eventDate);
+        newEventDomElement.setAttribute("startDate", eventDate.date);
         newEventDomElement.setAttribute("selected", false);
         newEventDomElement.setAttribute("eventIndex", eventIndex);
         newEventDomElement.setAttribute("eventType", eventType);
@@ -1093,6 +1099,7 @@ class Timeline {
             //add to document
             this.tableDom.appendChild(lifelineDomElement);
             setVisibility(lifelineDomElement, false); //hide until mouse over evetn bubble
+
         }
 
         //DEBUG
@@ -1102,9 +1109,23 @@ class Timeline {
         // }
 
         var newEvent = new TimelineEvent(
-            jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
+            jsonEventObj.title, eventDate.date, eventEndDate.date,
             jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
             newEventDomElement, lifelineDomElement, columnWidget, columnIndex);
+
+            
+
+        //TEMPORARY, until perons are all swtiched over to new format
+  /*      if(eventType=="person" && newEvent.personData==undefined)
+        {
+            newEvent.personData = new PersonData( {
+                name: jsonEventObj.title, 
+                birthDateString: jsonEventObj.birthDateString, 
+                deathDateString:jsonEventObj.deathDateString
+            });
+
+            newEvent.isOldStyle=true;
+        }    */
             
         let tlIndex = this.timelineIndex;
         newEventDomElement.addEventListener("click", 
@@ -1508,13 +1529,13 @@ class TimelineEvent {
      */
     personData;
 
+    isOldStyle = false; //TEMP, to flag all the old style persons
+
     /**
      * 
      * @param {string} title 
      * @param {number} bubbleDate 
      * @param {number} endDate 
-     * @param {number} birthDate 
-     * @param {number} deathDate 
      * @param {string} searchstring 
      * @param {string} type 
      * @param {number} minScale this is a lower bound (inclusive) - event should be visible at this scale and above (if less than maxScale)
@@ -1524,7 +1545,7 @@ class TimelineEvent {
      * @param {TimelineColumnWidget} columnWidget 
      * @param {number} preferredColumn 
      */
-    constructor(title, bubbleDate, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
+    constructor(title, bubbleDate, endDate, searchstring, type, minScale, maxScale,
          domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
         this.constructor_common(bubbleDate, searchstring, minScale, maxScale,
@@ -1532,8 +1553,6 @@ class TimelineEvent {
 
         this.title = title;
         this.endDate = Number(endDate);
-        this.birthDate = birthDate; //TODO needs to be deprecated
-        this.deathDate = deathDate; //TODO needs to be deprecated
         this.type = type;
     }
 
@@ -1579,6 +1598,31 @@ class TimelineEvent {
         this.columnWidget=columnWidget;
         this.preferredColumn=preferredColumn;
 
+    }
+
+    get isPerson()
+    {
+        return this.personData != undefined;
+    }
+
+    get birthDate()
+    {
+        if(!this.isPerson)
+        {
+            throw new Error("No person data defined for " + this.title);
+            return undefined;
+        }
+        return this.personData.birthDate;
+    }
+
+    get deathDate()
+    {
+        if(!this.isPerson)
+        {
+            throw new Error("No person data defined for " + this.title);
+            return undefined;
+        }
+        return this.personData.deathDate;
     }
 
     setSelectedStatus(value)
@@ -2439,7 +2483,7 @@ function UpdateInfoPanel()
 
         if(tlEvent.type=="person")
         {
-            if(tlEvent.personData==undefined)
+            if(tlEvent.personData==undefined || tlEvent.isOldStyle)
             {
                 //TODO this should be slowly deprecated - use PersonData instead
                 var lifetimetext = "Lived: " + ( (tlEvent.birthDate==undefined)? "unknown date" : dateString(tlEvent.birthDate) ) 
