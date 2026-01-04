@@ -89,6 +89,12 @@ more flexibility in column placement
 	- Matrix
 	- Asimov (Foundation, Robots)
 
+	Biographical
+	------
+	- Charles Dickens
+	- Tolkien
+	- Darwin
+
 
 --> add events-only categories that can overlay existing timelines
 
