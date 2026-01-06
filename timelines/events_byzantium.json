@@ -195,6 +195,18 @@
             "tags" : ["europe", "byzantium"]
         },
         {
+            "title" : "Ottomans take Adrianople (Edirne)",
+            "dateString" : "1369 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Timur beats Ottomans at Battle of Ankara",
+            "dateString" : "1402 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
             "title" : "Ottoman Conquest of Constantinople",
             "dateString" : "1453 AD",
             "maxScale" : 5000,
@@ -268,9 +280,17 @@
         {		"name" : "Michael VIII Palaiologos", "birthDateString" : "1224", "deathDateString" : "1282", "ruled" : ["1261","1282"], 
                 "bubbleDate" : "1261", "bubbleScale" : [0, 5000]				},        
         {		"name" : "Andronikos II Palaiologos", "birthDateString" : "1259", "deathDateString" : "1332", "ruled" : ["1282","1328"], 
-                "bubbleDate" : "1282", "bubbleScale" : [0, 1000]				}
+                "bubbleDate" : "1282", "bubbleScale" : [0, 1000]				},        
+        {		"name" : "John V Palaiologos", "birthDateString" : "1332", "deathDateString" : "1391", "ruled" : ["1341","1391"], 
+                "bubbleDate" : "1341", "bubbleScale" : [0, 5000]				},        
+        {		"name" : "Manuel II Palaiologos", "birthDateString" : "1350", "deathDateString" : "1425", "ruled" : ["1391","1425"], 
+                "bubbleDate" : "1391", "bubbleScale" : [0, 1000]				},        
+        {		"name" : "John VIII Palaiologos", "birthDateString" : "1392", "deathDateString" : "1448", "ruled" : ["1425","1448"], 
+                "bubbleDate" : "1425", "bubbleScale" : [0, 1000]				}		,        
+        {		"name" : "Constantine XI Palaiologos", "birthDateString" : "1404", "deathDateString" : "1453", "ruled" : ["1449","1453"], 
+                "bubbleDate" : "1449", "bubbleScale" : [0, 5000]				}
 		
-
+		
     ]
 
 }
