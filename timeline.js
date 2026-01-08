@@ -86,6 +86,18 @@ class PersonData
         var bdString    = personDataJSObj.birthDateString;
         var ddString    = personDataJSObj.deathDateString;
 
+
+        // override birthdate / deathdate with "lived[]" data
+        if(personDataJSObj.lived != undefined)
+        {
+            if(personDataJSObj.lived.length != 2)
+            {
+                throw new error("Badly formatted data - need a birth date and death date for " + this.name);
+            }
+            bdString=personDataJSObj.lived[0];
+            ddString=personDataJSObj.lived[1];
+        }
+
         this.birthDate = new TimelineDate(bdString);
 
         if(ddString == undefined)
@@ -1461,7 +1473,7 @@ class Timeline {
 // Handle timeline animation
 var animTargetDate;
 var animProgress;
-var animID;
+var animID=null;
 
 /**
  * @type {Timeline}
@@ -1482,17 +1494,37 @@ function AnimateMove()
 
         animTimeline.SetCurrentYear(animTargetDate);
         animTimeline.oldCurrentYear = animTargetDate;
-        clearInterval(animID);
+        StopCurrentAnimation();
     }
 }
 
+//TODO maybe if this gets called before the last animation has cleared, there will be multiple intervals running
+// need to track and clear all intervals properly
 function ZoomToDate(date, timelineIndex)
 {
     var targetTimeline = getTimeline(timelineIndex);
     animTimeline = targetTimeline;
     animTargetDate = Number(date);
     animProgress = 0.0;
+
+    //cancel any existing animation
+    if(animID!=null)
+    {
+        StopCurrentAnimation();
+    }
+
+    //start new animation
     animID = setInterval(AnimateMove, ANIMATION_INTERVAL);
+}
+
+function StopCurrentAnimation()
+{    
+    if(animID==null)
+    {
+        throw new Error("No animation current; stop animation called incorrectly.")
+    }
+    clearInterval(animID);
+    animID=null;
 }
 
 
@@ -2779,6 +2811,14 @@ function timelineMouseDown(event, timelineIndex)
     var targetTimeline = getTimeline(timelineIndex);
     mouseDownY = event.pageY;
     targetTimeline.oldCurrentYear=targetTimeline.currentYear;
+
+    //cancel any existing animation
+    if(animID!=null)
+    {
+        StopCurrentAnimation();
+    }
+    
+    //begin drag  
     isDragging = true;
 }
 

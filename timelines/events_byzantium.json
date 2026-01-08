@@ -283,11 +283,11 @@
                 "bubbleDate" : "1282", "bubbleScale" : [0, 1000]				},        
         {		"name" : "John V Palaiologos", "birthDateString" : "1332", "deathDateString" : "1391", "ruled" : ["1341","1391"], 
                 "bubbleDate" : "1341", "bubbleScale" : [0, 5000]				},        
-        {		"name" : "Manuel II Palaiologos", "birthDateString" : "1350", "deathDateString" : "1425", "ruled" : ["1391","1425"], 
+        {		"name" : "Manuel II Palaiologos", "lived" : ["1350", "1425"], "ruled" : ["1391","1425"], 
                 "bubbleDate" : "1391", "bubbleScale" : [0, 1000]				},        
-        {		"name" : "John VIII Palaiologos", "birthDateString" : "1392", "deathDateString" : "1448", "ruled" : ["1425","1448"], 
+        {		"name" : "John VIII Palaiologos", "lived" : ["1392", "1448"], "ruled" : ["1425","1448"], 
                 "bubbleDate" : "1425", "bubbleScale" : [0, 1000]				}		,        
-        {		"name" : "Constantine XI Palaiologos", "birthDateString" : "1404", "deathDateString" : "1453", "ruled" : ["1449","1453"], 
+        {		"name" : "Constantine XI Palaiologos", "lived" : ["1404", "1453"], "ruled" : ["1449","1453"], 
                 "bubbleDate" : "1449", "bubbleScale" : [0, 5000]				}
 		
 		

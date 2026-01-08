@@ -491,6 +491,9 @@
 	"personlist": [
 
 		{		"name" : "Spartacus", "birthDateString" : "c. 103 BC", "deathDateString" : "71 BC", "bubbleDate" : "73 BC"	, "bubbleScale" : [0, 5000]		},
-		{		"id": "attila", 		 "bubbleDate" : "450"	, "bubbleScale" : [0, 5000]}
+		{		"id": "attila", 		 "bubbleDate" : "450"	, "bubbleScale" : [0, 5000]},        
+
+        {		"name" : "Valentinian III", "lived" : ["419", "455"], "ruled" : ["435","455"], "bubbleDate" : "435", "bubbleScale" : [0, 1000]	},
+        {		"name" : "Petronius Maximus", "lived" : ["c. 397", "455"], "ruled" : ["455","455"], "bubbleDate" : "455", "bubbleScale" : [0, 1000]	}
 	]
 }
