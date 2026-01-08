@@ -375,10 +375,20 @@ class PersonListSorted {
 
             //TODO only sort if new person is in the wrong order
             //TODO or could just insert at the correct position by iterating
-            this.theList.sort(function(a,b) { return a.birthDate.date - b.birthDate.date; })
+            this.SortListByAge();
         }
 
         return newPerson;
+    }
+
+    SortListByAge()
+    {
+        this.theList.sort(
+            function(a,b) {
+                return -TimelineDate.yearDifference(a.birthDate.date, b.birthDate.date); //invert the answer to flip the list order
+                //return a.birthDate.date - b.birthDate.date; 
+                }
+        );
     }
 
     /**
@@ -2175,24 +2185,24 @@ class TimelineDate
 
     /**
      * 
-     * @param {number} startYear 
-     * @param {number} endYear 
-     * @returns the difference in years between two dates, accounting for bc as negative numbers
+     * @param {number} yearA 
+     * @param {number} yearB 
+     * @returns the difference in years between two dates, accounting for BC dates as negative numbers. Result is negative if yearB is the lower number.
      */
-    static yearDifference(startYear, endYear)
+    static yearDifference(yearA, yearB)
     {        
-        if(endYear < startYear)
+        if(yearB < yearA)
         {
             //reverse the inputs & return a negative value
-            return - this.yearDifference(endYear, startYear);
+            return - this.yearDifference(yearB, yearA);
         }
 
         //need to handle AD/BC weirdness e.g. born in -1, current year 1 ==> 1 year old
-        if(startYear < 0 && endYear > 0)
+        if(yearA < 0 && yearB > 0)
         {
-            return (endYear - startYear) - 1;
+            return (yearB - yearA) - 1;
         }
-        return endYear - startYear;
+        return yearB - yearA;
     }
 
     /**
@@ -2817,7 +2827,7 @@ function timelineMouseDown(event, timelineIndex)
     {
         StopCurrentAnimation();
     }
-    
+
     //begin drag  
     isDragging = true;
 }
