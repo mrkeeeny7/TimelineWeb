@@ -365,11 +365,11 @@ class PersonListSorted {
         }
 
         //now add to this list
-        if(this.theList.length == 0)
-        {
-            this.theList.push(newPerson);
-        }
-        else
+      //  if(this.theList.length == 0)
+      //  {
+      //      this.theList.push(newPerson);
+       // }
+      //  else
         {
             this.theList.push(newPerson);
 
@@ -381,6 +381,40 @@ class PersonListSorted {
         return newPerson;
     }
 
+    //for debug
+    PrintListOrder()
+    {
+        console.log("Current list order: ");
+        var str="";
+        for(let i=0; i<this.theList.length; i++)
+        {
+            let person = this.theList[i];
+            str = str + person.name+ "(born " + person.birthDate.date + "); ";
+        }
+        console.log(str);
+    }
+
+    //throws an error if list is not correctly sorted
+    AssertListOrder()
+    {
+        if(this.theList.length<2)
+        {
+            return;
+        }
+        for(let i=0; i<this.theList.length-1; i++)
+        {
+            let person0 = this.theList[i];
+            let person1 = this.theList[i+1];
+
+            if(person0.birthDate.date > person1.birthDate.date)
+            {
+                throw new error("Person list is not correctly sorted.");
+            }
+        }
+        
+    }
+
+
     SortListByAge()
     {
         this.theList.sort(
@@ -389,6 +423,10 @@ class PersonListSorted {
                 //return a.birthDate.date - b.birthDate.date; 
                 }
         );
+
+        //debug
+        this.PrintListOrder();
+        this.AssertListOrder();
     }
 
     /**
@@ -2191,6 +2229,10 @@ class TimelineDate
      */
     static yearDifference(yearA, yearB)
     {        
+        if(yearA==undefined || yearB == undefined)
+        {
+            throw new error("yearDifference: undefined date argument");
+        }
         if(yearB < yearA)
         {
             //reverse the inputs & return a negative value
