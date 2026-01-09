@@ -370,6 +370,12 @@ class PersonListSorted {
       //      this.theList.push(newPerson);
        // }
       //  else
+        if(newPerson.birthDate.date == undefined)
+        {
+            //skip inserting to the list, as we cannot sort it
+            console.warn("Person data not inserted to list due to missing birth date: " + newPerson.name);
+        }
+        else
         {
             this.theList.push(newPerson);
 
@@ -391,7 +397,7 @@ class PersonListSorted {
             let person = this.theList[i];
             str = str + person.name+ "(born " + person.birthDate.date + "); ";
         }
-        console.log(str);
+        console.debug(str);
     }
 
     //throws an error if list is not correctly sorted
