@@ -216,7 +216,10 @@
 
     ],
     
-    "personlist" : [	
+    "personlist" : [		
+        {		"name" : "Leo I"	, "birthDateString" : "401", "deathDateString" : "474", "ruled" : ["457", "474"],  "bubbleDate" : "457", "bubbleScale" : [0, 200]					},
+		{		"name" : "Zeno"	, "birthDateString" : "425", "deathDateString" : "491", "ruled" : ["474", "475", "476", "491"],  "bubbleDate" : "474", "bubbleScale" : [0, 200]					},	
+		{		"name" : "Anastasius"	, "birthDateString" : "431", "deathDateString" : "518", "ruled" : ["491", "518"],  "bubbleDate" : "491", "bubbleScale" : [0, 200]					},
     
 		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 5000]},
         {		"name" : "Maurice", "birthDateString" : "539", "deathDateString" : "602", "ruled" : ["582","602"], "bubbleDate" : "582"		, "bubbleScale" : [0, 1000]		},

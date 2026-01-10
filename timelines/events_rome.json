@@ -438,60 +438,13 @@
 		"dateString" : "60 AD",
 		"maxScale" : 200,
 		"tags" : ["britain"]
-	},
-
-	{
-		"title" : "Diocletian",
-		"dateString" : "284 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-
-	{
-		"title" : "Constantine the Great",
-		"dateString" : "311 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-		
-
-	{
-		"title" : "Julian the Apostate",
-		"dateString" : "360 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	
-
-	{
-		"title" : "Valentinian I / Valens",
-		"dateString" : "364 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-
-
-	{
-		"title" : "Theodosius I",
-		"dateString" : "379 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-
-
-	{
-		"title" : "Honorius",
-		"dateString" : "393 AD",
-		"maxScale" : 500,
-		"type" : "person"
 	}
-
 ],
 
 	"personlist": [
 
 		{		"name" : "Spartacus", "birthDateString" : "c. 103 BC", "deathDateString" : "71 BC", "bubbleDate" : "73 BC"	, "bubbleScale" : [0, 5000]		},
-		{		"id": "attila", 		 "bubbleDate" : "450"	, "bubbleScale" : [0, 5000]},        
+		{		"id": "attila", 		 "bubbleDate" : "434"	, "bubbleScale" : [0, 5000]},        
 
 		{		"name" : "Hannibal", "birthDateString" : "247 BC", "deathDateString" : "182 BC" 			},
 		{		"name" : "Marius", "birthDateString" : "157 BC", "deathDateString" : "86 BC", "ruled" : ["107 BC", "107 BC", "104 BC", "100 BC", "86 BC", "86 BC"]			},
@@ -548,7 +501,7 @@
 		{		"name" : "Aurelian", "birthDateString" : "214", "deathDateString" : "275" 	, "ruled" : ["270", "275"]		},
 		{		"name" : "Probus", "birthDateString" : "230", "deathDateString" : "282" 	, "ruled" : ["276", "282"]		},
 		{		"name" : "Carus", "birthDateString" : "222", "deathDateString" : "283" 		, "ruled" : ["282", "283"]	},
-		
+
 		{		"name" : "Agrippina the Younger", "birthDateString" : "15 AD", "deathDateString" : "59 AD" 		},
 		{		"name" : "Boudicca", "birthDateString" : "c. 30 AD", "deathDateString" : "61 AD" 		},
 		{		"name" : "Julia Domna", "birthDateString" : "160", "deathDateString" : "217" },
@@ -556,7 +509,7 @@
 
 		{		"name" : "Zenobia", "birthDateString" : "240", "deathDateString" : "274" 	, "ruled" : ["267", "272"]		},
 
-		{		"name" : "Diocletian", "birthDateString" : "242", "deathDateString" : "311" 		, "ruled" : ["284", "305"]		},
+		{		"name" : "Diocletian", "birthDateString" : "242", "deathDateString" : "311" 		, "ruled" : ["284", "305"], "bubbleDate" : "284", "bubbleScale" : [0, 1000]		},
 		{		"name" : "Maximian", "birthDateString" : "250", "deathDateString" : "310" 		, "ruled" : ["285", "305"]		},
 		{		"name" : "Constantius I", "birthDateString" : "250", "deathDateString" : "306" 		, "ruled" : ["293", "306"]		},
 		{		"name" : "Galerius", "birthDateString" : "258", "deathDateString" : "311" 		, "ruled" : ["293", "311"]		},
@@ -566,22 +519,23 @@
 		{		"name" : "Constantine II", "birthDateString" : "316", "deathDateString" : "340", "ruled" : ["337", "340"]			},
 		{		"name" : "Constans", "birthDateString" : "323", "deathDateString" : "350", "ruled" : ["337", "350"]			},
 		{		"name" : "Constantius II", "birthDateString" : "317", "deathDateString" : "361", "ruled" : ["337", "361"]			},
-		{		"name" : "Julian the Apostate", "birthDateString" : "331", "deathDateString" : "363" , "ruled" : ["355", "363"]			},
+		{		"name" : "Julian the Apostate", "birthDateString" : "331", "deathDateString" : "363" , "ruled" : ["361", "363"], "bubbleDate" : "361", "bubbleScale" : [0, 500]			},
 		{		"name" : "Jovian", "birthDateString" : "331", "deathDateString" : "364" , "ruled" : ["363", "364"]			},
-		{		"name" : "Valentinian I", "birthDateString" : "321", "deathDateString" : "375"	, "ruled" : ["364", "375"]				},
+		{		"name" : "Valentinian I", "birthDateString" : "321", "deathDateString" : "375"	, "ruled" : ["364", "375"], "bubbleDate" : "364", "bubbleScale" : [0, 500]				},
 		{		"name" : "Valens", "birthDateString" : "328", "deathDateString" : "378"	, "ruled" : ["364", "378"]						},
-		{		"name" : "Valentinian II"	, "birthDateString" : "371", "deathDateString" : "392"	, "ruled" : ["375", "398"]				},
+		{		"name" : "Valentinian II"	, "birthDateString" : "371", "deathDateString" : "392"	, "ruled" : ["375", "398"], "bubbleDate" : "375", "bubbleScale" : [0, 500]				},
 		{		"name" : "Magnus Maximus"	, "birthDateString" : "335", "deathDateString" : "388"	, "ruled" : ["383", "388"]				},
-		{		"name" : "Theodosius I"	, "birthDateString" : "347", "deathDateString" : "395"	, "ruled" : ["379", "395"]				},
+		{		"name" : "Theodosius I"	, "birthDateString" : "347", "deathDateString" : "395"	, "ruled" : ["379", "395"], "bubbleDate" : "379", "bubbleScale" : [0, 500]				},
 
-		{		"name" : "Honorius"	, "birthDateString" : "384", "deathDateString" : "423"	, "ruled" : ["393", "423"]					},			
+		{		"name" : "Honorius"	, "birthDateString" : "384", "deathDateString" : "423"	, "ruled" : ["395", "423"], "bubbleDate" : "393", "bubbleScale" : [0, 500]						},			
 		{		"name" : "Stilicho", "birthDateString" : "359", "deathDateString" : "408" 		},
 		{		"name" : "Galla Placidia", "birthDateString" : "392", "deathDateString" : "450" 		},
+        {		"name" : "Valentinian III", "lived" : ["419", "455"], "ruled" : ["435","455"], "bubbleDate" : "435", "bubbleScale" : [0, 200]	},
 		{		"name" : "Alaric the Goth", "birthDateString" : "370", "deathDateString" : "411" 		},
 		{		"name" : "Athaulf the Goth", "birthDateString" : "370", "deathDateString" : "415" 		},
 		{		"name" : "Gaiseric", "birthDateString" : "389", "deathDateString" : "477" 		},
 		{		"name" : "Flavius Aetius"	, "birthDateString" : "390", "deathDateString" : "454"					},
-		{		"name" : "Petronius Maximus"	, "birthDateString" : "397", "deathDateString" : "455"					},
+        {		"name" : "Petronius Maximus", "lived" : ["c. 397", "455"], "ruled" : ["455","455"], "bubbleDate" : "455", "bubbleScale" : [0, 200]	},
 		{		"name" : "Majorian"	, "birthDateString" : "420", "deathDateString" : "461"					},
 		{		"name" : "Ricimer"	, "birthDateString" : "418", "deathDateString" : "472"					},
 		{		"name" : "Romulus Augustulus"	, "birthDateString" : "465", "deathDateString" : "511"					},
@@ -592,15 +546,10 @@
 		{		"name" : "Theodoric the Great (Ostrogoth)", "birthDateString" : "454", "deathDateString" : "526" 		},
 
 		
-		{		"name" : "Arcadius"	, "birthDateString" : "377", "deathDateString" : "408"		, "ruled" : ["383", "408"]				},	
-		{		"name" : "Theodosius II"	, "birthDateString" : "401", "deathDateString" : "450"					},	
+		{		"name" : "Arcadius"	, "birthDateString" : "377", "deathDateString" : "408"		, "ruled" : ["395", "408"], "bubbleDate" : "377", "bubbleScale" : [0, 200]				},	
+		{		"name" : "Theodosius II"	, "birthDateString" : "401", "deathDateString" : "450", "ruled" : ["408", "450"],  "bubbleDate" : "408", "bubbleScale" : [0, 200]					},	
 		{		"name" : "Aelia Pulcheria"	, "birthDateString" : "398", "deathDateString" : "453"				},	
-		{		"name" : "Marcian"	, "birthDateString" : "392", "deathDateString" : "457"					},	
-		{		"name" : "Leo I"	, "birthDateString" : "401", "deathDateString" : "474"					},	
-		{		"name" : "Zeno"	, "birthDateString" : "425", "deathDateString" : "491"					},	
-		{		"name" : "Anastasius"	, "birthDateString" : "431", "deathDateString" : "518"					},
-
-        {		"name" : "Valentinian III", "lived" : ["419", "455"], "ruled" : ["435","455"], "bubbleDate" : "435", "bubbleScale" : [0, 1000]	},
-        {		"name" : "Petronius Maximus", "lived" : ["c. 397", "455"], "ruled" : ["455","455"], "bubbleDate" : "455", "bubbleScale" : [0, 1000]	}
+		{		"name" : "Marcian"	, "birthDateString" : "392", "deathDateString" : "457"	, "ruled" : ["450", "457"],  "bubbleDate" : "450", "bubbleScale" : [0, 200]				}
+		
 	]
 }

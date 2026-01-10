@@ -510,7 +510,7 @@
 		{		"id" : "cleopatra" , "bubbleDate" : "51 BC"	, "bubbleScale" : [0, 5000]	},
 
 		
-		{		"id": "attila", 		 "bubbleDate" : "450"	, "bubbleScale" : [0, 5000]},
+		{		"id": "attila", 		 "bubbleDate" : "434"	, "bubbleScale" : [0, 5000]},
 		{		"id": "taizong", 		 "bubbleDate" : "626"	, "bubbleScale" : [0, 5000]},
 		{		"id": "harun_al-rashid", 		 "bubbleDate" : "786"	, "bubbleScale" : [0, 5000]},
 		{		"id": "charlemagne", 		 "bubbleDate" : "768"	, "bubbleScale" : [0, 5000]},
