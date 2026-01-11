@@ -997,6 +997,7 @@ class Timeline {
             var jsonEventObj = jsonObj.eventlist[i];        
             this.CreateBubble(
                 jsonEventObj, 
+                undefined,
                 jsonObj.category, //TODO consider just passing in the jsonObj
                 newColumnWidget, 
                 jsonObj.colorString, 
@@ -1042,6 +1043,7 @@ class Timeline {
                     //TODO revamp CreateBubble to clean this up - just pass in a reference to the PersonData
 
                     let newEvent = this.CreateBubble(newEventData, //make sure this has all the needed data 
+                        newPersonData,
                         jsonObj.category, //TODO consider just passing in the jsonObj
                         newColumnWidget, 
                         jsonObj.colorString, 
@@ -1073,6 +1075,7 @@ class Timeline {
     /**
      * 
      * @param {Object} jsonEventObj 
+     * @param {PersonData} personData 
      * @param {string} category 
      * @param {TimelineColumnWidget} columnWidget 
      * @param {string} colorString 
@@ -1081,7 +1084,7 @@ class Timeline {
      * @param {number} columnIndex 
      * @returns {TimelineEvent} the created event
      */
-    CreateBubble(jsonEventObj, category, columnWidget, colorString, colorBString, eventIndex, columnIndex)
+    CreateBubble(jsonEventObj, personData, category, columnWidget, colorString, colorBString, eventIndex, columnIndex)
     {
         var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
     
@@ -1130,6 +1133,8 @@ class Timeline {
         newEventDomElement.setAttribute("eventIndex", eventIndex);
         newEventDomElement.setAttribute("eventType", eventType);
         newEventDomElement.setAttribute("category", category);
+
+        newEventDomElement.setAttribute("oldStyle", (eventType=="person" && personData==undefined) );
 
         if(eventType=="horizline")
         {

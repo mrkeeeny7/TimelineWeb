@@ -626,6 +626,11 @@ select{
 
     display: none;
 }
+.eventBubble[eventType='person'][oldStyle='true'] {
+    
+    background-color: rgba(65, 245, 113, 0.829);
+}
+
 .eventBubble[eventType='person'] {
    /* margin-left: 200px;*/
     margin-top: -11px; /* = half total height, accounting for padding+height+border = (2+2)+20+(0) = 22 */
