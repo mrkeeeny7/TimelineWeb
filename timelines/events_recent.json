@@ -44,7 +44,7 @@
 			"title" : "Classical Antiquity",
 			"dateString" : "550 BC",
 			"endDateString" : "476",
-			"minScale" : 500,
+			"minScale" : 1000,
 			"maxScale" : 50000,
 			"type" : "era"
 		},
@@ -195,7 +195,7 @@
 			"dateString" : "284",
 			"endDateString" : "476",
 			"minScale" : 1,
-			"maxScale" : 500,
+			"maxScale" : 1000,
 			"type" : "era"
 		},
 		{
@@ -203,7 +203,7 @@
 			"dateString" : "30 BC",
 			"endDateString" : "284",
 			"minScale" : 1,
-			"maxScale" : 500,
+			"maxScale" : 1000,
 			"type" : "era"
 		},
 		{
@@ -211,7 +211,7 @@
 			"dateString" : "323 BC",
 			"endDateString" : "30 BC",
 			"minScale" : 1,
-			"maxScale" : 500,
+			"maxScale" : 1000,
 			"type" : "era"
 		},
 		{
@@ -219,7 +219,7 @@
 			"dateString" : "510 BC",
 			"endDateString" : "323 BC",
 			"minScale" : 1,
-			"maxScale" : 500,
+			"maxScale" : 1000,
 			"type" : "era"
 		},
 
