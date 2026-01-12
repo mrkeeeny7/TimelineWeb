@@ -152,65 +152,6 @@
 		"maxScale" : 500,
 		"type" : "person"
 	},
-	{
-		"title" : "Julius Caesar",
-		"dateString" : "49 BC",
-		"birthDateString" : "100 BC",
-		"deathDateString" : "44 BC",
-		"maxScale" : 50000,
-		"type" : "person",
-		"tags" : ["egypt"]
-	},
-	{
-		"title" : "Augustus",
-		"dateString" : "27 BC",
-		"birthDateString" : "63 BC",
-		"deathDateString" : "14 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Tiberius",
-		"dateString" : "14 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Caligula",
-		"dateString" : "37 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Claudius",
-		"dateString" : "41 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Nero",
-		"dateString" : "54 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Vespasian",
-		"dateString" : "69 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Titus",
-		"dateString" : "79 AD",
-		"maxScale" : 50,
-		"type" : "person"
-	},
-	{
-		"title" : "Domitian",
-		"dateString" : "81 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
 
 	{
 		"title" : "Crisis of the Third Century",
@@ -382,20 +323,20 @@
 		{		"name" : "Cicero", "birthDateString" : "106 BC", "deathDateString" : "43 BC"		, "ruled" : ["88 BC", "88 BC", "82 BC", "80 BC"]			},
 		{		"name" : "Marcus Crassus", "birthDateString" : "115 BC BC", "deathDateString" : "53 BC"		, "ruled" : ["70 BC", "70 BC", "55 BC", "55 BC"]			},
 		{		"name" : "Pompey", "birthDateString" : "106 BC", "deathDateString" : "48 BC"		, "ruled" : ["70 BC", "70 BC", "55 BC", "55 BC", "52 BC", "55 BC"]			},
-		{		"name" : "Julius Caesar", "birthDateString" : "100 BC", "deathDateString" : "44 BC"	, "ruled" : ["59 BC", "59 BC", "49 BC", "44 BC"]			},
-		{		"name" : "Mark Antony", "birthDateString" : "83 BC", "deathDateString" : "30 BC"	, "ruled" : ["43 BC", "30 BC"]			},
-		{		"name" : "Augustus", "birthDateString" : "63 BC", "deathDateString" : "14 AD"		, "ruled" : ["43 BC", "14"]			},
+		{		"name" : "Julius Caesar", "birthDateString" : "100 BC", "deathDateString" : "44 BC"	, "ruled" : ["59 BC", "58 BC", "49 BC", "44 BC"], "bubbleDate" : "59 BC", "bubbleScale" : [0, 10000]			},
+		{		"name" : "Mark Antony", "birthDateString" : "83 BC", "deathDateString" : "30 BC"	, "ruled" : ["43 BC", "30 BC"], "bubbleDate" : "43 BC", "bubbleScale" : [0, 500]			},
+		{		"name" : "Augustus", "birthDateString" : "63 BC", "deathDateString" : "14 AD"		, "ruled" : ["43 BC", "14"], "bubbleDate" : "27 BC", "bubbleScale" : [0, 500]			},
 
-		{		"name" : "Tiberius", "birthDateString" : "42 BC", "deathDateString" : "37 AD"  , "ruled" : ["14", "37"]	},
-		{		"name" : "Caligula" , "birthDateString" : "12", "deathDateString" : "41" , "ruled" : ["37", "41"]	},
-		{		"name" : "Claudius", "birthDateString" : "10 BC", "deathDateString" : "54 AD" , "ruled" : ["41", "54"]	 },
-		{		"name" : "Nero", "birthDateString" : "37", "deathDateString" : "68", "ruled" : ["54", "68"]	  },
+		{		"name" : "Tiberius", "birthDateString" : "42 BC", "deathDateString" : "37 AD"  , "ruled" : ["14", "37"], "bubbleDate" : "14", "bubbleScale" : [0, 500]	},
+		{		"name" : "Caligula" , "birthDateString" : "12", "deathDateString" : "41" , "ruled" : ["37", "41"], "bubbleDate" : "37", "bubbleScale" : [0, 500]	},
+		{		"name" : "Claudius", "birthDateString" : "10 BC", "deathDateString" : "54 AD" , "ruled" : ["41", "54"], "bubbleDate" : "41", "bubbleScale" : [0, 500]	 },
+		{		"name" : "Nero", "birthDateString" : "37", "deathDateString" : "68", "ruled" : ["54", "68"]	, "bubbleDate" : "54", "bubbleScale" : [0, 500]  },
 		{		"name" : "Galba", "birthDateString" : "3 BC", "deathDateString" : "69"  , "ruled" : ["68", "69"]	},
 		{		"name" : "Otho", "birthDateString" : "32", "deathDateString" : "69" , "ruled" : ["69", "69"] },
 		{		"name" : "Vitellius", "birthDateString" : "15", "deathDateString" : "69" , "ruled" : ["69", "69"] },
-		{		"name" : "Vespasian", "birthDateString" : "9", "deathDateString" : "79" , "ruled" : ["69", "79"] },
-		{		"name" : "Titus", "birthDateString" : "39", "deathDateString" : "81"  , "ruled" : ["79", "81"]},
-		{		"name" : "Domitian", "birthDateString" : "51", "deathDateString" : "96" , "ruled" : ["81", "96"] },
+		{		"name" : "Vespasian", "birthDateString" : "9", "deathDateString" : "79" , "ruled" : ["69", "79"], "bubbleDate" : "69", "bubbleScale" : [0, 500] },
+		{		"name" : "Titus", "birthDateString" : "39", "deathDateString" : "81"  , "ruled" : ["79", "81"], "bubbleDate" : "79", "bubbleScale" : [0, 100]},
+		{		"name" : "Domitian", "birthDateString" : "51", "deathDateString" : "96" , "ruled" : ["81", "96"], "bubbleDate" : "81", "bubbleScale" : [0, 500] },
 		{		"name" : "Nerva", "birthDateString" : "30", "deathDateString" : "98", "ruled" : ["96", "98"], "bubbleDate" : "96", "bubbleScale" : [0, 500]  },
 		{		"id": "trajan", 		 "bubbleDate" : "98"	, "bubbleScale" : [0, 5000]},
 		{		"name" : "Hadrian", "birthDateString" : "76", "deathDateString" : "138" , "ruled" : ["117", "138"], "bubbleDate" : "117", "bubbleScale" : [0, 500] },

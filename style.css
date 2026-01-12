@@ -642,11 +642,11 @@ select{
     transform: translate(-100%,0px);
 
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     
     width: max-content;
     height: 20px;
-    background-color: rgba(142, 172, 42, 0.829);
+    background-color: rgba(236, 58, 112, 0.829);
     color: var(--lightTextColor);
     opacity: 0.8;
 
@@ -664,9 +664,13 @@ select{
 
 .eventBubble:hover {
     background-color: var(--bubbleHighlightColor);
-    z-index: 3;
+    z-index: 3; 
     
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.eventBubble[eventType='person']:hover {
+    z-index: 4; 
 }
 .eventBubble[eventType='era']:hover {
     background-color: var(--bubbleHighlightColor);
