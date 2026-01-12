@@ -175,8 +175,18 @@
 		"maxScale" : 5000
 	},
 	{
+		"title" : "Battle of Zama",
+		"dateString" : "202 BC",
+		"maxScale" : 200
+	},
+	{
 		"title" : "Foundation of Aquileia",
 		"dateString" : "181 BC",
+		"maxScale" : 500
+	},
+	{
+		"title" : "Third Punic War",
+		"dateString" : "149 BC",
 		"maxScale" : 500
 	},
 	{
@@ -293,7 +303,9 @@
 		{		"name" : "Spartacus", "birthDateString" : "c. 103 BC", "deathDateString" : "71 BC", "bubbleDate" : "73 BC"	, "bubbleScale" : [0, 1000]		},
 		{		"id": "attila", 		 "bubbleDate" : "434"	, "bubbleScale" : [0, 1000]},        
 
+		{		"name" : "Scipio Africanus", "birthDateString" : "236 BC", "deathDateString" : "183 BC", "ruled" : ["205 BC", "204 BC"], "bubbleDate" : "205 BC", "bubbleScale" : [0, 1000] 			},
 		{		"name" : "Hannibal", "birthDateString" : "247 BC", "deathDateString" : "182 BC", "bubbleDate" : "218 BC", "bubbleScale" : [0, 1000] 			},
+		{		"name" : "Cato the Elder", "birthDateString" : "234 BC", "deathDateString" : "149 BC", "ruled" : ["195 BC", "194 BC"], "bubbleDate" : "195 BC", "bubbleScale" : [0, 1000] 			},
 		{		"name" : "Marius", "birthDateString" : "157 BC", "deathDateString" : "86 BC", "ruled" : ["107 BC", "107 BC", "104 BC", "100 BC", "86 BC", "86 BC"], "bubbleDate" : "107 BC", "bubbleScale" : [0, 1000]			},
 		{		"name" : "Sulla", "birthDateString" : "138 BC", "deathDateString" : "78 BC"	, "ruled" : ["88 BC", "87 BC", "82 BC", "80 BC"], "bubbleDate" : "88 BC", "bubbleScale" : [0, 500]				},
 		{		"name" : "Cicero", "birthDateString" : "106 BC", "deathDateString" : "43 BC",  "ruled" : ["63 BC", "62 BC"]	, "bubbleDate" : "63 BC", "bubbleScale" : [0, 500]		},
