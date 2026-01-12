@@ -628,7 +628,7 @@ select{
 }
 .eventBubble[eventType='person'][oldStyle='true'] {
     
-    background-color: rgba(65, 245, 113, 0.829);
+    background-color: rgba(245, 197, 65, 0.829);
 }
 
 .eventBubble[eventType='person'] {
@@ -646,7 +646,7 @@ select{
     
     width: max-content;
     height: 20px;
-    background-color: rgba(245, 197, 65, 0.829);
+    background-color: rgba(142, 172, 42, 0.829);
     color: var(--lightTextColor);
     opacity: 0.8;
 

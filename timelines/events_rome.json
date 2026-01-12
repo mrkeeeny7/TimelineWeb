@@ -211,76 +211,6 @@
 		"maxScale" : 500,
 		"type" : "person"
 	},
-	{
-		"title" : "Nerva",
-		"dateString" : "96 AD",
-		"maxScale" : 50,
-		"type" : "person"
-	},
-	{
-		"title" : "Trajan",
-		"dateString" : "98 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Hadrian",
-		"dateString" : "117 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Antoninus Pius",
-		"dateString" : "138 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Marcus Aurelius",
-		"dateString" : "161 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Commodus",
-		"dateString" : "180 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-	{
-		"title" : "Septimius Severus",
-		"dateString" : "193 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-
-	{
-		"title" : "Caracalla",
-		"dateString" : "211 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
-
-	{
-		"title" : "Macrinus",
-		"dateString" : "217 AD",
-		"maxScale" : 50,
-		"type" : "person"
-	},
-
-	{
-		"title" : "Elagabalus",
-		"dateString" : "218 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},		
-
-	{
-		"title" : "Severus Alexander",
-		"dateString" : "222 AD",
-		"maxScale" : 500,
-		"type" : "person"
-	},
 
 	{
 		"title" : "Crisis of the Third Century",
@@ -466,23 +396,23 @@
 		{		"name" : "Vespasian", "birthDateString" : "9", "deathDateString" : "79" , "ruled" : ["69", "79"] },
 		{		"name" : "Titus", "birthDateString" : "39", "deathDateString" : "81"  , "ruled" : ["79", "81"]},
 		{		"name" : "Domitian", "birthDateString" : "51", "deathDateString" : "96" , "ruled" : ["81", "96"] },
-		{		"name" : "Nerva", "birthDateString" : "30", "deathDateString" : "98", "ruled" : ["96", "98"]  },
-		{		"name" : "Hadrian", "birthDateString" : "76", "deathDateString" : "138" , "ruled" : ["117", "138"] },
+		{		"name" : "Nerva", "birthDateString" : "30", "deathDateString" : "98", "ruled" : ["96", "98"], "bubbleDate" : "96", "bubbleScale" : [0, 500]  },
 		{		"id": "trajan", 		 "bubbleDate" : "98"	, "bubbleScale" : [0, 5000]},
-		{		"name" : "Antoninus Pius", "birthDateString" : "86", "deathDateString" : "161" , "ruled" : ["138", "161"]},
+		{		"name" : "Hadrian", "birthDateString" : "76", "deathDateString" : "138" , "ruled" : ["117", "138"], "bubbleDate" : "117", "bubbleScale" : [0, 500] },
+		{		"name" : "Antoninus Pius", "birthDateString" : "86", "deathDateString" : "161" , "ruled" : ["138", "161"], "bubbleDate" : "138", "bubbleScale" : [0, 500]},
 		{		"name" : "Lucius Verus", "birthDateString" : "130", "deathDateString" : "169" , "ruled" : ["161", "169"]},
-		{		"name" : "Marcus Aurelius", "birthDateString" : "121", "deathDateString" : "180" , "ruled" : ["161", "180"]},
-		{		"name" : "Commodus", "birthDateString" : "161", "deathDateString" : "192", "ruled" : ["177", "192"] },
+		{		"name" : "Marcus Aurelius", "birthDateString" : "121", "deathDateString" : "180" , "ruled" : ["161", "180"], "bubbleDate" : "161", "bubbleScale" : [0, 500]},
+		{		"name" : "Commodus", "birthDateString" : "161", "deathDateString" : "192", "ruled" : ["177", "192"], "bubbleDate" : "180", "bubbleScale" : [0, 500] },
 		{		"name" : "Pertinax", "birthDateString" : "126", "deathDateString" : "193" , "ruled" : ["193", "193"]},
 		{		"name" : "Didius Julianus", "birthDateString" : "133", "deathDateString" : "193", "ruled" : ["193", "193"] },
 		{		"name" : "Pescennius Niger", "birthDateString" : "135", "deathDateString" : "194" , "ruled" : ["193", "194"]},
 		{		"name" : "Clodius Albinus", "birthDateString" : "150", "deathDateString" : "197", "ruled" : ["193", "197"] },
-		{		"name" : "Septimius Severus", "birthDateString" : "145", "deathDateString" : "211", "ruled" : ["193", "211"] },
-		{		"name" : "Caracalla", "birthDateString" : "188", "deathDateString" : "217" , "ruled" : ["198", "217"]},
-		{		"name" : "Geta", "birthDateString" : "189", "deathDateString" : "211" , "ruled" : ["209", "211"]},
-		{		"name" : "Macrinus", "birthDateString" : "165", "deathDateString" : "218", "ruled" : ["217", "218"] },
-		{		"name" : "Elagabalus", "birthDateString" : "204", "deathDateString" : "222" 	, "ruled" : ["218", "222"]	},		
-		{		"name" : "Severus Alexander", "birthDateString" : "208", "deathDateString" : "235" , "ruled" : ["222", "235"]		},
+		{		"name" : "Septimius Severus", "birthDateString" : "145", "deathDateString" : "211", "ruled" : ["193", "211"], "bubbleDate" : "193", "bubbleScale" : [0, 5000] },
+		{		"name" : "Caracalla", "birthDateString" : "188", "deathDateString" : "217" , "ruled" : ["198", "217"], "bubbleDate" : "211", "bubbleScale" : [0, 500]},
+		{		"name" : "Geta", "birthDateString" : "189", "deathDateString" : "211" , "ruled" : ["209", "211"] },
+		{		"name" : "Macrinus", "birthDateString" : "165", "deathDateString" : "218", "ruled" : ["217", "218"], "bubbleDate" : "217", "bubbleScale" : [0, 50] },
+		{		"name" : "Elagabalus", "birthDateString" : "204", "deathDateString" : "222" 	, "ruled" : ["218", "222"], "bubbleDate" : "218", "bubbleScale" : [0, 500]	},		
+		{		"name" : "Severus Alexander", "birthDateString" : "208", "deathDateString" : "235" , "ruled" : ["222", "235"], "bubbleDate" : "222", "bubbleScale" : [0, 500]		},
 
 		{		"name" : "Maximinus Thrax", "birthDateString" : "173", "deathDateString" : "238" , "ruled" : ["235", "238"], "bubbleDate" : "235", "bubbleScale" : [0, 200]		},
 		{		"name" : "Pupienus", "birthDateString" : "164", "deathDateString" : "238" 	, "ruled" : ["238", "238"]		},

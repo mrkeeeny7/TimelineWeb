@@ -1096,6 +1096,8 @@ class Timeline {
         {
             eventEndDate = eventDate;
         }
+        
+        //TODO Get birth/death dates from personData if available (clean up)
         eventBirthDate = new TimelineDate(jsonEventObj.birthDateString).date; //sets birth and death to undefined if not known
         eventDeathDate = new TimelineDate(jsonEventObj.deathDateString).date;
         
