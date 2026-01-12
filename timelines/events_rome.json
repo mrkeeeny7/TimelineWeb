@@ -290,11 +290,11 @@
 
 	"personlist": [
 
-		{		"name" : "Spartacus", "birthDateString" : "c. 103 BC", "deathDateString" : "71 BC", "bubbleDate" : "73 BC"	, "bubbleScale" : [0, 5000]		},
-		{		"id": "attila", 		 "bubbleDate" : "434"	, "bubbleScale" : [0, 5000]},        
+		{		"name" : "Spartacus", "birthDateString" : "c. 103 BC", "deathDateString" : "71 BC", "bubbleDate" : "73 BC"	, "bubbleScale" : [0, 1000]		},
+		{		"id": "attila", 		 "bubbleDate" : "434"	, "bubbleScale" : [0, 1000]},        
 
-		{		"name" : "Hannibal", "birthDateString" : "247 BC", "deathDateString" : "182 BC", "bubbleDate" : "218 BC", "bubbleScale" : [0, 5000] 			},
-		{		"name" : "Marius", "birthDateString" : "157 BC", "deathDateString" : "86 BC", "ruled" : ["107 BC", "107 BC", "104 BC", "100 BC", "86 BC", "86 BC"], "bubbleDate" : "107 BC", "bubbleScale" : [0, 5000]			},
+		{		"name" : "Hannibal", "birthDateString" : "247 BC", "deathDateString" : "182 BC", "bubbleDate" : "218 BC", "bubbleScale" : [0, 1000] 			},
+		{		"name" : "Marius", "birthDateString" : "157 BC", "deathDateString" : "86 BC", "ruled" : ["107 BC", "107 BC", "104 BC", "100 BC", "86 BC", "86 BC"], "bubbleDate" : "107 BC", "bubbleScale" : [0, 1000]			},
 		{		"name" : "Sulla", "birthDateString" : "138 BC", "deathDateString" : "78 BC"	, "ruled" : ["88 BC", "87 BC", "82 BC", "80 BC"], "bubbleDate" : "88 BC", "bubbleScale" : [0, 500]				},
 		{		"name" : "Cicero", "birthDateString" : "106 BC", "deathDateString" : "43 BC",  "ruled" : ["63 BC", "62 BC"]	, "bubbleDate" : "63 BC", "bubbleScale" : [0, 500]		},
 		{		"name" : "Marcus Crassus", "birthDateString" : "115 BC BC", "deathDateString" : "53 BC"		, "ruled" : ["70 BC", "70 BC", "55 BC", "55 BC"]			},
@@ -314,7 +314,7 @@
 		{		"name" : "Titus", "birthDateString" : "39", "deathDateString" : "81"  , "ruled" : ["79", "81"], "bubbleDate" : "79", "bubbleScale" : [0, 100]},
 		{		"name" : "Domitian", "birthDateString" : "51", "deathDateString" : "96" , "ruled" : ["81", "96"], "bubbleDate" : "81", "bubbleScale" : [0, 500] },
 		{		"name" : "Nerva", "birthDateString" : "30", "deathDateString" : "98", "ruled" : ["96", "98"], "bubbleDate" : "96", "bubbleScale" : [0, 500]  },
-		{		"id": "trajan", 		 "bubbleDate" : "98"	, "bubbleScale" : [0, 5000]},
+		{		"id": "trajan", 		 "bubbleDate" : "98"	, "bubbleScale" : [0, 1000]},
 		{		"name" : "Hadrian", "birthDateString" : "76", "deathDateString" : "138" , "ruled" : ["117", "138"], "bubbleDate" : "117", "bubbleScale" : [0, 500] },
 		{		"name" : "Antoninus Pius", "birthDateString" : "86", "deathDateString" : "161" , "ruled" : ["138", "161"], "bubbleDate" : "138", "bubbleScale" : [0, 500]},
 		{		"name" : "Lucius Verus", "birthDateString" : "130", "deathDateString" : "169" , "ruled" : ["161", "169"]},
@@ -324,7 +324,7 @@
 		{		"name" : "Didius Julianus", "birthDateString" : "133", "deathDateString" : "193", "ruled" : ["193", "193"] },
 		{		"name" : "Pescennius Niger", "birthDateString" : "135", "deathDateString" : "194" , "ruled" : ["193", "194"]},
 		{		"name" : "Clodius Albinus", "birthDateString" : "150", "deathDateString" : "197", "ruled" : ["193", "197"] },
-		{		"name" : "Septimius Severus", "birthDateString" : "145", "deathDateString" : "211", "ruled" : ["193", "211"], "bubbleDate" : "193", "bubbleScale" : [0, 5000] },
+		{		"name" : "Septimius Severus", "birthDateString" : "145", "deathDateString" : "211", "ruled" : ["193", "211"], "bubbleDate" : "193", "bubbleScale" : [0, 1000] },
 		{		"name" : "Caracalla", "birthDateString" : "188", "deathDateString" : "217" , "ruled" : ["198", "217"], "bubbleDate" : "211", "bubbleScale" : [0, 500]},
 		{		"name" : "Geta", "birthDateString" : "189", "deathDateString" : "211" , "ruled" : ["209", "211"] },
 		{		"name" : "Macrinus", "birthDateString" : "165", "deathDateString" : "218", "ruled" : ["217", "218"], "bubbleDate" : "217", "bubbleScale" : [0, 50] },
