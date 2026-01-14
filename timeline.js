@@ -264,7 +264,7 @@ class PersonData
                     end = TimelineDate.PresentDay(); //TODO, should really just put PRESENTDAY in the data
                 }
 
-                let ruledstr = dateString(start) + " to " + dateString(end) 
+                let ruledstr = TimelineDate.dateString(start) + " to " + TimelineDate.dateString(end) 
                     + " (" + Number(end-start) + " years).";
 
                 ruledPara.appendChild(TimelineHelper.BoldBlock(lineBegin));
@@ -442,7 +442,7 @@ class PersonListSorted {
      */
     PersonsAliveList(date)
     {
-        var yearInt = dateRound(date); //date rounded to whole-year
+        var yearInt = TimelineDate.dateRound(date); //date rounded to whole-year
         var alivelist = new Array();
         for(let i = 0; i<this.theList.length; i++)
         {
@@ -464,7 +464,7 @@ class PersonListSorted {
     PersonsAliveStringHTML(date)
     {
         var alivelist = this.PersonsAliveList(date);
-        var yearstr = dateString(date);
+        var yearstr = TimelineDate.dateString(date);
 
         var outstr = "<h3>Notable People in " + yearstr + "</h3>";
         for(let i=0; i<alivelist.length; i++)
@@ -493,7 +493,7 @@ class PersonListSorted {
      */
     PersonStringHTML(person, dateNumber)
     {           
-        var yearInt = dateRound(dateNumber); //the current date in whole-years
+        var yearInt = TimelineDate.dateRound(dateNumber); //the current date in whole-years
 
         var textline="";
         if(person.birthDate.date != undefined)
@@ -1318,9 +1318,9 @@ class Timeline {
         }
     
         
-        this.currentYearLabelDom.textContent = dateString(this.currentYear); //refresh the year labels
-        this.minYearLabelDom.textContent = dateString(this.currentMin); 
-        this.maxYearLabelDom.textContent = dateString(this.currentMax); 
+        this.currentYearLabelDom.textContent = TimelineDate.dateString(this.currentYear); //refresh the year labels
+        this.minYearLabelDom.textContent = TimelineDate.dateString(this.currentMin); 
+        this.maxYearLabelDom.textContent = TimelineDate.dateString(this.currentMax); 
         //TODO other labels
     }
 
@@ -2029,7 +2029,7 @@ function updateYearInput()
     var yearInputDOM = document.getElementById("yearInput");
   //  yearInputDOM.value = dateString(mainTimeline.currentYear);
 
-    yearInputDOM.value = dateGregorian(mainTimeline.currentYear);
+    yearInputDOM.value = TimelineDate.dateGregorian(mainTimeline.currentYear);
 }
 
 //update the current year FROM the HTML field
@@ -2183,6 +2183,11 @@ class TimelineDate
     isApprox;
 
     /**
+     * @type {string}
+     */
+    static dateFormat="gregorian";
+
+    /**
      * 
      * create date int from string in format "[year]" or "[year] BC"
      * 
@@ -2215,7 +2220,7 @@ class TimelineDate
         }
 
 
-        var str = dateString(this.date);
+        var str = TimelineDate.dateString(this.date);
         if(this.isApprox)
         {
             str = "c. " + str;
@@ -2312,6 +2317,124 @@ class TimelineDate
             isApprox: isApprox
         };
     }
+
+
+    static dateStringHolocene(date_num_gregorian)
+    {
+        if(date_num_gregorian==0)
+        {
+            throw new Error("Zero is invalid gregorian date.");
+        }
+        if(date_num_gregorian >= 0)
+        {
+            //1 AD (1) becomes 10,001 HE
+            return String(10000 + date_num_gregorian);
+        }
+        else
+        {
+            //1 BC (-1) becomes 10,000 HE
+            return String(10001 + date_num_gregorian);
+        }
+
+    }
+    
+
+    /**
+     * 
+     * create date string from number;
+     * use this for most purposes
+     * 
+     * Dates round up if AD, down if BC
+     * NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+     * All dates in the range (0, 1] count as 1 AD
+     * 
+     * @param {number} dateNumber the input date as number (expects floating point value)
+     * @returns {string} the usual string format of this date (e.g. Ma, AD or BC)
+     */
+    static dateString(dateNumber)
+    {
+        //if(currentScale > MEGA_ANNUM_THRESHOLD)
+        if(Math.abs(Number(dateNumber)) > MEGA_ANNUM_THRESHOLD)
+        {
+            return TimelineDate.dateMegaAnnum(dateNumber);
+        }
+        else
+        {
+            return TimelineDate.dateGregorian(dateNumber);
+        }
+    }
+
+    /**
+     * 
+     * create MA date string from number
+     * 
+     * @param {number} dateNumber the input string 
+     */
+    static dateMegaAnnum(dateNumber)
+    {
+        var date = Number(dateNumber);
+        // var str = (date / MEGA_ANNUM).toFixed(2) + " Ma";
+        var options = {
+            maximumFractionDigits: 2
+        }
+        var str = (date/MEGA_ANNUM).toLocaleString("en-GB", options) + " Ma";
+
+        return str;
+    }
+
+        
+    /**
+     * 
+     * create Gregorian date string from number
+     * 
+     * Dates round up if AD, down if BC
+     * NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+     * All dates in the range (0, 1] count as 1 AD
+     * 
+     * @param {number} dateNumber the input date as number (expects floating point value) 
+     * @returns {string} the 'AD/BC' string of the date (AD omitted if date is later than 999 AD)
+     */
+    static dateGregorian(dateNumber)
+    {   
+        var date = Number(dateNumber);
+        var str;
+        if(date <= 0)
+        {
+            str = -TimelineDate.dateRound(date)+ " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+        }
+        else if(date < 1000)
+        {
+            str = TimelineDate.dateRound(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
+        }
+        else
+        {
+            str = TimelineDate.dateRound(date) + ""; //so 1000 becomes '1000'
+        }
+
+        return str;
+
+    }        
+
+    /**
+     * 
+     * @param {number} dateNumber - a year in decimal floating point format
+     * @returns whole number date, rounded to correct year for BC/AD
+     */
+    static dateRound(dateNumber)
+    {
+        var dateRounded;
+        if(dateNumber <= 0)
+        {
+            dateRounded = Math.floor(dateNumber); //so -0.1 becomes -1, etc.; only dates in the range [-1, 0) count as -1 (i.e. 1 BC)
+        }
+        else
+        {
+            dateRounded = Math.ceil(dateNumber); //round to integer above. 0.1 becomes 1.
+        }
+
+        return dateRounded;
+    }
+
 }
 
 
@@ -2337,100 +2460,6 @@ function dateIntIfDefined(dateString, backup)
 
 
 
-/**
- * 
- * create date string from number;
- * use this for most purposes
- * 
- * Dates round up if AD, down if BC
- * NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
- * All dates in the range (0, 1] count as 1 AD
- * 
- * @param {number} dateNumber the input date as number (expects floating point value)
- * @returns {string} the usual string format of this date (e.g. Ma, AD or BC)
- */
-function dateString(dateNumber)
-{
-    //if(currentScale > MEGA_ANNUM_THRESHOLD)
-    if(Math.abs(Number(dateNumber)) > MEGA_ANNUM_THRESHOLD)
-    {
-        return dateMegaAnnum(dateNumber);
-    }
-    else
-    {
-        return dateGregorian(dateNumber);
-    }
-}
-/**
- * 
- * create Gregorian date string from number
- * 
- * Dates round up if AD, down if BC
- * NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
- * All dates in the range (0, 1] count as 1 AD
- * 
- * @param {number} dateNumber the input date as number (expects floating point value) 
- * @returns {string} the 'AD/BC' string of the date (AD omitted if date is later than 999 AD)
- */
-function dateGregorian(dateNumber)
-{   
-    var date = Number(dateNumber);
-    var str;
-    if(date <= 0)
-    {
-        str = -dateRound(date)+ " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
-    }
-    else if(date < 1000)
-    {
-        str = dateRound(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
-    }
-    else
-    {
-        str = dateRound(date) + ""; //so 1000 becomes '1000'
-    }
-
-    return str;
-
-}
-
-/**
- * 
- * @param {number} dateNumber 
- * @returns input date, rounded to correct year
- */
-function dateRound(dateNumber)
-{
-    var dateRounded;
-    if(dateNumber <= 0)
-    {
-        dateRounded = Math.floor(dateNumber); //so -0.1 becomes -1, etc.; only dates in the range [-1, 0) count as -1 (i.e. 1 BC)
-    }
-    else
-    {
-        dateRounded = Math.ceil(dateNumber); //round to integer above. 0.1 becomes 1.
-    }
-
-    return dateRounded;
-}
-
-
-/**
- * 
- * create MA date string from number
- * 
- * @param {number} dateNumber the input string 
- */
-function dateMegaAnnum(dateNumber)
-{
-    var date = Number(dateNumber);
-   // var str = (date / MEGA_ANNUM).toFixed(2) + " Ma";
-   var options = {
-       maximumFractionDigits: 2
-   }
-   var str = (date/MEGA_ANNUM).toLocaleString("en-GB", options) + " Ma";
-
-   return str;
-}
 
 /*
 function appendData(data) {
@@ -2524,11 +2553,11 @@ function UpdateInfoPanel()
         var dateText = "";
         if(tlEvent.endDate != tlEvent.date)
         {
-            dateText = dateString(tlEvent.date) + " - " + dateString(tlEvent.endDate);
+            dateText = TimelineDate.dateString(tlEvent.date) + " - " + dateString(tlEvent.endDate);
         }
         else
         {
-            dateText = dateString(tlEvent.date);
+            dateText = TimelineDate.dateString(tlEvent.date);
         }
      //   addParagraph(newDiv, dateText);
         titleDOM.innerText = tlEvent.title + " (" + dateText + ")";
@@ -2539,8 +2568,8 @@ function UpdateInfoPanel()
             if(tlEvent.personData==undefined)
             {
                 //TODO this should be slowly deprecated - use PersonData instead
-                var lifetimetext = "Lived: " + ( (tlEvent.birthDate==undefined)? "unknown date" : dateString(tlEvent.birthDate) ) 
-                + " to " + ((tlEvent.deathDate==undefined)? "unknown date" : dateString(tlEvent.deathDate));
+                var lifetimetext = "Lived: " + ( (tlEvent.birthDate==undefined)? "unknown date" : TimelineDate.dateString(tlEvent.birthDate) ) 
+                + " to " + ((tlEvent.deathDate==undefined)? "unknown date" : TimelineDate.dateString(tlEvent.deathDate));
 
                 if(tlEvent.birthDate!=undefined && tlEvent.deathDate!=undefined)
                 {
