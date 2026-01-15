@@ -501,7 +501,7 @@
 	],
 
 	"personlist" : [
-		{		"id" : "buddha" , "bubbleDate" : "523 BC", "bubbleScale" : [0, 5000]	},
+		{		"id" : "buddha" , "bubbleDate" : "523 BC", "bubbleScale" : [0, 10000]	},
 		{		"id" : "cyrus", "bubbleDate" : "539 BC"	, "bubbleScale" : [0, 500]	},
 		{		"id" : "darius" , "bubbleDate" : "522 BC"	, "bubbleScale" : [0, 500]	},
 		{		"id" : "xerxes" , "bubbleDate" : "486 BC", "bubbleScale" : [0, 500]		},
@@ -509,34 +509,39 @@
 		{		"id" : "alexander" , "bubbleDate" : "336 BC"	, "bubbleScale" : [0, 5000]	},
 		{		"id" : "cleopatra" , "bubbleDate" : "51 BC"	, "bubbleScale" : [0, 5000]	},
 
+		{		"id": "trajan", 		 "bubbleDate" : "98"	, "bubbleScale" : [0, 5000]},
+		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 1000]},
+		{		"id": "heraclius", 		 "bubbleDate" : "610"	, "bubbleScale" : [0, 500]},
+		{		"id": "irene_of_athens", 		 "bubbleDate" : "792"	, "bubbleScale" : [0, 500]},
+		{		"id": "basil_i", 		 "bubbleDate" : "867"	, "bubbleScale" : [0, 500]},
 		
-		{		"id": "attila", 		 "bubbleDate" : "434"	, "bubbleScale" : [0, 5000]},
-		{		"id": "taizong", 		 "bubbleDate" : "626"	, "bubbleScale" : [0, 5000]},
-		{		"id": "harun_al-rashid", 		 "bubbleDate" : "786"	, "bubbleScale" : [0, 5000]},
-		{		"id": "charlemagne", 		 "bubbleDate" : "768"	, "bubbleScale" : [0, 5000]},
+		{		"id": "attila", 		 "bubbleDate" : "434"	, "bubbleScale" : [0, 1000]},
+		{		"id": "taizong", 		 "bubbleDate" : "626"	, "bubbleScale" : [0, 500]},
+		{		"id": "harun_al-rashid", 		 "bubbleDate" : "786"	, "bubbleScale" : [0, 1000]},
+		{		"id": "charlemagne", 		 "bubbleDate" : "768"	, "bubbleScale" : [0, 10000]},
 		
-		{		"id": "alfred_the_great", "bubbleDate" : "871"	, "bubbleScale" : [0, 5000]},
+		{		"id": "alfred_the_great", "bubbleDate" : "871"	, "bubbleScale" : [0, 500]},
 
-		{		"id": "macbeth", "bubbleDate" : "1040"	, "bubbleScale" : [0, 5000]},
-		{		"id": "baybars","bubbleDate" : "1260"	, "bubbleScale" : [0, 5000]},
+		{		"id": "macbeth", "bubbleDate" : "1040"	, "bubbleScale" : [0, 500]},
+		{		"id": "baybars","bubbleDate" : "1260"	, "bubbleScale" : [0, 500]},
 
-		{		"id": "saladin",  "bubbleDate" : "1174"	, "bubbleScale" : [0, 5000]},
-		{		"id": "genghis_khan", 	 "bubbleDate" : "1206"	, "bubbleScale" : [0, 5000]},
-		{		"id": "joan_of_arc", 	 "bubbleDate" : "1429"	, "bubbleScale" : [0, 5000]},
-		{		"id": "columbus", 	 "bubbleDate" : "1492"	, "bubbleScale" : [0, 5000]},
+		{		"id": "saladin",  "bubbleDate" : "1174"	, "bubbleScale" : [0, 1000]},
+		{		"id": "genghis_khan", 	 "bubbleDate" : "1206"	, "bubbleScale" : [0, 1000]},
+		{		"id": "joan_of_arc", 	 "bubbleDate" : "1429"	, "bubbleScale" : [0, 500]},
+		{		"id": "columbus", 	 "bubbleDate" : "1492"	, "bubbleScale" : [0, 500]},
 		{		"id": "leonardo_da_vinci",		 "bubbleDate" : "1472"	, "bubbleScale" : [0, 5000]},
-		{		"id": "ivan_the_terrible", 	 "bubbleDate" : "1547"	, "bubbleScale" : [0, 5000]},
-		{		"id": "shakespeare",		 "bubbleDate" : "1600"	, "bubbleScale" : [0, 5000]},
-		{		"id": "blackbeard", 		 "bubbleDate" : "1718"	, "bubbleScale" : [0, 5000]},
-		{		"id": "captain_cook", 		 "bubbleDate" : "1770"		, "bubbleScale" : [0, 5000]},
-		{		"id": "daniel_defoe", 		 "bubbleDate" : "1697"		, "bubbleScale" : [0, 5000]},
+		{		"id": "ivan_the_terrible", 	 "bubbleDate" : "1547"	, "bubbleScale" : [0, 500]},
+		{		"id": "shakespeare",		 "bubbleDate" : "1600"	, "bubbleScale" : [0, 1000]},
+		{		"id": "blackbeard", 		 "bubbleDate" : "1718"	, "bubbleScale" : [0, 500]},
+		{		"id": "captain_cook", 		 "bubbleDate" : "1770"		, "bubbleScale" : [0, 500]},
+		{		"id": "daniel_defoe", 		 "bubbleDate" : "1697"		, "bubbleScale" : [0, 500]},
 		{		"id": "benjamin_franklin", 		 "bubbleDate" : "1736"	, "bubbleScale" : [0, 5000]},
 		{		"id": "napoleon", 	 "bubbleDate" : "1799", "bubbleScale" : [0, 5000]},
-		{		"id": "geronimo", 	 "bubbleDate" : "1878"			, "bubbleScale" : [0, 5000]},
-		{		"id": "gandhi", 	 "bubbleDate" : "1915"		, "bubbleScale" : [0, 5000]},
-		{		"id": "lenin", 		 "bubbleDate" : "1917"		, "bubbleScale" : [0, 5000]},
-		{		"id": "winston_churchill", 	 "bubbleDate" : "1940"	, "bubbleScale" : [0, 5000]},
-		{		"id": "elvis_presley", 		 "bubbleDate" : "1954"	, "bubbleScale" : [0, 5000]},
+		{		"id": "geronimo", 	 "bubbleDate" : "1878"			, "bubbleScale" : [0, 1000]},
+		{		"id": "gandhi", 	 "bubbleDate" : "1915"		, "bubbleScale" : [0, 1000]},
+		{		"id": "lenin", 		 "bubbleDate" : "1917"		, "bubbleScale" : [0, 1000]},
+		{		"id": "winston_churchill", 	 "bubbleDate" : "1940"	, "bubbleScale" : [0, 1000]},
+		{		"id": "elvis_presley", 		 "bubbleDate" : "1954"	, "bubbleScale" : [0, 10000]},
 
 
 		{		"name" : "Sneferu", "deathDateString" : "2589 BC" , "ruled" : ["2600 BC", "2589 BC"]			},
@@ -556,12 +561,7 @@
 		
 		{		"name" : "Saint Valentine", "birthDateString" : "225", "deathDateString" : "270" 		},
 		{		"name" : "Saint Nicholas", "birthDateString" : "270", "deathDateString" : "343" 		},
-
-		{		"id": "trajan", 		 "bubbleDate" : "98"	, "bubbleScale" : [0, 5000]},
-		{		"id": "justinian", 		 "bubbleDate" : "527"	, "bubbleScale" : [0, 5000]},
-		{		"id": "heraclius", 		 "bubbleDate" : "610"	, "bubbleScale" : [0, 5000]},
-		{		"id": "irene_of_athens", 		 "bubbleDate" : "792"	, "bubbleScale" : [0, 500]},
-		{		"id": "basil_i", 		 "bubbleDate" : "867"	, "bubbleScale" : [0, 500]},	
+	
 
 
 		{		"name" : "Pope Gregory the Great"	, "birthDateString" : "540", "deathDateString" : "604", "ruled" : ["590", "604"]		},
