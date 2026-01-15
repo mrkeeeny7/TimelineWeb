@@ -2029,7 +2029,8 @@ function updateYearInput()
     var yearInputDOM = document.getElementById("yearInput");
   //  yearInputDOM.value = dateString(mainTimeline.currentYear);
 
-    yearInputDOM.value = TimelineDate.dateGregorian(mainTimeline.currentYear);
+    yearInputDOM.value = TimelineDate.dateString(mainTimeline.currentYear);
+    // TODO print out gregorian equivalent underneath
 }
 
 //update the current year FROM the HTML field
@@ -2185,7 +2186,8 @@ class TimelineDate
     /**
      * @type {string}
      */
-    static dateFormat="gregorian";
+    static dateFormat="holocene";
+    //static dateFormat="gregorian";
 
     /**
      * 
@@ -2312,6 +2314,15 @@ class TimelineDate
                 dateInt = Number(tokens[0]);
             }
         }
+
+
+        //special case: input is 0
+        if(dateInt==0)
+        {
+            dateInt = 1;
+            console.warn("0 is not a valid year in the Gregorian calendar; rounding to year 1.");
+        }
+
         return {
             dateInt: dateInt, 
             isApprox: isApprox
@@ -2319,24 +2330,6 @@ class TimelineDate
     }
 
 
-    static dateStringHolocene(date_num_gregorian)
-    {
-        if(date_num_gregorian==0)
-        {
-            throw new Error("Zero is invalid gregorian date.");
-        }
-        if(date_num_gregorian >= 0)
-        {
-            //1 AD (1) becomes 10,001 HE
-            return String(10000 + date_num_gregorian);
-        }
-        else
-        {
-            //1 BC (-1) becomes 10,000 HE
-            return String(10001 + date_num_gregorian);
-        }
-
-    }
     
 
     /**
@@ -2356,12 +2349,19 @@ class TimelineDate
         //if(currentScale > MEGA_ANNUM_THRESHOLD)
         if(Math.abs(Number(dateNumber)) > MEGA_ANNUM_THRESHOLD)
         {
-            return TimelineDate.dateMegaAnnum(dateNumber);
+            return TimelineDate.dateStringMegaAnnum(dateNumber);
         }
-        else
+        else if(TimelineDate.dateFormat=="gregorian")
         {
-            return TimelineDate.dateGregorian(dateNumber);
+            return TimelineDate.dateStringGregorian(dateNumber);
         }
+        else if(TimelineDate.dateFormat=="holocene")
+        {
+            return TimelineDate.dateStringHolocene(dateNumber);
+        }
+
+        //by default just return the input as a string
+        return String(dateNumber);
     }
 
     /**
@@ -2370,7 +2370,7 @@ class TimelineDate
      * 
      * @param {number} dateNumber the input string 
      */
-    static dateMegaAnnum(dateNumber)
+    static dateStringMegaAnnum(dateNumber)
     {
         var date = Number(dateNumber);
         // var str = (date / MEGA_ANNUM).toFixed(2) + " Ma";
@@ -2389,15 +2389,21 @@ class TimelineDate
      * 
      * Dates round up if AD, down if BC
      * NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+     *    updated: 0 will throw an error
      * All dates in the range (0, 1] count as 1 AD
      * 
      * @param {number} dateNumber the input date as number (expects floating point value) 
      * @returns {string} the 'AD/BC' string of the date (AD omitted if date is later than 999 AD)
      */
-    static dateGregorian(dateNumber)
+    static dateStringGregorian(dateNumber)
     {   
         var date = Number(dateNumber);
         var str;
+        if(date == 0)
+        {
+            throw new error("0 is not a valid input to convert to Gregorian year");
+        }
+
         if(date <= 0)
         {
             str = -TimelineDate.dateRound(date)+ " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
@@ -2413,7 +2419,31 @@ class TimelineDate
 
         return str;
 
-    }        
+    }       
+    
+    
+    static dateStringHolocene(dateNumber)
+    {
+        var date = Number(dateNumber);
+        var str = "unknown result";
+        if(date==0)
+        {
+            throw new Error("Zero is invalid gregorian date.");
+        }
+        
+        if(date >= 0)
+        {
+            //1 AD (1) becomes 10,001 HE
+            str = String(10000 + TimelineDate.dateRound(date)) + " HE";
+        }
+        else
+        {
+            //1 BC (-1) becomes 10,000 HE
+            str = String(10001 + TimelineDate.dateRound(date)) + " HE";
+        }
+
+        return str;
+    }
 
     /**
      * 
@@ -2553,7 +2583,7 @@ function UpdateInfoPanel()
         var dateText = "";
         if(tlEvent.endDate != tlEvent.date)
         {
-            dateText = TimelineDate.dateString(tlEvent.date) + " - " + dateString(tlEvent.endDate);
+            dateText = TimelineDate.dateString(tlEvent.date) + " - " + TimelineDate.dateString(tlEvent.endDate);
         }
         else
         {
