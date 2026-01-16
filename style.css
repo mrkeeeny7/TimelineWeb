@@ -50,7 +50,7 @@ select{
     padding: 2px;
     z-index: 2;
 
-    position: absolute; /* make it float on top*/
+    /*position: absolute;*/ /* make it float on top*/
     
     width: max-content;
     height: 20px;

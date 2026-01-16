@@ -2004,6 +2004,19 @@ function createSelectorOptions(jsonObj, selectorDOM, timelineIndex)
 
 }
 
+function formatSelectorChanged(timelineIndex, value)
+{    
+    var targetTimeline = all_timelines[Number(timelineIndex)];
+
+    TimelineDate.currentDateFormat = value;
+    targetTimeline.refresh();
+    updateYearInput();
+    UpdateInfoPanel();
+    RefreshPersonPanel();
+    
+
+}
+
 /**
  * 
  * Handler for when the drop down selects a new timeline (category) to load
@@ -2068,7 +2081,7 @@ function updateGregorianLabel()
 function initTimelines()
 {
     //init variables
-    
+    document.getElementById("formatSelect").value = "gregorian";
 
     mainTimeline = new Timeline(
         document.getElementById("mainTable"),

@@ -33,10 +33,13 @@
                 <label for="scaleInput">Scale (yrs):</label>
                 <input type="text" id="scaleInput" name="scaleInput" onchange="submitScaleInput()"><br>
 
+
             
             </div>
 
             <div class="controls" id="controlsR">   
+
+
 
                 <!--<label for="timelineSelect2">Select timeline:</label>-->
                 <!--  <select class="tlDropDown" id="timelineSelect2" name="timelineSelect" targetTimeline=1 onchange="timelineSelectorChanged(1,this.value)">
@@ -74,6 +77,14 @@
             <div id="colHeader4" class="tableColumnHeader">      <!-- middle column -->         
     
                 <div class="controls">   
+                        <div>
+                            <label for="formatSelect">Date format:</label>
+                            <select class="formatDown" id="formatSelect" name="formatSelect" targetTimeline=0 onchange="formatSelectorChanged(0,this.value)">
+                                <option value="gregorian">Gregorian</option>
+                                <option value="holocene">Holocene</option>
+                            </select> 
+                        </div>
+
                         <!--   <button type="button" onClick=myfunc()>Test</button>    
                             <button type="button" onClick="loadTimeline('timelines/events_rome.json')">JSON</button>
                         -->
