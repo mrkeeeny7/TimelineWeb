@@ -2031,6 +2031,8 @@ function updateYearInput()
 
     yearInputDOM.value = TimelineDate.dateString(mainTimeline.currentYear);
     // TODO print out gregorian equivalent underneath
+
+    updateGregorianLabel();
 }
 
 //update the current year FROM the HTML field
@@ -2054,7 +2056,13 @@ function updateScaleInput()
 function submitScaleInput()
 {
     var dom = document.getElementById("scaleInput");
-    mainTimeline.setCurrentScale(dom.value);
+    mainTimeline.setCurrentScale(dom.value); //TODO need to parse according to current year format
+}
+
+function updateGregorianLabel()
+{    
+    var dom = document.getElementById("yearLabelGregorian");
+    dom.innerText = "(" + TimelineDate.dateStringGregorian(mainTimeline.currentYear) + ")";
 }
 
 function initTimelines()
@@ -2173,6 +2181,11 @@ function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
     xmlhttp.send();
 }
 
+const TLDateFormat = Object.freeze({
+    GREG: "gregorian",
+    MA: "megaannum",
+    HOL: "holocene"
+});
 
 //DATE & STRING FUCNTIONS
 //TODO - organize as (static?) methods in a TimelineDate class
@@ -2180,14 +2193,22 @@ function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
 class TimelineDate 
 {
     dateString;
-    dateInt; //maybe rename this - not always Int?
+    /**
+     * Internal date representation. Can be fractional (floating point). 
+     * Dates are currently represented (internally) in Gregorian format; 
+     * use conversion functions to display in correct format
+     * @type {number}
+     */
+    dateNumber;
     isApprox;
+
+ 
 
     /**
      * @type {string}
      */
-    static dateFormat="holocene";
-    //static dateFormat="gregorian";
+    static currentDateFormat=TLDateFormat.GREG;
+   // static currentDateFormat=TLDateFormat.HOL;
 
     /**
      * 
@@ -2200,13 +2221,13 @@ class TimelineDate
         this.dateString = dateString;
 
         let obj = TimelineDate.unpackDateString(this.dateString);
-        this.dateInt = obj.dateInt;
+        this.dateNumber = obj.dateInt;
         this.isApprox = obj.isApprox;
         
     }
 
     get date() {
-        return this.dateInt;
+        return this.dateNumber;
     }
 
     /**
@@ -2272,13 +2293,14 @@ class TimelineDate
      * create date int from string in format "[year]" or "[year] BC"
      * 
      * @param {string} dateString the input string 
-     * @returns {{dateInt: number | undefined, isApprox: boolean}} the year as an integer and whether it is approximate
+     * @returns {{dateInt: number | undefined, isApprox: boolean, dateFormat: string}} the year as an integer and whether it is approximate
      */
     static unpackDateString(dateString)
     {
 
         var isApprox = false;
         var dateInt; //return value
+        var dateFormat = TLDateFormat.GREG;
 
         if(dateString==undefined)
         {
@@ -2305,7 +2327,13 @@ class TimelineDate
                 tokens=tokens.slice(1); // remove first element from array and continue.
             }
 
-            if(tokens[1] && tokens[1].toLowerCase() == "bc")
+            if(tokens[1] && tokens[1].toLowerCase() == "he")
+            {
+                dateInt = this.dateHOLtoGREG(Number(tokens[0])); //use Gregorian format to store internally
+                dateFormat = TLDateFormat.HOL;
+                
+            }
+            else if(tokens[1] && tokens[1].toLowerCase() == "bc")
             {
                 dateInt = Number(tokens[0]) * -1; //TODO this will cause an off by 1 error when calculating date differences; use apporpriate comparison methods
             }
@@ -2317,7 +2345,7 @@ class TimelineDate
 
 
         //special case: input is 0
-        if(dateInt==0)
+        if(dateInt==0 && dateFormat==TLDateFormat.GREG)
         {
             dateInt = 1;
             console.warn("0 is not a valid year in the Gregorian calendar; rounding to year 1.");
@@ -2325,7 +2353,8 @@ class TimelineDate
 
         return {
             dateInt: dateInt, 
-            isApprox: isApprox
+            isApprox: isApprox,
+            dateFormat: dateFormat
         };
     }
 
@@ -2351,11 +2380,11 @@ class TimelineDate
         {
             return TimelineDate.dateStringMegaAnnum(dateNumber);
         }
-        else if(TimelineDate.dateFormat=="gregorian")
+        else if(TimelineDate.currentDateFormat==TLDateFormat.GREG)
         {
             return TimelineDate.dateStringGregorian(dateNumber);
         }
-        else if(TimelineDate.dateFormat=="holocene")
+        else if(TimelineDate.currentDateFormat==TLDateFormat.HOL)
         {
             return TimelineDate.dateStringHolocene(dateNumber);
         }
@@ -2426,23 +2455,75 @@ class TimelineDate
     {
         var date = Number(dateNumber);
         var str = "unknown result";
-        if(date==0)
+        // if(date==0)
+        // {
+        //     throw new Error("Zero is invalid gregorian date.");
+        // }
+        
+        // if(date >= 0)
+        // {
+        //     //1 AD (1) becomes 10,001 HE
+        //     str = String(10000 + TimelineDate.dateRound(date)) + " HE";
+        // }
+        // else
+        // {
+        //     //1 BC (-1) becomes 10,000 HE
+        //     str = String(10001 + TimelineDate.dateRound(date)) + " HE";
+        // }
+
+        str = String(this.dateGREGtoHOL(date)) + " HE";
+
+        return str;
+    }
+
+    /**
+     * Date format conversion - Gregorian to Holocene
+     * @param {number} date_num_gregorian 
+     * @returns {number}
+     */
+    static dateGREGtoHOL(date_num_gregorian)
+    {
+        if(date_num_gregorian==0)
         {
             throw new Error("Zero is invalid gregorian date.");
         }
         
-        if(date >= 0)
+        if(date_num_gregorian >= 0)
         {
             //1 AD (1) becomes 10,001 HE
-            str = String(10000 + TimelineDate.dateRound(date)) + " HE";
+            return 10000 + TimelineDate.dateRound(date_num_gregorian);
         }
         else
         {
             //1 BC (-1) becomes 10,000 HE
-            str = String(10001 + TimelineDate.dateRound(date)) + " HE";
+            return 10001 + TimelineDate.dateRound(date_num_gregorian);
         }
 
-        return str;
+    }
+
+    /**
+     * Date format conversion - Holocene to Gregorian
+     * @param {number} date_num_holocene 
+     * @returns {number}
+     */
+    static dateHOLtoGREG(date_num_holocene)
+    {
+        // ==== AD ===
+        //10001 --> 1
+        //10001.1 --> 1.1
+        //10000.9 ---> 0.9
+
+        // === BC ====
+        //10000 --> -1
+        //9999.9 --> -1.1
+        //9999 --> -2
+        var dateGreg = date_num_holocene - 10000;
+        if(dateGreg <= 0)
+        {
+            //skip year zero; BC dates start from -1
+            dateGreg = dateGreg - 1;
+        }
+        return dateGreg;
     }
 
     /**
