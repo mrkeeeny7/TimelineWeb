@@ -2327,13 +2327,25 @@ class TimelineDate
                 tokens=tokens.slice(1); // remove first element from array and continue.
             }
 
-            if(tokens[1] && tokens[1].toLowerCase() == "he")
+            var formatStr = "ad";
+            if(tokens[1])
+            {
+                formatStr = tokens[1].toLowerCase();
+            }
+
+            // handle non-gregorian formats
+            if(formatStr == "ma")
+            {
+                dateInt = this.dateMAtoGREG(Number(tokens[0])); //use Gregorian format to store internally
+                dateFormat = TLDateFormat.MA;                
+            }
+            else if(formatStr == "he")
             {
                 dateInt = this.dateHOLtoGREG(Number(tokens[0])); //use Gregorian format to store internally
-                dateFormat = TLDateFormat.HOL;
-                
+                dateFormat = TLDateFormat.HOL;                
             }
-            else if(tokens[1] && tokens[1].toLowerCase() == "bc")
+            // handle gregorian format
+            else if(formatStr == "bc")
             {
                 dateInt = Number(tokens[0]) * -1; //TODO this will cause an off by 1 error when calculating date differences; use apporpriate comparison methods
             }
@@ -2406,7 +2418,7 @@ class TimelineDate
         var options = {
             maximumFractionDigits: 2
         }
-        var str = (date/MEGA_ANNUM).toLocaleString("en-GB", options) + " Ma";
+        var str = this.dateGREGtoMA(date).toLocaleString("en-GB", options) + " Ma";
 
         return str;
     }
@@ -2454,22 +2466,7 @@ class TimelineDate
     static dateStringHolocene(dateNumber)
     {
         var date = Number(dateNumber);
-        var str = "unknown result";
-        // if(date==0)
-        // {
-        //     throw new Error("Zero is invalid gregorian date.");
-        // }
-        
-        // if(date >= 0)
-        // {
-        //     //1 AD (1) becomes 10,001 HE
-        //     str = String(10000 + TimelineDate.dateRound(date)) + " HE";
-        // }
-        // else
-        // {
-        //     //1 BC (-1) becomes 10,000 HE
-        //     str = String(10001 + TimelineDate.dateRound(date)) + " HE";
-        // }
+        var str = "unknown result"; //this will be the output if there is an error in conversion
 
         str = String(this.dateGREGtoHOL(date)) + " HE";
 
@@ -2524,6 +2521,17 @@ class TimelineDate
             dateGreg = dateGreg - 1;
         }
         return dateGreg;
+    }
+
+    static dateGREGtoMA(date_num_gregorian)
+    {
+        return date_num_gregorian/MEGA_ANNUM;
+        //TODO standard practice is to use 1950 as the starter for 'before present', might incorporate this in future
+    }
+
+    static dateMAtoGREG(date_num_ma)
+    {
+        return date_num_ma * MEGA_ANNUM;
     }
 
     /**

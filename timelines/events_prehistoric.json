@@ -274,13 +274,19 @@
 		},
 		{
 			"title" : "Iguanodon",
-			"dateString" : "126000000 BC",
+			"dateString" : "-126 MA",
+			"maxScale" : 500000000,
+			"tags" : ["dinosaurs"]
+		},
+		{
+			"title" : "Archaeopteryx",
+			"dateString" : "-150 MA",
 			"maxScale" : 500000000,
 			"tags" : ["dinosaurs"]
 		},
 		{
 			"title" : "Velociraptor",
-			"dateString" : "75000000 BC",
+			"dateString" : "-75 MA",
 			"maxScale" : 500000000,
 			"tags" : ["dinosaurs"]
 		},
@@ -312,8 +318,8 @@
 		{
 			"title" : "Extinction of dinosaurs",
 			"searchstring" : "Cretaceous–Paleogene extinction event",
-			"dateString" : "66000000 BC",
-			"maxScale" : 5000000000,
+			"dateString" : "-66 MA",
+			"maxScale" : 50000000000,
 			"tags" : ["dinosaurs"]
 		},
 		{
