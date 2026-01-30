@@ -113,6 +113,8 @@ X === Category colours
 	- Rome timeline to auto-include Byzantium
 	- check if a timeline is already loaded in column & do not duplicate
 
+=== Make the name of era bubble float near the top of the visible area
+
 
 X BUG when same category is loaded on both Timelines, drag and drop doesn't move the right category widget
 

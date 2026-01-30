@@ -20,6 +20,10 @@
             "filename" : "timelines/events_canada.json"
         },
         {
+            "title" : "Australia",
+            "filename" : "timelines/events_australia.json"
+        },
+        {
             "title" : "Pre-Columbian North America",
             "filename" : "timelines/events_northamerica_precolumbian.json"
         },
@@ -83,6 +87,11 @@
         {
             "title" : "Disasters and Pandemics",
             "filename" : "timelines/events_disaster.json"
+        },
+
+        {
+            "title" : "Star Trek",
+            "filename" : "timelines/events_startrek.json"
         }
     ]
 }

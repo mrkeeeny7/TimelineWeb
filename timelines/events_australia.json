@@ -1,0 +1,79 @@
+{
+ 
+	"category" : "Australia",
+	"colorString" : "#33AA40",
+	"tags" : ["australia"],
+
+    
+
+
+	"eventlist" : [
+
+	{
+		"title" : "Pre-Colonial Australia",
+		"dateString" : "63000 BC",
+		"endDateString" : "1788",
+		"minScale" : 500,
+		"maxScale" : 500000,
+		"type" : "era"
+	},
+
+	{
+		"title" : "Post-Colonial Australia",
+		"dateString" : "1788 AD",
+		"endDateString" : "PRESENTDAY",
+		"minScale" : 500,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+
+	{
+		"title" : "Aboriginal habitation",
+		"dateString" : "63000 BC",
+		"endDateString" : "1606",
+		"minScale" : 1,
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "European Contact",
+		"dateString" : "1606 AD",
+		"endDateString" : "1788",
+		"minScale" : 1,
+		"maxScale" : 500,
+		"type" : "era"
+	},
+	{
+		"title" : "British Colonies",
+		"dateString" : "1788 AD",
+		"endDateString" : "1901",
+		"minScale" : 1,
+		"maxScale" : 500,
+		"type" : "era"
+	},
+
+	{
+		"title" : "Commonwealth of Australia",
+		"dateString" : "1901 AD",
+		"endDateString" : "PRESENTDAY",
+		"minScale" : 1,
+		"maxScale" : 500,
+		"type" : "era"
+	}
+
+    ],
+
+    "personlist" : [
+
+        {		"name" : "Abel Tasman", "lived" : ["1603", "1659"], "bubbleDate" : "1642"					},
+		{		"id": "captain_cook", 		 "bubbleDate" : "1770"	, "bubbleScale" : [0, 5000]},
+        {		"name" : "Ned Kelly", "lived" : ["1854", "1880"], "bubbleDate" : "1870"					},
+        {		"name" : "Billy Hughes", "lived" : ["1862", "1952"], "bubbleDate" : "1915", "ruled" : [ "1915", "1923"]					} ,
+        {		"name" : "Robert Menzies", "lived" : ["1894", "1978"], "bubbleDate" : "1939", "ruled" : [ "1939", "1941", "1949", "1966"]					}  ,
+        {		"name" : "John Curtin", "lived" : ["1885", "1945"], "bubbleDate" : "1941", "ruled" : [ "1941", "1945"]					}, 
+        {		"name" : "Neville Bonner", "lived" : ["1922", "1999"], "bubbleDate" : "1971"				} 
+        
+        
+
+    ] 
+}
