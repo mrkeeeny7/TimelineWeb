@@ -24,6 +24,10 @@
             "filename" : "timelines/events_australia.json"
         },
         {
+            "title" : "China",
+            "filename" : "timelines/events_china.json"
+        },
+        {
             "title" : "Pre-Columbian North America",
             "filename" : "timelines/events_northamerica_precolumbian.json"
         },

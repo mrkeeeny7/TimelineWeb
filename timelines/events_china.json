@@ -1,0 +1,252 @@
+{
+ 
+	"category" : "China",
+	"colorString" : "#CD071E",
+	"tags" : ["china"],
+
+    
+
+
+	"eventlist" : [
+
+	{
+		"title" : "Prehistoric China",
+		"dateString" : "-1.7 Ma",
+		"endDateString" : "2070 BC",
+		"minScale" : 5000000,
+		"maxScale" : 10000000,
+		"type" : "era"
+	},
+
+
+	{
+		"title" : "Paleolithic China",
+		"dateString" : "-1.7 Ma",
+		"endDateString" : "8000 BC",
+		"minScale" : 1,
+		"maxScale" : 5000000,
+		"type" : "era"
+	},
+	{
+		"title" : "China",
+		"dateString" : "8000 BC",
+		"endDateString" : "PRESENTDAY",
+		"minScale" : 50000,
+		"maxScale" : 5000000,
+		"type" : "era"
+	},
+
+
+	{
+		"title" : "Neolithic China",
+		"dateString" : "8000 BC",
+		"endDateString" : "3000 BC",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Bronze Age China",
+		"dateString" : "3000 BC",
+		"endDateString" : "2070 BC",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Ancient China",
+		"dateString" : "2070 BC",
+		"endDateString" : "221 BC",
+		"minScale" : 5000,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Imperial China",
+		"dateString" : "221 BC",
+		"endDateString" : "1912",
+		"minScale" : 5000,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Modern China",
+		"dateString" : "1912",
+		"endDateString" : "PRESENTDAY",
+		"minScale" : 5000,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+
+
+	{
+		"title" : "Xia Dynasty",
+		"dateString" : "c. 2070 BC",
+		"endDateString" : "c. 1600 BC",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Shang Dynasty",
+		"dateString" : "c. 1600 BC",
+		"endDateString" : "c. 1046 BC",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Zhou Dynasty",
+		"dateString" : "c. 1046 BC",
+		"endDateString" : "256 BC",
+		"minScale" : 2000,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Qin Dynasty",
+		"dateString" : "221 BC",
+		"endDateString" : "206 BC",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Han Dynasty",
+		"dateString" : "206 BC",
+		"endDateString" : "220 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Three Kingdoms",
+		"dateString" : "220 AD",
+		"endDateString" : "280 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Jin Dynasty",
+		"dateString" : "280 AD",
+		"endDateString" : "420 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Northen and Southern Dynasties",
+		"dateString" : "420 AD",
+		"endDateString" : "589 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Sui Dynasty",
+		"dateString" : "589 AD",
+		"endDateString" : "618 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Tang Dynasty",
+		"dateString" : "618 AD",
+		"endDateString" : "960 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Song Dynasty",
+		"dateString" : "960 AD",
+		"endDateString" : "1279 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Yuan Dynasty",
+		"dateString" : "1271 AD",
+		"endDateString" : "1368 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Ming Dynasty",
+		"dateString" : "1368 AD",
+		"endDateString" : "1644 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Qing Dynasty",
+		"dateString" : "1644 AD",
+		"endDateString" : "1912 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Republic of China",
+		"dateString" : "1912 AD",
+		"endDateString" : "1949 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "People's Republic of China",
+		"dateString" : "1949",
+		"endDateString" : "PRESENTDAY",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+
+
+	{
+		"title" : "Western Zhou",
+		"dateString" : "c. 1046 BC",
+		"endDateString" : "771 BC",
+		"minScale" : 1,
+		"maxScale" : 2000,
+		"type" : "era"
+	},
+	{
+		"title" : "Spring and Autumn",
+		"dateString" : "c. 771 BC",
+		"endDateString" : "476 BC",
+		"minScale" : 1,
+		"maxScale" : 2000,
+		"type" : "era"
+	},
+	{
+		"title" : "Warring States",
+		"dateString" : "c. 476 BC",
+		"endDateString" : "221 BC",
+		"minScale" : 1,
+		"maxScale" : 2000,
+		"type" : "era"
+	}
+
+    ],
+
+    "personlist" : [
+
+        {		"name" : "Abel Tasman", "lived" : ["1603", "1659"], "bubbleDate" : "1642"					},
+		{		"id": "captain_cook", 		 "bubbleDate" : "1770"	, "bubbleScale" : [0, 5000]},
+        {		"name" : "Ned Kelly", "lived" : ["1854", "1880"], "bubbleDate" : "1870"					},
+        {		"name" : "Billy Hughes", "lived" : ["1862", "1952"], "bubbleDate" : "1915", "ruled" : [ "1915", "1923"]					} ,
+        {		"name" : "Robert Menzies", "lived" : ["1894", "1978"], "bubbleDate" : "1939", "ruled" : [ "1939", "1941", "1949", "1966"]					}  ,
+        {		"name" : "John Curtin", "lived" : ["1885", "1945"], "bubbleDate" : "1941", "ruled" : [ "1941", "1945"]					}, 
+        {		"name" : "Neville Bonner", "lived" : ["1922", "1999"], "bubbleDate" : "1971"				} 
+        
+        
+
+    ] 
+}
