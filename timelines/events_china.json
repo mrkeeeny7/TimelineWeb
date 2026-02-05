@@ -247,6 +247,13 @@
 		"dateString" : "208",
 		"minScale" : 1,
 		"maxScale" : 2000
+	},
+
+	{
+		"title" : "Grand Canal completed",
+		"dateString" : "609",
+		"minScale" : 1,
+		"maxScale" : 2000
 	}
 
     ],
@@ -258,7 +265,10 @@
         {       "name" : "Qin Shi Huang", "lived" : ["259 BC", "210 BC"], "ruled" : ["247 BC", "210 BC"], "bubbleDate" : "221 BC"	, "bubbleScale" : [0, 5000]				},
         {		"name" : "Gaozu of Han", "lived" : ["256 BC", "195 BC"], "ruled" : ["206 BC", "195 BC"], "bubbleDate" : "202 BC"	, "bubbleScale" : [0, 500]				},
         {       "name" : "Cao Cao", "lived" : ["c. 155 AD", "220 AD"], "ruled" : ["213 AD", "220 AD"], "bubbleDate" : "216 AD"	, "bubbleScale" : [0, 5000]				},
-       		
+        {       "name" : "Xuanzang", "lived" : ["602", "664"], "bubbleDate" : "629 AD"	, "bubbleScale" : [0, 500]				},
+       	{       "name" : "Empress Wu Zetian", "lived" : ["624", "705"], "ruled" : ["660 AD", "705 AD"], "bubbleDate" : "690 AD"	, "bubbleScale" : [0, 5000]				},
+       	{       "name" : "Emperor Xuanzong", "lived" : ["685", "762"], "ruled" : ["712", "756"], "bubbleDate" : "712"	, "bubbleScale" : [0, 5000]				},
+       	
 		{		"id": "taizong", 		 "bubbleDate" : "626"	, "bubbleScale" : [0, 5000]}
         
         
