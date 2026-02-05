@@ -232,19 +232,34 @@
 		"minScale" : 1,
 		"maxScale" : 2000,
 		"type" : "era"
+	},
+
+
+	{
+		"title" : "Tao Te Ching",
+		"dateString" : "c. 400 BC",
+		"minScale" : 1,
+		"maxScale" : 2000
+	},
+
+	{
+		"title" : "Battle of Red Cliffs",
+		"dateString" : "208",
+		"minScale" : 1,
+		"maxScale" : 2000
 	}
 
     ],
 
     "personlist" : [
 
-        {		"name" : "Abel Tasman", "lived" : ["1603", "1659"], "bubbleDate" : "1642"					},
-		{		"id": "captain_cook", 		 "bubbleDate" : "1770"	, "bubbleScale" : [0, 5000]},
-        {		"name" : "Ned Kelly", "lived" : ["1854", "1880"], "bubbleDate" : "1870"					},
-        {		"name" : "Billy Hughes", "lived" : ["1862", "1952"], "bubbleDate" : "1915", "ruled" : [ "1915", "1923"]					} ,
-        {		"name" : "Robert Menzies", "lived" : ["1894", "1978"], "bubbleDate" : "1939", "ruled" : [ "1939", "1941", "1949", "1966"]					}  ,
-        {		"name" : "John Curtin", "lived" : ["1885", "1945"], "bubbleDate" : "1941", "ruled" : [ "1941", "1945"]					}, 
-        {		"name" : "Neville Bonner", "lived" : ["1922", "1999"], "bubbleDate" : "1971"				} 
+        {		"name" : "Confucius", "lived" : ["c. 551 BC", "c. 479 BC"], "bubbleDate" : "521 BC"	, "bubbleScale" : [0, 5000]				},
+        {		"name" : "Sun Tzu", "lived" : ["c. 544 BC", "c. 496 BC"], "bubbleDate" : "514 BC"	, "bubbleScale" : [0, 200]				},
+        {       "name" : "Qin Shi Huang", "lived" : ["259 BC", "210 BC"], "ruled" : ["247 BC", "210 BC"], "bubbleDate" : "221 BC"	, "bubbleScale" : [0, 5000]				},
+        {		"name" : "Gaozu of Han", "lived" : ["256 BC", "195 BC"], "ruled" : ["206 BC", "195 BC"], "bubbleDate" : "202 BC"	, "bubbleScale" : [0, 500]				},
+        {       "name" : "Cao Cao", "lived" : ["c. 155 AD", "220 AD"], "ruled" : ["213 AD", "220 AD"], "bubbleDate" : "216 AD"	, "bubbleScale" : [0, 5000]				},
+       		
+		{		"id": "taizong", 		 "bubbleDate" : "626"	, "bubbleScale" : [0, 5000]}
         
         
 
