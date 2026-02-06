@@ -154,6 +154,14 @@
 	{
 		"title" : "Tang Dynasty",
 		"dateString" : "618 AD",
+		"endDateString" : "907 AD",
+		"minScale" : 1,
+		"maxScale" : 5000,
+		"type" : "era"
+	},
+	{
+		"title" : "Five Dynasties and Ten Kingdoms",
+		"dateString" : "907 AD",
 		"endDateString" : "960 AD",
 		"minScale" : 1,
 		"maxScale" : 5000,
@@ -163,7 +171,7 @@
 		"title" : "Song Dynasty",
 		"dateString" : "960 AD",
 		"endDateString" : "1279 AD",
-		"minScale" : 1,
+		"minScale" : 2000,
 		"maxScale" : 5000,
 		"type" : "era"
 	},
@@ -234,6 +242,23 @@
 		"type" : "era"
 	},
 
+	{
+		"title" : "Northern Song",
+		"dateString" : "960",
+		"endDateString" : "1127",
+		"minScale" : 1,
+		"maxScale" : 2000,
+		"type" : "era"
+	},
+	{
+		"title" : "Southern Song",
+		"dateString" : "1127",
+		"endDateString" : "1279",
+		"minScale" : 1,
+		"maxScale" : 2000,
+		"type" : "era"
+	},
+
 
 	{
 		"title" : "Tao Te Ching",
@@ -254,6 +279,13 @@
 		"dateString" : "609",
 		"minScale" : 1,
 		"maxScale" : 2000
+	},
+
+	{
+		"title" : "An Lushan Rebellion",
+		"dateString" : "755",
+		"minScale" : 1,
+		"maxScale" : 2000
 	}
 
     ],
@@ -266,12 +298,21 @@
         {		"name" : "Gaozu of Han", "lived" : ["256 BC", "195 BC"], "ruled" : ["206 BC", "195 BC"], "bubbleDate" : "202 BC"	, "bubbleScale" : [0, 500]				},
         {       "name" : "Cao Cao", "lived" : ["c. 155 AD", "220 AD"], "ruled" : ["213 AD", "220 AD"], "bubbleDate" : "216 AD"	, "bubbleScale" : [0, 5000]				},
         {       "name" : "Xuanzang", "lived" : ["602", "664"], "bubbleDate" : "629 AD"	, "bubbleScale" : [0, 500]				},
-       	{       "name" : "Empress Wu Zetian", "lived" : ["624", "705"], "ruled" : ["660 AD", "705 AD"], "bubbleDate" : "690 AD"	, "bubbleScale" : [0, 5000]				},
-       	{       "name" : "Emperor Xuanzong", "lived" : ["685", "762"], "ruled" : ["712", "756"], "bubbleDate" : "712"	, "bubbleScale" : [0, 5000]				},
+       	{       "name" : "Empress Wu Zetian", "lived" : ["624", "705"], "ruled" : ["660 AD", "705 AD"], "bubbleDate" : "690 AD"	, "bubbleScale" : [0, 2000]				},
+       	{       "name" : "Emperor Xuanzong", "lived" : ["685", "762"], "ruled" : ["712", "756"], "bubbleDate" : "712"	, "bubbleScale" : [0, 2000]				},
+       	{       "name" : "An Lushan", "lived" : ["703", "757"], "ruled" : ["756", "757"], "bubbleDate" : "756"	, "bubbleScale" : [0, 2000]				},
        	
-		{		"id": "taizong", 		 "bubbleDate" : "626"	, "bubbleScale" : [0, 5000]}
         
+        {       "name" : "Emperor Taizu of Later Liang", "lived" : ["852", "912"], "ruled" : ["907", "912"], "bubbleDate" : "907"	, "bubbleScale" : [0, 2000]				},
+       	{       "name" : "Emperor Taizu of Song", "lived" : ["927", "975"], "ruled" : ["960", "976"], "bubbleDate" : "960"	, "bubbleScale" : [0, 5000]				},
         
+        {       "name" : "Hongwu Emperor", "lived" : ["1328", "1398"], "ruled" : ["1368", "1398"], "bubbleDate" : "1368"	, "bubbleScale" : [0, 5000]				},
+     
+       	
+		{		"id": "taizong", 		 "bubbleDate" : "626"	, "bubbleScale" : [0, 5000]},
+		{		"id": "genghis_khan", 		 "bubbleDate" : "1206"	, "bubbleScale" : [0, 5000]},
+		{		"id": "marco_polo", 	 "bubbleDate" : "1271"	, "bubbleScale" : [0, 1000]},
+		{		"id": "kublai_khan", 	 "bubbleDate" : "1260"	, "bubbleScale" : [0, 2000]}
 
     ] 
 }

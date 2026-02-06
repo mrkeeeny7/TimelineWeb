@@ -11,7 +11,6 @@
         {		"id": "cleopatra", "name" : "Cleopatra", "birthDateString" : "70 BC", "deathDateString" : "30 BC" 	, "ruled" :  ["51 BC", "30 BC"]	},
         
 		{		"id": "saladin", "name" : "Saladin", "birthDateString" : "1137", "deathDateString" : "1193"	, "ruled" : ["1174", "1193"]			},
-		{		"id": "genghis_khan", "name" : "Genghis Khan", "birthDateString" : "1162", "deathDateString" : "1227"	, "ruled" : ["1206", "1227"]			},
 		{		"id": "joan_of_arc", "name" : "Joan of Arc", "birthDateString" : "1412", "deathDateString" : "1431"				},
 		{		"id": "columbus", "name" : "Christopher Columbus", "birthDateString" : "1451", "deathDateString" : "1506"				},
 		{		"id": "leonardo_da_vinci", "name" : "Leonardo da Vinci", "birthDateString" : "1452", "deathDateString" : "1519"				},
@@ -38,7 +37,12 @@
 		{		"id": "basil_i", "name" : "Basil I the Macedonian"	, "birthDateString" : "811", "deathDateString" : "886", "ruled" : ["867", "886"]		},	
 		{		"id": "basil_ii", "name" : "Basil II"	, "birthDateString" : "958", "deathDateString" : "1025", "ruled" : ["963", "1025"]		},		
     
-		{		"id": "taizong","name" : "Emperor Taizong"	, "birthDateString" : "598", "deathDateString" : "649", "ruled" : ["626", "649"]		},
+		{		"id": "taizong", "name" : "Emperor Taizong"	, "birthDateString" : "598", "deathDateString" : "649", "ruled" : ["626", "649"]		},
+		{		"id": "genghis_khan", "name" : "Genghis Khan", "birthDateString" : "1162", "deathDateString" : "1227"	, "ruled" : ["1206", "1227"]			},
+		{		"id": "kublai_khan", "name" : "Kublai Khan", "birthDateString" : "1215", "deathDateString" : "1294"	, "ruled" : ["1260", "1294"]			},
+		
+		{		"id": "marco_polo", "name" : "Marco Polo",  "lived" : ["1254", "1324"]			},
+
 		{		"id": "harun_al-rashid","name" : "Harun al-Rashid"	, "birthDateString" : "763", "deathDateString" : "809", "ruled" : ["786", "809"]		},
 		{		"id": "charlemagne","name" : "Charlemagne"	, "birthDateString" : "748", "deathDateString" : "814", "ruled" : ["768", "814"]		},
 

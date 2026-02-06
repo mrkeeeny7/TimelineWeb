@@ -527,6 +527,8 @@
 
 		{		"id": "saladin",  "bubbleDate" : "1174"	, "bubbleScale" : [0, 1000]},
 		{		"id": "genghis_khan", 	 "bubbleDate" : "1206"	, "bubbleScale" : [0, 1000]},
+		{		"id": "kublai_khan", 	 "bubbleDate" : "1260"	, "bubbleScale" : [0, 1000]},
+		{		"id": "marco_polo", 	 "bubbleDate" : "1271"	, "bubbleScale" : [0, 500]},
 		{		"id": "joan_of_arc", 	 "bubbleDate" : "1429"	, "bubbleScale" : [0, 500]},
 		{		"id": "columbus", 	 "bubbleDate" : "1492"	, "bubbleScale" : [0, 500]},
 		{		"id": "leonardo_da_vinci",		 "bubbleDate" : "1472"	, "bubbleScale" : [0, 5000]},
@@ -574,8 +576,6 @@
 		{		"name" : "Ogedei Khan", "birthDateString" : "1186", "deathDateString" : "1241"	, "ruled" : ["1229", "1241"]			},
 		{		"name" : "Guyuk Khan", "birthDateString" : "1206", "deathDateString" : "1248"	, "ruled" : ["1246", "1248"]			},
 		{		"name" : "Mongke Khan", "birthDateString" : "1209", "deathDateString" : "1259"	, "ruled" : ["1251", "1259"]			},
-		{		"name" : "Kublai Khan", "birthDateString" : "1215", "deathDateString" : "1294"	, "ruled" : ["1260", "1294"]			},
-		{		"name" : "Marco Polo", "birthDateString" : "1254", "deathDateString" : "1324"				},
 		{		"name" : "Osman I", "birthDateString" : "1254", "deathDateString" : "1323"				},
 		{		"name" : "Timur", "birthDateString" : "1320", "deathDateString" : "1405"				},
 		{		"name" : "Mehmet II", "birthDateString" : "1432", "deathDateString" : "1481", "ruled" : ["1444", "1446", "1451", "1481"]				},
