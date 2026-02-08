@@ -271,7 +271,7 @@
 		"title" : "Battle of Red Cliffs",
 		"dateString" : "208",
 		"minScale" : 1,
-		"maxScale" : 2000
+		"maxScale" : 10000
 	},
 
 	{
@@ -284,6 +284,78 @@
 	{
 		"title" : "An Lushan Rebellion",
 		"dateString" : "755",
+		"minScale" : 1,
+		"maxScale" : 2000
+	},
+
+	{
+		"title" : "Forbidden City constructed",
+		"dateString" : "1420",
+		"minScale" : 1,
+		"maxScale" : 10000
+	},
+
+	{
+		"title" : "Wokou pirate raids",
+		"dateString" : "1550",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+
+	{
+		"title" : "Shaanxi Earthquake",
+		"dateString" : "1556",
+		"minScale" : 1,
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Imjin War (Korea)",
+		"dateString" : "1592",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+	{
+		"title" : "Jurchen unification complete",
+		"dateString" : "1619",
+		"minScale" : 1,
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Great Plague",
+		"dateString" : "1633",
+		"minScale" : 1,
+		"maxScale" : 1000
+	},
+	{
+		"title" : "First Opium War",
+		"dateString" : "1839",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+	{
+		"title" : "Taiping Rebellion",
+		"dateString" : "1850",
+		"minScale" : 1,
+		"maxScale" : 10000
+	},
+    
+	{
+		"title" : "Second Opium War",
+		"dateString" : "1856",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+    
+	{
+		"title" : "First Sino-Japanese War",
+		"dateString" : "1894",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+    
+	{
+		"title" : "Boxer Rebellion",
+		"dateString" : "1899",
 		"minScale" : 1,
 		"maxScale" : 2000
 	}
@@ -307,7 +379,22 @@
        	{       "name" : "Emperor Taizu of Song", "lived" : ["927", "975"], "ruled" : ["960", "976"], "bubbleDate" : "960"	, "bubbleScale" : [0, 5000]				},
         
         {       "name" : "Hongwu Emperor", "lived" : ["1328", "1398"], "ruled" : ["1368", "1398"], "bubbleDate" : "1368"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Yongle Emperor", "lived" : ["1360", "1424"], "ruled" : ["1402", "1424"], "bubbleDate" : "1402"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Jiajing Emperor", "lived" : ["1507", "1567"], "ruled" : ["1521", "1567"], "bubbleDate" : "1521"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Wanli Emperor", "lived" : ["1563", "1620"], "ruled" : ["1572", "1620"], "bubbleDate" : "1572"	, "bubbleScale" : [0, 5000]				},
      
+        {       "name" : "Zheng He", "lived" : ["1371", "1435"], "bubbleDate" : "1405"	, "bubbleScale" : [0, 1000]				},
+     
+        {       "name" : "Nurhaci", "lived" : ["1559", "1626"], "ruled" : ["1616", "1626"], "bubbleDate" : "1616"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Kangxi Emperor", "lived" : ["1654", "1722"], "ruled" : ["1661", "1722"], "bubbleDate" : "1661"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Qianlong Emperor", "lived" : ["1711", "1799"], "ruled" : ["1735", "1799"], "bubbleDate" : "1735"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Jiaqing Emperor", "lived" : ["1760", "1820"], "ruled" : ["1796", "1820"], "bubbleDate" : "1799"	, "bubbleScale" : [0, 1000]				},
+        {       "name" : "Daoguang Emperor", "lived" : ["1782", "1850"], "ruled" : ["1820", "1850"], "bubbleDate" : "1820"	, "bubbleScale" : [0, 1000]				},
+        {       "name" : "Xianfeng Emperor", "lived" : ["1831", "1861"], "ruled" : ["1850", "1861"], "bubbleDate" : "1850"	, "bubbleScale" : [0, 1000]				},
+     
+        {       "name" : "Empress Dowager Cixi", "lived" : ["1835", "1908"], "ruled" : ["1861", "1908"], "bubbleDate" : "1861"	, "bubbleScale" : [0, 5000]				},
+     
+        
        	
 		{		"id": "taizong", 		 "bubbleDate" : "626"	, "bubbleScale" : [0, 5000]},
 		{		"id": "genghis_khan", 		 "bubbleDate" : "1206"	, "bubbleScale" : [0, 5000]},
