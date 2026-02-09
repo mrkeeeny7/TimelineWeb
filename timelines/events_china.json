@@ -333,6 +333,12 @@
 		"maxScale" : 500
 	},
 	{
+		"title" : "Hong Kong ceded to Britain",
+		"dateString" : "1841",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+	{
 		"title" : "Taiping Rebellion",
 		"dateString" : "1850",
 		"minScale" : 1,
@@ -358,6 +364,118 @@
 		"dateString" : "1899",
 		"minScale" : 1,
 		"maxScale" : 2000
+	},
+    
+	{
+		"title" : "Kuomintang (KMT) founded",
+		"dateString" : "1894",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+    
+	{
+		"title" : "Xinhai Revolution",
+		"dateString" : "1911",
+		"minScale" : 1,
+		"maxScale" : 2000
+	},
+    
+	{
+		"title" : "Communist Party (CCP) founded",
+		"dateString" : "1921",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+    
+	{
+		"title" : "Chinese Civil War",
+		"dateString" : "1927",
+		"minScale" : 1,
+		"maxScale" : 1000
+	},
+    
+	{
+		"title" : "Long March",
+		"dateString" : "1934",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+    
+	{
+		"title" : "Second Sino-Japanese War",
+		"dateString" : "1937",
+		"minScale" : 1,
+		"maxScale" : 2000
+	},
+    
+	{
+		"title" : "Nanjing Massacre",
+		"dateString" : "1937",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+    
+	{
+		"title" : "Great Leap Forward",
+		"dateString" : "1958",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+    
+	{
+		"title" : "Cultural Revolution",
+		"dateString" : "1966",
+		"minScale" : 1,
+		"maxScale" : 2000
+	},
+    
+	{
+		"title" : "Tiananmen Square Massacre",
+		"dateString" : "1989",
+		"minScale" : 1,
+		"maxScale" : 2000
+	},
+    
+	{
+		"title" : "Hong Kong handover",
+		"dateString" : "1997",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+    
+	{
+		"title" : "Macao handover",
+		"dateString" : "1999",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+    
+	{
+		"title" : "SARS outbreak",
+		"dateString" : "2002",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+    
+	{
+		"title" : "Beijing Olympics",
+		"dateString" : "2008",
+		"minScale" : 1,
+		"maxScale" : 500
+	},
+    
+	{
+		"title" : "Xinjiang internment camps",
+		"dateString" : "2017",
+		"minScale" : 1,
+		"maxScale" : 200
+	},
+    
+	{
+		"title" : "COVID-19 detected in Wuhan",
+		"dateString" : "2019",
+		"minScale" : 1,
+		"maxScale" : 500
 	}
 
     ],
@@ -393,6 +511,14 @@
         {       "name" : "Xianfeng Emperor", "lived" : ["1831", "1861"], "ruled" : ["1850", "1861"], "bubbleDate" : "1850"	, "bubbleScale" : [0, 1000]				},
      
         {       "name" : "Empress Dowager Cixi", "lived" : ["1835", "1908"], "ruled" : ["1861", "1908"], "bubbleDate" : "1861"	, "bubbleScale" : [0, 5000]				},
+     
+        {       "name" : "Sun Yat-Sen", "lived" : ["1866", "1925"], "ruled" : ["1912", "1912"], "bubbleDate" : "1912"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Chiang Kai-Shek", "lived" : ["1887", "1975"], "ruled" : ["1928", "1975"], "bubbleDate" : "1928"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Mao Zedong", "lived" : ["1893", "1976"], "ruled" : ["1949", "1976"], "bubbleDate" : "1935"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Deng Xiaoping", "lived" : ["1904", "1997"], "ruled" : ["1978", "1989"], "bubbleDate" : "1978"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Jiang Zemin", "lived" : ["1926", "2022"], "ruled" : ["1989", "2002"], "bubbleDate" : "1989"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Hu Jintao", "lived" : ["1942", "PRESENTDAY"], "ruled" : ["2002", "2012"], "bubbleDate" : "2002"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Xi Jinping", "lived" : ["1953", "PRESENTDAY"], "ruled" : ["2012", "PRESENTDAY"], "bubbleDate" : "2012"	, "bubbleScale" : [0, 5000]				},
      
         
        	
