@@ -158,7 +158,7 @@ BUG Valentinian III not sorted after moving to new style person
 	- changed dateIntIfDefined to TimelineDate constructor
 	- bubbleDate and endDate in TimelineEvent should be TimelineDate objects
 
-=== Add faint individual year stripes at highest magnification (scale = 10-20)
+=== Add faint individual year stripes at highest magnification (scale = 10-20). At higher zooms, show stripes for decades and centuries.
 
 
 ****== Make events in same year not overlap (expandable bubbles, layered, mouseover to show)
