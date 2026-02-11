@@ -517,8 +517,8 @@
         {       "name" : "Mao Zedong", "lived" : ["1893", "1976"], "ruled" : ["1949", "1976"], "bubbleDate" : "1935"	, "bubbleScale" : [0, 5000]				},
         {       "name" : "Deng Xiaoping", "lived" : ["1904", "1997"], "ruled" : ["1978", "1989"], "bubbleDate" : "1978"	, "bubbleScale" : [0, 5000]				},
         {       "name" : "Jiang Zemin", "lived" : ["1926", "2022"], "ruled" : ["1989", "2002"], "bubbleDate" : "1989"	, "bubbleScale" : [0, 5000]				},
-        {       "name" : "Hu Jintao", "lived" : ["1942", "PRESENTDAY"], "ruled" : ["2002", "2012"], "bubbleDate" : "2002"	, "bubbleScale" : [0, 5000]				},
-        {       "name" : "Xi Jinping", "lived" : ["1953", "PRESENTDAY"], "ruled" : ["2012", "PRESENTDAY"], "bubbleDate" : "2012"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Hu Jintao", "lived" : ["1942", "living"], "ruled" : ["2002", "2012"], "bubbleDate" : "2002"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Xi Jinping", "lived" : ["1953", "alive"], "ruled" : ["2012", "PRESENTDAY"], "bubbleDate" : "2012"	, "bubbleScale" : [0, 5000]				},
      
         
        	
