@@ -1275,9 +1275,11 @@ class Timeline {
             //2. determine offset from current year
     
             let offset = (_tlevent.date - this.currentYear) * scalefactor + 0.5;
-            setPosition(_tlevent.domElement, offset);
-            //console.log("offset: " + offset);
-    
+            //default event type
+            {
+                setTopPosition(_tlevent.domElement, offset);
+                //console.log("offset: " + offset);
+            }
             //set lifline positions for persons
             if(_tlevent.type=="person")
             {
@@ -1286,7 +1288,7 @@ class Timeline {
                 var lifelineEnd = (_tlevent.deathDate==undefined)? _tlevent.date : _tlevent.deathDate;
 
                 offset = (lifelineStart - this.currentYear) * scalefactor + 0.5;
-                setPosition(_tlevent.lifelineDomElement, offset);
+                setTopPosition(_tlevent.lifelineDomElement, offset);
     
                 offset = (lifelineEnd - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.lifelineDomElement, offset);
@@ -1304,7 +1306,7 @@ class Timeline {
             if(_tlevent.type=="horizline")
             {
                 //set position as with default event
-                setPosition(_tlevent.domElement, offset);
+                setTopPosition(_tlevent.domElement, offset);
 
             }
             //position in preferred column
@@ -1346,30 +1348,33 @@ class Timeline {
             const columnspacing = 0.1; //10% of table width
             //derived
             const widthfactor = 1-columnspacing;
+            let columnOffset = columnNumber;
 
-            var leftoffset = 0.4;
+            var leftOffset = 0.4;
             if(_tlevent.type=="era")
             {
-                leftoffset = columnspacing*0.5; //to center the events; use 0 to left align
+                leftOffset = columnspacing*0.5; //to center the events; use 0 to left align
             //   setWidth(_tlevent.domElement, width);
                 _tlevent.domElement.style.width = (width * widthfactor) + "%"; //use 90% for a bit of spacing
 
             }
             else if(_tlevent.type=="horizline")
             {
-                leftoffset = 0; //TODO make this disregard the column (always put in left)
+                leftOffset = 0; 
+                //make this disregard the column (always put in left)
+                columnOffset = 0;
                 _tlevent.domElement.style.width = "100%";
 
             }
             else if(_tlevent.type=="person")
             {
-                leftoffset = 1.2; //to center the events; use 0 to left align
+                leftOffset = 1.2; //to center the events; use 0 to left align
 
                 // set lifeline column
-                _tlevent.lifelineDomElement.style.left = ((columnNumber + leftoffset)*width) + "%";
+                _tlevent.lifelineDomElement.style.left = ((columnNumber + leftOffset)*width) + "%";
             }
 
-            let leftValue = (columnNumber + leftoffset)*width;
+            let leftValue = (columnOffset + leftOffset)*width;
             _tlevent.domElement.style.left = leftValue + "%";
 
             if(leftValue > 100)
@@ -2608,7 +2613,7 @@ function appendData(data) {
  * @param {Element} domElement
  * @param {number} heightFactor the y-position to set as a fraction of the overall range, in the range [0,1]
  */
-function setPosition(domElement, heightFactor)
+function setTopPosition(domElement, heightFactor)
 
 {
     domElement.style.top = (heightFactor*100) + "%";
