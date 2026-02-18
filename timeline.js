@@ -736,6 +736,13 @@ class Timeline {
      */
     tlEvents = [];
 
+
+    //track overlapping events (stacks)
+    /**
+     * @type {TimelineEvent[]}
+     */
+    eventStacks = [[],[],[]]; //for 3 columns
+
     /**
      * @type {PersonListSorted}
      */
@@ -1246,8 +1253,10 @@ class Timeline {
     refresh() {
         this.currentMin = this.currentYear - this.currentScale/2;
         this.currentMax = this.currentYear + this.currentScale/2;
+
+        this.eventStacks = [[],[],[]];
     
-        var scalefactor = 1.0/this.currentScale;
+        let scalefactor = 1.0/this.currentScale;
         //position all events correctly on the timeline
         for(let i=0; i<this.tlEvents.length; i++)
         {
@@ -1272,12 +1281,28 @@ class Timeline {
            // setVisibility(tlEvents[i].domElement, false);
     
     
+            let c = _tlevent.preferredColumn;
+            if(c!=0 && c!=1 && c!=2)
+            {
+                console.log(_tlevent.title + ": current Column = " + c);
+            }
             //2. determine offset from current year
     
             let offset = (_tlevent.date - this.currentYear) * scalefactor + 0.5;
             //default event type
             {
-                setTopPosition(_tlevent.domElement, offset);
+                //track the event/year stacks
+                if(this.eventStacks[c][_tlevent.date] == undefined)
+                {
+                    this.eventStacks[c][_tlevent.date] = []; //each stack is an array of events; there is a separate stack for each date
+                }
+                this.eventStacks[c][_tlevent.date].push(_tlevent);
+             
+                let stackheight = this.eventStacks[c][_tlevent.date].length - 1;
+                const stackOffsetSpacing = 0.03;
+                let stackOffset = stackheight * stackOffsetSpacing;                
+
+                setTopPosition(_tlevent.domElement, offset + stackOffset);
                 //console.log("offset: " + offset);
             }
             //set lifline positions for persons
@@ -1311,11 +1336,6 @@ class Timeline {
             }
             //position in preferred column
             //DEBUG
-            let c = _tlevent.preferredColumn
-            if(c!=0 && c!=1 && c!=2)
-            {
-                console.log(_tlevent.title + ": current Column = " + c);
-            }
             this.positionInColumn(_tlevent, _tlevent.preferredColumn);
         }
     
