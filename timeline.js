@@ -741,7 +741,7 @@ class Timeline {
     /**
      * @type {TimelineEvent[]}
      */
-    eventStacks = [[],[],[]]; //for 3 columns
+    eventStacks = [[],[],[]]; //for 3 columns TODO use dynamic creation for # columns
 
     /**
      * @type {PersonListSorted}
@@ -1254,7 +1254,7 @@ class Timeline {
         this.currentMin = this.currentYear - this.currentScale/2;
         this.currentMax = this.currentYear + this.currentScale/2;
 
-        this.eventStacks = [[],[],[]];
+        this.eventStacks = [[],[],[]]; //TODO allow dynamic number of columns
     
         let scalefactor = 1.0/this.currentScale;
         //position all events correctly on the timeline
@@ -1285,11 +1285,18 @@ class Timeline {
             if(c!=0 && c!=1 && c!=2)
             {
                 console.log(_tlevent.title + ": current Column = " + c);
+                //TODO check column is a valid with current number of columns
             }
             //2. determine offset from current year
     
             let offset = (_tlevent.date - this.currentYear) * scalefactor + 0.5;
+            let topPosition = offset;
             //default event type
+            if(_tlevent.type==undefined)
+            {
+                throw new Error("Undefined event type for " + _tlevent.title);
+            }
+            if(_tlevent.type=="basic")
             {
                 //track the event/year stacks
                 if(this.eventStacks[c][_tlevent.date] == undefined)
@@ -1300,40 +1307,42 @@ class Timeline {
              
                 let stackheight = this.eventStacks[c][_tlevent.date].length - 1;
                 const stackOffsetSpacing = 0.03;
-                let stackOffset = stackheight * stackOffsetSpacing;                
+                let stackOffset = stackheight * stackOffsetSpacing; 
 
-                setTopPosition(_tlevent.domElement, offset + stackOffset);
+                topPosition = offset + stackOffset           
                 //console.log("offset: " + offset);
             }
             //set lifline positions for persons
-            if(_tlevent.type=="person")
+            else if(_tlevent.type=="person")
             {
                 //use birth and death dates if available
                 var lifelineStart = (_tlevent.birthDate==undefined)? _tlevent.date : _tlevent.birthDate;
                 var lifelineEnd = (_tlevent.deathDate==undefined)? _tlevent.date : _tlevent.deathDate;
 
+                //set lifline positions - separate from main bubble
                 offset = (lifelineStart - this.currentYear) * scalefactor + 0.5;
                 setTopPosition(_tlevent.lifelineDomElement, offset);
     
                 offset = (lifelineEnd - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.lifelineDomElement, offset);
 
-                //TODO move lifeline to correct column
             }
     
-            if(_tlevent.type=="era")
+            else if(_tlevent.type=="era")
             {
                 //set bottom position by end date
                 offset = (_tlevent.endDate - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.domElement, offset);
 
             }
-            if(_tlevent.type=="horizline")
+            else if(_tlevent.type=="horizline")
             {
-                //set position as with default event
-                setTopPosition(_tlevent.domElement, offset);
+                topPosition = offset;
 
             }
+
+            
+            setTopPosition(_tlevent.domElement, topPosition);
             //position in preferred column
             //DEBUG
             this.positionInColumn(_tlevent, _tlevent.preferredColumn);
