@@ -1,7 +1,7 @@
 {
  
 	"category" : "Science",
-	"colorString" : "#22ddbb55",
+	"colorString" : "#22aabbff",
 	"tags" : ["science"],
 	"eventlist" : [
 			
@@ -185,56 +185,25 @@
 			"maxScale" : 1000
 		}
 	
-
-		,	
-		{
-			"title" : "Pythagoras", "birthDateString" : "c. 570 BC", "deathDateString" : "c. 495 BC",	
-			"dateString" : "530 BC",
-			"maxScale" : 5000,
-			"type" : "person"
-		},
-		{
-			"title" : "Aristotle", "birthDateString" : "384 BC", "deathDateString" : "322 BC" ,	
-			"dateString" : "368 BC",
-			"maxScale" : 5000,
-			"type" : "person"
-		},
-		{
-			"title" : "Archimedes", "birthDateString" : "c. 287 BC", "deathDateString" : "c. 212 BC" ,	
-			"dateString" : "214 BC",
-			"maxScale" : 5000,
-			"type" : "person"
-		},
-		{
-			"title" : "Hypatia", "birthDateString" : "c. 350", "deathDateString" : "415" ,	
-			"dateString" : "400 AD",
-			"maxScale" : 5000,
-			"type" : "person"
-		},
-		{
-			"title" : "Isaac Newton", "birthDateString" : "1643", "deathDateString" : "1727",
-			"dateString" : "1666 AD",
-			"maxScale" : 5000,
-			"type" : "person"
-		}
 	],
 
 	"personlist" : [
+		{		"id": "leonardo_da_vinci", 		 "bubbleDate" : "1472"	, "bubbleScale" : [0, 1000]},        
 
 
-		{		"name" : "Pythagoras", "birthDateString" : "c. 570 BC", "deathDateString" : "c. 495 BC"	},
+		{		"name" : "Pythagoras", "birthDateString" : "c. 570 BC", "deathDateString" : "c. 495 BC", 	"bubbleDate" : "530 BC", "bubbleScale" : [0, 5000]	},
 		{		"name" : "Socrates", "birthDateString" : "470 BC", "deathDateString" : "399 BC" 		},
 		{		"name" : "Plato", "birthDateString" : "428 BC", "deathDateString" : "347 BC" 		},
-		{		"name" : "Aristotle", "birthDateString" : "384 BC", "deathDateString" : "322 BC" 		},
-		{		"name" : "Archimedes", "birthDateString" : "c. 287 BC", "deathDateString" : "c. 212 BC" 		},
+		{		"name" : "Aristotle", "birthDateString" : "384 BC", "deathDateString" : "322 BC" , 	"bubbleDate" : "322 BC"	, "bubbleScale" : [0, 5000]	},
+		{		"name" : "Archimedes", "birthDateString" : "c. 287 BC", "deathDateString" : "c. 212 BC" , 	"bubbleDate" : "214 BC"	, "bubbleScale" : [0, 5000]	},
 		{		"name" : "Galen", "birthDateString" : "129", "deathDateString" : "216" 		},
-		{		"name" : "Hypatia", "birthDateString" : "350", "deathDateString" : "415" 		},
+		{		"name" : "Hypatia", "birthDateString" : "350", "deathDateString" : "415" , 	"bubbleDate" : "400"	, "bubbleScale" : [0, 5000]	},
 		{		"name" : "Aryabhata", "birthDateString" : "476", "deathDateString" : "550" 		},
 		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850"				},
 		{		"name" : "Nicolaus Copernicus", "birthDateString" : "1473", "deathDateString" : "1543"				},
 		{		"name" : "Johannes Kepler", "birthDateString" : "1571", "deathDateString" : "1630"				},
 		{		"name" : "Galileo Galilei", "birthDateString" : "1564", "deathDateString" : "1642"				},
-		{		"name" : "Isaac Newton", "birthDateString" : "1643", "deathDateString" : "1727"				},
+		{		"name" : "Isaac Newton", "birthDateString" : "1643", "deathDateString" : "1727"	, 	"bubbleDate" : "1666", "bubbleScale" : [0, 5000]			},
 		{		"name" : "Charles Darwin", "birthDateString" : "1809", "deathDateString" : "1882"				},
 		{		"name" : "Charles Dickens", "birthDateString" : "1812", "deathDateString" : "1870"				},
 		{		"name" : "Albert Einstein", "birthDateString" : "1879", "deathDateString" : "1955"				}
