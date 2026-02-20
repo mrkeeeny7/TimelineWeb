@@ -1284,21 +1284,23 @@ class Timeline {
             let c = _tlevent.preferredColumn;
             if(c!=0 && c!=1 && c!=2)
             {
+                //DEBUG
                 console.log(_tlevent.title + ": current Column = " + c);
                 //TODO check column is a valid with current number of columns
             }
-            //2. determine offset from current year
-    
+            //2. determine offset from current year    
             let offset = (_tlevent.date - this.currentYear) * scalefactor + 0.5;
             let topPosition = offset;
-            //default event type
+            
             if(_tlevent.type==undefined)
             {
                 throw new Error("Undefined event type for " + _tlevent.title);
             }
+            //default event type
             if(_tlevent.type=="basic")
             {
                 //track the event/year stacks
+                //TODO stacks should be a whole separate DOM element
                 if(this.eventStacks[c][_tlevent.date] == undefined)
                 {
                     this.eventStacks[c][_tlevent.date] = []; //each stack is an array of events; there is a separate stack for each date
@@ -1309,10 +1311,9 @@ class Timeline {
                 const stackOffsetSpacing = 0.03;
                 let stackOffset = stackheight * stackOffsetSpacing; 
 
-                topPosition = offset + stackOffset           
+                topPosition = offset + stackOffset ; //not currently using stacks for persons or other non-basic events          
                 //console.log("offset: " + offset);
             }
-            //set lifline positions for persons
             else if(_tlevent.type=="person")
             {
                 //use birth and death dates if available
@@ -1337,14 +1338,12 @@ class Timeline {
             }
             else if(_tlevent.type=="horizline")
             {
-                topPosition = offset;
-
+                topPosition = offset; //as with default
             }
 
             
             setTopPosition(_tlevent.domElement, topPosition);
             //position in preferred column
-            //DEBUG
             this.positionInColumn(_tlevent, _tlevent.preferredColumn);
         }
     

@@ -43,6 +43,12 @@
 			"type" : "era"
 		},
 		{
+			"title" : "Pax Mongolica",
+			"dateString" : "1258",	"endDateString" : "1350",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
 			"title" : "European Renaissance",
 			"dateString" : "1350",	"endDateString" : "1543",
 			"minScale" : 1,
@@ -56,14 +62,14 @@
 		},
 		{
 			"title" : "Age of Enlightenment",
-			"dateString" : "1687",	"endDateString" : "1789",
+			"dateString" : "1687",	"endDateString" : "1760",
 			"minScale" : 1,
 			"type" : "era"
 		},
 		{
 			"title" : "Industrial Age",
-			"dateString" : "1789",	"endDateString" : "1945",
-			"minScale" : 1,
+			"dateString" : "1760",	"endDateString" : "1945",
+			"minScale" : 500,
 			"type" : "era"
 		},
 		{
@@ -78,6 +84,34 @@
 			"minScale" : 1,
 			"type" : "era"
 		},
+			{
+				"title" : "First Industrial Revolution",
+				"dateString" : "1760",	"endDateString" : "1840",
+				"minScale" : 1,
+				"maxScale" : 500,
+				"type" : "era"
+			},
+			{
+				"title" : "Steam Era",
+				"dateString" : "1840",	"endDateString" : "1870",
+				"minScale" : 1,
+				"maxScale" : 500,
+				"type" : "era"
+			},
+			{
+				"title" : "Second Industrial Revolution",
+				"dateString" : "1870",	"endDateString" : "1914",
+				"minScale" : 1,
+				"maxScale" : 500,
+				"type" : "era"
+			},
+			{
+				"title" : "World Wars Era",
+				"dateString" : "1914",	"endDateString" : "1945",
+				"minScale" : 1,
+				"maxScale" : 500,
+				"type" : "era"
+			},
 
 
 		{
@@ -147,6 +181,24 @@
 			"maxScale" : 10000
 		},
 		{
+			"title" : "Sack of Baghdad",
+			"dateString" : "1258",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Maragheh Observatory",
+			"dateString" : "1262",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "Royal Society founded",
+			"dateString" : "1660",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
 			"title" : "Newton's Principia",
 			"searchstring" : "Philosophiæ Naturalis Principia Mathematica",
 			"dateString" : "1687",
@@ -179,8 +231,26 @@
 			"maxScale" : 1000
 		},
 		{
-			"title" : "Second Industrial Revolution",
-			"dateString" : "1870",
+			"title" : "Periodic Table",
+			"dateString" : "1869",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Safety Bicycle",
+			"dateString" : "1876",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+		{
+			"title" : "Electric Lighting",
+			"dateString" : "1879",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Automobile",
+			"dateString" : "1886",
 			"minScale" : 1,
 			"maxScale" : 1000
 		}
@@ -188,7 +258,8 @@
 	],
 
 	"personlist" : [
-		{		"id": "leonardo_da_vinci", 		 "bubbleDate" : "1472"	, "bubbleScale" : [0, 1000]},        
+		{		"id": "leonardo_da_vinci", 		 "bubbleDate" : "1472"	, "bubbleScale" : [0, 1000]},    
+		{		"id": "benjamin_franklin", 		 "bubbleDate" : "1736"	, "bubbleScale" : [0, 5000]},    
 
 
 		{		"name" : "Pythagoras", "birthDateString" : "c. 570 BC", "deathDateString" : "c. 495 BC", 	"bubbleDate" : "530 BC", "bubbleScale" : [0, 5000]	},
@@ -196,18 +267,25 @@
 		{		"name" : "Plato", "birthDateString" : "428 BC", "deathDateString" : "347 BC" 		},
 		{		"name" : "Aristotle", "birthDateString" : "384 BC", "deathDateString" : "322 BC" , 	"bubbleDate" : "322 BC"	, "bubbleScale" : [0, 5000]	},
 		{		"name" : "Archimedes", "birthDateString" : "c. 287 BC", "deathDateString" : "c. 212 BC" , 	"bubbleDate" : "214 BC"	, "bubbleScale" : [0, 5000]	},
-		{		"name" : "Galen", "birthDateString" : "129", "deathDateString" : "216" 		},
+		{		"name" : "Galen", "birthDateString" : "129", "deathDateString" : "216" , 	"bubbleDate" : "162", "bubbleScale" : [0, 5000]		},
 		{		"name" : "Hypatia", "birthDateString" : "350", "deathDateString" : "415" , 	"bubbleDate" : "400"	, "bubbleScale" : [0, 5000]	},
-		{		"name" : "Aryabhata", "birthDateString" : "476", "deathDateString" : "550" 		},
-		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850"				},
+		{		"name" : "Aryabhata", "birthDateString" : "476", "deathDateString" : "550" , 	"bubbleDate" : "510", "bubbleScale" : [0, 5000]		},
+		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850", 	"bubbleDate" : "820", "bubbleScale" : [0, 5000]				},
 		{		"name" : "Nicolaus Copernicus", "birthDateString" : "1473", "deathDateString" : "1543", 	"bubbleDate" : "1532"	, "bubbleScale" : [0, 5000]					},
 		{		"name" : "Tycho Brahe", "lived" : ["1546", "1601"]	, 	"bubbleDate" : "1570", "bubbleScale" : [0, 5000]			},
+		{		"name" : "William Harvey", "lived" : ["1578", "1657"]	, 	"bubbleDate" : "1628", "bubbleScale" : [0, 5000]			},
 		{		"name" : "Johannes Kepler", "birthDateString" : "1571", "deathDateString" : "1630", 	"bubbleDate" : "1594", "bubbleScale" : [0, 5000]				},
 		{		"name" : "Galileo Galilei", "birthDateString" : "1564", "deathDateString" : "1642", 	"bubbleDate" : "1609"	, "bubbleScale" : [0, 5000]					},
+		{		"name" : "Rene Descartes", "lived" : ["1596", "1650"], 	"bubbleDate" : "1644"	, "bubbleScale" : [0, 5000]					},
+		{		"name" : "Blaise Pascal", "lived" : ["1623", "1662"], 	"bubbleDate" : "1654"	, "bubbleScale" : [0, 5000]					},
 		{		"name" : "Isaac Newton", "birthDateString" : "1643", "deathDateString" : "1727"	, 	"bubbleDate" : "1666", "bubbleScale" : [0, 5000]			},
-		{		"name" : "Charles Darwin", "birthDateString" : "1809", "deathDateString" : "1882"				},
-		{		"name" : "Charles Dickens", "birthDateString" : "1812", "deathDateString" : "1870"				},
-		{		"name" : "Albert Einstein", "birthDateString" : "1879", "deathDateString" : "1955"				}
+		{		"name" : "Edmond Halley", "lived" : ["1656", "1742"], 	"bubbleDate" : "1676", "bubbleScale" : [0, 5000]			},
+		{		"name" : "Robert Boyle", "birthDateString" : "1627", "deathDateString" : "1691"	, 	"bubbleDate" : "1661", "bubbleScale" : [0, 5000]			},
+		{		"name" : "Antoine Lavoisier", "lived" : ["1743", "1794"]	, 	"bubbleDate" : "1764", "bubbleScale" : [0, 5000]			},
+		{		"name" : "Charles Darwin", "birthDateString" : "1809", "deathDateString" : "1882", 	"bubbleDate" : "1859", "bubbleScale" : [0, 5000]				},
+		{		"name" : "Dmitri Mendeleev", "lived" : ["1834", "1907"]	, 	"bubbleDate" : "1863", "bubbleScale" : [0, 5000]				},
+
+		{		"name" : "Albert Einstein", "birthDateString" : "1879", "deathDateString" : "1955", 	"bubbleDate" : "1905", "bubbleScale" : [0, 5000]				}
 	
 	] 
 }

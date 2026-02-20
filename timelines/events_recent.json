@@ -633,7 +633,8 @@
 		{		"name" : "Philip II of Spain", "birthDateString" : "1527", "deathDateString" : "1598"	, "ruled" : ["1556", "1598"]			},
 
 		
-
+		{		"name" : "Charles Dickens", "birthDateString" : "1812", "deathDateString" : "1870"				},
+		
 		{		"name" : "David Attenborough", "birthDateString" : "1926"			},
 		{		"name" : "John Lennon", "birthDateString" : "1940", "deathDateString" : "1980"			},
 		{		"name" : "Paul McCartney", "birthDateString" : "1942"			},
