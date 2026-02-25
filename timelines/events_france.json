@@ -1,0 +1,262 @@
+{
+ 
+	"category" : "France",
+	"colorString" : "#0072bbff",
+	"tags" : ["france"],
+	"eventlist" : [
+
+	{
+		"title" : "Mesolithic France",
+		"dateString" : "~ 12000 BC",
+		"endDateString" : "~ 5000 BC",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Neolithic France",
+		"dateString" : "~ 5000 BC",
+		"endDateString" : "~ 2000 BC",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Bronze Age France",
+		"dateString" : "~ 2000 BC",
+		"endDateString" : "~ 800 BC",
+		"minScale" : 1,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "Iron Age France",
+		"dateString" : "~ 800 BC",
+		"endDateString" : "122 BC",
+		"minScale" : 5000,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+	{
+		"title" : "France",
+		"dateString" : "122 BC",
+		"endDateString" : "PRESENTDAY",
+		"minScale" : 5000,
+		"maxScale" : 50000,
+		"type" : "era"
+	},
+		{
+			"title" : "Celtic Gaul",
+			"dateString" : "c. 500 BC",
+			"endDateString" : "122 BC",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Roman Gaul",
+			"dateString" : "122 BC",
+			"endDateString" : "486 AD",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Frankish Kingdoms",
+			"dateString" : "486 AD",
+			"endDateString" : "987 AD",
+			"minScale" : 2000,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Kingdom of France",
+			"dateString" : "987 AD",
+			"endDateString" : "1789",
+			"minScale" : 2000,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "Age of Revolutions",
+			"dateString" : "1789",
+			"endDateString" : "1870",
+			"minScale" : 500,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
+			"title" : "French Republic",
+			"dateString" : "1870",
+			"endDateString" : "PRESENTDAY",
+			"minScale" : 1000,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		
+		{
+			"title" : "Merovingian Dynasty",
+			"dateString" : "486",
+			"endDateString" : "751",
+			"maxScale" : 2000,
+			"type" : "era"
+		},
+		
+		{
+			"title" : "Carolingian Dynasty",
+			"dateString" : "751",
+			"endDateString" : "987",
+			"maxScale" : 2000,
+			"type" : "era"
+		},
+		{
+			"title" : "House of Capet",
+			"dateString" : "987",
+			"endDateString" : "1328",
+			"maxScale" : 2000,
+			"type" : "era"
+		},
+
+
+		{
+			"title" : "House of Valois",
+			"dateString" : "1328",
+			"endDateString" : "1589",
+			"maxScale" : 2000,
+			"type" : "era"
+		},
+		{
+			"title" : "House of Bourbon",
+			"dateString" : "1589",
+			"endDateString" : "1789",
+			"maxScale" : 2000,
+			"type" : "era"
+		},
+
+		{
+			"title" : "French Revolution",
+			"dateString" : "1789",
+			"endDateString" : "1799",
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Napoleonic France",
+			"dateString" : "1799",
+			"endDateString" : "1815",
+			"minScale" : 100,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+            {
+                "title" : "Consulate",
+                "dateString" : "1799",
+                "endDateString" : "1804",
+                "maxScale" : 100,
+                "type" : "era"
+            },
+            {
+                "title" : "First Empire",
+                "dateString" : "1804",
+                "endDateString" : "1815",
+                "maxScale" : 100,
+                "type" : "era"
+            },
+		{
+			"title" : "Bourbon Restoration",
+			"dateString" : "1815",
+			"endDateString" : "1830",
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "July Monarchy",
+			"dateString" : "1830",
+			"endDateString" : "1848",
+			"maxScale" : 500,
+			"type" : "era"
+		},
+		{
+			"title" : "Bonaparte Restoration",
+			"dateString" : "1848",
+			"endDateString" : "1870",
+			"minScale" : 100,
+			"maxScale" : 500,
+			"type" : "era"
+		},
+            {
+                "title" : "Second Republic",
+                "dateString" : "1848",
+                "endDateString" : "1852",
+                "maxScale" : 100,
+                "type" : "era"
+            },
+            {
+                "title" : "Second Empire",
+                "dateString" : "1852",
+                "endDateString" : "1870",
+                "maxScale" : 100,
+                "type" : "era"
+            },
+
+		{
+			"title" : "Third Republic",
+			"dateString" : "1870",
+			"endDateString" : "1940",
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
+			"title" : "World War II and Post-war Era",
+			"dateString" : "1940",
+			"endDateString" : "1958",
+			"minScale" : 100,
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+		{
+			"title" : "German Occupation / Vichy France",
+			"dateString" : "1940",
+			"endDateString" : "1944",
+			"maxScale" : 100,
+			"type" : "era"
+		},
+		{
+			"title" : "Resistance Control",
+			"dateString" : "1944",
+			"endDateString" : "1946",
+			"maxScale" : 100,
+			"type" : "era"
+		},
+		{
+			"title" : "Fourth Republic",
+			"dateString" : "1946",
+			"endDateString" : "1958",
+			"maxScale" : 100,
+			"type" : "era"
+		},
+		{
+			"title" : "Fifth Republic",
+			"dateString" : "1958",
+			"endDateString" : "PRESENTDAY",
+			"maxScale" : 1000,
+			"type" : "era"
+		},
+
+	{
+		"title" : "Stonehenge",
+		"dateString" : "3100 BC",
+		"maxScale" : 50000
+	}
+		
+	
+	
+],
+
+"personlist" : [		
+		{		"id": "attila", 		"bubbleDate" : "450", "bubbleScale" : [0, 5000]},
+		{		"id": "charlemagne", 		"bubbleDate" : "768", "bubbleScale" : [0, 5000]},
+		{		"id": "joan_of_arc", 		"bubbleDate" : "1428", "bubbleScale" : [0, 5000]},
+		{		"id": "napoleon", 		"bubbleDate" : "1799", "bubbleScale" : [0, 5000]}
+
+] }

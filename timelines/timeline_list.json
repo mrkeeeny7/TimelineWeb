@@ -79,6 +79,11 @@
         },
 
         {
+            "title" : "France",
+            "filename" : "timelines/events_france.json"
+        },
+
+        {
             "title" : "Science",
             "filename" : "timelines/events_science.json"
         },
