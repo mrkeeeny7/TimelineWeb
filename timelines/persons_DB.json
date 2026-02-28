@@ -9,7 +9,10 @@
 		{		"id": "alexander", "name" : "Alexander the Great", "birthDateString" : "356 BC", "deathDateString" : "323 BC" 	, "ruled" : ["336 BC", "323 BC"]		},
 	
         {		"id": "cleopatra", "name" : "Cleopatra", "birthDateString" : "70 BC", "deathDateString" : "30 BC" 	, "ruled" :  ["51 BC", "30 BC"]	},
-        
+		{		"id" : "caesar", "name" : "Julius Caesar", "birthDateString" : "100 BC", "deathDateString" : "44 BC"	, "ruled" : ["59 BC", "58 BC", "49 BC", "44 BC"]			},
+		
+        {		"id": "eleanor_of_aquitaine", "name" : "Eleanor of Aquitaine", "birthDateString" : "1124", "deathDateString" : "1204"				},
+		
 		{		"id": "saladin", "name" : "Saladin", "birthDateString" : "1137", "deathDateString" : "1193"	, "ruled" : ["1174", "1193"]			},
 		{		"id": "joan_of_arc", "name" : "Joan of Arc", "birthDateString" : "1412", "deathDateString" : "1431"				},
 		{		"id": "columbus", "name" : "Christopher Columbus", "birthDateString" : "1451", "deathDateString" : "1506"				},

@@ -581,7 +581,9 @@
 
 "personlist" : [		
 		{		"name" : "Kenneth MacAlpin", "birthDateString" : "810", "deathDateString" : "858"	, "ruled" : ["841", "858"], "bubbleDate" : "841"		},
-		{		"id": "macbeth", 		"bubbleDate" : "1040", "bubbleScale" : [0, 5000]},
+		{		"id": "macbeth", 		"bubbleDate" : "1040", "bubbleScale" : [0, 5000]},	
+		{		"id": "eleanor_of_aquitaine", "bubbleDate" : "1137", "bubbleScale" : [0, 5000]},
+		
 		{		"name" : "William Wallace", "birthDateString" : "1270", "deathDateString" : "1305"	, "ruled" : ["1297", "1298"], "bubbleDate" : "1297"			},
 		{		"name" : "Robert the Bruce", "birthDateString" : "1274", "deathDateString" : "1329"	, "ruled" : ["1306", "1329"], "bubbleDate" : "1306"			},
 		
@@ -608,7 +610,6 @@
 		{		"name" : "Empress Matilda", "birthDateString" : "1102", "deathDateString" : "1167", "bubbleDate" : "1141"				},
 		{		"name" : "Stephen of Blois", "birthDateString" : "1092", "deathDateString" : "1154"	, "ruled" : ["1135", "1154"], "bubbleDate" : "1135"			},
 		{		"name" : "King Henry II", "birthDateString" : "1133", "deathDateString" : "1189", "ruled" : ["1154", "1189"], "bubbleDate" : "1154"				},
-		{		"name" : "Eleanor of Aquitaine", "birthDateString" : "1124", "deathDateString" : "1204", "bubbleDate" : "1137"				},
 		{		"name" : "Richard the Lionheart", "birthDateString" : "1157", "deathDateString" : "1199"	, "ruled" : ["1189","1199"], "bubbleDate" : "1189"				},
 		{		"name" : "King John", "birthDateString" : "1166", "deathDateString" : "1216"	, "ruled" : ["1199","1216"]	, "bubbleDate" : "1199"			},
 		{		"name" : "Henry III", "birthDateString" : "1207", "deathDateString" : "1272"	, "ruled" : ["1216","1272"], "bubbleDate" : "1216"				},

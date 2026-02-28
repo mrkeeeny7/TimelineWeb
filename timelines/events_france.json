@@ -46,6 +46,46 @@
 		"type" : "era"
 	},
 		{
+			"title" : "Bell Beaker Culture",
+			"dateString" : "c. 2800 BC",
+			"endDateString" : "c. 2300 BC",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "basic"
+		},
+		{
+			"title" : "Hallstatt Culture",
+			"dateString" : "c. 1200 BC",
+			"endDateString" : "c. 450 BC",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "basic"
+		},
+		{
+			"title" : "Urnfield Culture",
+			"dateString" : "c. 1300 BC",
+			"endDateString" : "c. 750 BC",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "basic"
+		},
+		{
+			"title" : "La Tène Culture",
+			"dateString" : "c. 450 BC",
+			"endDateString" : "c. 1 BC",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "basic"
+		},
+		{
+			"title" : "Early Iron Age",
+			"dateString" : "c. 800 BC",
+			"endDateString" : "c. 500 BC",
+			"minScale" : 1,
+			"maxScale" : 5000,
+			"type" : "era"
+		},
+		{
 			"title" : "Celtic Gaul",
 			"dateString" : "c. 500 BC",
 			"endDateString" : "122 BC",
@@ -244,19 +284,55 @@
 		},
 
 	{
-		"title" : "Stonehenge",
-		"dateString" : "3100 BC",
+		"title" : "Carnac Stones",
+		"dateString" : "3300 BC",
 		"maxScale" : 50000
-	}
+	},
+	{
+		"title" : "Battle of Tours",
+		"dateString" : "732",
+		"maxScale" : 1000
+	},
+	{
+		"title" : "Viking Siege of Paris",
+		"dateString" : "885",
+		"maxScale" : 5000
+	},
+    {
+        "title" : "First Crusade",
+        "dateString" : "1096",
+		"endDateString" : "1099",
+        "maxScale" : 5000
+    },
+    {
+        "title" : "Third Crusade",
+        "dateString" : "1189",
+		"endDateString" : "1192",
+        "maxScale" : 5000
+    }
 		
 	
 	
 ],
 
 "personlist" : [		
-		{		"id": "attila", 		"bubbleDate" : "450", "bubbleScale" : [0, 5000]},
-		{		"id": "charlemagne", 		"bubbleDate" : "768", "bubbleScale" : [0, 5000]},
+        {		"id": "caesar", 		 "bubbleDate" : "59 BC"	, "bubbleScale" : [0, 10000]},    
+		{		"id": "attila", 		"bubbleDate" : "451", "bubbleScale" : [0, 5000]},
+		{		"id": "eleanor_of_aquitaine", "bubbleDate" : "1154", "bubbleScale" : [0, 5000]},
+		{		"id": "charlemagne", 		"bubbleDate" : "768", "bubbleScale" : [0, 10000]},
 		{		"id": "joan_of_arc", 		"bubbleDate" : "1428", "bubbleScale" : [0, 5000]},
-		{		"id": "napoleon", 		"bubbleDate" : "1799", "bubbleScale" : [0, 5000]}
+		{		"id": "napoleon", 		"bubbleDate" : "1799", "bubbleScale" : [0, 10000]},
+
+        {       "name" : "Clovis I", "lived" : ["466", "511"], "ruled" : ["481", "511"], "bubbleDate" : "486"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Charles Martel", "lived" : ["688", "741"], "ruled" : ["718", "741"], "bubbleDate" : "718"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Pepin the Short", "lived" : ["714", "768"], "ruled" : ["741", "768"], "bubbleDate" : "751"	, "bubbleScale" : [0, 500]				},
+        {       "name" : "Hugh Capet", "lived" : ["c. 941", "996"], "ruled" : ["987", "996"], "bubbleDate" : "987"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Philip I", "lived" : ["1052", "1108"], "ruled" : ["1060", "1108"], "bubbleDate" : "1060"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Louis VI 'the Fat'", "lived" : ["1081", "1137"], "ruled" : ["1108", "1137"], "bubbleDate" : "1109"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Louis VII", "lived" : ["1120", "1180"], "ruled" : ["1137", "1180"], "bubbleDate" : "1137"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Philip II Augustus", "lived" : ["1165", "1223"], "ruled" : ["1180", "1223"], "bubbleDate" : "1180"	, "bubbleScale" : [0, 5000]				},
+
+        {       "name" : "Rollo", "lived" : ["c. 835", "933"], "ruled" : ["911", "928"], "bubbleDate" : "911"	, "bubbleScale" : [0, 1000]				}
+       
 
 ] }
