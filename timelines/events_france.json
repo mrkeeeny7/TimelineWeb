@@ -309,6 +309,71 @@
         "dateString" : "1189",
 		"endDateString" : "1192",
         "maxScale" : 5000
+    },
+    {
+        "title" : "Albigensian Crusade",
+        "dateString" : "1209",
+		"endDateString" : "1229",
+        "maxScale" : 500
+    },
+    {
+        "title" : "Black Death",
+        "dateString" : "1347",
+		"endDateString" : "1352",
+        "maxScale" : 5000
+    },
+    {
+        "title" : "Hundred Years' War",
+        "dateString" : "1337",
+		"endDateString" : "1453",
+        "maxScale" : 5000
+    },
+    {
+        "title" : "Battle of Crécy",
+        "dateString" : "1346",
+        "maxScale" : 500
+    },
+    {
+        "title" : "Battle of Poitiers",
+        "dateString" : "1356",
+        "maxScale" : 500
+    },
+    {
+        "title" : "Jacquerie",
+        "dateString" : "1358",
+        "maxScale" : 500
+    },
+    {
+        "title" : "Battle of Agincourt",
+        "dateString" : "1415",
+        "maxScale" : 500
+    },
+    {
+        "title" : "Siege of Orléans",
+        "dateString" : "1429",
+        "maxScale" : 5000
+    },
+    {
+        "title" : "Battle of Formigny",
+        "dateString" : "1450",
+        "maxScale" : 500
+    },
+    {
+        "title" : "Italian Wars",
+        "dateString" : "1494",
+		"endDateString" : "1549",
+        "maxScale" : 5000
+    },
+    {
+        "title" : "French Wars of Religion",
+        "dateString" : "1562",
+		"endDateString" : "1598",
+        "maxScale" : 5000
+    },
+    {
+        "title" : "St. Bartholomew's Day Massacre",
+        "dateString" : "1572",
+        "maxScale" : 5000
     }
 		
 	
@@ -327,10 +392,36 @@
         {       "name" : "Charles Martel", "lived" : ["688", "741"], "ruled" : ["718", "741"], "bubbleDate" : "718"	, "bubbleScale" : [0, 5000]				},
         {       "name" : "Pepin the Short", "lived" : ["714", "768"], "ruled" : ["741", "768"], "bubbleDate" : "751"	, "bubbleScale" : [0, 500]				},
         {       "name" : "Hugh Capet", "lived" : ["c. 941", "996"], "ruled" : ["987", "996"], "bubbleDate" : "987"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Robert II 'the Pious'", "lived" : ["972", "1031"], "ruled" : ["996", "1031"], "bubbleDate" : "996"	, "bubbleScale" : [0, 5000]				},
+        {       "name" : "Henry I", "lived" : ["1008", "1060"], "ruled" : ["1031", "1060"], "bubbleDate" : "1031"	, "bubbleScale" : [0, 5000]				},
         {       "name" : "Philip I", "lived" : ["1052", "1108"], "ruled" : ["1060", "1108"], "bubbleDate" : "1060"	, "bubbleScale" : [0, 5000]				},
         {       "name" : "Louis VI 'the Fat'", "lived" : ["1081", "1137"], "ruled" : ["1108", "1137"], "bubbleDate" : "1109"	, "bubbleScale" : [0, 5000]				},
         {       "name" : "Louis VII", "lived" : ["1120", "1180"], "ruled" : ["1137", "1180"], "bubbleDate" : "1137"	, "bubbleScale" : [0, 5000]				},
         {       "name" : "Philip II Augustus", "lived" : ["1165", "1223"], "ruled" : ["1180", "1223"], "bubbleDate" : "1180"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Louis VIII", "lived" : ["1187", "1226"], "ruled" : ["1223", "1226"], "bubbleDate" : "1223"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "Louis IX", "lived" : ["1214", "1270"], "ruled" : ["1226", "1270"], "bubbleDate" : "1226"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Philip III", "lived" : ["1245", "1285"], "ruled" : ["1270", "1285"], "bubbleDate" : "1270"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Philip IV 'the Fair'", "lived" : ["1268", "1314"], "ruled" : ["1285", "1314"], "bubbleDate" : "1285"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Louis X 'the Quarrelsome'", "lived" : ["1289", "1316"], "ruled" : ["1314", "1316"], "bubbleDate" : "1314"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "John I 'the Posthumous'", "lived" : ["1316", "1316"], "ruled" : ["1316", "1316"], "bubbleDate" : "1316"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "Philip V 'the Tall'", "lived" : ["1291", "1322"], "ruled" : ["1316", "1322"], "bubbleDate" : "1316"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Charles IV", "lived" : ["1294", "1328"], "ruled" : ["1322", "1328"], "bubbleDate" : "1322"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Philip VI", "lived" : ["1293", "1350"], "ruled" : ["1328", "1350"], "bubbleDate" : "1328"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "John II 'the Good'", "lived" : ["1319", "1364"], "ruled" : ["1350", "1364"], "bubbleDate" : "1350"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Charles V", "lived" : ["1338", "1380"], "ruled" : ["1364", "1380"], "bubbleDate" : "1364"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "Charles VI 'the Mad'", "lived" : ["1368", "1422"], "ruled" : ["1380", "1422"], "bubbleDate" : "1380"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "Charles VII", "lived" : ["1403", "1461"], "ruled" : ["1422", "1461"], "bubbleDate" : "1422"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Louis XI 'the Universal Spider'", "lived" : ["1423", "1483"], "ruled" : ["1461", "1483"], "bubbleDate" : "1461"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Charles VIII 'the Affable'", "lived" : ["1470", "1498"], "ruled" : ["1483", "1498"], "bubbleDate" : "1483"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "Louis XII", "lived" : ["1462", "1515"], "ruled" : ["1498", "1515"], "bubbleDate" : "1498"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "Francis I", "lived" : ["1494", "1547"], "ruled" : ["1515", "1547"], "bubbleDate" : "1515"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Henry II", "lived" : ["1519", "1559"], "ruled" : ["1547", "1559"], "bubbleDate" : "1547"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "Francis II", "lived" : ["1544", "1560"], "ruled" : ["1559", "1560"], "bubbleDate" : "1559"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "Catherine de' Medici", "lived" : ["1519", "1589"], "ruled" : ["1560", "1563"], "bubbleDate" : "1560"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Charles IX", "lived" : ["1550", "1574"], "ruled" : ["1560", "1574"], "bubbleDate" : "1560"	, "bubbleScale" : [0, 500]				},
+		{       "name" : "Henry III", "lived" : ["1551", "1589"], "ruled" : ["1574", "1589"], "bubbleDate" : "1574"	, "bubbleScale" : [0, 500]				},
+
+		{       "name" : "Henry IV", "lived" : ["1553", "1610"], "ruled" : ["1589", "1610"], "bubbleDate" : "1589"	, "bubbleScale" : [0, 5000]				},
 
         {       "name" : "Rollo", "lived" : ["c. 835", "933"], "ruled" : ["911", "928"], "bubbleDate" : "911"	, "bubbleScale" : [0, 1000]				}
        
