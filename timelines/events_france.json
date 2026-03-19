@@ -374,6 +374,22 @@
         "title" : "St. Bartholomew's Day Massacre",
         "dateString" : "1572",
         "maxScale" : 5000
+    },
+    {
+        "title" : "Thirty Years' War (French involvement)",
+        "dateString" : "1636",
+		"endDateString" : "1648",
+        "maxScale" : 5000
+    },
+    {
+        "title" : "Edict of Nantes",
+        "dateString" : "1598",
+        "maxScale" : 5000
+    },
+    {
+        "title" : "Quebec colony founded",
+        "dateString" : "1608",
+        "maxScale" : 5000
     }
 		
 	
@@ -422,6 +438,23 @@
 		{       "name" : "Henry III", "lived" : ["1551", "1589"], "ruled" : ["1574", "1589"], "bubbleDate" : "1574"	, "bubbleScale" : [0, 500]				},
 
 		{       "name" : "Henry IV", "lived" : ["1553", "1610"], "ruled" : ["1589", "1610"], "bubbleDate" : "1589"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Louis XIII", "lived" : ["1601", "1643"], "ruled" : ["1610", "1643"], "bubbleDate" : "1610"	, "bubbleScale" : [0, 5000]				},
+		{       "name" : "Cardinal Richelieu", "lived" : ["1585", "1642"],  "bubbleDate" : "1624"	, "bubbleScale" : [0, 5000]				},
+
+		
+					
+		{		"name" : "Toussaint Louverture", "birthDateString" : "1743", "deathDateString" : "1803"	, "bubbleDate" : "1797"	, "bubbleScale" : [0, 500]				},
+		{		"name" : "Marquis de Lafayette", "birthDateString" : "1757", "deathDateString" : "1834"	, "bubbleDate" : "1777"	, "bubbleScale" : [0, 5000]				},
+		{		"name" : "Maximilien Robespierre", "birthDateString" : "1758", "deathDateString" : "1794", "ruled" : ["1793", "1794"], "bubbleDate" : "1793"	, "bubbleScale" : [0, 500]					},
+		{		"name" : "Georges Danton", "birthDateString" : "1759", "deathDateString" : "1794", "bubbleDate" : "1792"	, "bubbleScale" : [0, 500]					},
+		{		"name" : "Louis XIV", "birthDateString" : "1638", "deathDateString" : "1715"	, "ruled" : ["1643", "1715"], "bubbleDate" : "1643"	, "bubbleScale" : [0, 5000]				},
+		{		"name" : "Louis XV", "birthDateString" : "1710", "deathDateString" : "1774"	, "ruled" : ["1715", "1774"], "bubbleDate" : "1715"	, "bubbleScale" : [0, 5000]				},
+		{		"name" : "Louis XVI", "birthDateString" : "1754", "deathDateString" : "1793"	, "ruled" : ["1774", "1792"], "bubbleDate" : "1774"	, "bubbleScale" : [0, 5000]				},
+		{		"name" : "Louis XVIII", "birthDateString" : "1755", "deathDateString" : "1824"	, "ruled" : ["1814", "1824"], "bubbleDate" : "1814"	, "bubbleScale" : [0, 5000]				},
+		{		"name" : "Charles X", "birthDateString" : "1757", "deathDateString" : "1836"	, "ruled" : ["1824", "1830"], "bubbleDate" : "1824"	, "bubbleScale" : [0, 5000]				},
+		{		"name" : "Louis Philippe I", "birthDateString" : "1773", "deathDateString" : "1850"	, "ruled" : ["1830", "1848"], "bubbleDate" : "1830"	, "bubbleScale" : [0, 5000]				},
+		{		"name" : "Marie Antoinette", "birthDateString" : "1755", "deathDateString" : "1793"	, "bubbleDate" : "1770"	, "bubbleScale" : [0, 500]				},
+		{		"name" : "Napoleon III", "birthDateString" : "1808", "deathDateString" : "1873"		, "ruled" : ["1848", "1870"], "bubbleDate" : "1848"	, "bubbleScale" : [0, 5000]			},
 
         {       "name" : "Rollo", "lived" : ["c. 835", "933"], "ruled" : ["911", "928"], "bubbleDate" : "911"	, "bubbleScale" : [0, 1000]				}
        

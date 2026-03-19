@@ -609,20 +609,6 @@
 		{		"name" : "William Pitt the Younger", "birthDateString" : "1759", "deathDateString" : "1806"				},
 		{		"name" : "Duke of Wellington", "birthDateString" : "1769", "deathDateString" : "1852"				},
 
-					
-		{		"name" : "Toussaint Louverture", "birthDateString" : "1743", "deathDateString" : "1803"				},
-		{		"name" : "Marquis de Lafayette", "birthDateString" : "1757", "deathDateString" : "1834"				},
-		{		"name" : "Maximilien Robespierre", "birthDateString" : "1758", "deathDateString" : "1794"				},
-		{		"name" : "Georges Danton", "birthDateString" : "1759", "deathDateString" : "1794"				},
-		{		"name" : "Cardinal Richelieu", "birthDateString" : "1585", "deathDateString" : "1642"				},
-		{		"name" : "Louis XIV", "birthDateString" : "1638", "deathDateString" : "1715"	, "ruled" : ["1643", "1715"]			},
-		{		"name" : "Louis XV", "birthDateString" : "1710", "deathDateString" : "1774"	, "ruled" : ["1715", "1774"]			},
-		{		"name" : "Louis XVI", "birthDateString" : "1754", "deathDateString" : "1793"	, "ruled" : ["1774", "1793"]			},
-		{		"name" : "Louis XVIII", "birthDateString" : "1755", "deathDateString" : "1824"	, "ruled" : ["1814", "1824"]			},
-		{		"name" : "Charles X", "birthDateString" : "1757", "deathDateString" : "1836"	, "ruled" : ["1824", "1830"]			},
-		{		"name" : "Louis Philippe I", "birthDateString" : "1773", "deathDateString" : "1850"	, "ruled" : ["1830", "1848"]			},
-		{		"name" : "Marie Antoinette", "birthDateString" : "1755", "deathDateString" : "1793"				},
-		{		"name" : "Napoleon III", "birthDateString" : "1808", "deathDateString" : "1873"		, "ruled" : ["1848", "1870"]		},
 
 		{		"name" : "Joseph Stalin", "birthDateString" : "1878", "deathDateString" : "1953"	, "ruled" : ["1924", "1953"]			},
 		{		"name" : "Kaiser Wilhelm II", "birthDateString" : "1859", "deathDateString" : "1941"	, "ruled" : ["1888", "1918"]			},
