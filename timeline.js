@@ -1094,11 +1094,20 @@ class Timeline {
     CreateBubble(jsonEventObj, personData, category, columnWidget, colorString, colorBString, eventIndex, columnIndex)
     {
         var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
-    
-        eventDate = new TimelineDate(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things) 
-        // TODO keep  these as TimelineDate objects
-    
-        eventEndDate = new TimelineDate(jsonEventObj.endDateString).date;
+
+        if(jsonEventObj.dateRange != undefined)
+        {
+            eventDate = new TimelineDate(jsonEventObj.dateRange[0]).date;
+            eventEndDate = new TimelineDate(jsonEventObj.dateRange[1]).date;
+        }
+        else
+        {
+            eventDate = new TimelineDate(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things) 
+            // TODO keep  these as TimelineDate objects
+        
+            eventEndDate = new TimelineDate(jsonEventObj.endDateString).date;
+        }
+
         if(eventEndDate==undefined)
         {
             eventEndDate = eventDate;
@@ -2232,6 +2241,38 @@ const TLDateFormat = Object.freeze({
     MA: "megaannum",
     HOL: "holocene"
 });
+
+class TimelineDateEra
+{
+    name;
+    length; //in years
+    isBackwards; //do the years count backwards from the first year?
+    dateToString(yearNumber)
+    {
+        //return the string e.g. "55 BBY"
+    }
+}
+class TimelineDateSystem
+{
+    /**
+     * @type {TimelineDateEra[]}
+     */
+    eras; //array of time ranges (TimelineDateEra) in chronological sequence
+
+    //notation
+    fractionDigits; //0 for AD/BC, 2 for MegaAnnum etc.
+
+    dateToString(yearNumber)
+    {
+
+    }
+
+    stringToDate(dateString)
+    {
+
+    }
+
+}
 
 //DATE & STRING FUCNTIONS
 //TODO - organize as (static?) methods in a TimelineDate class
