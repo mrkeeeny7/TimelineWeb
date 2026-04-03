@@ -97,10 +97,38 @@
 			"title" : "Roman Gaul",
 			"dateString" : "122 BC",
 			"endDateString" : "486 AD",
-			"minScale" : 1,
+			"minScale" : 1000,
 			"maxScale" : 5000,
 			"type" : "era"
 		},
+			{
+				"title" : "Roman Late Republic",
+				"dateRange" : ["122 BC", "27 BC"],
+				"minScale" : 1,
+				"maxScale" : 1000,
+				"type" : "era"
+			},
+			{
+				"title" : "Roman Empire",
+				"dateRange" : ["27 BC", "260"],
+				"minScale" : 1,
+				"maxScale" : 1000,
+				"type" : "era"
+			},
+			{
+				"title" : "Gallic Empire",
+				"dateRange" : ["260", "274"],
+				"minScale" : 1,
+				"maxScale" : 1000,
+				"type" : "era"
+			},
+			{
+				"title" : "Late Roman Empire",
+				"dateRange" : ["274", "486"],
+				"minScale" : 1,
+				"maxScale" : 1000,
+				"type" : "era"
+			},
 		{
 			"title" : "Frankish Kingdoms",
 			"dateString" : "486 AD",
