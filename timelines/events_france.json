@@ -270,9 +270,28 @@
 			"title" : "Third Republic",
 			"dateString" : "1870",
 			"endDateString" : "1940",
+			"minScale" : 100,
 			"maxScale" : 1000,
 			"type" : "era"
 		},
+            {
+                "title" : "Belle Époque",
+                "dateRange" : ["1870", "1914"],
+                "maxScale" : 100,
+                "type" : "era"
+            },
+            {
+                "title" : "World War I",
+                "dateRange" : ["1914", "1918"],
+                "maxScale" : 100,
+                "type" : "era"
+            },
+            {
+                "title" : "Inter-war",
+                "dateRange" : ["1918", "1940"],
+                "maxScale" : 100,
+                "type" : "era"
+            },
 		{
 			"title" : "World War II and Post-war Era",
 			"dateString" : "1940",
@@ -457,6 +476,36 @@
         "title" : "Coup of 18 Brumaire",
         "dateRange" : ["1799"],
         "maxScale" : 1000
+    },
+    {
+        "title" : "Battle of Waterloo",
+        "dateRange" : ["1815"],
+        "maxScale" : 1000
+    },
+    {
+        "title" : "July Revolution",
+        "dateRange" : ["1830"],
+        "maxScale" : 1000
+    },
+    {
+        "title" : "Franco-Prussian War",
+        "dateRange" : ["1870"],
+        "maxScale" : 100
+    },
+    {
+        "title" : "Paris Commune",
+        "dateRange" : ["1871"],
+        "maxScale" : 1000
+    },
+    {
+        "title" : "Eiffel Tower",
+        "dateRange" : ["1889"],
+        "maxScale" : 1000
+    },
+    {
+        "title" : "Dreyfus Affair",
+        "dateRange" : ["1894"],
+        "maxScale" : 1000
     }
 		
 	
@@ -525,6 +574,14 @@
 
 		{		"name" : "Voltaire", "lived" : ["1694","1778"],  "bubbleDate" : "1718"	, "bubbleScale" : [0, 1000]			},
 		{		"name" : "Jean-Jacques Rousseau", "lived" : ["1712","1778"],  "bubbleDate" : "1762"	, "bubbleScale" : [0, 1000]			},
+		{		"name" : "Victor Hugo", "lived" : ["1802","1885"],  "bubbleDate" : "1831"	, "bubbleScale" : [0, 1000]			},
+		{		"name" : "Alexandre Dumas", "lived" : ["1802","1870"],  "bubbleDate" : "1844"	, "bubbleScale" : [0, 1000]			},
+		{		"name" : "Émile Zola", "lived" : ["1840","1902"],  "bubbleDate" : "1898"	, "bubbleScale" : [0, 1000]			},
+
+
+		{		"name" : "Adolphe Thiers", "lived" : ["1797","1877"],  "bubbleDate" : "1871", "ruled" : ["1871", "1873"]	, "bubbleScale" : [0, 1000]			},
+		{		"name" : "Jules Ferry", "lived" : ["1832","1893"],  "bubbleDate" : "1883", "ruled" : ["1883", "1885"]	, "bubbleScale" : [0, 1000]			},
+		{		"name" : "Georges Clemenceau", "lived" : ["1841","1929"],  "bubbleDate" : "1875", "ruled" : ["1917", "1920"]	, "bubbleScale" : [0, 1000]			},
  
 		{       "name" : "Rollo", "lived" : ["c. 835", "933"], "ruled" : ["911", "928"], "bubbleDate" : "911"	, "bubbleScale" : [0, 1000]				}
        
