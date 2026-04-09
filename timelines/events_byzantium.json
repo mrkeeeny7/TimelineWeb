@@ -165,6 +165,18 @@
             "tags" : ["europe", "byzantium"]
         },
         {
+            "title" : "Rus' (Varangians) siege of Constantinople",
+            "dateString" : "860 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Rus'-Byzantine War",
+            "dateString" : "941 AD",
+            "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
             "title" : "Byantine-Norman wars",
             "dateString" : "1059 AD",
             "maxScale" : 1000,
