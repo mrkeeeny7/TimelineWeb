@@ -190,8 +190,20 @@
         },
         {
             "title" : "First Crusade",
-            "dateString" : "1096 AD",
+            "dateRange" : ["1096 AD", "1099"],
             "maxScale" : 1000,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Second Crusade",
+            "dateRange" : ["1147 AD", "1149"],
+            "maxScale" : 500,
+            "tags" : ["europe", "byzantium"]
+        },
+        {
+            "title" : "Third Crusade",
+            "dateRange" : ["1189 AD", "1192"],
+            "maxScale" : 500,
             "tags" : ["europe", "byzantium"]
         },
         {
@@ -275,16 +287,30 @@
 		{		"id": "basil_ii", 		 "bubbleDate" : "976"	, "bubbleScale" : [0, 5000]},        
         {		"name" : "Zoe Porphyrogenita", "birthDateString" : "c. 978", "deathDateString" : "1050", "ruled" : ["1028","1041","1042","1050"], 
                 "bubbleDate" : "1042", "bubbleScale" : [0, 1000]				},        
+
+        {		"name" : "Constantine X Doukas", "lived" : ["c. 1006", "1067"], "ruled" : ["1059","1067"], 
+                "bubbleDate" : "1059", "bubbleScale" : [0, 200]				},
+        {		"name" : "Romanos IV Diogenes", "lived" : ["c. 1030", "1072"], "ruled" : ["1068","1071"], 
+                "bubbleDate" : "1068", "bubbleScale" : [0, 200]				},
+        {		"name" : "Michael VII Doukas", "lived" : ["c. 1050", "1090"], "ruled" : ["1071","1078"], 
+                "bubbleDate" : "1071", "bubbleScale" : [0, 200]				},
+        {		"name" : "Nikephoros III Botaneiates", "lived" : ["1002", "1081"], "ruled" : ["1078","1081"], 
+                "bubbleDate" : "1078", "bubbleScale" : [0, 200]				},
+
         {		"name" : "Alexios I Komnenos", "birthDateString" : "1057", "deathDateString" : "1118", "ruled" : ["1081","1118"], 
                 "bubbleDate" : "1081", "bubbleScale" : [0, 5000]				},        
         {		"name" : "John II Komnenos", "birthDateString" : "1087", "deathDateString" : "1143", "ruled" : ["1118","1143"], 
                 "bubbleDate" : "1118", "bubbleScale" : [0, 500]				},        
         {		"name" : "Manuel I Komnenos", "birthDateString" : "1118", "deathDateString" : "1180", "ruled" : ["1143","1180"], 
-                "bubbleDate" : "1143", "bubbleScale" : [0, 500]				},
+                "bubbleDate" : "1143", "bubbleScale" : [0, 500]				},     
+        {		"name" : "Alexios II Komnenos", "lived" : ["1169", "1183"], "ruled" : ["1180","1183"], 
+                "bubbleDate" : "1180", "bubbleScale" : [0, 200]				},
+        {		"name" : "Andronikos I Komnenos", "lived" : ["1118", "1185"], "ruled" : ["1183","1185"], 
+                "bubbleDate" : "1183", "bubbleScale" : [0, 200]				},
 
         {		"name" : "Isaac II Angelos", "birthDateString" : "1156", "deathDateString" : "1204", "ruled" : ["1185","1195", "1203", "1204"], 
                 "bubbleDate" : "1185", "bubbleScale" : [0, 500]				},        
-        {		"name" : "Alexios II Angelos", "birthDateString" : "c. 1153", "deathDateString" : "1211", "ruled" : ["1195","1203"], 
+        {		"name" : "Alexios III Angelos", "birthDateString" : "c. 1153", "deathDateString" : "1211", "ruled" : ["1195","1203"], 
                 "bubbleDate" : "1195", "bubbleScale" : [0, 1000]				},    
 
         {		"name" : "Theodore I Laskaris", "birthDateString" : "c. 1175", "deathDateString" : "1221", "ruled" : ["1205","1221"], 
