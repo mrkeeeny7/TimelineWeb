@@ -2237,21 +2237,91 @@ function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
 }
 
 const TLDateFormat = Object.freeze({
+    CLASSIC: "classic", //the old system
     GREG: "gregorian",
     MA: "megaannum",
-    HOL: "holocene"
+    HOL: "holocene",
+    MIDRTH: "middleearth"
 });
+
 
 class TimelineDateEra
 {
     name;
-    length; //in years
-    isBackwards; //do the years count backwards from the first year?
+
+    // start and end years are inclusive
+    startYear; //using the internal standard format
+    endYear;
+    
+   // isBackwards; //do the years count backwards from the start year?
+    prefixString;
+    suffixString;
+
+    conversionScaling; //scale factor for converting years, usually 1 or -1
+    conversionOffset; //
+
+    get length()
+    {
+        return this.endYear - this.startYear;
+    }
+
+    constructor(eraData)
+    { 
+        Object.assign(this, eraData);
+
+        if(this.startYear > this.endYear)
+        {
+            console.error("Bad Era definition: " + this.name + ". Start year should be before end year.");
+        }
+    }
+
+    containsYear(yearNumber){
+        if(this.startYear==undefined && this.endYear==undefined)
+        {
+            return true; //no bounds on this era
+        }
+        else if(this.startYear==undefined)
+        {
+            return yearNumber <= this.endYear;
+        }
+        else if(this.endYear==undefined)
+        {
+            return yearNumber >= this.startYear;
+        }
+        else {
+            return this.startYear <= yearNumber && this.endYear >= yearNumber;
+        }
+    }
+
+    /**
+     * 
+     * @param {number} yearNumber the year in standard format 
+     * @returns the converted year in this Era's formatting
+     */
+    convertYear(yearNumber)
+    {
+        return (yearNumber * this.conversionScaling) + this.conversionOffset;
+    }
+
     dateToString(yearNumber)
     {
+        //check yearNumber is within range
+        if(!this.containsYear(yearNumber))
+        {
+            console.warn("Year out of bounds.");
+            return "Unknown year";
+        }
+
+        let yearOutput = this.convertYear(yearNumber);
+        
         //return the string e.g. "55 BBY"
+        let str = this.prefixString + String(yearOutput) + " " + this.suffixString;
+        return str;
     }
 }
+
+
+
 class TimelineDateSystem
 {
     /**
@@ -2264,6 +2334,17 @@ class TimelineDateSystem
 
     dateToString(yearNumber)
     {
+        // first determine the correct era
+        let thisEra = null;
+        for(let i=0; i<this.eras.length; i++)
+        {
+            if(eras[i].containsYear(yearNumber))
+            {
+                thisEra = eras[i];
+                break;
+            }
+
+        }
 
     }
 
@@ -2273,6 +2354,41 @@ class TimelineDateSystem
     }
 
 }
+
+const tlEra_BC = new TimelineDateEra(
+{
+    name: "BC Era", 
+    startYear: undefined,
+    endYear: 0, //i.e. 1 BC
+    conversionScaling: -1,
+    conversionOffset: 0, //internal date format uses -1 for 1BC and 1 for 1AD, skipping 0
+    prefixString: "",
+    suffixString: " BC (new)"
+});
+
+const tlEra_AD = new TimelineDateEra(
+{
+    name: "AD Era", 
+    startYear: 1,
+    endYear: 999,
+    conversionScaling: 1,
+    conversionOffset: 0,
+    prefixString: "AD ",
+    suffixString: " (new)"
+});
+
+const tlEra_AD_post1000 = new TimelineDateEra(
+{
+    name: "Post 1000 AD Era", 
+    startYear: 1000,
+    endYear: undefined,
+    conversionScaling: 1,
+    conversionOffset: 0,
+    prefixString: "",
+    suffixString: " (new)"
+});
+
+const tlSystem_GREG = new TimelineDateSystem();
 
 //DATE & STRING FUCNTIONS
 //TODO - organize as (static?) methods in a TimelineDate class
@@ -2479,6 +2595,10 @@ class TimelineDate
         {
             return TimelineDate.dateStringMegaAnnum(dateNumber);
         }
+        else if(TimelineDate.currentDateFormat==TLDateFormat.CLASSIC)
+        {
+            return TimelineDate.dateStringGregorian(dateNumber);
+        }
         else if(TimelineDate.currentDateFormat==TLDateFormat.GREG)
         {
             return TimelineDate.dateStringGregorian(dateNumber);
@@ -2534,20 +2654,47 @@ class TimelineDate
 
         if(date <= 0)
         {
-            str = -TimelineDate.dateRound(date)+ " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
-        }
+            //str = -TimelineDate.dateRound(date)+ " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+            str = tlEra_BC.dateToString(TimelineDate.dateRound(date)); }
         else if(date < 1000)
         {
-            str = TimelineDate.dateRound(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
+           // str = TimelineDate.dateRound(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
+           str = tlEra_AD.dateToString(TimelineDate.dateRound(date));
         }
         else
         {
-            str = TimelineDate.dateRound(date) + ""; //so 1000 becomes '1000'
+           // str = TimelineDate.dateRound(date) + ""; //so 1000 becomes '1000'
+           str = tlEra_AD_post1000.dateToString(TimelineDate.dateRound(date));
         }
 
         return str;
 
     }       
+
+    static dateStringNew(dateNumber)
+    {      
+        var date = Number(dateNumber);
+        var str;
+        if(date == 0)
+        {
+            throw new error("0 is not a valid input to convert to Gregorian year");
+        }
+
+        if(date <= 0)
+        {
+           str = tlEra_BC.dateToString(TimelineDate.dateRound(date)); }
+        else if(date < 1000)
+        {
+           str = tlEra_AD.dateToString(TimelineDate.dateRound(date));
+        }
+        else
+        {
+          str = tlEra_AD_post1000.dateToString(TimelineDate.dateRound(date));
+        }
+
+        return str;
+
+    }
     
     
     static dateStringHolocene(dateNumber)
