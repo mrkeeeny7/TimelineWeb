@@ -2253,9 +2253,10 @@ class TimelineDateEra
     startYear; //using the internal standard format
     endYear;
     
-   // isBackwards; //do the years count backwards from the start year?
+    //notation
     prefixString;
     suffixString;
+    fractionDigits; //0 for AD/BC, 2 for MegaAnnum etc.
 
     conversionScaling; //scale factor for converting years, usually 1 or -1
     conversionOffset; //
@@ -2327,24 +2328,30 @@ class TimelineDateSystem
     /**
      * @type {TimelineDateEra[]}
      */
-    eras; //array of time ranges (TimelineDateEra) in chronological sequence
+    erasList; //array of time ranges (TimelineDateEra) in chronological sequence
 
-    //notation
-    fractionDigits; //0 for AD/BC, 2 for MegaAnnum etc.
+    
+    constructor(erasData)
+    {
+        Object.assign(this, erasData);
+
+        //tODO - check things here (overlapping eras, etc.)
+    }
 
     dateToString(yearNumber)
     {
         // first determine the correct era
         let thisEra = null;
-        for(let i=0; i<this.eras.length; i++)
+        for(let i=0; i<this.erasList.length; i++)
         {
-            if(eras[i].containsYear(yearNumber))
+            if(this.erasList[i].containsYear(yearNumber))
             {
-                thisEra = eras[i];
+                thisEra = this.erasList[i];
                 break;
             }
-
         }
+
+        return thisEra.dateToString(yearNumber);
 
     }
 
@@ -2388,7 +2395,11 @@ const tlEra_AD_post1000 = new TimelineDateEra(
     suffixString: " (new)"
 });
 
-const tlSystem_GREG = new TimelineDateSystem();
+const tlSystem_GREG = new TimelineDateSystem(
+    {
+        erasList: [tlEra_BC, tlEra_AD, tlEra_AD_post1000]
+    }
+);
 
 //DATE & STRING FUCNTIONS
 //TODO - organize as (static?) methods in a TimelineDate class
@@ -2645,6 +2656,12 @@ class TimelineDate
      */
     static dateStringGregorian(dateNumber)
     {   
+
+        //temp for testing
+        return this.dateStringNew(dateNumber);
+
+
+
         var date = Number(dateNumber);
         var str;
         if(date == 0)
@@ -2654,17 +2671,18 @@ class TimelineDate
 
         if(date <= 0)
         {
-            //str = -TimelineDate.dateRound(date)+ " BC"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
-            str = tlEra_BC.dateToString(TimelineDate.dateRound(date)); }
+            str = -TimelineDate.dateRound(date)+ " BC (classic)"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+            //str = tlEra_BC.dateToString(TimelineDate.dateRound(date)); 
+        }
         else if(date < 1000)
         {
-           // str = TimelineDate.dateRound(date) + " AD"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
-           str = tlEra_AD.dateToString(TimelineDate.dateRound(date));
+           str = TimelineDate.dateRound(date) + " AD (classic)"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
+           //str = tlEra_AD.dateToString(TimelineDate.dateRound(date));
         }
         else
         {
-           // str = TimelineDate.dateRound(date) + ""; //so 1000 becomes '1000'
-           str = tlEra_AD_post1000.dateToString(TimelineDate.dateRound(date));
+           str = TimelineDate.dateRound(date) + " (classic)"; //so 1000 becomes '1000'
+           //str = tlEra_AD_post1000.dateToString(TimelineDate.dateRound(date));
         }
 
         return str;
@@ -2673,24 +2691,15 @@ class TimelineDate
 
     static dateStringNew(dateNumber)
     {      
-        var date = Number(dateNumber);
+        var dateRounded = TimelineDate.dateRound(Number(dateNumber));
         var str;
-        if(date == 0)
+        if(dateRounded == 0)
         {
+            //should never happen: dateRound not return 0
             throw new error("0 is not a valid input to convert to Gregorian year");
         }
 
-        if(date <= 0)
-        {
-           str = tlEra_BC.dateToString(TimelineDate.dateRound(date)); }
-        else if(date < 1000)
-        {
-           str = tlEra_AD.dateToString(TimelineDate.dateRound(date));
-        }
-        else
-        {
-          str = tlEra_AD_post1000.dateToString(TimelineDate.dateRound(date));
-        }
+        str = tlSystem_GREG.dateToString(dateRounded);
 
         return str;
 
