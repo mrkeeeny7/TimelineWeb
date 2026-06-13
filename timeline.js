@@ -2117,7 +2117,7 @@ function submitScaleInput()
 function updateGregorianLabel()
 {    
     var dom = document.getElementById("yearLabelGregorian");
-    dom.innerText = "(" + TimelineDate.dateStringGregorian(mainTimeline.currentYear) + ")";
+    dom.innerText = "(" + TimelineDate.dateStringClassic(mainTimeline.currentYear) + ")";
 }
 
 function initTimelines()
@@ -2239,6 +2239,7 @@ function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
 const TLDateFormat = Object.freeze({
     CLASSIC: "classic", //the old system
     GREG: "gregorian",
+    CE: "ce",
     MA: "megaannum",
     HOL: "holocene",
     MIDRTH: "middleearth"
@@ -2316,7 +2317,9 @@ class TimelineDateEra
         let yearOutput = this.convertYear(yearNumber);
         
         //return the string e.g. "55 BBY"
-        let str = this.prefixString + String(yearOutput) + " " + this.suffixString;
+        let str = String(yearOutput);
+        if(this.prefixString!=undefined) str = this.prefixString + str;
+        if(this.suffixString!=undefined) str = str + this.suffixString;
         return str;
     }
 }
@@ -2370,7 +2373,7 @@ const tlEra_BC = new TimelineDateEra(
     conversionScaling: -1,
     conversionOffset: 0, //internal date format uses -1 for 1BC and 1 for 1AD, skipping 0
     prefixString: "",
-    suffixString: " BC (new)"
+    suffixString: " BC"
 });
 
 const tlEra_AD = new TimelineDateEra(
@@ -2381,7 +2384,6 @@ const tlEra_AD = new TimelineDateEra(
     conversionScaling: 1,
     conversionOffset: 0,
     prefixString: "AD ",
-    suffixString: " (new)"
 });
 
 const tlEra_AD_post1000 = new TimelineDateEra(
@@ -2390,9 +2392,27 @@ const tlEra_AD_post1000 = new TimelineDateEra(
     startYear: 1000,
     endYear: undefined,
     conversionScaling: 1,
+    conversionOffset: 0
+    //no prefix/suffix
+});
+
+
+const tlEra_BCE = new TimelineDateEra(
+{
+    name: "BCE Era", 
+    endYear: 0, //i.e. 1 BC
+    conversionScaling: -1,
+    conversionOffset: 0, //internal date format uses -1 for 1BC and 1 for 1AD, skipping 0
+    suffixString: " BCE"
+});
+
+const tlEra_CE = new TimelineDateEra(
+{
+    name: "CE Era", 
+    startYear: 1,
+    conversionScaling: 1,
     conversionOffset: 0,
-    prefixString: "",
-    suffixString: " (new)"
+    suffixString: " CE"
 });
 
 const tlSystem_GREG = new TimelineDateSystem(
@@ -2400,6 +2420,13 @@ const tlSystem_GREG = new TimelineDateSystem(
         erasList: [tlEra_BC, tlEra_AD, tlEra_AD_post1000]
     }
 );
+const tlSystem_CE = new TimelineDateSystem(
+    {
+        erasList: [tlEra_BCE, tlEra_CE]
+    }
+);
+
+
 
 //DATE & STRING FUCNTIONS
 //TODO - organize as (static?) methods in a TimelineDate class
@@ -2608,11 +2635,15 @@ class TimelineDate
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.CLASSIC)
         {
-            return TimelineDate.dateStringGregorian(dateNumber);
+            return TimelineDate.dateStringClassic(dateNumber);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.GREG)
         {
-            return TimelineDate.dateStringGregorian(dateNumber);
+            return TimelineDate.dateStringNew(dateNumber, tlSystem_GREG);
+        }
+        else if(TimelineDate.currentDateFormat==TLDateFormat.CE)
+        {
+            return TimelineDate.dateStringNew(dateNumber, tlSystem_CE);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.HOL)
         {
@@ -2654,11 +2685,11 @@ class TimelineDate
      * @param {number} dateNumber the input date as number (expects floating point value) 
      * @returns {string} the 'AD/BC' string of the date (AD omitted if date is later than 999 AD)
      */
-    static dateStringGregorian(dateNumber)
+    static dateStringClassic(dateNumber)
     {   
 
         //temp for testing
-        return this.dateStringNew(dateNumber);
+        //return this.dateStringNew(dateNumber);
 
 
 
@@ -2689,7 +2720,7 @@ class TimelineDate
 
     }       
 
-    static dateStringNew(dateNumber)
+    static dateStringNew(dateNumber, tlDateSystem)
     {      
         var dateRounded = TimelineDate.dateRound(Number(dateNumber));
         var str;
@@ -2699,7 +2730,7 @@ class TimelineDate
             throw new error("0 is not a valid input to convert to Gregorian year");
         }
 
-        str = tlSystem_GREG.dateToString(dateRounded);
+        str = tlDateSystem.dateToString(dateRounded);
 
         return str;
 
