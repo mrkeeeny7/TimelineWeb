@@ -2239,6 +2239,7 @@ function readJSONFile(jsonfile, onFinishCallback, targetTimeline)
 
 const TLDateFormat = Object.freeze({
     CLASSIC: "classic", //the old system
+    CLASSIC_HOL: "classic_holocene", //the old holocene
     GREG: "gregorian",
     CE: "ce",
     MA: "megaannum",
@@ -2278,44 +2279,44 @@ class TimelineDateEra
         }
     }
 
-    containsYear(yearNumber){
+    containsYear(dateRounded){
         if(this.startYear==undefined && this.endYear==undefined)
         {
             return true; //no bounds on this era
         }
         else if(this.startYear==undefined)
         {
-            return yearNumber <= this.endYear;
+            return dateRounded <= this.endYear;
         }
         else if(this.endYear==undefined)
         {
-            return yearNumber >= this.startYear;
+            return dateRounded >= this.startYear;
         }
         else {
-            return this.startYear <= yearNumber && this.endYear >= yearNumber;
+            return this.startYear <= dateRounded && this.endYear >= dateRounded;
         }
     }
 
     /**
      * 
-     * @param {number} yearNumber the year in standard format 
+     * @param {number} dateRounded the year in standard format 
      * @returns the converted year in this Era's formatting
      */
-    convertYear(yearNumber)
+    convertYear(dateRounded)
     {
-        return (yearNumber * this.conversionScaling) + this.conversionOffset;
+        return (dateRounded * this.conversionScaling) + this.conversionOffset;
     }
 
-    dateToString(yearNumber)
+    dateToString(dateRounded)
     {
         //check yearNumber is within range
-        if(!this.containsYear(yearNumber))
+        if(!this.containsYear(dateRounded))
         {
             console.warn("Year out of bounds.");
             return "Unknown year";
         }
 
-        let yearOutput = this.convertYear(yearNumber);
+        let yearOutput = this.convertYear(dateRounded);
         
         //return the string e.g. "55 BBY"
         let str = String(yearOutput);
@@ -2342,20 +2343,20 @@ class TimelineDateSystem
         //tODO - check things here (overlapping eras, etc.)
     }
 
-    dateToString(yearNumber)
+    dateToString(dateRounded)
     {
         // first determine the correct era
         let thisEra = null;
         for(let i=0; i<this.erasList.length; i++)
         {
-            if(this.erasList[i].containsYear(yearNumber))
+            if(this.erasList[i].containsYear(dateRounded))
             {
                 thisEra = this.erasList[i];
                 break;
             }
         }
 
-        return thisEra.dateToString(yearNumber);
+        return thisEra.dateToString(dateRounded);
 
     }
 
@@ -2370,7 +2371,7 @@ const tlEra_BC = new TimelineDateEra(
 {
     name: "BC Era", 
     startYear: undefined,
-    endYear: 0, //i.e. 1 BC
+    endYear: -1, //i.e. 1 BC
     conversionScaling: -1,
     conversionOffset: 0, //internal date format uses -1 for 1BC and 1 for 1AD, skipping 0
     prefixString: "",
@@ -2401,7 +2402,7 @@ const tlEra_AD_post1000 = new TimelineDateEra(
 const tlEra_BCE = new TimelineDateEra(
 {
     name: "BCE Era", 
-    endYear: 0, //i.e. 1 BC
+    endYear: -1, //i.e. 1 BC
     conversionScaling: -1,
     conversionOffset: 0, //internal date format uses -1 for 1BC and 1 for 1AD, skipping 0
     suffixString: " BCE"
@@ -2416,6 +2417,24 @@ const tlEra_CE = new TimelineDateEra(
     suffixString: " CE"
 });
 
+
+const tlEra_HOL_negative = new TimelineDateEra(
+{
+    name: "Holocene negative", 
+    endYear: -1, //i.e. 1 BC
+    conversionScaling: 1,
+    conversionOffset: 10001, //so for 1BC ==> -1*1 + 10001 = 10000
+    suffixString: " HE"
+});
+const tlEra_HOL_positive = new TimelineDateEra(
+{
+    name: "Holocene positive", 
+    startYear: 1, //i.e. 1 AD
+    conversionScaling: 1,
+    conversionOffset: 10000, //so for 1AD ===> 1*1 + 10000 = 10001
+    suffixString: " HE"
+});
+
 const tlSystem_GREG = new TimelineDateSystem(
     {
         erasList: [tlEra_BC, tlEra_AD, tlEra_AD_post1000]
@@ -2424,6 +2443,11 @@ const tlSystem_GREG = new TimelineDateSystem(
 const tlSystem_CE = new TimelineDateSystem(
     {
         erasList: [tlEra_BCE, tlEra_CE]
+    }
+);
+const tlSystem_HOL = new TimelineDateSystem(
+    {
+        erasList: [tlEra_HOL_negative, tlEra_HOL_positive]
     }
 );
 
@@ -2442,6 +2466,7 @@ class TimelineDate
      * @type {number}
      */
     dateNumber;
+    dateFormatOriginal;
     isApprox;
 
  
@@ -2465,6 +2490,7 @@ class TimelineDate
         let obj = TimelineDate.unpackDateString(this.dateString);
         this.dateNumber = obj.dateInt;
         this.isApprox = obj.isApprox;
+        this.dateFormatOriginal = obj.dateFormat;
         
     }
 
@@ -2638,6 +2664,10 @@ class TimelineDate
         {
             return TimelineDate.dateStringClassic(dateNumber);
         }
+        else if(TimelineDate.currentDateFormat==TLDateFormat.CLASSIC_HOL)
+        {
+            return TimelineDate.dateStringHolocene_Classic(dateNumber);
+        }
         else if(TimelineDate.currentDateFormat==TLDateFormat.GREG)
         {
             return TimelineDate.dateStringNew(dateNumber, tlSystem_GREG);
@@ -2648,7 +2678,7 @@ class TimelineDate
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.HOL)
         {
-            return TimelineDate.dateStringHolocene(dateNumber);
+            return TimelineDate.dateStringNew(dateNumber, tlSystem_HOL);
         }
 
         //by default just return the input as a string
@@ -2726,6 +2756,12 @@ class TimelineDate
 
     }       
 
+    /**
+     * 
+     * @param {number} dateNumber the input date in internal number (Gregorian) i.e. [-1, 0) is 1 BC; (0, 1] is 1 AD, 0 is undefined
+     * @param {TimelineDateSystem} tlDateSystem the date system we want to display the output in
+     * @returns {string} the string representation of the input date, in the supplied format
+     */
     static dateStringNew(dateNumber, tlDateSystem)
     {      
         var dateRounded = TimelineDate.dateRound(Number(dateNumber));
@@ -2743,12 +2779,12 @@ class TimelineDate
     }
     
     //TODO replace with new-style system
-    static dateStringHolocene(dateNumber)
+    static dateStringHolocene_Classic(dateNumber)
     {
         var date = Number(dateNumber);
         var str = "unknown result"; //this will be the output if there is an error in conversion
 
-        str = String(this.dateGREGtoHOL(date)) + " HE";
+        str = String(this.dateGREGtoHOL(date)) + " HE (classic)";
 
         return str;
     }
