@@ -237,6 +237,11 @@
 			"tags" : ["america"]
 		},
 		{
+			"title" : "African Humid Period begins",
+			"dateString" : "12500 BC",
+			"maxScale" : 50000
+		},
+		{
 			"title" : "Sabre-toothed Cats Extinct",
 			"searchstring" : "Saber-toothed cat",
 			"dateString" : "9000 BC",
