@@ -2117,7 +2117,8 @@ function submitScaleInput()
 function updateGregorianLabel()
 {    
     var dom = document.getElementById("yearLabelGregorian");
-    dom.innerText = "(" + TimelineDate.dateStringClassic(mainTimeline.currentYear) + ")";
+    //dom.innerText = "(" + TimelineDate.dateStringClassic(mainTimeline.currentYear) + ")";
+    dom.innerText = "(" + TimelineDate.dateStringNew(mainTimeline.currentYear, tlSystem_CE) + ")"; //use the more scientific CE label for now
 }
 
 function initTimelines()
@@ -2669,6 +2670,11 @@ class TimelineDate
         }
         var str = this.dateGREGtoMA(date).toLocaleString("en-GB", options) + " Ma";
 
+        if(date > 0)
+        {
+            str = "+" + str; //to avoid ambiguity
+        }
+
         return str;
     }
 
@@ -2736,7 +2742,7 @@ class TimelineDate
 
     }
     
-    
+    //TODO replace with new-style system
     static dateStringHolocene(dateNumber)
     {
         var date = Number(dateNumber);
