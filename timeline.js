@@ -2101,8 +2101,19 @@ function submitYearInput()
 function updateScaleInput()
 {
     var dom = document.getElementById("scaleInput");
+
+    var formatOptions = {
+        notation: "standard"
+    };
+
+    if(Math.abs(mainTimeline.currentScale) > 10000)
+    {
+        //formatOptions.notation = "scientific";
+        formatOptions.notation = "compact";
+    }
+
    // const formattedNumberEN = new Intl.NumberFormat('fr-FR').format(mainTimeline.currentScale);
-    const formattedNumberEN = new Intl.NumberFormat('en-US').format(mainTimeline.currentScale);
+    const formattedNumberEN = new Intl.NumberFormat('en-US', formatOptions).format(mainTimeline.currentScale);
 
     dom.value = formattedNumberEN;
 }
