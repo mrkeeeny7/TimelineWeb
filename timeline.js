@@ -2463,6 +2463,70 @@ const tlSystem_HOL = new TimelineDateSystem(
 );
 
 
+/* FICTIONAL: */
+//Tolkien. Src: https://tolkiengateway.net/wiki/Timeline
+
+const tlEra_Tolkien_VY = new TimelineDateEra(
+{
+    name: "Valian Years", 
+    startYear: 1, //i.e. 1 HE
+    endYear: 35000, //i.e. 1 HE
+    conversionScaling: 0.1,
+    conversionOffset: 0, //so for 1VY ===> 1*10 
+    suffixString: " V.Y."
+});
+const tlEra_Tolkien_YT = new TimelineDateEra(
+{
+    name: "Years of the Trees", 
+    startYear: 35001,
+    endYear: 3501,
+    conversionScaling: 1,
+    conversionOffset: 10000, //so for 1AD ===> 1*1 + 10000 = 10001, as with holocene
+    suffixString: " Y.T."
+});
+const tlEra_Tolkien_FA = new TimelineDateEra(
+{
+    name: "First Age", //First Age years after the Sun rises (in YT 1500)
+    startYear: 1,
+    endYear: 590,
+    conversionScaling: 1,
+    conversionOffset: 0, //so for 1AD ===> 1*1 + 10000 = 10001, as with holocene
+    suffixString: " F.A."
+});
+const tlEra_Tolkien_SA = new TimelineDateEra(
+{
+    name: "Second Age", //First Age years after the Sun rises (in YT 1500)
+    startYear: 591,
+    endYear: 4031,  //3441 F.A.
+    conversionScaling: 1,
+    conversionOffset: 0, //so for 1AD ===> 1*1 + 10000 = 10001, as with holocene
+    suffixString: " S.A."
+});
+const tlEra_Tolkien_TA = new TimelineDateEra(
+{
+    name: "Third Age", //First Age years after the Sun rises (in YT 1500)
+    startYear: 4032,
+    endYear: 7052,  //3021 T.A.
+    conversionScaling: 1,
+    conversionOffset: 0, //so for 1AD ===> 1*1 + 10000 = 10001, as with holocene
+    suffixString: " T.A."
+});
+const tlEra_Tolkien_FoA = new TimelineDateEra(
+{
+    name: "Fourth Age", //First Age years after the Sun rises (in YT 1500)
+    startYear: 7053,
+    endYear: undefined,
+    conversionScaling: 1,
+    conversionOffset: 0, //so for 1AD ===> 1*1 + 10000 = 10001, as with holocene
+    suffixString: " Fo.A."
+});
+
+const tlSystem_MIDDLEEARTH = new TimelineDateSystem(
+    {
+        erasList: [tlEra_Tolkien_FA, tlEra_Tolkien_SA, tlEra_Tolkien_TA, tlEra_Tolkien_FoA]
+    }
+);
+
 
 //DATE & STRING FUCNTIONS
 //TODO - organize as (static?) methods in a TimelineDate class
@@ -2690,6 +2754,10 @@ class TimelineDate
         else if(TimelineDate.currentDateFormat==TLDateFormat.HOL)
         {
             return TimelineDate.dateStringNew(dateNumber, tlSystem_HOL);
+        }
+        else if(TimelineDate.currentDateFormat==TLDateFormat.MIDRTH)
+        {
+            return TimelineDate.dateStringNew(dateNumber, tlSystem_MIDDLEEARTH);
         }
 
         //by default just return the input as a string
@@ -2979,7 +3047,11 @@ function setVisibility(domElement, isVisible)
 function UpdateInfoPanel()
 {
     //temp
-//    UpdateInfoPanelWikpedia2();
+    //UpdateInfoPanelWikipedia();
+    //UpdateInfoPanelWikipedia2();
+    let summaryText=undefined;
+    //summaryText = UpdateInfoPanelWikipedia3();
+    //summaryText = UpdateInfoPanelWikipedia4();
  //   return;
 
 
@@ -3033,6 +3105,11 @@ function UpdateInfoPanel()
             }
         }
 
+        
+        if(summaryText!=undefined)
+            { 
+                TimelineHelper.AddParagraph(newDiv, summaryText);
+            }
         infoPanel.appendChild(newDiv);
     }
 
@@ -3078,9 +3155,9 @@ function RefreshPersonPanel()
 }
 
 
-function UpdateInfoPanelWikpedia()
+function UpdateInfoPanelWikipedia()
 {
-    var requestString = mainTimeline.currentSelectedEvent.searchstring;
+    var requestString = "blackbeard";//mainTimeline.currentSelectedEvent.searchstring;
     var url = "https://en.wikipedia.org/w/api.php?";
     var xmlhttp = new XMLHttpRequest();
     
@@ -3125,15 +3202,97 @@ function UpdateInfoPanelWikpedia()
 
 }
 
-function  UpdateInfoPanelWikpedia2()
+function  UpdateInfoPanelWikipedia2()
 {    
-    var requestString = "pizza";//mainTimeline.currentSelectedEvent.searchstring;
+    var requestString = "blackbeard";//mainTimeline.currentSelectedEvent.searchstring;
     getWikipediaContent(requestString);
+}
+
+function UpdateInfoPanelWikipedia3()
+{
+    //Code reference from Google AI...
+
+    // Choose the Wikipedia article title you want to display (use underscores for spaces)
+    const articleTitle = "Blackbeard"; 
+
+    let summaryText = "Summary not found"
+
+    // Call the Wikipedia REST API for the page summary
+    fetch(`https://wikipedia.org{articleTitle}`)
+        .then(response => response.json())
+        .then(data => {
+            // Populate the HTML elements with Wikipedia data
+           // document.getElementById("title").innerText = data.title;
+          //  document.getElementById("extract").innerText = data.extract;
+           // document.getElementById("link").href = data.content_urls.desktop.page;
+           summaryText = data.extract;
+
+            // Display the image if one exists
+         /*   if (data.thumbnail) {
+                const imgElement = document.getElementById("image");
+                imgElement.src = data.thumbnail.source;
+                imgElement.style.display = "block";
+            }*/
+        })
+        .catch(error => {
+            console.error("Error fetching Wikipedia summary:", error);
+           // document.getElementById("title").innerText = "Failed to load summary.";
+            summaryText = "Failed to load summary.";
+        });
+
+
+     return summaryText;
+}
+
+function UpdateInfoPanelWikipedia4()
+{
+    const articleTitle = "Blackbeard";
+    let summaryText = "Summary not found"
+
+    // Using the Action API with origin=* to bypass strict CORS on file://
+    const url = `https://wikipedia.org|pageimages&exintro=1&explaintext=1&titles=${articleTitle}&piprop=thumbnail&pithumbsize=200&origin=*`;
+   // const url = `https://wikipedia.org|pageimages&exintro=1&explaintext=1&titles=${articleTitle}&piprop=thumbnail&pithumbsize=200&origin=*`;
+   // const url = `https://en.wikipedia.org/w/api.php?action=opensearch&origin=*&search=${encodeURIComponent(articleTitle)}&format=json`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const pages = data.query.pages;
+            const pageId = Object.keys(pages)[0];
+            const page = pages[pageId];
+
+            if (pageId === "-1") {
+                summaryText = "Article not found.";
+                return summaryText;
+                //document.getElementById("title").innerText = "Article not found.";
+                //return;
+            }
+
+            // Populate the HTML
+            //document.getElementById("title").innerText = page.title;
+           // document.getElementById("extract").innerText = page.extract;
+            //document.getElementById("link").href = `https://wikipedia.org{pageId}`;
+            summaryText = page.extract;
+
+            // Display image if available
+           /* if (page.thumbnail) {
+                const imgElement = document.getElementById("image");
+                imgElement.src = page.thumbnail.source;
+                imgElement.style.display = "block";
+            }*/
+        })
+        .catch(error => {
+            console.error("Error fetching Wikipedia data:", error);
+            //document.getElementById("title").innerText = "Error loading summary.";
+            summaryText = "Error loading summary.";
+        });
+
+        return summaryText;
 }
 
 //from google AI example
 async function getWikipediaContent(searchTerm) {
-  const url = `https://en.wikipedia.org/w/api.php?action=opensearch&origin=*&search=${encodeURIComponent(searchTerm)}&format=json`;
+  const url = `https://en.wikipedia.org/w/api.php?action=opensearch&explaintext=1&origin=*&search=${encodeURIComponent(searchTerm)}&format=json`;
   //const url = `https://en.wikipedia.org/w/api.php?action=opensearch&origin=*&search=${encodeURIComponent(searchTerm)}&redirects=1&format=json`;
   //const url = 'https://en.wikipedia.org/w/api.php?origin=*&action=query&prop=extracts&exlimit=1&titles=pizza&explaintext=1&exsectionformat=plain';
 
@@ -3148,6 +3307,13 @@ async function getWikipediaContent(searchTerm) {
     // const titles = data[1];
     // const descriptions = data[2];
     // const links = data[3];
+
+    const pages = data.query.pages;
+    const pageId = Object.keys(pages)[0];
+    const page = pages[pageId];
+
+    let summaryText = page.extract;
+    console.log("SUMMARY: " + summaryText);
   } catch (error) {
     console.error("Error fetching Wikipedia content:", error);
   }
