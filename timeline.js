@@ -3050,7 +3050,7 @@ function UpdateInfoPanel()
     //UpdateInfoPanelWikipedia();
     //UpdateInfoPanelWikipedia2();
     let summaryText=undefined;
-    summaryText = UpdateInfoPanelWikipedia3();
+    //summaryText = UpdateInfoPanelWikipedia3();
     //summaryText = UpdateInfoPanelWikipedia4();
  //   return;
 
