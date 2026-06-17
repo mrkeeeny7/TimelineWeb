@@ -231,6 +231,12 @@
 			"maxScale" : 1000
 		},
 		{
+			"title" : "Maxwell's Equations",
+			"dateString" : "1861",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
 			"title" : "Periodic Table",
 			"dateString" : "1869",
 			"minScale" : 1,
@@ -253,6 +259,48 @@
 			"dateString" : "1886",
 			"minScale" : 1,
 			"maxScale" : 1000
+		},
+		{
+			"title" : "Radio",
+			"dateString" : "c. 1895",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Airplane",
+			"dateString" : "1903",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Penicillin",
+			"dateString" : "1928",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Manhattan Project",
+			"dateRange" : ["1942","1946"],
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Colossus (codebreaking computer)",
+			"dateString" : "1943",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Nuclear bomb test (Trinity)",
+			"dateString" : "1945",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Thermonuclear weapon (H-bomb)",
+			"dateString" : "1952",
+			"minScale" : 1,
+			"maxScale" : 100
 		}
 	
 	],
@@ -284,6 +332,12 @@
 		{		"name" : "Antoine Lavoisier", "lived" : ["1743", "1794"]	, 	"bubbleDate" : "1764", "bubbleScale" : [0, 5000]			},
 		{		"name" : "Charles Darwin", "birthDateString" : "1809", "deathDateString" : "1882", 	"bubbleDate" : "1859", "bubbleScale" : [0, 5000]				},
 		{		"name" : "Dmitri Mendeleev", "lived" : ["1834", "1907"]	, 	"bubbleDate" : "1863", "bubbleScale" : [0, 5000]				},
+
+		{		"name" : "Charles-Augustin de Coulomb", "lived" : ["1736", "1806"]	, 	"bubbleDate" : "1784", "bubbleScale" : [0, 5000]				},
+		{		"name" : "André-Marie Ampère", "lived" : ["1775", "1836"]	, 	"bubbleDate" : "1825", "bubbleScale" : [0, 5000]				},
+		{		"name" : "Michael Faraday", "lived" : ["1791", "1867"]	, 	"bubbleDate" : "1831", "bubbleScale" : [0, 5000]				},
+		{		"name" : "James Clerk Maxwell", "lived" : ["1831", "1879"]	, 	"bubbleDate" : "1856", "bubbleScale" : [0, 5000]				},
+		{		"name" : "Alexander Fleming", "lived" : ["1881", "1955"]	, 	"bubbleDate" : "1932", "bubbleScale" : [0, 5000]				},
 
 		{		"name" : "Albert Einstein", "birthDateString" : "1879", "deathDateString" : "1955", 	"bubbleDate" : "1905", "bubbleScale" : [0, 5000]				}
 	
