@@ -1,0 +1,152 @@
+{
+ 
+	"category" : "Inventions",
+	"colorString" : "#227766ff",
+	"tags" : ["inventions"],
+	
+	
+	"eventlist" : [
+		
+
+
+		{
+			"title" : "Earliest steel",
+			"dateString" : "c. 1800 BC",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Glassmaking (Mesopotamia)",
+			"dateString" : "c. 1600 BC",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Wheeled chariots",
+			"dateString" : "c. 1950 BC",
+			"minScale" : 1,
+			"maxScale" : 50000
+		},
+		{
+			"title" : "Papermaking (China)",
+			"dateString" : "c. 105",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "Toilet paper (China)",
+			"dateString" : "c. 589",
+			"minScale" : 1,
+			"maxScale" : 10000
+		},
+		{
+			"title" : "Gunpowder (China)",
+			"dateString" : "c. 808",
+			"minScale" : 1,
+			"maxScale" : 200
+		},
+		{
+			"title" : "Steam engine",
+			"dateString" : "1763",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+		{
+			"title" : "Railway",
+			"dateString" : "1830",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "Safety Bicycle",
+			"dateString" : "1876",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Electric Lighting",
+			"dateString" : "1879",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+		{
+			"title" : "Automobile",
+			"dateString" : "1886",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+		{
+			"title" : "Radio",
+			"dateString" : "c. 1895",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+		{
+			"title" : "Airplane",
+			"dateString" : "1903",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+		{
+			"title" : "Penicillin",
+			"dateString" : "1928",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+		{
+			"title" : "Colossus (codebreaking computer)",
+			"dateString" : "1943",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Atomic bomb",
+			"dateString" : "1945",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "H-bomb (thermonuclear weapon)",
+			"dateString" : "1952",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Satellite (Sputnik 1)",
+			"dateString" : "1957",
+			"minScale" : 1,
+			"maxScale" : 500
+		},
+		{
+			"title" : "Laser",
+			"dateString" : "1960",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "Pocket calculator",
+			"dateString" : "1970",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "GPS",
+			"dateString" : "1978",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
+			"title" : "World Wide Web",
+			"dateString" : "1989",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
+			"title" : "mRNA vaccine",
+			"dateString" : "2020",
+			"minScale" : 1,
+			"maxScale" : 100
+		}
+	
+	]
+}

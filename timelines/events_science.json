@@ -3,6 +3,11 @@
 	"category" : "Science",
 	"colorString" : "#22aabbff",
 	"tags" : ["science"],
+	
+	"includefiles" : [
+		"timelines/events_inventions.json"
+	],
+
 	"eventlist" : [
 			
 		{
@@ -74,7 +79,13 @@
 		},
 		{
 			"title" : "Atomic Age",
-			"dateString" : "1945",	"endDateString" : "1989",
+			"dateString" : "1945",	"endDateString" : "1957",
+			"minScale" : 1,
+			"type" : "era"
+		},
+		{
+			"title" : "Space Age",
+			"dateString" : "1957",	"endDateString" : "1989",
 			"minScale" : 1,
 			"type" : "era"
 		},
@@ -115,24 +126,6 @@
 
 
 		{
-			"title" : "Earliest steel",
-			"dateString" : "c. 1800 BC",
-			"minScale" : 1,
-			"maxScale" : 5000
-		},
-		{
-			"title" : "Glassmaking (Mesopotamia)",
-			"dateString" : "c. 1600 BC",
-			"minScale" : 1,
-			"maxScale" : 5000
-		},
-		{
-			"title" : "Wheeled chariots",
-			"dateString" : "c. 1950 BC",
-			"minScale" : 1,
-			"maxScale" : 50000
-		},
-		{
 			"title" : "Approximation of π",
 			"dateString" : "250 BC",
 			"minScale" : 1,
@@ -143,24 +136,6 @@
 			"dateString" : "c. 300 BC",
 			"minScale" : 1,
 			"maxScale" : 10000
-		},
-		{
-			"title" : "Papermaking (China)",
-			"dateString" : "c. 105",
-			"minScale" : 1,
-			"maxScale" : 10000
-		},
-		{
-			"title" : "Toilet paper (China)",
-			"dateString" : "c. 589",
-			"minScale" : 1,
-			"maxScale" : 10000
-		},
-		{
-			"title" : "Gunpowder (China)",
-			"dateString" : "c. 808",
-			"minScale" : 1,
-			"maxScale" : 200
 		},
 		{
 			"title" : "Baghdad House of Wisdom",
@@ -225,12 +200,6 @@
 			"maxScale" : 1000
 		},
 		{
-			"title" : "Railway",
-			"dateString" : "1830",
-			"minScale" : 1,
-			"maxScale" : 1000
-		},
-		{
 			"title" : "Maxwell's Equations",
 			"dateString" : "1861",
 			"minScale" : 1,
@@ -243,64 +212,10 @@
 			"maxScale" : 1000
 		},
 		{
-			"title" : "Safety Bicycle",
-			"dateString" : "1876",
-			"minScale" : 1,
-			"maxScale" : 500
-		},
-		{
-			"title" : "Electric Lighting",
-			"dateString" : "1879",
-			"minScale" : 1,
-			"maxScale" : 1000
-		},
-		{
-			"title" : "Automobile",
-			"dateString" : "1886",
-			"minScale" : 1,
-			"maxScale" : 1000
-		},
-		{
-			"title" : "Radio",
-			"dateString" : "c. 1895",
-			"minScale" : 1,
-			"maxScale" : 1000
-		},
-		{
-			"title" : "Airplane",
-			"dateString" : "1903",
-			"minScale" : 1,
-			"maxScale" : 1000
-		},
-		{
-			"title" : "Penicillin",
-			"dateString" : "1928",
-			"minScale" : 1,
-			"maxScale" : 1000
-		},
-		{
 			"title" : "Manhattan Project",
 			"dateRange" : ["1942","1946"],
 			"minScale" : 1,
 			"maxScale" : 1000
-		},
-		{
-			"title" : "Colossus (codebreaking computer)",
-			"dateString" : "1943",
-			"minScale" : 1,
-			"maxScale" : 100
-		},
-		{
-			"title" : "Nuclear bomb test (Trinity)",
-			"dateString" : "1945",
-			"minScale" : 1,
-			"maxScale" : 100
-		},
-		{
-			"title" : "Thermonuclear weapon (H-bomb)",
-			"dateString" : "1952",
-			"minScale" : 1,
-			"maxScale" : 100
 		}
 	
 	],
@@ -317,29 +232,35 @@
 		{		"name" : "Archimedes", "birthDateString" : "c. 287 BC", "deathDateString" : "c. 212 BC" , 	"bubbleDate" : "214 BC"	, "bubbleScale" : [0, 5000]	},
 		{		"name" : "Galen", "birthDateString" : "129", "deathDateString" : "216" , 	"bubbleDate" : "162", "bubbleScale" : [0, 5000]		},
 		{		"name" : "Hypatia", "birthDateString" : "350", "deathDateString" : "415" , 	"bubbleDate" : "400"	, "bubbleScale" : [0, 5000]	},
-		{		"name" : "Aryabhata", "birthDateString" : "476", "deathDateString" : "550" , 	"bubbleDate" : "510", "bubbleScale" : [0, 5000]		},
-		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850", 	"bubbleDate" : "820", "bubbleScale" : [0, 5000]				},
-		{		"name" : "Nicolaus Copernicus", "birthDateString" : "1473", "deathDateString" : "1543", 	"bubbleDate" : "1532"	, "bubbleScale" : [0, 5000]					},
-		{		"name" : "Tycho Brahe", "lived" : ["1546", "1601"]	, 	"bubbleDate" : "1570", "bubbleScale" : [0, 5000]			},
-		{		"name" : "William Harvey", "lived" : ["1578", "1657"]	, 	"bubbleDate" : "1628", "bubbleScale" : [0, 5000]			},
-		{		"name" : "Johannes Kepler", "birthDateString" : "1571", "deathDateString" : "1630", 	"bubbleDate" : "1594", "bubbleScale" : [0, 5000]				},
-		{		"name" : "Galileo Galilei", "birthDateString" : "1564", "deathDateString" : "1642", 	"bubbleDate" : "1609"	, "bubbleScale" : [0, 5000]					},
-		{		"name" : "Rene Descartes", "lived" : ["1596", "1650"], 	"bubbleDate" : "1644"	, "bubbleScale" : [0, 5000]					},
-		{		"name" : "Blaise Pascal", "lived" : ["1623", "1662"], 	"bubbleDate" : "1654"	, "bubbleScale" : [0, 5000]					},
+		{		"name" : "Aryabhata", "birthDateString" : "476", "deathDateString" : "550" , 	"bubbleDate" : "510", "bubbleScale" : [0, 500]		},
+		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850", 	"bubbleDate" : "820", "bubbleScale" : [0, 500]				},
+		{		"name" : "Nicolaus Copernicus", "birthDateString" : "1473", "deathDateString" : "1543", 	"bubbleDate" : "1532"	, "bubbleScale" : [0, 500]					},
+		{		"name" : "Tycho Brahe", "lived" : ["1546", "1601"]	, 	"bubbleDate" : "1570", "bubbleScale" : [0, 500]			},
+		{		"name" : "William Harvey", "lived" : ["1578", "1657"]	, 	"bubbleDate" : "1628", "bubbleScale" : [0, 500]			},
+		{		"name" : "Johannes Kepler", "birthDateString" : "1571", "deathDateString" : "1630", 	"bubbleDate" : "1594", "bubbleScale" : [0, 500]				},
+		{		"name" : "Galileo Galilei", "birthDateString" : "1564", "deathDateString" : "1642", 	"bubbleDate" : "1609"	, "bubbleScale" : [0, 500]					},
+		{		"name" : "Rene Descartes", "lived" : ["1596", "1650"], 	"bubbleDate" : "1644"	, "bubbleScale" : [0, 500]					},
+		{		"name" : "Blaise Pascal", "lived" : ["1623", "1662"], 	"bubbleDate" : "1654"	, "bubbleScale" : [0, 500]					},
 		{		"name" : "Isaac Newton", "birthDateString" : "1643", "deathDateString" : "1727"	, 	"bubbleDate" : "1666", "bubbleScale" : [0, 5000]			},
-		{		"name" : "Edmond Halley", "lived" : ["1656", "1742"], 	"bubbleDate" : "1676", "bubbleScale" : [0, 5000]			},
-		{		"name" : "Robert Boyle", "birthDateString" : "1627", "deathDateString" : "1691"	, 	"bubbleDate" : "1661", "bubbleScale" : [0, 5000]			},
-		{		"name" : "Antoine Lavoisier", "lived" : ["1743", "1794"]	, 	"bubbleDate" : "1764", "bubbleScale" : [0, 5000]			},
+		{		"name" : "Edmond Halley", "lived" : ["1656", "1742"], 	"bubbleDate" : "1676", "bubbleScale" : [0, 500]			},
+		{		"name" : "Robert Boyle", "birthDateString" : "1627", "deathDateString" : "1691"	, 	"bubbleDate" : "1661", "bubbleScale" : [0, 500]			},
+		{		"name" : "Antoine Lavoisier", "lived" : ["1743", "1794"]	, 	"bubbleDate" : "1764", "bubbleScale" : [0, 500]			},
 		{		"name" : "Charles Darwin", "birthDateString" : "1809", "deathDateString" : "1882", 	"bubbleDate" : "1859", "bubbleScale" : [0, 5000]				},
-		{		"name" : "Dmitri Mendeleev", "lived" : ["1834", "1907"]	, 	"bubbleDate" : "1863", "bubbleScale" : [0, 5000]				},
+		{		"name" : "Dmitri Mendeleev", "lived" : ["1834", "1907"]	, 	"bubbleDate" : "1863", "bubbleScale" : [0, 500]				},
 
-		{		"name" : "Charles-Augustin de Coulomb", "lived" : ["1736", "1806"]	, 	"bubbleDate" : "1784", "bubbleScale" : [0, 5000]				},
-		{		"name" : "André-Marie Ampère", "lived" : ["1775", "1836"]	, 	"bubbleDate" : "1825", "bubbleScale" : [0, 5000]				},
-		{		"name" : "Michael Faraday", "lived" : ["1791", "1867"]	, 	"bubbleDate" : "1831", "bubbleScale" : [0, 5000]				},
-		{		"name" : "James Clerk Maxwell", "lived" : ["1831", "1879"]	, 	"bubbleDate" : "1856", "bubbleScale" : [0, 5000]				},
-		{		"name" : "Alexander Fleming", "lived" : ["1881", "1955"]	, 	"bubbleDate" : "1932", "bubbleScale" : [0, 5000]				},
+		{		"name" : "Charles-Augustin de Coulomb", "lived" : ["1736", "1806"]	, 	"bubbleDate" : "1784", "bubbleScale" : [0, 500]				},
+		{		"name" : "André-Marie Ampère", "lived" : ["1775", "1836"]	, 	"bubbleDate" : "1825", "bubbleScale" : [0, 500]				},
+		{		"name" : "Michael Faraday", "lived" : ["1791", "1867"]	, 	"bubbleDate" : "1831", "bubbleScale" : [0, 500]				},
+		{		"name" : "James Clerk Maxwell", "lived" : ["1831", "1879"]	, 	"bubbleDate" : "1856", "bubbleScale" : [0, 500]				},
+		{		"name" : "Alexander Fleming", "lived" : ["1881", "1955"]	, 	"bubbleDate" : "1932", "bubbleScale" : [0, 500]				},
 
-		{		"name" : "Albert Einstein", "birthDateString" : "1879", "deathDateString" : "1955", 	"bubbleDate" : "1905", "bubbleScale" : [0, 5000]				}
+		{		"name" : "Marie Skłodowska Curie", "lived" : ["1867", "1934"]	, 	"bubbleDate" : "1898", "bubbleScale" : [0, 500]				},
+
+		{		"name" : "Hedy Lamarr", "lived" : ["1914", "2000"]	, 	"bubbleDate" : "1942", "bubbleScale" : [0, 500]				},
+		{		"name" : "Stephen Hawking", "lived" : ["1942", "2018"]	, 	"bubbleDate" : "1988", "bubbleScale" : [0, 500]				},
+
+		{		"name" : "Albert Einstein", "lived" : ["1879", "1955"], 	"bubbleDate" : "1905", "bubbleScale" : [0, 5000]			}
 	
+
 	] 
 }
