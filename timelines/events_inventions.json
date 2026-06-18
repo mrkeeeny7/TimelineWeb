@@ -82,6 +82,12 @@
 			"maxScale" : 500
 		},
 		{
+			"title" : "X-ray imaging",
+			"dateString" : "1896",
+			"minScale" : 1,
+			"maxScale" : 100
+		},
+		{
 			"title" : "Airplane",
 			"dateString" : "1903",
 			"minScale" : 1,
