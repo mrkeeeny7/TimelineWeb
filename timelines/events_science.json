@@ -254,9 +254,18 @@
 		{		"name" : "James Clerk Maxwell", "lived" : ["1831", "1879"]	, 	"bubbleDate" : "1856", "bubbleScale" : [0, 500]				},
 		{		"name" : "Alexander Fleming", "lived" : ["1881", "1955"]	, 	"bubbleDate" : "1932", "bubbleScale" : [0, 500]				},
 
+		{		"name" : "Wilhelm Röntgen", "lived" : ["1845", "1923"]	, 	"bubbleDate" : "1895", "bubbleScale" : [0, 500]				},
+		{		"name" : "Henri Becquerel", "lived" : ["1852", "1908"]	, 	"bubbleDate" : "1896", "bubbleScale" : [0, 500]				},
+		{		"name" : "Pierre Curie", "lived" : ["1859", "1906"]	, 	"bubbleDate" : "1898", "bubbleScale" : [0, 500]				},
 		{		"name" : "Marie Skłodowska Curie", "lived" : ["1867", "1934"]	, 	"bubbleDate" : "1898", "bubbleScale" : [0, 500]				},
+		{		"name" : "Paul Dirac", "lived" : ["1902", "1984"]	, 	"bubbleDate" : "1928", "bubbleScale" : [0, 500]				},
+		{		"name" : "Erwin Schrödinger", "lived" : ["1887", "1961"]	, 	"bubbleDate" : "1935", "bubbleScale" : [0, 500]				},
+		{		"name" : "Werner Heisenberg", "lived" : ["1901", "1976"]	, 	"bubbleDate" : "1927", "bubbleScale" : [0, 500]				},
+		{		"name" : "Wolfgang Pauli", "lived" : ["1900", "1958"]	, 	"bubbleDate" : "1925", "bubbleScale" : [0, 500]				},
+		{		"name" : "Enrico Fermi", "lived" : ["1901", "1954"]	, 	"bubbleDate" : "1939", "bubbleScale" : [0, 500]				},
 
 		{		"name" : "Hedy Lamarr", "lived" : ["1914", "2000"]	, 	"bubbleDate" : "1942", "bubbleScale" : [0, 500]				},
+		{		"name" : "Richard Feynman", "lived" : ["1918", "1988"]	, 	"bubbleDate" : "1949", "bubbleScale" : [0, 500]				},
 		{		"name" : "Stephen Hawking", "lived" : ["1942", "2018"]	, 	"bubbleDate" : "1988", "bubbleScale" : [0, 500]				},
 
 		{		"name" : "Albert Einstein", "lived" : ["1879", "1955"], 	"bubbleDate" : "1905", "bubbleScale" : [0, 5000]			}
