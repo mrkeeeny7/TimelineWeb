@@ -48,7 +48,7 @@ h2 {
 
 select{
     padding: 2px;
-    z-index: 2;
+    z-index: 5;
 
     /*position: absolute;*/ /* make it float on top*/
     
@@ -65,6 +65,16 @@ select{
     /* shape */
     border-radius: 5px;
     border: none;
+}
+
+.selectContainer
+{
+    z-index: 5; /* no effect because z-index is bound by parent (columnHeader) */
+}
+.tlDropDown
+{
+    
+    z-index: 5;
 }
 
 .tlDropdownPicker
@@ -84,8 +94,9 @@ select{
     border-radius: 5px;
     border: none;
 
-    /* put in front */
-    z-index: 3;
+    /* put in front, even in front of selected bubbles */
+    /* no effect because z-index is bound by parent (columnHeader) */
+    z-index: 5;
 
 }
 
@@ -100,12 +111,14 @@ select{
     font-size: 16px;
     color: var(--buttonTextColour);
     user-select: none; /* prevent selecting of text */
+    z-index: 5;
 }
 .tlDropdownOption:hover
 {
     
    /* background-color: rgb(144, 238, 211); */
     background-color: rgb(89, 188, 160); 
+    z-index: 5;
 }
 
 /*debug*/
@@ -280,7 +293,7 @@ select{
     overflow: visible;
     height:fit-content;
     min-height: 100%;
-    z-index: 3;
+    z-index: 5; /* this will also affect the dropdown / selector options that are child objects */
 
     
     border-width: 2px;

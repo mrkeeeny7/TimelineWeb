@@ -1906,9 +1906,9 @@ class TimelineSelector
             */
 
         this.containerDOM = document.createElement("div");
-        this.containerDOM .setAttribute("class", "selectContainer");
-        this.containerDOM .setAttribute("onclick", "showSelector(this)");
-        this.containerDOM .setAttribute("onmouseleave", "hideSelector(this)");
+        this.containerDOM.setAttribute("class", "selectContainer");
+        this.containerDOM.setAttribute("onclick", "showSelector(this)");
+        this.containerDOM.setAttribute("onmouseleave", "hideSelector(this)");
 
         this.buttonDOM = document.createElement("div");
         this.buttonDOM.setAttribute("class", "plusButton");
@@ -2438,6 +2438,15 @@ const tlEra_HOL_negative = new TimelineDateEra(
     suffixString: " HE"
 });
 const tlEra_HOL_positive = new TimelineDateEra(
+{
+    name: "Holocene positive", 
+    startYear: 1, //i.e. 1 AD
+    conversionScaling: 1,
+    conversionOffset: 10000, //so for 1AD ===> 1*1 + 10000 = 10001
+    suffixString: " HE"
+});
+
+const tlEra_IslamicAH = new TimelineDateEra(
 {
     name: "Holocene positive", 
     startYear: 1, //i.e. 1 AD
