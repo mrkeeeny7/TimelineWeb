@@ -323,14 +323,20 @@
         {		"name" : "Andronikos II Palaiologos", "birthDateString" : "1259", "deathDateString" : "1332", "ruled" : ["1282","1328"], 
                 "bubbleDate" : "1282", "bubbleScale" : [0, 500]				},        
         {		"name" : "John V Palaiologos", "birthDateString" : "1332", "deathDateString" : "1391", "ruled" : ["1341","1391"], 
-                "bubbleDate" : "1341", "bubbleScale" : [0, 1000]				},        
+                "bubbleDate" : "1341", "bubbleScale" : [0, 1000]				},   
+        {		"name" : "John VI Kantakouzenos", "lived" : ["c. 1292", "1383"], "ruled" : ["1347","1354"], 
+                "bubbleDate" : "1347", "bubbleScale" : [0, 1000]				},        
         {		"name" : "Manuel II Palaiologos", "lived" : ["1350", "1425"], "ruled" : ["1391","1425"], 
                 "bubbleDate" : "1391", "bubbleScale" : [0, 500]				},        
         {		"name" : "John VIII Palaiologos", "lived" : ["1392", "1448"], "ruled" : ["1425","1448"], 
                 "bubbleDate" : "1425", "bubbleScale" : [0, 500]				}		,        
         {		"name" : "Constantine XI Palaiologos", "lived" : ["1404", "1453"], "ruled" : ["1449","1453"], 
-                "bubbleDate" : "1449", "bubbleScale" : [0, 1000]				}
+                "bubbleDate" : "1449", "bubbleScale" : [0, 1000]				}   ,
+
+        {		"name" : "Osman I", "lived" : ["c. 1254", "1324"], "ruled" : ["c. 1299","1324"], 
+                "bubbleDate" : "1299", "bubbleScale" : [0, 1000]				},
 		
+		{		"id": "mehmet_ii", 		 "bubbleDate" : "1451"	, "bubbleScale" : [0, 1000]}
 		
     ]
 

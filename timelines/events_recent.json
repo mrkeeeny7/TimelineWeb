@@ -544,6 +544,9 @@
 		{		"id": "lenin", 		 "bubbleDate" : "1917"		, "bubbleScale" : [0, 1000]},
 		{		"id": "winston_churchill", 	 "bubbleDate" : "1940"	, "bubbleScale" : [0, 1000]},
 		{		"id": "elvis_presley", 		 "bubbleDate" : "1954"	, "bubbleScale" : [0, 10000]},
+		{		"id": "mehmet_ii", 		 "bubbleDate" : "1451"	, "bubbleScale" : [0, 1000]},
+
+		
 
 
 		{		"name" : "Sneferu", "deathDateString" : "2589 BC" , "ruled" : ["2600 BC", "2589 BC"]			},
@@ -578,7 +581,6 @@
 		{		"name" : "Mongke Khan", "birthDateString" : "1209", "deathDateString" : "1259"	, "ruled" : ["1251", "1259"]			},
 		{		"name" : "Osman I", "birthDateString" : "1254", "deathDateString" : "1323"				},
 		{		"name" : "Timur", "birthDateString" : "1320", "deathDateString" : "1405"				},
-		{		"name" : "Mehmet II", "birthDateString" : "1432", "deathDateString" : "1481", "ruled" : ["1444", "1446", "1451", "1481"]				},
 		{		"name" : "Vlad III Dracula", "birthDateString" : "1430", "deathDateString" : "1477"	,"ruled" : ["1448", "1448", "1456", "1462", "1475", "1477"]				},
 		{		"name" : "Suleiman the Magnificent", "birthDateString" : "1494", "deathDateString" : "1566"				},
 		{		"name" : "Oda Nobunaga", "birthDateString" : "1534", "deathDateString" : "1582"				},

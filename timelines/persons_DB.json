@@ -39,6 +39,9 @@
 		{		"id": "irene_of_athens", "name" : "Irene of Athens"	, "birthDateString" : "750", "deathDateString" : "803", "ruled" : ["792", "802"]		},
 		{		"id": "basil_i", "name" : "Basil I the Macedonian"	, "birthDateString" : "811", "deathDateString" : "886", "ruled" : ["867", "886"]		},	
 		{		"id": "basil_ii", "name" : "Basil II"	, "birthDateString" : "958", "deathDateString" : "1025", "ruled" : ["963", "1025"]		},		
+
+		
+		{		"id": "mehmet_ii", "name" : "Mehmet II", "birthDateString" : "1432", "deathDateString" : "1481", "ruled" : ["1444", "1446", "1451", "1481"]				},
     
 		{		"id": "taizong", "name" : "Emperor Taizong"	, "birthDateString" : "598", "deathDateString" : "649", "ruled" : ["626", "649"]		},
 		{		"id": "genghis_khan", "name" : "Genghis Khan", "birthDateString" : "1162", "deathDateString" : "1227"	, "ruled" : ["1206", "1227"]			},
