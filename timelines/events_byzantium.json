@@ -272,7 +272,7 @@
 
 		{		"id": "basil_i", 		 "bubbleDate" : "867"	, "bubbleScale" : [0, 1000]},
 
-        {		"name" : "Leo VI the Wise", "birthDateString" : "866", "deathDateString" : "867", "ruled" : ["886","912"], 
+        {		"name" : "Leo VI the Wise", "lived" : ["866", "912"], "ruled" : ["886","912"], 
                 "bubbleDate" : "886", "bubbleScale" : [0, 500]				},        
         {		"name" : "Constantine VII Porphyrogenitus", "birthDateString" : "905", "deathDateString" : "959", "ruled" : ["913","959"], 
                 "bubbleDate" : "913", "bubbleScale" : [0, 1000]				},        
