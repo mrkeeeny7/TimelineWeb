@@ -15,6 +15,9 @@
     --buttonColour: lightblue;
     --buttonTextColour: darkblue;
     --buttonColourHover: rgb(203, 226, 234);
+
+    --horizlineColor: rgba(104, 65, 245, 0.829);
+    --horizlineColorLight: rgba(122, 130, 245, 0.829);
 }
 
 * {
@@ -539,7 +542,8 @@ select{
 }
 #presentDayLabel{
     
-    color: rgba(245, 65, 89, 0.829);
+    /*color: rgba(245, 65, 89, 0.829);*/
+    color: var(--horizlineColor);
     position: absolute;
     margin-top: -34px; /* text height + 10px */
 }
@@ -604,7 +608,8 @@ select{
     -ms-transform: translate(0%,0px); 
     transform: translate(0%,0px);
     
-    background-color: rgba(245, 65, 89, 0.829);
+    /*background-color: rgba(245, 65, 89, 0.829);*/
+    background-color: var(--horizlineColor);
 
     
     
@@ -693,7 +698,8 @@ select{
 }
 
 .eventBubble[eventType='horizline']:hover {
-    background-color: rgba(245, 122, 138, 0.829);
+   /* background-color: rgba(245, 122, 138, 0.829);*/
+    background-color: var(--horizlineColorLight);
     z-index: 0;
     
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
@@ -715,7 +721,8 @@ select{
 }
 
 .eventBubble[selected=true][eventType='horizline'] {
-    background-color: var(--bubbleHighlightColor);
+    /*background-color: var(--bubbleHighlightColor);*/
+    background-color: var(--horizlineColorLight);
     z-index: 3;
     box-shadow: -4px 8px 16px 0 rgba(0,0,0,0.2);
 
