@@ -190,13 +190,6 @@
                 "maxScale" : 200,
                 "type" : "era"
             },
-            {
-                "title" : "Iraq War",
-                "dateString" : "2003",
-                "endDateString" : "2011",
-                "maxScale" : 200,
-                "type" : "era"
-            },
 		
         
    
@@ -403,6 +396,13 @@
         "title" : "9/11",
         "searchstring" : "September 11 attacks",
         "dateString" : "2001",
+        "minScale" : 1,
+        "maxScale" : 200
+    },
+    {
+        "title" : "Iraq War",
+        "dateString" : "2003",
+        "endDateString" : "2011",
         "minScale" : 1,
         "maxScale" : 200
     }
