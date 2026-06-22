@@ -43,6 +43,8 @@
 		
 		{		"id": "mehmet_ii", "name" : "Mehmet II", "birthDateString" : "1432", "deathDateString" : "1481", "ruled" : ["1444", "1446", "1451", "1481"]				},
     
+        {		"id": "osman_i", "name" : "Osman I", "lived" : ["c. 1254", "1324"], "ruled" : ["c. 1299","1324"] },
+
 		{		"id": "taizong", "name" : "Emperor Taizong"	, "birthDateString" : "598", "deathDateString" : "649", "ruled" : ["626", "649"]		},
 		{		"id": "genghis_khan", "name" : "Genghis Khan", "birthDateString" : "1162", "deathDateString" : "1227"	, "ruled" : ["1206", "1227"]			},
 		{		"id": "kublai_khan", "name" : "Kublai Khan", "birthDateString" : "1215", "deathDateString" : "1294"	, "ruled" : ["1260", "1294"]			},

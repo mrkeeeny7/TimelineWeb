@@ -545,6 +545,7 @@
 		{		"id": "winston_churchill", 	 "bubbleDate" : "1940"	, "bubbleScale" : [0, 1000]},
 		{		"id": "elvis_presley", 		 "bubbleDate" : "1954"	, "bubbleScale" : [0, 10000]},
 		{		"id": "mehmet_ii", 		 "bubbleDate" : "1451"	, "bubbleScale" : [0, 1000]},
+		{		"id": "osman_i", 		 "bubbleDate" : "1254"	, "bubbleScale" : [0, 1000]},
 
 		
 
@@ -579,7 +580,6 @@
 		{		"name" : "Ogedei Khan", "birthDateString" : "1186", "deathDateString" : "1241"	, "ruled" : ["1229", "1241"]			},
 		{		"name" : "Guyuk Khan", "birthDateString" : "1206", "deathDateString" : "1248"	, "ruled" : ["1246", "1248"]			},
 		{		"name" : "Mongke Khan", "birthDateString" : "1209", "deathDateString" : "1259"	, "ruled" : ["1251", "1259"]			},
-		{		"name" : "Osman I", "birthDateString" : "1254", "deathDateString" : "1323"				},
 		{		"name" : "Timur", "birthDateString" : "1320", "deathDateString" : "1405"				},
 		{		"name" : "Vlad III Dracula", "birthDateString" : "1430", "deathDateString" : "1477"	,"ruled" : ["1448", "1448", "1456", "1462", "1475", "1477"]				},
 		{		"name" : "Suleiman the Magnificent", "birthDateString" : "1494", "deathDateString" : "1566"				},

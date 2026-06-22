@@ -333,9 +333,7 @@
         {		"name" : "Constantine XI Palaiologos", "lived" : ["1404", "1453"], "ruled" : ["1449","1453"], 
                 "bubbleDate" : "1449", "bubbleScale" : [0, 1000]				}   ,
 
-        {		"name" : "Osman I", "lived" : ["c. 1254", "1324"], "ruled" : ["c. 1299","1324"], 
-                "bubbleDate" : "1299", "bubbleScale" : [0, 1000]				},
-		
+		{		"id": "osman_i", 		 "bubbleDate" : "1299"	, "bubbleScale" : [0, 1000]},		
 		{		"id": "mehmet_ii", 		 "bubbleDate" : "1451"	, "bubbleScale" : [0, 1000]}
 		
     ]
