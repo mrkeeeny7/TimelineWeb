@@ -211,7 +211,7 @@
     {
         "title" : "Virginia Colony",
         "dateString" : "1607",
-        "maxScale" : 200
+        "maxScale" : 5000
     },
     {
         "title" : "Beaver Wars",
@@ -221,7 +221,7 @@
     {
         "title" : "Plymouth Colony (New England)",
         "dateString" : "1620",
-        "maxScale" : 5000
+        "maxScale" : 1000
     }, 
     {
         "title" : "New Amsterdam founded",
@@ -229,9 +229,14 @@
         "maxScale" : 200
     },  
     {
+        "title" : "Harvard University founded",
+        "dateString" : "1636",
+        "maxScale" : 1000
+    }, 
+    {
         "title" : "Fort Christina (first Swedish settlement)",
         "dateString" : "1638",
-        "maxScale" : 200
+        "maxScale" : 100
     }, 
     {
         "title" : "New Amsterdam becomes New York",

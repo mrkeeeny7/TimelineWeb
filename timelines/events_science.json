@@ -200,6 +200,12 @@
 			"maxScale" : 1000
 		},
 		{
+			"title" : "Great Exhibition",
+			"dateString" : "1851",
+			"minScale" : 1,
+			"maxScale" : 1000
+		},
+		{
 			"title" : "Maxwell's Equations",
 			"dateString" : "1861",
 			"minScale" : 1,
@@ -216,6 +222,12 @@
 			"dateRange" : ["1942","1946"],
 			"minScale" : 1,
 			"maxScale" : 1000
+		},
+		{
+			"title" : "Moon landing",
+			"dateString" : "1969",
+			"minScale" : 1,
+			"maxScale" : 2000
 		}
 	
 	],
@@ -249,11 +261,13 @@
 		{		"name" : "Dmitri Mendeleev", "lived" : ["1834", "1907"]	, 	"bubbleDate" : "1863", "bubbleScale" : [0, 500]				},
 
 		{		"name" : "Charles-Augustin de Coulomb", "lived" : ["1736", "1806"]	, 	"bubbleDate" : "1784", "bubbleScale" : [0, 500]				},
+		{		"name" : "Alessandro Volta", "lived" : ["1745", "1827"]	, 	"bubbleDate" : "1800", "bubbleScale" : [0, 500]				},
 		{		"name" : "André-Marie Ampère", "lived" : ["1775", "1836"]	, 	"bubbleDate" : "1825", "bubbleScale" : [0, 500]				},
 		{		"name" : "Michael Faraday", "lived" : ["1791", "1867"]	, 	"bubbleDate" : "1831", "bubbleScale" : [0, 500]				},
 		{		"name" : "James Clerk Maxwell", "lived" : ["1831", "1879"]	, 	"bubbleDate" : "1856", "bubbleScale" : [0, 500]				},
 		{		"name" : "Alexander Fleming", "lived" : ["1881", "1955"]	, 	"bubbleDate" : "1932", "bubbleScale" : [0, 500]				},
 
+		{		"name" : "Alfred Nobel", "lived" : ["1833", "1896"]	, 	"bubbleDate" : "1864", "bubbleScale" : [0, 500]				},
 		{		"name" : "Wilhelm Röntgen", "lived" : ["1845", "1923"]	, 	"bubbleDate" : "1895", "bubbleScale" : [0, 500]				},
 		{		"name" : "Henri Becquerel", "lived" : ["1852", "1908"]	, 	"bubbleDate" : "1896", "bubbleScale" : [0, 500]				},
 		{		"name" : "Pierre Curie", "lived" : ["1859", "1906"]	, 	"bubbleDate" : "1898", "bubbleScale" : [0, 500]				},

@@ -49,13 +49,31 @@
 			"title" : "Steam engine",
 			"dateString" : "1763",
 			"minScale" : 1,
+			"maxScale" : 2000
+		},
+		{
+			"title" : "Flushing water closet",
+			"dateString" : "1775",
+			"minScale" : 1,
 			"maxScale" : 500
+		},
+		{
+			"title" : "Voltaic pile (battery)",
+			"dateString" : "1800",
+			"minScale" : 1,
+			"maxScale" : 1000
 		},
 		{
 			"title" : "Railway",
 			"dateString" : "1830",
 			"minScale" : 1,
 			"maxScale" : 1000
+		},
+		{
+			"title" : "Dynamite",
+			"dateString" : "1864",
+			"minScale" : 1,
+			"maxScale" : 100
 		},
 		{
 			"title" : "Safety Bicycle",
@@ -109,7 +127,7 @@
 			"title" : "Atomic bomb",
 			"dateString" : "1945",
 			"minScale" : 1,
-			"maxScale" : 1000
+			"maxScale" : 2000
 		},
 		{
 			"title" : "H-bomb (thermonuclear weapon)",
