@@ -11,118 +11,176 @@
 	"eventlist" : [
 			
 		{
-			"title" : "Neolithic",
-			"dateString" : "10000 BC",	"endDateString" : "4500 BC",
-			"minScale" : 1,			"maxScale" : 500000,
+			"title" : "Lower Paleolithic",
+			"dateRange" : ["3300000 BC",	"300000 BC"],
+			"minScale" : 1,			"maxScale" : 200000000,
 			"type" : "era"
 		},
 		{
-			"title" : "Chalcolithic",
-			"dateString" : "4500 BC",	"endDateString" : "3300 BC",
-			"minScale" : 1,			"maxScale" : 500000,
+			"title" : "Middle Paleolithic",
+			"dateRange" : ["300000 BC",	"50000 BC"],
+			"minScale" : 1,			"maxScale" : 200000000,
 			"type" : "era"
 		},
 		{
-			"title" : "Bronze Age",
-			"dateString" : "3300 BC",	"endDateString" : "1200 BC",
-			"minScale" : 1,			"maxScale" : 500000,
+			"title" : "Upper Paleolithic",
+			"dateRange" : ["50000 BC",	"20000 BC"],
+			"minScale" : 1,			"maxScale" : 200000000,
 			"type" : "era"
 		},
 		{
-			"title" : "Iron Age",
-			"dateString" : "1200 BC",	"endDateString" : "550 BC",
-			"minScale" : 1,
-			"type" : "era",
-			"tags" : []
-		},
-		{
-			"title" : "Classical World",
-			"dateString" : "550 BC",	"endDateString" : "786",
-			"minScale" : 1,
+			"title" : "Mesolithic",
+			"dateRange" : ["20000 BC",	"10000 BC"],
+			"minScale" : 1,			"maxScale" : 200000000,
 			"type" : "era"
 		},
+
 		{
-			"title" : "Islamic Golden Age",
-			"dateString" : "786",	"endDateString" : "1258",
-			"minScale" : 1,
-			"type" : "era"
-		},
-		{
-			"title" : "Pax Mongolica",
-			"dateString" : "1258",	"endDateString" : "1350",
-			"minScale" : 1,
-			"type" : "era"
-		},
-		{
-			"title" : "European Renaissance",
-			"dateString" : "1350",	"endDateString" : "1543",
-			"minScale" : 1,
-			"type" : "era"
-		},
-		{
-			"title" : "Scientific Revolution",
-			"dateString" : "1543",	"endDateString" : "1687",
-			"minScale" : 1,
-			"type" : "era"
-		},
-		{
-			"title" : "Age of Enlightenment",
-			"dateString" : "1687",	"endDateString" : "1760",
-			"minScale" : 1,
-			"type" : "era"
-		},
-		{
-			"title" : "Industrial Age",
-			"dateString" : "1760",	"endDateString" : "1945",
-			"minScale" : 500,
-			"type" : "era"
-		},
-		{
-			"title" : "Atomic Age",
-			"dateString" : "1945",	"endDateString" : "1957",
-			"minScale" : 1,
-			"type" : "era"
-		},
-		{
-			"title" : "Space Age",
-			"dateString" : "1957",	"endDateString" : "1989",
-			"minScale" : 1,
-			"type" : "era"
-		},
-		{
-			"title" : "Information Age",
-			"dateString" : "1989",	"endDateString" : "PRESENTDAY",
-			"minScale" : 1,
+			"title" : "Settled societies",
+			"dateString" : "10000 BC",	"endDateString" : "PRESENTDAY",
+			"minScale" : 50000,			"maxScale" : 500000,
 			"type" : "era"
 		},
 			{
-				"title" : "First Industrial Revolution",
-				"dateString" : "1760",	"endDateString" : "1840",
-				"minScale" : 1,
-				"maxScale" : 500,
+				"title" : "Neolithic",
+				"dateString" : "10000 BC",	"endDateString" : "4500 BC",
+				"minScale" : 1,			"maxScale" : 50000,
 				"type" : "era"
 			},
 			{
-				"title" : "Steam Era",
-				"dateString" : "1840",	"endDateString" : "1870",
-				"minScale" : 1,
-				"maxScale" : 500,
+				"title" : "Chalcolithic",
+				"dateString" : "4500 BC",	"endDateString" : "3300 BC",
+				"minScale" : 1,			"maxScale" : 50000,
 				"type" : "era"
 			},
 			{
-				"title" : "Second Industrial Revolution",
-				"dateString" : "1870",	"endDateString" : "1914",
-				"minScale" : 1,
-				"maxScale" : 500,
+				"title" : "Bronze Age",
+				"dateString" : "3300 BC",	"endDateString" : "1200 BC",
+				"minScale" : 1,			"maxScale" : 50000,
 				"type" : "era"
 			},
 			{
-				"title" : "World Wars Era",
-				"dateString" : "1914",	"endDateString" : "1945",
-				"minScale" : 1,
-				"maxScale" : 500,
+				"title" : "Iron Age",
+				"dateString" : "1200 BC",	"endDateString" : "550 BC",
+				"minScale" : 1,			"maxScale" : 50000,
+				"type" : "era",
+				"tags" : []
+			},
+			{
+				"title" : "Classical World",
+				"dateString" : "550 BC",	"endDateString" : "786",
+				"minScale" : 1,			"maxScale" : 50000,
 				"type" : "era"
 			},
+			{
+				"title" : "Medieval World",
+				"dateString" : "786",	"endDateString" : "1350",
+				"minScale" : 1000,			"maxScale" : 50000,
+				"type" : "era"
+			},
+				{
+					"title" : "Islamic Golden Age",
+					"dateString" : "786",	"endDateString" : "1258",
+					"minScale" : 1,			"maxScale" : 1000,
+					"type" : "era"
+				},
+				{
+					"title" : "Pax Mongolica",
+					"dateString" : "1258",	"endDateString" : "1350",
+					"minScale" : 1,			"maxScale" : 1000,
+					"type" : "era"
+				},
+			{
+				"title" : "Early Modern Age",
+				"dateString" : "1350",	"endDateString" : "1760",
+				"minScale" : 1000,
+				"maxScale" : 50000,
+				"type" : "era"
+			},
+				{
+					"title" : "European Renaissance",
+					"dateString" : "1350",	"endDateString" : "1543",
+					"minScale" : 1,
+					"maxScale" : 1000,
+					"type" : "era"
+				},
+				{
+					"title" : "Scientific Revolution",
+					"dateString" : "1543",	"endDateString" : "1687",
+					"minScale" : 1,
+					"maxScale" : 1000,
+					"type" : "era"
+				},
+				{
+					"title" : "Age of Enlightenment",
+					"dateString" : "1687",	"endDateString" : "1760",
+					"minScale" : 1,
+					"maxScale" : 1000,
+					"type" : "era"
+				},
+			{
+				"title" : "Modern Age",
+				"dateString" : "1760",	"endDateString" : "PRESENTDAY",
+				"minScale" : 1000,
+				"maxScale" : 50000,
+				"type" : "era"
+			},
+				{
+					"title" : "Industrial Age",
+					"dateString" : "1760",	"endDateString" : "1945",
+					"minScale" : 500,
+					"maxScale" : 1000,
+					"type" : "era"
+				},
+				{
+					"title" : "Atomic Age",
+					"dateString" : "1945",	"endDateString" : "1957",
+					"minScale" : 1,
+					"maxScale" : 1000,
+					"type" : "era"
+				},
+				{
+					"title" : "Space Age",
+					"dateString" : "1957",	"endDateString" : "1989",
+					"minScale" : 1,
+					"maxScale" : 1000,
+					"type" : "era"
+				},
+				{
+					"title" : "Information Age",
+					"dateString" : "1989",	"endDateString" : "PRESENTDAY",
+					"minScale" : 1,
+					"maxScale" : 1000,
+					"type" : "era"
+				},
+					{
+						"title" : "First Industrial Revolution",
+						"dateString" : "1760",	"endDateString" : "1840",
+						"minScale" : 1,
+						"maxScale" : 500,
+						"type" : "era"
+					},
+					{
+						"title" : "Steam Era",
+						"dateString" : "1840",	"endDateString" : "1870",
+						"minScale" : 1,
+						"maxScale" : 500,
+						"type" : "era"
+					},
+					{
+						"title" : "Second Industrial Revolution",
+						"dateString" : "1870",	"endDateString" : "1914",
+						"minScale" : 1,
+						"maxScale" : 500,
+						"type" : "era"
+					},
+					{
+						"title" : "World Wars Era",
+						"dateString" : "1914",	"endDateString" : "1945",
+						"minScale" : 1,
+						"maxScale" : 500,
+						"type" : "era"
+					},
 
 
 		{

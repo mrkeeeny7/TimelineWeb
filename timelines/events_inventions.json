@@ -10,6 +10,32 @@
 
 
 		{
+			"title" : "Stone tools",
+			"dateString" : "c. 3300000 BC",
+			"minScale" : 1,
+			"maxScale" : 200000000
+		},
+		{
+			"title" : "Control of fire",
+			"searchstring" : "Control of fire by early humans",
+			"dateString" : "c. 2300000 BC",
+			"maxScale" : 50000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Cooking",
+			"dateString" : "1000000 BC",
+			"maxScale" : 50000000,
+			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Clothing",
+			"searchstring" : "History of clothing and textiles",
+			"dateString" : "c. 170000 BC",
+			"maxScale" : 50000000,
+			"tags" : ["iceage"]
+		},
+		{
 			"title" : "Earliest steel",
 			"dateString" : "c. 1800 BC",
 			"minScale" : 1,
@@ -25,7 +51,7 @@
 			"title" : "Wheeled chariots",
 			"dateString" : "c. 1950 BC",
 			"minScale" : 1,
-			"maxScale" : 50000
+			"maxScale" : 100000
 		},
 		{
 			"title" : "Papermaking (China)",
@@ -126,8 +152,7 @@
 		{
 			"title" : "Atomic bomb",
 			"dateString" : "1945",
-			"minScale" : 1,
-			"maxScale" : 2000
+			"minScale" : 1
 		},
 		{
 			"title" : "H-bomb (thermonuclear weapon)",
