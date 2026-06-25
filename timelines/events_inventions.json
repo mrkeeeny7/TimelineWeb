@@ -29,11 +29,29 @@
 			"tags" : ["iceage"]
 		},
 		{
+			"title" : "Leather",
+			"dateString" : "c. 318000 BC",
+			"maxScale" : 50000000,
+			"tags" : ["iceage"]
+		},
+		{
 			"title" : "Clothing",
 			"searchstring" : "History of clothing and textiles",
 			"dateString" : "c. 170000 BC",
 			"maxScale" : 50000000,
 			"tags" : ["iceage"]
+		},
+		{
+			"title" : "Boats",
+			"dateString" : "c. 60000 BC",
+			"minScale" : 1,
+			"maxScale" : 1000000
+		},
+		{
+			"title" : "Agriculture",
+			"dateString" : "c. 10000 BC",
+			"minScale" : 1,
+			"maxScale" : 200000
 		},
 		{
 			"title" : "Earliest steel",

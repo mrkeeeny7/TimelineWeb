@@ -184,6 +184,12 @@
 
 
 		{
+			"title" : "Earliest modern humans (Homo sapiens)",
+			"dateString" : "313000 BC",
+			"minScale" : 1,
+			"maxScale" : 5000000
+		},
+		{
 			"title" : "Approximation of π",
 			"dateString" : "250 BC",
 			"minScale" : 1,
