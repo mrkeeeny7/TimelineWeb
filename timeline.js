@@ -469,7 +469,8 @@ class PersonListSorted {
         var outstr = "<h3>Notable People in " + yearstr + "</h3>";
         for(let i=0; i<alivelist.length; i++)
         {
-            var textline = this.PersonStringHTML(alivelist[i], date);
+           // var textline = this.PersonStringHTML(alivelist[i], date);
+            var textline = this.PersonHTMLElement(alivelist[i], date).textContent;
 
             //add to outstr
             if(outstr == "")
@@ -483,6 +484,40 @@ class PersonListSorted {
         }
 
         return outstr;
+    }    
+
+    /**
+     * 
+     * Replacement for PersonsAliveStringHTML: Will produce a report of persons alive or current species, etc.
+     * depending on current date and zoom level
+     * 
+     * @param {number} date 
+     * @returns {HTMLElement} the formatted block containing the report
+     */
+    CurrentYearReport(date)
+    {
+        //create an HTML element with a formatted list
+
+        var alivelist = this.PersonsAliveList(date);
+        var yearstr = TimelineDate.dateString(date);
+
+        var reportElement = document.createElement("div");
+        var headerElt = document.createElement("h3");
+      //  headerElt.setAttribute("class", "tlColumnWidget"); 
+        headerElt.textContent = "Notable People in " + yearstr;
+        reportElement.appendChild(headerElt);
+
+
+        for(let i=0; i<alivelist.length; i++)
+        {
+            //var textline = this.PersonStringHTML(alivelist[i], date); //TODO replace this with create HTML element.
+            var personElement = this.PersonHTMLElement(alivelist[i], date);
+            reportElement.appendChild(personElement);
+            reportElement.appendChild(document.createElement("br")); // add a line break
+
+        }
+
+        return reportElement;
     }    
 
     /**
@@ -524,14 +559,6 @@ class PersonListSorted {
 
         if(person.ruled != undefined )
         {
-           /* var start = person.ruled[0];
-            var end = person.ruled[1];//TODO modify to allow multiple spans
-            if(start <= year && (end >= year || end == undefined))
-            {
-                //make line bold
-                textline = "<b>" + textline + "</b>";
-            }*/
-
             if(person.isRuling(yearInt))
             {                
                  textline = "<b>" + textline + "</b>";
@@ -539,6 +566,54 @@ class PersonListSorted {
         }
 
         return textline;
+
+    }
+
+    PersonHTMLElement(person, dateNumber)
+    {           
+        var personElement = document.createTextNode("");
+
+        var yearInt = TimelineDate.dateRound(dateNumber); //the current date in whole-years
+
+        var textline="";
+        if(person.birthDate.date != undefined)
+        {
+            var age = Math.floor(person.ageAtYear(yearInt));
+            textline = age + " years: " + person.name;
+            if(person.ageIsApprox)
+            {
+                //add approx qualifier
+                 textline = "~" + textline;
+            }
+          
+        }
+        else
+        {
+            textline = "Unknown age: " + person.name;
+        }
+
+        personElement.textContent = textline;
+
+        //italic if in death or birth year
+        if(person.deathDate != undefined && yearInt == person.deathDate.date)
+        {
+            personElement = TimelineHelper.ItalicBlock(textline + " (year of death)");
+        }
+        else if(age == 0)
+        {
+            personElement = TimelineHelper.ItalicBlock(textline);
+        }
+
+        if(person.ruled != undefined )
+        {
+            if(person.isRuling(yearInt))
+            {                
+                // make the line bold
+                personElement = TimelineHelper.CreateParentNode("b", personElement);
+            }
+        }
+
+        return personElement;
 
     }
     
@@ -1097,6 +1172,10 @@ class Timeline {
 
         if(jsonEventObj.dateRange != undefined)
         {
+            if(jsonEventObj.dateString!= undefined)
+            {
+                console.warn("Clashing date definitions for event: " + jsonEventObj.title + "; using date range.");
+            }
             eventDate = new TimelineDate(jsonEventObj.dateRange[0]).date;
             eventEndDate = new TimelineDate(jsonEventObj.dateRange[1]).date;
         }
@@ -1118,7 +1197,7 @@ class Timeline {
         eventDeathDate = new TimelineDate(jsonEventObj.deathDateString).date;
         
         // new: use date range for more concise data
-        if(jsonEventObj.dates != undefined)
+        if(jsonEventObj.dates != undefined) //TODO this does the same thing as dateRange; consolidate or remove
         {
             if(jsonEventObj.dateString!= undefined)
             {
@@ -1190,6 +1269,10 @@ class Timeline {
         //     console.log(jsonEventObj.title + ": current Column = " + currentColumn);
         // }
 
+        //*** 
+        // TODO:  Just pass the jsonEventObj to the constructor and handle everything there; save a reference to the JSON obj
+        // inside the TimelineEvent
+        //  */
         var newEvent = new TimelineEvent(
             jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
             jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
@@ -1642,6 +1725,13 @@ class TimelineEvent {
      * @type {PersonData}
      */
     personData;
+
+
+    /**
+     * TODO this should replace some of the data passed to the constructor
+     * @type {Object}
+     */
+    jsonEventObj;
 
     /**
      * 
@@ -3151,14 +3241,19 @@ function RefreshPersonPanel()
  //       selectedTimeline.GetCurrentYearInt());//TODO this may need fixing for consistency - dateIntGregorian uses Math.ceil() instead of floor()
        
        
-       var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(selectedTimeline.currentYear);
       
       
                 //newDiv.innerText = aliveListText;
 
         //document.getElementById("personPanel").appendChild(newDiv);
         //personPanel.innerText = aliveListText;
-        personPanel.innerHTML = aliveListHTML;
+
+
+
+       //var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(selectedTimeline.currentYear);
+        //personPanel.innerHTML = aliveListHTML;
+
+        personPanel.appendChild(selectedTimeline.personlist.CurrentYearReport(selectedTimeline.currentYear));
     }
 
 }
@@ -3742,7 +3837,7 @@ class TimelineHelper
     static ItalicBlock(text)
     {
         var newBlock = document.createElement("i");
-        newBlock.appendChild(document.createTextNode(text));
+        newBlock.appendChild(this.TextBlock(text));
         return newBlock;
     }    
     
@@ -3756,13 +3851,26 @@ class TimelineHelper
     static BoldBlock(text)
     {
         var newBlock = document.createElement("b");
-        newBlock.appendChild(document.createTextNode(text));
+        newBlock.appendChild(this.TextBlock(text));
         return newBlock;
     }
 
     static TextBlock(text)
     {       
         var newBlock = document.createTextNode(text);
+        return newBlock;
+    }
+
+    /**
+     * Wrap the input node with a new html tag
+     * @param {string} htmlTagString 
+     * @param {HTMLElement} childNode 
+     * @returns {HTMLElement} the new parent node HTML element
+     */
+    static CreateParentNode(htmlTagString, childNode)
+    {
+        var newBlock = document.createElement(htmlTagString);
+        newBlock.appendChild(childNode);
         return newBlock;
     }
 
