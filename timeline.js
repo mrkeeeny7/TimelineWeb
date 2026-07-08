@@ -49,6 +49,13 @@ class PersonData
     id;
 
     /**
+     * supports more exotic types of lifetimes: species, monuments, geographic features, planets, stars
+     * defaults to 'person'
+     * @type {string}
+     */
+    lifetimeType;
+
+    /**
      * @type {string}
      */
     name;
@@ -86,6 +93,14 @@ class PersonData
         var bdString    = personDataJSObj.birthDateString;
         var ddString    = personDataJSObj.deathDateString;
 
+        if(personDataJSObj.lifetimeType != undefined)
+        {
+            this.lifetimeType = personDataJSObj.lifetimeType;
+        }
+        else
+        {
+            this.lifetimeType = 'person';
+        }
 
         // override birthdate / deathdate with "lived[]" data
         if(personDataJSObj.lived != undefined)
@@ -456,6 +471,7 @@ class PersonListSorted {
     }
 
     /**
+     * DEPRECATED **** use CurrentYearReport instead
      * TODO ** THIS NEEDS TO BE REPLACED, RETURNING HTML ELEMENT INSTEAD OF HTML CODE
      * 
      * @param {number} date input year in usual floating point date
@@ -502,26 +518,24 @@ class PersonListSorted {
         var yearstr = TimelineDate.dateString(date);
 
         var reportElement = document.createElement("div");
-        var headerElt = document.createElement("h3");
-      //  headerElt.setAttribute("class", "tlColumnWidget"); 
+        var headerElt = document.createElement("h3");        
         headerElt.textContent = "Notable People in " + yearstr;
+        
         reportElement.appendChild(headerElt);
 
 
         for(let i=0; i<alivelist.length; i++)
         {
-            //var textline = this.PersonStringHTML(alivelist[i], date); //TODO replace this with create HTML element.
             var personElement = this.PersonHTMLElement(alivelist[i], date);
             reportElement.appendChild(personElement);
             reportElement.appendChild(document.createElement("br")); // add a line break
-
         }
 
         return reportElement;
     }    
 
     /**
-     * 
+     * DEPRECATED **** use PersonHTMLElement instead
      * @param {PersonData} person 
      * @param {number} dateNumber  input date in floating point format
      * @returns { string } the HTML line summarizing this person in the given year
@@ -534,7 +548,8 @@ class PersonListSorted {
         if(person.birthDate.date != undefined)
         {
             var age = Math.floor(person.ageAtYear(yearInt));
-            textline = age + " years: " + person.name;
+            var ageString = TimelineDate.timespanString(age);
+            textline = ageString + " years old: " + person.name;
             if(person.ageIsApprox)
             {
                 //add approx qualifier
@@ -579,7 +594,8 @@ class PersonListSorted {
         if(person.birthDate.date != undefined)
         {
             var age = Math.floor(person.ageAtYear(yearInt));
-            textline = age + " years: " + person.name;
+            var ageString = TimelineDate.timespanString(age);
+            textline = ageString + " years old: " + person.name;
             if(person.ageIsApprox)
             {
                 //add approx qualifier
@@ -618,7 +634,7 @@ class PersonListSorted {
     }
     
     /**
-    * 
+    * UNUSED (Deprecated)
     * @param {number} year 
     * @returns {string} A summary string of the persons alive in given year
     */
@@ -629,7 +645,7 @@ class PersonListSorted {
        for(let i=0; i<alivelist.length; i++)
        {
            var age = alivelist[i].ageAtYear(year);
-           var textline = age + " years: " + alivelist[i].name;
+           var textline = age + " years young: " + alivelist[i].name;
 
            //add to outstr
            if(outstr == "")
@@ -2192,7 +2208,7 @@ function updateScaleInput()
 {
     var dom = document.getElementById("scaleInput");
 
-    var formatOptions = {
+   /*var formatOptions = {
         notation: "standard"
     };
 
@@ -2206,6 +2222,8 @@ function updateScaleInput()
     const formattedNumberEN = new Intl.NumberFormat('en-US', formatOptions).format(mainTimeline.currentScale);
 
     dom.value = formattedNumberEN;
+    */
+    dom.value = TimelineDate.timespanString(mainTimeline.currentScale);
 }
 
 //update the current year FROM the HTML field
@@ -2813,6 +2831,29 @@ class TimelineDate
     }
 
 
+    /**
+     * similar to dateString but input is impliet to be a number or range of years rather than a specific date
+     * @param {number} numYears 
+     * @returns {string} appropriately formatted string
+     */
+    static timespanString(numYears)
+    {
+        var outstr = "";
+        var formatOptions = {
+            notation: "standard"
+        };
+
+        if(Math.abs(numYears) > 10000)
+        {
+            //formatOptions.notation = "scientific";
+            formatOptions.notation = "compact";
+        }
+
+        var formattedNumberEN = new Intl.NumberFormat('en-US', formatOptions).format(numYears);
+
+        outstr = formattedNumberEN;
+        return outstr;
+    }
     
 
     /**

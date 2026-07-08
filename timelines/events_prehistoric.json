@@ -337,4 +337,13 @@
 		}
 	
 
-] }
+] ,
+
+
+"personlist" : [		
+   
+	{		"name" : "Tyrannosaurus Rex", "lived" : ["-69 ma", "-66 ma"], 
+			"bubbleDate" : "-69 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}		 
+	
+]
+}
