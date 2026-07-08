@@ -254,7 +254,7 @@ class PersonData
             maxAge = this.ageAtYear(this.deathDate.date);
         }
 
-        lifetimetext = lifetimetext + " (" + maxAge + " years).";
+        lifetimetext = lifetimetext + " (" + TimelineDate.timespanString(maxAge) + " years).";
 
         lifetimePara.appendChild(document.createTextNode(lifetimetext));
         infoBlock.appendChild(lifetimePara);
@@ -3225,13 +3225,16 @@ function UpdateInfoPanel()
         {
             if(tlEvent.personData==undefined)
             {
+                /**
+                 * OLD STYLE
+                 */
                 //TODO this should be slowly deprecated - use PersonData instead
                 var lifetimetext = "Lived: " + ( (tlEvent.birthDate==undefined)? "unknown date" : TimelineDate.dateString(tlEvent.birthDate) ) 
                 + " to " + ((tlEvent.deathDate==undefined)? "unknown date" : TimelineDate.dateString(tlEvent.deathDate));
 
                 if(tlEvent.birthDate!=undefined && tlEvent.deathDate!=undefined)
                 {
-                    lifetimetext = lifetimetext + " (" + (tlEvent.deathDate-tlEvent.birthDate) + " years)"
+                    lifetimetext = lifetimetext + " (" + TimelineDate.timespanString(tlEvent.deathDate-tlEvent.birthDate) + " years)"
                 }
                 lifetimetext = lifetimetext;
 
