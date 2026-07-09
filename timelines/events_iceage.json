@@ -129,9 +129,8 @@
 
 
 		{
-			"title" : "First Mammoths",
-			"searchstring" : "Mammoth",
-			"dateString" : "5000000 BC",
+			"title" : "Mammoth Steppe",
+			"dateString" : "460000 BC",
 			"maxScale" : 50000000,
 			"tags" : ["iceage"]
 		},
@@ -179,43 +178,12 @@
 			"tags" : ["iceage"]
 		},
 		{
-			"title" : "Australopithecus",
-			"dateString" : "4500000 BC",
-			"maxScale" : 10000000,
-			"tags" : ["iceage"]
-		},
-		{
-			"title" : "Homo habilis",
-			"dateString" : "2300000 BC",
-			"maxScale" : 10000000,
-			"tags" : ["iceage"]
-		},
-		{
-			"title" : "Homo erectus",
-			"dateString" : "1800000 BC",
-			"maxScale" : 10000000,
-			"tags" : ["iceage"]
-		},
-		{
-			"title" : "Neanderthal",
-			"dateString" : "400000 BC",
+			"title" : "Neanderthal 1 (type specimen)",
+			"dateString" : "40000 BC",
 			"maxScale" : 50000000,
 			"tags" : ["iceage"]
 		},
 
-		{
-			"title" : "Homo sapiens",
-			"dateString" : "350000 BC",
-			"maxScale" : 1000000,
-			"tags" : ["iceage"]
-		},
-
-		{
-			"title" : "Glyptodon",
-			"dateString" : "2500000 BC",
-			"maxScale" : 5000000,
-			"tags" : ["iceage"]
-		},
 		{
 			"title" : "Humans in Australia",
 			"searchstring" : "History of Indigenous Australians",
@@ -284,7 +252,11 @@
 	{		"name" : "Homo erectus", "lived" : ["-2 ma", "-0.1 ma"], 
 			"bubbleDate" : "-2 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Homo heidelbergensis", "lived" : ["-0.7 ma", "-0.3 ma"], 
-			"bubbleDate" : "-0.7 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}	 
+			"bubbleDate" : "-0.7 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Homo neanderthalensis", "lived" : ["-0.24 ma", "-0.04 ma"], 
+			"bubbleDate" : "-0.24 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Homo sapiens", "lived" : ["-0.3 ma", "PRESENTDAY"], 
+			"bubbleDate" : "-0.3 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}	 
 	
 ]
 }
