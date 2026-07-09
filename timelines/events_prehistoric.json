@@ -325,9 +325,9 @@
 	{		"name" : "Velociraptor", "lived" : ["-75 ma", "-71 ma"], 
 			"bubbleDate" : "-75 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Tyrannosaurus", "lived" : ["-69 ma", "-66 ma"], 
-			"bubbleDate" : "-69 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}	,
-	{		"name" : "Titanis", "lived" : ["-5 ma", "-1.8 ma"], 
-			"bubbleDate" : "-5 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}		 
+			"bubbleDate" : "-69 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Palaeotherium", "lived" : ["-43.5 ma", "-32.5 ma"], 
+			"bubbleDate" : "-43.5 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}
 	
 ]
 }
