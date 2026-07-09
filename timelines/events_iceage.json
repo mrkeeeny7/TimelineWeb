@@ -245,7 +245,7 @@
 			"bubbleDate" : "-3.2 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}	,
 	{		"name" : "Australopithecus", "lived" : ["-4.3 ma", "-1.2 ma"], 
 			"bubbleDate" : "-4.3 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
-	{		"name" : "Homo", "lived" : ["-2.8 ma", "PRESENTDAY"], 
+	{		"name" : "Homo", "lived" : ["-2.8 ma"], 
 			"bubbleDate" : "-2.8 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Homo habilis", "lived" : ["-2.3 ma", "-1.65 ma"], 
 			"bubbleDate" : "-2.3 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
@@ -255,7 +255,7 @@
 			"bubbleDate" : "-0.7 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Homo neanderthalensis", "lived" : ["-0.24 ma", "-0.04 ma"], 
 			"bubbleDate" : "-0.24 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
-	{		"name" : "Homo sapiens", "lived" : ["-0.3 ma", "PRESENTDAY"], 
+	{		"name" : "Homo sapiens", "lived" : ["-0.3 ma"], 
 			"bubbleDate" : "-0.3 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}	 
 	
 ]

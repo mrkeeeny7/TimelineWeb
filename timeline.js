@@ -105,12 +105,24 @@ class PersonData
         // override birthdate / deathdate with "lived[]" data
         if(personDataJSObj.lived != undefined)
         {
-            if(personDataJSObj.lived.length != 2)
+            if(personDataJSObj.lived.length == 1)
             {
-                throw new error("Badly formatted data - need a birth date and death date for " + this.name);
+                //use the date as birth date and assume death date undefined (is still living)
+                
+                bdString=personDataJSObj.lived[0];
+                ddString=undefined;
             }
-            bdString=personDataJSObj.lived[0];
-            ddString=personDataJSObj.lived[1];
+            else if(personDataJSObj.lived.length == 2)
+            {
+                bdString=personDataJSObj.lived[0];
+                ddString=personDataJSObj.lived[1];
+            }
+            else
+            {
+                let errorStr = "Badly formatted data - need a birth date and death date for " + this.name;
+                console.error(errorStr);
+                throw new error(errorStr);
+            }
         }
 
         this.birthDate = new TimelineDate(bdString);
