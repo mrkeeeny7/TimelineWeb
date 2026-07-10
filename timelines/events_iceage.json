@@ -237,6 +237,8 @@
    
 	{		"name" : "Titanis", "lived" : ["-5 ma", "-1.8 ma"], 
 			"bubbleDate" : "-5 ma", "bubbleScale" : [0, 10000000], "lifetimeType" : "species"			},
+	{		"name" : "Equus", "lived" : ["-5.33 ma"], 
+			"bubbleDate" : "-5.33 ma", "bubbleScale" : [0, 100000000], "lifetimeType" : "species"			}	,
 	{		"name" : "Mammuthus", "lived" : ["-6.2 ma", "-0.004 ma"], 
 			"bubbleDate" : "-6.2 ma", "bubbleScale" : [0, 100000000], "lifetimeType" : "species"			}	,
 	{		"name" : "Smilodon", "lived" : ["-2.5 ma", "-0.0082 ma"], 
