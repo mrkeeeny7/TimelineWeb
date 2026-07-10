@@ -616,7 +616,7 @@ class PersonListSorted {
 
     PersonHTMLElement(person, dateNumber)
     {           
-        var personElement = document.createTextNode("");
+        var personElement = document.createElement("span");
 
         var yearInt = TimelineDate.dateRound(dateNumber); //the current date in whole-years
 
@@ -625,7 +625,7 @@ class PersonListSorted {
         {
             var age = Math.floor(person.ageAtYear(yearInt));
             var ageString = TimelineDate.timespanString(age);
-            textline = ageString + " years old: " + person.name;
+            textline = ageString + " years old: ";
             if(person.ageIsApprox)
             {
                 //add approx qualifier
@@ -635,10 +635,19 @@ class PersonListSorted {
         }
         else
         {
-            textline = "Unknown age: " + person.name;
+            textline = "Unknown age: ";
         }
 
         personElement.textContent = textline;
+
+        //add the name
+        var nameelt = document.createTextNode(person.name);
+        if(person.lifetimeType=="species")
+        {
+            //italicise the names of species/genera
+            nameelt = TimelineHelper.ItalicBlock(person.name);
+        }
+        personElement.appendChild(nameelt);
 
         //italic if in death or birth year
         if(person.deathDate != undefined && yearInt == person.deathDate.date)
