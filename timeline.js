@@ -1462,8 +1462,9 @@ class Timeline {
             else if(_tlevent.type=="person")
             {
                 //use birth and death dates if available
+                //otherwise use event date for birth, PRESENTDAY for death
                 var lifelineStart = (_tlevent.birthDate==undefined)? _tlevent.date : _tlevent.birthDate;
-                var lifelineEnd = (_tlevent.deathDate==undefined)? _tlevent.date : _tlevent.deathDate;
+                var lifelineEnd = (_tlevent.deathDate==undefined)? TimelineDate.PresentDay() : _tlevent.deathDate;
 
                 //set lifline positions - separate from main bubble
                 offset = (lifelineStart - this.currentYear) * scalefactor + 0.5;
