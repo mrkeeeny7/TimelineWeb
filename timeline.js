@@ -358,6 +358,16 @@ class PersonListSorted {
     theList = []; //for now, just use an array and sort() when inserting. TODO implement better if necessary
 
     /**
+     * @type {string}
+     */
+    headerString;
+
+    constructor(headerString)
+    {
+        this.headerString = headerString;
+    }
+
+    /**
      * 
      * @param {Object} jsonPersonObj 
      * @returns {PersonData} the new person data created
@@ -530,8 +540,16 @@ class PersonListSorted {
         var yearstr = TimelineDate.dateString(date);
 
         var reportElement = document.createElement("div");
+
+        // for now, just return an empty div element if there are no entries in the list
+        if(alivelist.length==0)
+        {
+            return reportElement;
+        }
+
         var headerElt = document.createElement("h3");        
-        headerElt.textContent = "Notable People in " + yearstr;
+       // headerElt.textContent = "Notable People in " + yearstr;
+        headerElt.textContent = this.headerString + yearstr;
         
         reportElement.appendChild(headerElt);
 
@@ -849,7 +867,8 @@ class Timeline {
     /**
      * @type {PersonListSorted}
      */
-    personlist = new PersonListSorted();
+    personlist = new PersonListSorted("Notable people in ");
+    specieslist = new PersonListSorted("Extant species and genera in ");
 
     /**
      * @type {TimelineColumnWidget[]}
@@ -1127,8 +1146,14 @@ class Timeline {
             {
                 //var newPerson = new PersonData(jsonObj.personlist[i])
                 let jsonPersonData = jsonObj.personlist[i];
-                let newPersonData = this.personlist.Insert(jsonPersonData);
-
+                let newPersonData;
+                if(jsonPersonData.lifetimeType=="species")
+                {
+                     newPersonData = this.specieslist.Insert(jsonPersonData);
+                }
+                else{
+                     newPersonData = this.personlist.Insert(jsonPersonData);
+                }
                 // Create extra event bubbles for persons
                 if(jsonPersonData.bubbleDate != undefined)
                 {
@@ -3310,6 +3335,7 @@ function RefreshPersonPanel()
         //personPanel.innerHTML = aliveListHTML;
 
         personPanel.appendChild(selectedTimeline.personlist.CurrentYearReport(selectedTimeline.currentYear));
+        personPanel.appendChild(selectedTimeline.specieslist.CurrentYearReport(selectedTimeline.currentYear));
     }
 
 }
