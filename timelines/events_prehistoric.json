@@ -283,19 +283,25 @@
 			"title" : "Synapsids",
 			"searchstring" : "Synapsida",
 			"dateString" : "c. -315 MA",
-			"maxScale" : 50000000000
+			"maxScale" : 5000000000
 		},
 		{
 			"title" : "Earliest dinosaurs",
 			"searchstring" : "Dinosauria",
 			"dateString" : "-233.23 MA",
-			"maxScale" : 50000000000
+			"maxScale" : 500000000
+		},
+		{
+			"title" : "First mammals",
+			"searchstring" : "Mammal",
+			"dateString" : "c. -225 MA",
+			"maxScale" : 500000000
 		},
 		{
 			"title" : "First crocodilians",
 			"searchstring" : "Crocodilia",
 			"dateString" : "-83.5 MA",
-			"maxScale" : 50000000000
+			"maxScale" : 5000000000
 		},
 		{
 			"title" : "Extinction of non-avian dinosaurs",
@@ -333,12 +339,23 @@
 
 	{		"name" : "Coelophysis", "lived" : ["c. -215 ma", "c. -201.4 ma"], 
 			"bubbleDate" : "-215 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+			
+	{		"name" : "Ichthyosaurus", "lived" : ["-199.5 ma", "-192.9 ma"], 
+			"bubbleDate" : "-199.5 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Dilophosaurus", "lived" : ["-195.2 ma", "-183.7 ma"], 
+			"bubbleDate" : "-195.2 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Huayangosaurus", "lived" : ["-170.3 ma", "-163.5 ma"], 
+			"bubbleDate" : "-170.3 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Megalosaurus", "lived" : ["-166 ma", "-165 ma"], 
+			"bubbleDate" : "-166 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Diplodocus", "lived" : ["-152.07 ma", "-149.1 ma"], 
 			"bubbleDate" : "-152.07 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Apatosaurus", "lived" : ["-152 ma", "-151 ma"], 
 			"bubbleDate" : "-151.5 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Stegosaurus", "lived" : ["-155 ma", "-145 ma"], 
 			"bubbleDate" : "-150 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Brachiosaurus", "lived" : ["-155.6 ma", "-145.5 ma"], 
+			"bubbleDate" : "-148 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Allosaurus", "lived" : ["-155 ma", "-143.1 ma"], 
 			"bubbleDate" : "-155 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Archaeopteryx", "lived" : ["-150.8 ma", "-148.5 ma"], 
@@ -353,6 +370,7 @@
 			"bubbleDate" : "-69 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Triceratops", "lived" : ["-69 ma", "-66 ma"], 
 			"bubbleDate" : "-68 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+
 	{		"name" : "Palaeotherium", "lived" : ["-43.5 ma", "-32.5 ma"], 
 			"bubbleDate" : "-43.5 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Crocodylus", "lived" : ["-25 ma"], 
