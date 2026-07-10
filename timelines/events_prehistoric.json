@@ -280,13 +280,25 @@
 			"tags" : ["dinosaurs"]
 		},
 		{
+			"title" : "Synapsids",
+			"searchstring" : "Synapsida",
+			"dateString" : "c. -315 MA",
+			"maxScale" : 50000000000
+		},
+		{
+			"title" : "Earliest dinosaurs",
+			"searchstring" : "Dinosauria",
+			"dateString" : "-233.23 MA",
+			"maxScale" : 50000000000
+		},
+		{
 			"title" : "First crocodilians",
 			"searchstring" : "Crocodilia",
 			"dateString" : "-83.5 MA",
 			"maxScale" : 50000000000
 		},
 		{
-			"title" : "Extinction of dinosaurs",
+			"title" : "Extinction of non-avian dinosaurs",
 			"searchstring" : "Cretaceous–Paleogene extinction event",
 			"dateString" : "-66 MA",
 			"maxScale" : 50000000000,
@@ -312,6 +324,13 @@
 
 "personlist" : [		
    
+	{		"name" : "Edaphosaurus", "lived" : ["-303.4 ma", "-272.5 ma"], 
+			"bubbleDate" : "-303.4 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Dimetrodon", "lived" : ["-294.1 ma", "-271 ma"], 
+			"bubbleDate" : "-294.1 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Moschops", "lived" : ["-264.4 ma", "-260 ma"], 
+			"bubbleDate" : "-264.4 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+
 	{		"name" : "Coelophysis", "lived" : ["c. -215 ma", "c. -201.4 ma"], 
 			"bubbleDate" : "-215 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Allosaurus", "lived" : ["-155 ma", "-143.1 ma"], 
@@ -332,12 +351,17 @@
 			"bubbleDate" : "-75 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Tyrannosaurus", "lived" : ["-69 ma", "-66 ma"], 
 			"bubbleDate" : "-69 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+	{		"name" : "Triceratops", "lived" : ["-69 ma", "-66 ma"], 
+			"bubbleDate" : "-68 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Palaeotherium", "lived" : ["-43.5 ma", "-32.5 ma"], 
 			"bubbleDate" : "-43.5 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Crocodylus", "lived" : ["-25 ma"], 
 			"bubbleDate" : "-25 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Alligator", "lived" : ["-37.2 ma"], 
-			"bubbleDate" : "-37.2 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}
+			"bubbleDate" : "-37.2 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
+
+	{		"name" : "Elasmosaurus", "lived" : ["-80.64 ma", "-77 ma"], 
+			"bubbleDate" : "-80.64 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			}
 	
 ]
 }
