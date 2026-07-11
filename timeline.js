@@ -652,11 +652,14 @@ class PersonListSorted {
         //italic if in death or birth year
         if(person.deathDate != undefined && yearInt == person.deathDate.date)
         {
-            personElement = TimelineHelper.ItalicBlock(textline + " (year of death)");
+            //personElement = TimelineHelper.ItalicBlock(textline + " (year of death)");
+            personElement.appendChild(document.createTextNode( " (year of death)"));
+            personElement = TimelineHelper.CreateParentNode("i", personElement); //make italic
         }
         else if(age == 0)
         {
-            personElement = TimelineHelper.ItalicBlock(textline);
+            //personElement = TimelineHelper.ItalicBlock(textline);
+            personElement = TimelineHelper.CreateParentNode("i", personElement); //make italic
         }
 
         if(person.ruled != undefined )
