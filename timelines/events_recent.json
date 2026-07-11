@@ -273,6 +273,7 @@
 		},
 		{
 			"title" : "9/11",
+			"subtitle" : "September 11th terrorist attacks",
 			"searchstring" : "September 11 attacks",
 			"dateString" : "2001",
 			"minScale" : 1,

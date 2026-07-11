@@ -48,19 +48,26 @@
 			"maxScale" : 1000000
 		},
 		{
+			"title" : "Pottery",
+			"dateString" : "c. 26000 BC",
+			"minScale" : 1,
+			"maxScale" : 1000000
+		},
+		{
 			"title" : "Agriculture",
 			"dateString" : "c. 10000 BC",
 			"minScale" : 1,
 			"maxScale" : 200000
 		},
 		{
-			"title" : "Earliest steel",
+			"title" : "Steel",
 			"dateString" : "c. 1800 BC",
 			"minScale" : 1,
 			"maxScale" : 5000
 		},
 		{
-			"title" : "Glassmaking (Mesopotamia)",
+			"title" : "Glassmaking",
+            "location" : "Mesopotamia",
 			"dateString" : "c. 1600 BC",
 			"minScale" : 1,
 			"maxScale" : 5000
@@ -72,25 +79,29 @@
 			"maxScale" : 100000
 		},
 		{
-			"title" : "Papermaking (China)",
+			"title" : "Papermaking",
+            "location" : "China",
 			"dateString" : "c. 105",
 			"minScale" : 1,
 			"maxScale" : 10000
 		},
 		{
-			"title" : "Toilet paper (China)",
+			"title" : "Toilet paper",
+            "location" : "China",
 			"dateString" : "c. 589",
 			"minScale" : 1,
 			"maxScale" : 10000
 		},
 		{
-			"title" : "Gunpowder (China)",
+			"title" : "Gunpowder",
+            "location" : "China",
 			"dateString" : "c. 808",
 			"minScale" : 1,
 			"maxScale" : 200
 		},
 		{
 			"title" : "Steam engine",
+            "location" : "England",
 			"dateString" : "1763",
 			"minScale" : 1,
 			"maxScale" : 2000
@@ -100,6 +111,12 @@
 			"dateString" : "1775",
 			"minScale" : 1,
 			"maxScale" : 500
+		},
+		{
+			"title" : "Smallpox vaccine",
+			"dateString" : "1796",
+			"minScale" : 1,
+			"maxScale" : 10000
 		},
 		{
 			"title" : "Voltaic pile (battery)",
@@ -120,13 +137,13 @@
 			"maxScale" : 100
 		},
 		{
-			"title" : "Safety Bicycle",
+			"title" : "Safety bicycle",
 			"dateString" : "1876",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
 		{
-			"title" : "Electric Lighting",
+			"title" : "Electric lighting",
 			"dateString" : "1879",
 			"minScale" : 1,
 			"maxScale" : 500
@@ -203,7 +220,7 @@
 			"maxScale" : 100
 		},
 		{
-			"title" : "World Wide Web",
+			"title" : "World wide web",
 			"dateString" : "1989",
 			"minScale" : 1,
 			"maxScale" : 1000

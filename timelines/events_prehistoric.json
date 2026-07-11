@@ -371,9 +371,9 @@
 	{		"name" : "Triceratops", "lived" : ["-69 ma", "-66 ma"], 
 			"bubbleDate" : "-68 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 
-	{		"name" : "Palaeotherium", "lived" : ["-43.5 ma", "-32.5 ma"], 
+	{		"name" : "Palaeotherium", "subtitle": "Early equoid mammal", "lived" : ["-43.5 ma", "-32.5 ma"], 
 			"bubbleDate" : "-43.5 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
-	{		"name" : "Crocodylus", "lived" : ["-25 ma"], 
+	{		"name" : "Crocodylus", "subtitle": "Crocodile", "lived" : ["-25 ma"], 
 			"bubbleDate" : "-25 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},
 	{		"name" : "Alligator", "lived" : ["-37.2 ma"], 
 			"bubbleDate" : "-37.2 ma", "bubbleScale" : [0, 500000000], "lifetimeType" : "species"			},

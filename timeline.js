@@ -652,13 +652,11 @@ class PersonListSorted {
         //italic if in death or birth year
         if(person.deathDate != undefined && yearInt == person.deathDate.date)
         {
-            //personElement = TimelineHelper.ItalicBlock(textline + " (year of death)");
             personElement.appendChild(document.createTextNode( " (year of death)"));
             personElement = TimelineHelper.CreateParentNode("i", personElement); //make italic
         }
         else if(age == 0)
         {
-            //personElement = TimelineHelper.ItalicBlock(textline);
             personElement = TimelineHelper.CreateParentNode("i", personElement); //make italic
         }
 
@@ -1177,8 +1175,13 @@ class Timeline {
                         maxScale = jsonPersonData.bubbleScale[1];
                     }
                     // create a bubble
-                    let newEventData = {
+                    let newEventData = { 
+                        //mimic the event data for a normal (non-person) event
                         title: newPersonData.name,
+                        //extra info
+                        subtitle: jsonPersonData.subtitle,
+                        location: jsonPersonData.location,
+
                         dateString: jsonPersonData.bubbleDate, //note: use this data from json (will not exist in person database)
                         birthDateString : newPersonData.birthDate==undefined? undefined : newPersonData.birthDate.dateString,
                         deathDateString : newPersonData.deathDate==undefined? undefined : newPersonData.deathDate.dateString,
@@ -1189,7 +1192,8 @@ class Timeline {
                     
                     //TODO revamp CreateBubble to clean this up - just pass in a reference to the PersonData
 
-                    let newEvent = this.CreateBubble(newEventData, //make sure this has all the needed data 
+                    let newEvent = this.CreateBubble(
+                        newEventData, //make sure this has all the needed data 
                         newPersonData,
                         jsonObj.category, //TODO consider just passing in the jsonObj
                         newColumnWidget, 
@@ -1338,7 +1342,7 @@ class Timeline {
         // TODO:  Just pass the jsonEventObj to the constructor and handle everything there; save a reference to the JSON obj
         // inside the TimelineEvent
         //  */
-        var newEvent = new TimelineEvent(
+        var newEvent = new TimelineEvent(jsonEventObj,
             jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
             jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
             newEventDomElement, lifelineDomElement, columnWidget, columnIndex);
@@ -1801,7 +1805,8 @@ class TimelineEvent {
 
     /**
      * 
-     * @param {string} title 
+     * @param {Object} jsonObj 
+     * @param {string} title //TODO deprecate these and just use the jsonEventObj
      * @param {number} bubbleDate 
      * @param {number} endDate 
      * @param {number} birthDate 
@@ -1815,10 +1820,10 @@ class TimelineEvent {
      * @param {TimelineColumnWidget} columnWidget 
      * @param {number} preferredColumn 
      */
-    constructor(title, bubbleDate, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
+    constructor(jsonObj, title, bubbleDate, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
          domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
-        this.constructor_common(bubbleDate, searchstring, minScale, maxScale,
+        this.constructor_common(jsonObj, bubbleDate, searchstring, minScale, maxScale,
          domElement, lifelineDomElement, columnWidget, preferredColumn);
 
         this.title = title;
@@ -1831,6 +1836,7 @@ class TimelineEvent {
     //person constructor
     /**
      * 
+     * @param {Object} jsonObj 
      * @param {PersonData} personData 
      * @param {number} bubbleDate //TODO replace dates with TimelineDate
      * @param {string} searchstring 
@@ -1841,21 +1847,25 @@ class TimelineEvent {
      * @param {TimelineColumnWidget} columnWidget 
      * @param {number} preferredColumn 
      */
-    constructor_person(personData, bubbleDate, searchstring, minScale, maxScale,
+    constructor_person(jsonObj, personData, bubbleDate, searchstring, minScale, maxScale,
          domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
+        //check if currently used...not currently used
+        return; 
+
         this.title = personData.name;
         this.type = "person";
 
-        this.constructor_common(bubbleDate, searchstring, minScale, maxScale,
+        this.constructor_common(jsonObj, bubbleDate, searchstring, minScale, maxScale,
          domElement, lifelineDomElement, columnWidget, preferredColumn);
 
     
     }
 
-    constructor_common(bubbleDate, searchstring, minScale, maxScale,
+    constructor_common(jsonObj, bubbleDate, searchstring, minScale, maxScale,
          domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
+        this.jsonEventObj = jsonObj;
         this.date = Number(bubbleDate);
         this.searchstring = searchstring;
         
@@ -3268,8 +3278,15 @@ function UpdateInfoPanel()
             dateText = TimelineDate.dateString(tlEvent.date);
         }
      //   addParagraph(newDiv, dateText);
-        titleDOM.innerText = tlEvent.title + " (" + dateText + ")";
+        titleDOM.textContent = tlEvent.title + " (" + dateText + ")";
         newDiv.appendChild(titleDOM);
+
+        if(tlEvent.jsonEventObj.subtitle!=undefined)
+        {
+            var subtitleDOM = document.createElement("h3");
+            subtitleDOM.textContent = tlEvent.jsonEventObj.subtitle;
+            newDiv.appendChild(subtitleDOM);
+        }
 
         if(tlEvent.type=="person")
         {
