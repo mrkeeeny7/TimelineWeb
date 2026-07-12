@@ -3277,8 +3277,14 @@ function UpdateInfoPanel()
         {
             dateText = TimelineDate.dateString(tlEvent.date);
         }
+
+        var locationText = "";
+        if(tlEvent.jsonEventObj.location!=undefined)
+        {
+            locationText = ", " + tlEvent.jsonEventObj.location;
+        }
      //   addParagraph(newDiv, dateText);
-        titleDOM.textContent = tlEvent.title + " (" + dateText + ")";
+        titleDOM.textContent = tlEvent.title + " (" + dateText + locationText + ")";
         newDiv.appendChild(titleDOM);
 
         if(tlEvent.jsonEventObj.subtitle!=undefined)
