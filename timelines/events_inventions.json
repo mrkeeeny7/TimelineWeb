@@ -75,6 +75,7 @@
 		{
 			"title" : "Wheeled chariots",
 			"dateString" : "c. 1950 BC",
+            "location" : "Central Asia",
 			"minScale" : 1,
 			"maxScale" : 100000
 		},
@@ -109,48 +110,57 @@
 		{
 			"title" : "Flushing water closet",
 			"dateString" : "1775",
+            "location" : "England",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
 		{
 			"title" : "Smallpox vaccine",
 			"dateString" : "1796",
+            "location" : "England",
 			"minScale" : 1,
 			"maxScale" : 10000
 		},
 		{
-			"title" : "Voltaic pile (battery)",
+			"title" : "Voltaic pile",
+            "subtitle" : "First electrical battery",
 			"dateString" : "1800",
+            "location" : "Italy",
 			"minScale" : 1,
 			"maxScale" : 1000
 		},
 		{
 			"title" : "Railway",
 			"dateString" : "1830",
+            "location" : "England",
 			"minScale" : 1,
 			"maxScale" : 1000
 		},
 		{
 			"title" : "Dynamite",
 			"dateString" : "1864",
+            "location" : "Germany",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
 		{
 			"title" : "Safety bicycle",
 			"dateString" : "1876",
+            "location" : "England",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
 		{
 			"title" : "Electric lighting",
 			"dateString" : "1879",
+            "location" : "multiple locations",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
 		{
 			"title" : "Automobile",
 			"dateString" : "1886",
+            "location" : "Germany",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
@@ -169,41 +179,51 @@
 		{
 			"title" : "Airplane",
 			"dateString" : "1903",
+            "location" : "USA",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
 		{
 			"title" : "Penicillin",
 			"dateString" : "1928",
+            "location" : "United Kingdom",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
 		{
-			"title" : "Colossus (codebreaking computer)",
+			"title" : "Colossus (computer)",
 			"dateString" : "1943",
+            "location" : "England",
+            "subtitle" : "Codebreaking computing machine",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
 		{
 			"title" : "Atomic bomb",
 			"dateString" : "1945",
+            "subtitle" : "Nuclear weapon",
+            "location" : "New Mexico, USA",
 			"minScale" : 1
 		},
 		{
-			"title" : "H-bomb (thermonuclear weapon)",
+			"title" : "H-bomb",
 			"dateString" : "1952",
+            "subtitle" : "Thermonuclear weapon",
+            "location" : "Marshall Islands, USA",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
 		{
 			"title" : "Satellite (Sputnik 1)",
 			"dateString" : "1957",
+            "location" : "Soviet Union",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
 		{
 			"title" : "Laser",
 			"dateString" : "1960",
+            "location" : "USA",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
@@ -222,12 +242,14 @@
 		{
 			"title" : "World wide web",
 			"dateString" : "1989",
+            "location" : "Switzerland",
 			"minScale" : 1,
 			"maxScale" : 1000
 		},
 		{
 			"title" : "mRNA vaccine",
 			"dateString" : "2020",
+            "location" : "multiple locations",
 			"minScale" : 1,
 			"maxScale" : 100
 		}
