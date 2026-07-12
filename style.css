@@ -259,6 +259,13 @@ select{
     border-style: solid;
     border-color: magenta;
 }
+
+#tableContainerLeft {
+    height: 100%;
+}
+#tableContainerRight {
+    height: 100%;
+}
 .tableColumnHeader {
     margin: 0px;
     /*position: absolute;*/
@@ -426,7 +433,33 @@ select{
 
 }
 
-.infoBlock
+#infoPanelContent {    
+    padding: 10px;
+    margin: 0px;
+
+}
+
+#infoPanelContent h2 {    
+    font-size: 20px;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+/* event subtitle */
+#infoPanelContent h3 {    
+    font-size: 16px;
+    text-align: center;
+    padding: 0px;
+    margin: 0px; 
+
+/*    border-width: var(--inner-border-width);
+    border-style: solid;
+   border-color: blue;*/
+}
+
+.personInfoBlock
 {    
     font-size: 16px; 
     margin-bottom: 0.1em; /* Use 'em' for spacing relative to font size */

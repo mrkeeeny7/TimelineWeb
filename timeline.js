@@ -240,7 +240,7 @@ class PersonData
     {
         //block to return
         var infoBlock = document.createElement("div");
-        infoBlock.setAttribute("class", "infoBlock");
+        infoBlock.setAttribute("class", "personInfoBlock");
 
         //paragraph 1
         var lifetimePara = document.createElement("span");
@@ -3263,7 +3263,7 @@ function UpdateInfoPanel()
         var tlEvent = selectedTimeline.currentSelectedEvent;
         //create content for info panel
         var newDiv = document.createElement("div");
-        //newDiv.setAttribute("class", "eventBubble");
+        newDiv.setAttribute("id", "infoPanelContent");
 
         var titleDOM = document.createElement("h2");
       //  titleDOM.innerText = tlEvent.title;
@@ -3287,6 +3287,9 @@ function UpdateInfoPanel()
             subtitleDOM.textContent = tlEvent.jsonEventObj.subtitle;
             newDiv.appendChild(subtitleDOM);
         }
+        
+        // add a vertical space
+        newDiv.appendChild(document.createElement("p"));
 
         if(tlEvent.type=="person")
         {
