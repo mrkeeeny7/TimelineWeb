@@ -1131,16 +1131,21 @@ class Timeline {
     
         var eventIndex = this.tlEvents.length; //start at the end of the existing list TODO clean this up (use AddEvent method)
 
+        let bubbleStyleData = {
+
+            colorString: jsonObj.colorString,
+            colorBString: jsonObj.colorBString,
+            category: jsonObj.category
+        };
+
         for(let i=0; i<jsonObj.eventlist.length; i++)
         {
             var jsonEventObj = jsonObj.eventlist[i];        
             this.CreateBubble(
                 jsonEventObj, 
                 undefined,
-                jsonObj.category, //TODO consider just passing in the jsonObj
+                bubbleStyleData,
                 newColumnWidget, 
-                jsonObj.colorString, 
-                jsonObj.colorBString, 
                 eventIndex++,
                 currentColumn);
         }
@@ -1195,10 +1200,8 @@ class Timeline {
                     let newEvent = this.CreateBubble(
                         newEventData, //make sure this has all the needed data 
                         newPersonData,
-                        jsonObj.category, //TODO consider just passing in the jsonObj
+                        bubbleStyleData,
                         newColumnWidget, 
-                        jsonObj.colorString, 
-                        jsonObj.colorBString, 
                         eventIndex++,
                         currentColumn);
 
@@ -1226,16 +1229,14 @@ class Timeline {
     /**
      * 
      * @param {Object} jsonEventObj 
-     * @param {PersonData} personData 
-     * @param {string} category 
+     * @param {PersonData} personData //TODO do we need to pass this in? if yes, use this data in the constructor
+     * @param {{colorString:string, colorBString:string, category:string}} bubbleStyleData
      * @param {TimelineColumnWidget} columnWidget 
-     * @param {string} colorString 
-     * @param {string} colorBString 
      * @param {number} eventIndex 
      * @param {number} columnIndex 
      * @returns {TimelineEvent} the created event
      */
-    CreateBubble(jsonEventObj, personData, category, columnWidget, colorString, colorBString, eventIndex, columnIndex)
+    CreateBubble(jsonEventObj, personData, bubbleStyleData, columnWidget, eventIndex, columnIndex)
     {
         var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
 
@@ -1261,9 +1262,6 @@ class Timeline {
             eventEndDate = eventDate;
         }
         
-        //TODO Get birth/death dates from personData if available (clean up)
-        eventBirthDate = new TimelineDate(jsonEventObj.birthDateString).date; //sets birth and death to undefined if not known
-        eventDeathDate = new TimelineDate(jsonEventObj.deathDateString).date;
         
         // new: use date range for more concise data
         if(jsonEventObj.dates != undefined) //TODO this does the same thing as dateRange; consolidate or remove
@@ -1298,7 +1296,7 @@ class Timeline {
         newEventDomElement.setAttribute("selected", false);
         newEventDomElement.setAttribute("eventIndex", eventIndex);
         newEventDomElement.setAttribute("eventType", eventType);
-        newEventDomElement.setAttribute("category", category);
+        newEventDomElement.setAttribute("category", bubbleStyleData.category);
 
         newEventDomElement.setAttribute("oldStyle", (eventType=="person" && personData==undefined) );
 
@@ -1343,7 +1341,7 @@ class Timeline {
         // inside the TimelineEvent
         //  */
         var newEvent = new TimelineEvent(jsonEventObj,
-            eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType,
+            eventDate, eventEndDate, eventType,
             newEventDomElement, lifelineDomElement, columnWidget, columnIndex);
             
         let tlIndex = this.timelineIndex;
@@ -1355,18 +1353,18 @@ class Timeline {
             function() { onEventMouseOut(tlIndex, this.getAttribute("eventIndex")); });
 
         //set background colour
-        if(colorString != undefined)
+        if(bubbleStyleData.colorString != undefined)
         {
             if(eventType=="basic" || eventType=="era")
             {
-                newEventDomElement.style.backgroundColor = colorString;
+                newEventDomElement.style.backgroundColor = bubbleStyleData.colorString;
             }
         }
-        if(colorBString != undefined)
+        if(bubbleStyleData.colorBString != undefined)
         {
             if(eventType=="era")
             {
-                newEventDomElement.style.backgroundColor = colorBString;
+                newEventDomElement.style.backgroundColor = bubbleStyleData.colorBString;
             }
         }
         
@@ -1791,16 +1789,19 @@ function StopCurrentAnimation()
 class TimelineEvent {
 
     /**
+     * TODO this should replace some of the data passed to the constructor
+     * @type {Object}
+     */
+    jsonEventObj;
+
+
+    /**
+     * defined only if this event is of type Person
      * @type {PersonData}
      */
     personData;
 
 
-    /**
-     * TODO this should replace some of the data passed to the constructor
-     * @type {Object}
-     */
-    jsonEventObj;
 
     /**
      * 
@@ -1815,15 +1816,21 @@ class TimelineEvent {
      * @param {TimelineColumnWidget} columnWidget 
      * @param {number} preferredColumn 
      */
-    constructor(jsonObj, bubbleDate, endDate, birthDate, deathDate, type,
+    constructor(jsonObj, bubbleDate, endDate, type,
          domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
         this.constructor_common(jsonObj, bubbleDate,
          domElement, lifelineDomElement, columnWidget, preferredColumn);
 
         this.endDate = Number(endDate);
-        this.birthDate = birthDate; //TODO needs to be deprecated
-        this.deathDate = deathDate; //TODO needs to be deprecated
+        
+        //this.birthDate = birthDate; //TODO needs to be deprecated
+        //this.deathDate = deathDate; //TODO needs to be deprecated
+
+        // only relevant for Person-type events
+        this.birthDate = new TimelineDate(jsonObj.birthDateString).date; //sets birth and death to undefined if not known
+        this.deathDate = new TimelineDate(jsonObj.deathDateString).date;
+
         this.type = type;
     }
 
@@ -1861,7 +1868,7 @@ class TimelineEvent {
     {
         this.jsonEventObj = jsonObj;
         this.date = Number(bubbleDate);
-        
+
         this.title = jsonObj.title;
         this.searchstring = jsonObj.searchstring;
         
