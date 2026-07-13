@@ -62,6 +62,7 @@
 		{
 			"title" : "Steel",
 			"dateString" : "c. 1800 BC",
+            "location" : "Anatolia",
 			"minScale" : 1,
 			"maxScale" : 5000
 		},
@@ -98,7 +99,21 @@
             "location" : "China",
 			"dateString" : "c. 808",
 			"minScale" : 1,
-			"maxScale" : 200
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Compass",
+            "location" : "China",
+			"dateString" : "1088",
+			"minScale" : 1,
+			"maxScale" : 5000
+		},
+		{
+			"title" : "Telescope",
+            "location" : "Netherlands",
+			"dateString" : "1608",
+			"minScale" : 1,
+			"maxScale" : 5000
 		},
 		{
 			"title" : "Steam engine",
@@ -167,12 +182,14 @@
 		{
 			"title" : "Radio",
 			"dateString" : "c. 1895",
+            "location" : "Italy",
 			"minScale" : 1,
 			"maxScale" : 500
 		},
 		{
 			"title" : "X-ray imaging",
 			"dateString" : "1896",
+            "location" : "England",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
@@ -230,12 +247,14 @@
 		{
 			"title" : "Pocket calculator",
 			"dateString" : "1970",
+            "location" : "USA",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
 		{
 			"title" : "GPS",
 			"dateString" : "1978",
+            "location" : "USA",
 			"minScale" : 1,
 			"maxScale" : 100
 		},
