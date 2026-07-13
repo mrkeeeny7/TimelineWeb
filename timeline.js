@@ -1238,7 +1238,7 @@ class Timeline {
      */
     CreateBubble(jsonEventObj, personData, bubbleStyleData, columnWidget, eventIndex, columnIndex)
     {
-        var eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType;
+        var eventDate, eventEndDate, eventType;
 
         if(jsonEventObj.dateRange != undefined)
         {
