@@ -1343,8 +1343,7 @@ class Timeline {
         // inside the TimelineEvent
         //  */
         var newEvent = new TimelineEvent(jsonEventObj,
-            jsonEventObj.title, eventDate, eventEndDate, eventBirthDate, eventDeathDate,
-            jsonEventObj.searchstring, eventType, jsonEventObj.minScale, jsonEventObj.maxScale,
+            eventDate, eventEndDate, eventBirthDate, eventDeathDate, eventType,
             newEventDomElement, lifelineDomElement, columnWidget, columnIndex);
             
         let tlIndex = this.timelineIndex;
@@ -1806,27 +1805,22 @@ class TimelineEvent {
     /**
      * 
      * @param {Object} jsonObj 
-     * @param {string} title //TODO deprecate these and just use the jsonEventObj
      * @param {number} bubbleDate 
      * @param {number} endDate 
      * @param {number} birthDate 
      * @param {number} deathDate 
-     * @param {string} searchstring 
      * @param {string} type 
-     * @param {number} minScale this is a lower bound (inclusive) - event should be visible at this scale and above (if less than maxScale)
-     * @param {number} maxScale this is an upper bound (not inclusive) - event will NOT be visible at this scale or above
      * @param {HTMLDivElement} domElement 
      * @param {HTMLDivElement} lifelineDomElement 
      * @param {TimelineColumnWidget} columnWidget 
      * @param {number} preferredColumn 
      */
-    constructor(jsonObj, title, bubbleDate, endDate, birthDate, deathDate, searchstring, type, minScale, maxScale,
+    constructor(jsonObj, bubbleDate, endDate, birthDate, deathDate, type,
          domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
-        this.constructor_common(jsonObj, bubbleDate, searchstring, minScale, maxScale,
+        this.constructor_common(jsonObj, bubbleDate,
          domElement, lifelineDomElement, columnWidget, preferredColumn);
 
-        this.title = title;
         this.endDate = Number(endDate);
         this.birthDate = birthDate; //TODO needs to be deprecated
         this.deathDate = deathDate; //TODO needs to be deprecated
@@ -1862,18 +1856,20 @@ class TimelineEvent {
     
     }
 
-    constructor_common(jsonObj, bubbleDate, searchstring, minScale, maxScale,
+    constructor_common(jsonObj, bubbleDate,
          domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
         this.jsonEventObj = jsonObj;
         this.date = Number(bubbleDate);
-        this.searchstring = searchstring;
+        
+        this.title = jsonObj.title;
+        this.searchstring = jsonObj.searchstring;
         
         this.domElement = domElement; //html element
         this.lifelineDomElement = lifelineDomElement; //html element
 
-        this.minScale = minScale;
-        this.maxScale = maxScale;
+        this.minScale = jsonObj.minScale;
+        this.maxScale = jsonObj.maxScale;
 
         //other fields
         this.selected=false;
