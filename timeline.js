@@ -1238,7 +1238,18 @@ class Timeline {
      */
     CreateBubble(jsonEventObj, personData, bubbleStyleData, columnWidget, eventIndex, columnIndex)
     {
-        var eventDate, eventEndDate, eventType;
+        /**
+         * @type {TimelineDate}
+         */
+        var eventDate;
+        /**
+         * @type {TimelineDate}
+         */
+        var eventEndDate;
+        var eventType;
+
+        var dateStr=undefined;
+        var endDateStr=undefined;
 
         if(jsonEventObj.dateRange != undefined)
         {
@@ -1246,23 +1257,27 @@ class Timeline {
             {
                 console.warn("Clashing date definitions for event: " + jsonEventObj.title + "; using date range.");
             }
-            eventDate = new TimelineDate(jsonEventObj.dateRange[0]).date;
-            eventEndDate = new TimelineDate(jsonEventObj.dateRange[1]).date;
+            dateStr = jsonEventObj.dateRange[0];
+            endDateStr = jsonEventObj.dateRange[1];
         }
         else
         {
-            eventDate = new TimelineDate(jsonEventObj.dateString).date ; //convert to numerical (so can sort, among other things) 
-            // TODO keep  these as TimelineDate objects
-        
-            eventEndDate = new TimelineDate(jsonEventObj.endDateString).date;
+            dateStr = jsonEventObj.dateString;
+            endDateStr = jsonEventObj.endDateString;
         }
 
-        if(eventEndDate==undefined)
+        eventDate = new TimelineDate(dateStr);
+
+        if(endDateStr==undefined)
         {
             eventEndDate = eventDate;
         }
+        else
+        {
+            eventEndDate = new TimelineDate(endDateStr);
+        }
         
-        
+        /* REDUNDANT
         // new: use date range for more concise data
         if(jsonEventObj.dates != undefined) //TODO this does the same thing as dateRange; consolidate or remove
         {
@@ -1272,10 +1287,10 @@ class Timeline {
             }
 
             //get the dates from the array of strings
-            eventDate = new TimelineDate(jsonEventObj.dates[0]).date;
-            eventEndDate = new TimelineDate(jsonEventObj.dates[1]).date;
+            eventDate = new TimelineDate(jsonEventObj.dates[0]);
+            eventEndDate = new TimelineDate(jsonEventObj.dates[1]);
         }
-
+*/
 
         if(jsonEventObj.type == undefined)
         {
@@ -1292,7 +1307,7 @@ class Timeline {
     
         var newEventDomElement = document.createElement("div");
         newEventDomElement.setAttribute("class", "eventBubble");
-        newEventDomElement.setAttribute("startDate", eventDate);
+        newEventDomElement.setAttribute("startDate", eventDate.date);
         newEventDomElement.setAttribute("selected", false);
         newEventDomElement.setAttribute("eventIndex", eventIndex);
         newEventDomElement.setAttribute("eventType", eventType);
@@ -1447,7 +1462,7 @@ class Timeline {
                 //TODO check column is a valid with current number of columns
             }
             //2. determine offset from current year    
-            let offset = (_tlevent.date - this.currentYear) * scalefactor + 0.5;
+            let offset = (_tlevent.bubbleDate.date - this.currentYear) * scalefactor + 0.5;
             let topPosition = offset;
             
             if(_tlevent.type==undefined)
@@ -1459,13 +1474,13 @@ class Timeline {
             {
                 //track the event/year stacks
                 //TODO stacks should be a whole separate DOM element
-                if(this.eventStacks[c][_tlevent.date] == undefined)
+                if(this.eventStacks[c][_tlevent.bubbleDate.date] == undefined)
                 {
-                    this.eventStacks[c][_tlevent.date] = []; //each stack is an array of events; there is a separate stack for each date
+                    this.eventStacks[c][_tlevent.bubbleDate.date] = []; //each stack is an array of events; there is a separate stack for each date
                 }
-                this.eventStacks[c][_tlevent.date].push(_tlevent);
+                this.eventStacks[c][_tlevent.bubbleDate.date].push(_tlevent);
              
-                let stackheight = this.eventStacks[c][_tlevent.date].length - 1;
+                let stackheight = this.eventStacks[c][_tlevent.bubbleDate.date].length - 1;
                 const stackOffsetSpacing = 0.03;
                 let stackOffset = stackheight * stackOffsetSpacing; 
 
@@ -1476,7 +1491,7 @@ class Timeline {
             {
                 //use birth and death dates if available
                 //otherwise use event date for birth, PRESENTDAY for death
-                var lifelineStart = (_tlevent.birthDate==undefined)? _tlevent.date : _tlevent.birthDate;
+                var lifelineStart = (_tlevent.birthDate==undefined)? _tlevent.bubbleDate.date : _tlevent.birthDate;
                 var lifelineEnd = (_tlevent.deathDate==undefined)? TimelineDate.PresentDay() : _tlevent.deathDate;
 
                 //set lifline positions - separate from main bubble
@@ -1491,7 +1506,7 @@ class Timeline {
             else if(_tlevent.type=="era")
             {
                 //set bottom position by end date
-                offset = (_tlevent.endDate - this.currentYear) * scalefactor + 0.5;
+                offset = (_tlevent.endDate.date - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.domElement, offset);
 
             }
@@ -1610,8 +1625,8 @@ class Timeline {
     recentreTimeline()
     {
         this.SortEventsList();
-        var date0 = this.tlEvents[0].date;
-        var date1 = this.tlEvents[this.tlEvents.length-1].date;
+        var date0 = this.tlEvents[0].bubbleDate.date;
+        var date1 = this.tlEvents[this.tlEvents.length-1].bubbleDate.date;
         console.log("Num events: " + this.tlEvents.length);
         console.log("Dates from " + date0 + " to " +  date1) ;
     
@@ -1806,10 +1821,8 @@ class TimelineEvent {
     /**
      * 
      * @param {Object} jsonObj 
-     * @param {number} bubbleDate 
-     * @param {number} endDate 
-     * @param {number} birthDate 
-     * @param {number} deathDate 
+     * @param {TimelineDate} bubbleDate 
+     * @param {TimelineDate} endDate
      * @param {string} type 
      * @param {HTMLDivElement} domElement 
      * @param {HTMLDivElement} lifelineDomElement 
@@ -1822,10 +1835,7 @@ class TimelineEvent {
         this.constructor_common(jsonObj, bubbleDate,
          domElement, lifelineDomElement, columnWidget, preferredColumn);
 
-        this.endDate = Number(endDate);
-        
-        //this.birthDate = birthDate; //TODO needs to be deprecated
-        //this.deathDate = deathDate; //TODO needs to be deprecated
+        this.endDate = endDate;
 
         // only relevant for Person-type events
         this.birthDate = new TimelineDate(jsonObj.birthDateString).date; //sets birth and death to undefined if not known
@@ -1839,7 +1849,7 @@ class TimelineEvent {
      * 
      * @param {Object} jsonObj 
      * @param {PersonData} personData 
-     * @param {number} bubbleDate //TODO replace dates with TimelineDate
+     * @param {TimelineDate} bubbleDate //TODO replace dates with TimelineDate
      * @param {string} searchstring 
      * @param {number} minScale 
      * @param {number} maxScale 
@@ -1863,11 +1873,20 @@ class TimelineEvent {
     
     }
 
+    /**
+     * 
+     * @param {Object} jsonObj 
+     * @param {TimelineDate} bubbleDate 
+     * @param {HTMLElement} domElement 
+     * @param {HTMLElement} lifelineDomElement 
+     * @param {TimelineColumnWidget} columnWidget 
+     * @param {number} preferredColumn 
+     */
     constructor_common(jsonObj, bubbleDate,
          domElement, lifelineDomElement, columnWidget, preferredColumn=0)
     {
         this.jsonEventObj = jsonObj;
-        this.date = Number(bubbleDate);
+        this.bubbleDate = bubbleDate;
 
         this.title = jsonObj.title;
         this.searchstring = jsonObj.searchstring;
@@ -3272,13 +3291,13 @@ function UpdateInfoPanel()
       //  titleDOM.innerText = tlEvent.title;
 
         var dateText = "";
-        if(tlEvent.endDate != tlEvent.date)
+        if(tlEvent.endDate.date != tlEvent.bubbleDate.date)
         {
-            dateText = TimelineDate.dateString(tlEvent.date) + " - " + TimelineDate.dateString(tlEvent.endDate);
+            dateText = TimelineDate.dateString(tlEvent.bubbleDate.date) + " - " + TimelineDate.dateString(tlEvent.endDate.date);
         }
         else
         {
-            dateText = TimelineDate.dateString(tlEvent.date);
+            dateText = TimelineDate.dateString(tlEvent.bubbleDate.date);
         }
 
         var locationText = "";
