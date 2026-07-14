@@ -1246,8 +1246,9 @@ class Timeline {
          * @type {TimelineDate}
          */
         var eventEndDate;
-        var eventType;
 
+        // strings
+        var eventType;
         var dateStr=undefined;
         var endDateStr=undefined;
 
@@ -1266,6 +1267,11 @@ class Timeline {
             endDateStr = jsonEventObj.endDateString;
         }
 
+        if(dateStr==undefined)
+        {
+            console.error("No date field found for event " + jsonEventObj.title);
+            throw new Error("No date field found for event " + jsonEventObj.title);
+        }
         eventDate = new TimelineDate(dateStr);
 
         if(endDateStr==undefined)
@@ -1277,7 +1283,7 @@ class Timeline {
             eventEndDate = new TimelineDate(endDateStr);
         }
         
-        /* REDUNDANT
+        /* REDUNDANT, use dateRange now
         // new: use date range for more concise data
         if(jsonEventObj.dates != undefined) //TODO this does the same thing as dateRange; consolidate or remove
         {
