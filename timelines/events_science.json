@@ -310,6 +310,7 @@
 		{		"name" : "Hypatia", "birthDateString" : "350", "deathDateString" : "415" , 	"bubbleDate" : "400"	, "bubbleScale" : [0, 5000]	},
 		{		"name" : "Aryabhata", "birthDateString" : "476", "deathDateString" : "550" , 	"bubbleDate" : "510", "bubbleScale" : [0, 500]		},
 		{		"name" : "Al-Khwarizmi", "birthDateString" : "780", "deathDateString" : "850", 	"bubbleDate" : "820", "bubbleScale" : [0, 5000]				},
+		{		"name" : "Roger Bacon", "lived" : ["c. 1219", "c. 1292"], 	"bubbleDate" : "1267"	, "bubbleScale" : [0, 5000]					},
 		{		"name" : "Nicolaus Copernicus", "birthDateString" : "1473", "deathDateString" : "1543", 	"bubbleDate" : "1532"	, "bubbleScale" : [0, 500]					},
 		{		"name" : "Tycho Brahe", "lived" : ["1546", "1601"]	, 	"bubbleDate" : "1570", "bubbleScale" : [0, 500]			},
 		{		"name" : "William Harvey", "lived" : ["1578", "1657"]	, 	"bubbleDate" : "1628", "bubbleScale" : [0, 500]			},
