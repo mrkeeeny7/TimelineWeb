@@ -1468,7 +1468,7 @@ class Timeline {
                 //TODO check column is a valid with current number of columns
             }
             //2. determine offset from current year    
-            let offset = (_tlevent.bubbleDate.date - this.currentYear) * scalefactor + 0.5;
+            let offset = (_tlevent.bubbleDate.continuousValue - this.currentYear) * scalefactor + 0.5;
             let topPosition = offset;
             
             if(_tlevent.type==undefined)
@@ -1479,7 +1479,7 @@ class Timeline {
             if(_tlevent.type=="basic")
             {
                 //track the event/year stacks
-                //TODO stacks should be a whole separate DOM element
+                //****TODO****** stacks should be a whole separate DOM element
                 if(this.eventStacks[c][_tlevent.bubbleDate.date] == undefined)
                 {
                     this.eventStacks[c][_tlevent.bubbleDate.date] = []; //each stack is an array of events; there is a separate stack for each date
@@ -1497,8 +1497,8 @@ class Timeline {
             {
                 //use birth and death dates if available
                 //otherwise use event date for birth, PRESENTDAY for death
-                var lifelineStart = (_tlevent.birthDate.isDefined) ? _tlevent.birthDate.date : _tlevent.bubbleDate.date;
-                var lifelineEnd = (_tlevent.deathDate.isDefined) ? _tlevent.deathDate.date : TimelineDate.PresentDay() ;
+                var lifelineStart = (_tlevent.birthDate.isDefined) ? _tlevent.birthDate.continuousValue : _tlevent.bubbleDate.continuousValue;
+                var lifelineEnd = (_tlevent.deathDate.isDefined) ? _tlevent.deathDate.continuousValue : TimelineDate.PresentDay() ;
 
                 //set lifline positions - separate from main bubble
                 offset = (lifelineStart - this.currentYear) * scalefactor + 0.5;
@@ -1512,7 +1512,7 @@ class Timeline {
             else if(_tlevent.type=="era")
             {
                 //set bottom position by end date
-                offset = (_tlevent.endDate.date - this.currentYear) * scalefactor + 0.5;
+                offset = (_tlevent.endDate.continuousValue - this.currentYear) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.domElement, offset);
 
             }
@@ -2785,6 +2785,23 @@ class TimelineDate
     }
 
     /**
+     * Used for purposes of positioning elements on the timeline
+     * Could be called getPosition or similar
+     * @returns {Number} 1, 2, 3 for 1AD, 2AD, 3AD; 0, -1, -2 for 1BC 2BC, 3BC
+     */
+    get continuousValue()
+    {
+        if(this.date >= 0)
+        {
+            return Number(this.date);
+        }
+        else
+        {
+            return Number(this.date + 1.0);
+        }
+    }
+
+    /**
      * Generate a new string representation of the date
      * If approx, include this in the string.
      * @returns {string}
@@ -2804,6 +2821,17 @@ class TimelineDate
         }
         return str;
     }
+
+    /**
+     * 
+     * @param {TimelineDate} otherYear 
+     * @returns {number}
+     */
+    yearDifference(otherYear)
+    {
+        return this.yearDifference(this.date, otherYear.date);
+    }
+
 
     /**
      * 
@@ -3344,10 +3372,10 @@ function UpdateInfoPanel()
 
                 if(tlEvent.birthDate.isDefined && tlEvent.deathDate.isDefined)
                 {
+                    //TODO double check year difference maths and improve this code
+
                     //lifetimetext = lifetimetext + " (" + TimelineDate.timespanString(tlEvent.deathDate.date - tlEvent.birthDate.date) + " years)";
-                    lifetimetext = lifetimetext + " (" + 
-                        TimelineDate.timespanString(TimelineDate.yearDifference(tlEvent.birthDate.date, tlEvent.deathDate.date)) 
-                        + " years)";
+                    lifetimetext = lifetimetext + " (" + TimelineDate.timespanString(tlEvent.birthDate.yearDifference(tlEvent.deathDate)) + " years)";
                 }
                 lifetimetext = lifetimetext;
 

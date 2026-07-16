@@ -24,15 +24,28 @@
 			"title" : "2 AD",
 			"dateString" : "2 AD",
 			"type" : "horizline"
-		}
+		},
+
+        {
+            "title" : "BC era",
+            "dateRange" : ["100 BC", "1 AD"],
+            "type" : "era"
+        },
+
+        {
+            "title" : "AD era",
+            "dateRange" : ["1 AD", "100 AD"],
+            "type" : "era"
+        }
     ],
 
 	"personlist": [
 
-        {		"name" : "BCBOY", "birthDateString" : "2 BC", "deathDateString" : "1 BC"		, "bubbleDate" : "1 BC", "bubbleScale" : [0, 50000]			},
-        {		"name" : "ADGIRL", "birthDateString" : "1", "deathDateString" : "2"		, "bubbleDate" : "2", "bubbleScale" : [0, 50000]			},
-        {		"name" : "ZEROBOY", "birthDateString" : "0 BC", "deathDateString" : "1 AD"		, "bubbleDate" : "0", "bubbleScale" : [0, 50000]			},
-        {		"name" : "TESTBOY", "birthDateString" : "1 BC", "deathDateString" : "1 AD"		, "bubbleDate" : "1", "bubbleScale" : [0, 50000]			}
+        {		"name" : "BC BOY", "birthDateString" : "2 BC", "deathDateString" : "1 BC"		, "bubbleDate" : "1 BC", "bubbleScale" : [0, 50000]			},
+        {		"name" : "AD GIRL", "birthDateString" : "1", "deathDateString" : "2"		, "bubbleDate" : "2", "bubbleScale" : [0, 50000]			},
+        {		"name" : "ZERO BOY", "birthDateString" : "0 BC", "deathDateString" : "10 AD", "subtitle" : "born in year 0"		, "bubbleDate" : "5", "bubbleScale" : [0, 50000]			},
+        {		"name" : "ZERO GIRL", "birthDateString" : "10 BC", "deathDateString" : "0 AD", "subtitle" : "dies in year 0"		, "bubbleDate" : "5 BC", "bubbleScale" : [0, 50000]			},
+        {		"name" : "TEST BOY", "birthDateString" : "1 BC", "deathDateString" : "1 AD"		, "bubbleDate" : "1", "bubbleScale" : [0, 50000]			}
 
     ]
 }
