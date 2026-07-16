@@ -11,7 +11,8 @@
 		"timelines/eras_archaeology.json",
 		"timelines/events_iceage.json",
 		"timelines/events_prehistoric.json",
-		"timelines/events_cosmic.json"
+		"timelines/events_cosmic.json",
+		"timelines/events_testing.json"
 	],
 
 	"eventlist" : [

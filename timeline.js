@@ -1497,8 +1497,8 @@ class Timeline {
             {
                 //use birth and death dates if available
                 //otherwise use event date for birth, PRESENTDAY for death
-                var lifelineStart = (_tlevent.birthDate==undefined)? _tlevent.bubbleDate.date : _tlevent.birthDate;
-                var lifelineEnd = (_tlevent.deathDate==undefined)? TimelineDate.PresentDay() : _tlevent.deathDate;
+                var lifelineStart = (_tlevent.birthDate.isDefined) ? _tlevent.birthDate.date : _tlevent.bubbleDate.date;
+                var lifelineEnd = (_tlevent.deathDate.isDefined) ? _tlevent.deathDate.date : TimelineDate.PresentDay() ;
 
                 //set lifline positions - separate from main bubble
                 offset = (lifelineStart - this.currentYear) * scalefactor + 0.5;
@@ -1844,8 +1844,9 @@ class TimelineEvent {
         this.endDate = endDate;
 
         // only relevant for Person-type events
-        this.birthDate = new TimelineDate(jsonObj.birthDateString).date; //sets birth and death to undefined if not known
-        this.deathDate = new TimelineDate(jsonObj.deathDateString).date;
+        //TODO Keep these as TimelineDates as well (like bubbleDate, endDate)
+        this.birthDate = new TimelineDate(jsonObj.birthDateString); //sets birth and death to undefined if not known
+        this.deathDate = new TimelineDate(jsonObj.deathDateString);
 
         this.type = type;
     }
@@ -2774,6 +2775,11 @@ class TimelineDate
         
     }
 
+    get isDefined()
+    {
+        return this.date != undefined;
+    }
+
     get date() {
         return this.dateNumber;
     }
@@ -3333,12 +3339,15 @@ function UpdateInfoPanel()
                  * OLD STYLE
                  */
                 //TODO this should be slowly deprecated - use PersonData instead
-                var lifetimetext = "Lived: " + ( (tlEvent.birthDate==undefined)? "unknown date" : TimelineDate.dateString(tlEvent.birthDate) ) 
-                + " to " + ((tlEvent.deathDate==undefined)? "unknown date" : TimelineDate.dateString(tlEvent.deathDate));
+                var lifetimetext = "Lived: " + tlEvent.birthDate.makeString();
+                + " to " + tlEvent.deathDate.makeString();
 
-                if(tlEvent.birthDate!=undefined && tlEvent.deathDate!=undefined)
+                if(tlEvent.birthDate.isDefined && tlEvent.deathDate.isDefined)
                 {
-                    lifetimetext = lifetimetext + " (" + TimelineDate.timespanString(tlEvent.deathDate-tlEvent.birthDate) + " years)"
+                    //lifetimetext = lifetimetext + " (" + TimelineDate.timespanString(tlEvent.deathDate.date - tlEvent.birthDate.date) + " years)";
+                    lifetimetext = lifetimetext + " (" + 
+                        TimelineDate.timespanString(TimelineDate.yearDifference(tlEvent.birthDate.date, tlEvent.deathDate.date)) 
+                        + " years)";
                 }
                 lifetimetext = lifetimetext;
 

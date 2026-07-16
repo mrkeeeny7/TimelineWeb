@@ -331,8 +331,8 @@
 		{		"name" : "Pompey", "birthDateString" : "106 BC", "deathDateString" : "48 BC"		, "ruled" : ["70 BC", "69 BC", "55 BC", "54 BC", "52 BC", "51 BC"], "bubbleDate" : "55 BC", "bubbleScale" : [0, 200]			},
 		{		"name" : "Cato the Younger", "birthDateString" : "95 BC", "deathDateString" : "46 BC", "bubbleDate" : "67 BC", "bubbleScale" : [0, 200]			},
 		{		"name" : "Mark Antony", "birthDateString" : "83 BC", "deathDateString" : "30 BC"	, "ruled" : ["43 BC", "30 BC"], "bubbleDate" : "43 BC", "bubbleScale" : [0, 200]			},
-		{		"name" : "Augustus", "birthDateString" : "63 BC", "deathDateString" : "14 AD"		, "ruled" : ["43 BC", "14"], "bubbleDate" : "27 BC", "bubbleScale" : [0, 500]			},
-
+		{		"name" : "Augustus", "birthDateString" : "63 BC", "deathDateString" : "14 AD"		, "ruled" : ["43 BC", "14"], "bubbleDate" : "27 BC", "bubbleScale" : [0, 5000]			},
+		
 		{		"name" : "Tiberius", "birthDateString" : "42 BC", "deathDateString" : "37 AD"  , "ruled" : ["14", "37"], "bubbleDate" : "14", "bubbleScale" : [0, 500]	},
 		{		"name" : "Caligula" , "birthDateString" : "12", "deathDateString" : "41" , "ruled" : ["37", "41"], "bubbleDate" : "37", "bubbleScale" : [0, 500]	},
 		{		"name" : "Claudius", "birthDateString" : "10 BC", "deathDateString" : "54 AD" , "ruled" : ["41", "54"], "bubbleDate" : "41", "bubbleScale" : [0, 500]	 },
