@@ -35,6 +35,7 @@ const MEGA_ANNUM_THRESHOLD = 100000; //0.1 Ma
 
 //magic numbers
 const MWHEEL_SCROLL_FACTOR = 0.01;
+const DRAG_SCALE_FACTOR = 500.0;
 
 const ANIMATION_TIME = 500.0; //milliseconds
 const ANIMATION_INTERVAL = 50.0; //milliseconds
@@ -895,8 +896,8 @@ class Timeline {
     currentMaxScale;    // scope of visible events
 
     /** @type {number} this can be a floating point value (for smooth dragging), TODO: better name would maybe be currentDate */
-    currentYear = 0;    //TODO 0 is a placeholder for 1BC TODO TODO rename to currentDate
-    oldCurrentYear;
+    currentDate = 0;    //TODO 0 is a placeholder for 1BC TODO TODO rename to currentDate
+    oldCurrentDate;
     
     sliderScale;
     inverted=false;
@@ -1430,8 +1431,8 @@ class Timeline {
      * recalculates the positions of all the timeline elements
      */
     refresh() {
-        this.currentMin = this.currentYear - this.currentScale/2;
-        this.currentMax = this.currentYear + this.currentScale/2;
+        this.currentMin = this.currentDate - this.currentScale/2;
+        this.currentMax = this.currentDate + this.currentScale/2;
 
         this.eventStacks = [[],[],[]]; //TODO allow dynamic number of columns
     
@@ -1467,8 +1468,12 @@ class Timeline {
                 console.log(_tlevent.title + ": current Column = " + c);
                 //TODO check column is a valid with current number of columns
             }
-            //2. determine offset from current year    
-            let offset = (_tlevent.bubbleDate.continuousValue - this.currentYear) * scalefactor + 0.5;
+
+            //2. determine offset from current date    
+            //TODO this is still broken - for BC years current year is wrongly positioned
+            //Maybe store currentYear and currentDate separately, or derive currentOffset from currentDate
+            let offset = (_tlevent.bubbleDate.continuousValue - this.currentDate) * scalefactor + 0.5;
+           // let offset = (_tlevent.bubbleDate.continuousDateOffset(this.currentDate)) * scalefactor + 0.5;
             let topPosition = offset;
             
             if(_tlevent.type==undefined)
@@ -1501,10 +1506,10 @@ class Timeline {
                 var lifelineEnd = (_tlevent.deathDate.isDefined) ? _tlevent.deathDate.continuousValue : TimelineDate.PresentDay() ;
 
                 //set lifline positions - separate from main bubble
-                offset = (lifelineStart - this.currentYear) * scalefactor + 0.5;
+                offset = (lifelineStart - this.currentDate) * scalefactor + 0.5;
                 setTopPosition(_tlevent.lifelineDomElement, offset);
     
-                offset = (lifelineEnd - this.currentYear) * scalefactor + 0.5;
+                offset = (lifelineEnd - this.currentDate) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.lifelineDomElement, offset);
 
             }
@@ -1512,7 +1517,7 @@ class Timeline {
             else if(_tlevent.type=="era")
             {
                 //set bottom position by end date
-                offset = (_tlevent.endDate.continuousValue - this.currentYear) * scalefactor + 0.5;
+                offset = (_tlevent.endDate.continuousValue - this.currentDate) * scalefactor + 0.5;
                 setBottomPosition(_tlevent.domElement, offset);
 
             }
@@ -1528,7 +1533,7 @@ class Timeline {
         }
     
         
-        this.currentYearLabelDom.textContent = TimelineDate.dateString(this.currentYear); //refresh the year labels
+        this.currentYearLabelDom.textContent = TimelineDate.dateString(this.currentDate); //refresh the year labels
         this.minYearLabelDom.textContent = TimelineDate.dateString(this.currentMin); 
         this.maxYearLabelDom.textContent = TimelineDate.dateString(this.currentMax); 
         //TODO other labels
@@ -1683,16 +1688,16 @@ class Timeline {
     }
 
     /**
-     * 
-     * @param {number} newYear updates the current year to this value
+     * updates the current date to this value.
+     * @param {number} newYear New date in internal, continuous format. This _can_ be zero.
      * @param {boolean} propagate also update accordingly timelines that are locked to this one
      */
     SetCurrentYear(newYear, propagate=true)
     {
-        this.currentYear = newYear;
+        this.currentDate = newYear;
     // document.getElementById("currentYearLabel").innerHTML = dateString(currentYear);
         this.refresh();
-        console.log("TL" + this.timelineIndex + " Curent year: " +  this.currentYear);
+        console.log("TL" + this.timelineIndex + " Curent year: " +  this.currentDate);
 
 
         //update all the other timelines
@@ -1706,11 +1711,11 @@ class Timeline {
                     //all_timelines[i].SetCurrentYear(mainTimeline.currentYear + offset, false);
                     if(all_timelines[i].inverted)
                     {
-                        all_timelines[i].SetCurrentYear(-this.currentYear, false);
+                        all_timelines[i].SetCurrentYear(-this.currentDate, false);
                     }
                     else
                     {
-                        all_timelines[i].SetCurrentYear(this.currentYear, false);
+                        all_timelines[i].SetCurrentYear(this.currentDate, false);
                     }
                     all_timelines[i].refresh();
                 }
@@ -1759,7 +1764,7 @@ function AnimateMove()
     animProgress += ANIMATION_INTERVAL/ANIMATION_TIME;
     if (animProgress < 1.0) {
         //lerp between old date and new date...
-        var newYear = TimelineHelper.Lerp(animTimeline.oldCurrentYear, animTargetDate, animProgress);
+        var newYear = TimelineHelper.Lerp(animTimeline.oldCurrentDate, animTargetDate, animProgress);
         animTimeline.SetCurrentYear(newYear);
     }
     else
@@ -1767,18 +1772,23 @@ function AnimateMove()
         // end 
 
         animTimeline.SetCurrentYear(animTargetDate);
-        animTimeline.oldCurrentYear = animTargetDate;
+        animTimeline.oldCurrentDate = animTargetDate;
         StopCurrentAnimation();
     }
 }
 
-//TODO maybe if this gets called before the last animation has cleared, there will be multiple intervals running
+//DONE maybe if this gets called before the last animation has cleared, there will be multiple intervals running
 // need to track and clear all intervals properly
-function ZoomToDate(date, timelineIndex)
+/**
+ * 
+ * @param {number} targetDate the targetDate in internal, continuous format
+ * @param {number} timelineIndex 
+ */
+function ZoomToDate(targetDate, timelineIndex)
 {
     var targetTimeline = getTimeline(timelineIndex);
     animTimeline = targetTimeline;
-    animTargetDate = Number(date);
+    animTargetDate = Number(targetDate);
     animProgress = 0.0;
 
     //cancel any existing animation
@@ -1959,7 +1969,7 @@ function toggleTimelineLock(button)
 
     if(timelinesLocked)
     {
-        secondTimeline.lockOffset = secondTimeline.currentYear - mainTimeline.currentYear;
+        secondTimeline.lockOffset = secondTimeline.currentDate - mainTimeline.currentDate;
         secondTimeline.lockScaleOffset = secondTimeline.currentScale - mainTimeline.currentScale;
     }
 
@@ -2279,7 +2289,7 @@ function updateYearInput()
     var yearInputDOM = document.getElementById("yearInput");
   //  yearInputDOM.value = dateString(mainTimeline.currentYear);
 
-    yearInputDOM.value = TimelineDate.dateString(mainTimeline.currentYear);
+    yearInputDOM.value = TimelineDate.dateString(mainTimeline.currentDate);
     // TODO print out gregorian equivalent underneath
 
     updateGregorianLabel();
@@ -2326,7 +2336,7 @@ function updateGregorianLabel()
 {    
     var dom = document.getElementById("yearLabelGregorian");
     //dom.innerText = "(" + TimelineDate.dateStringClassic(mainTimeline.currentYear) + ")";
-    dom.innerText = "(" + TimelineDate.dateStringNew(mainTimeline.currentYear, tlSystem_CE) + ")"; //use the more scientific CE label for now
+    dom.innerText = "(" + TimelineDate.dateStringNew(mainTimeline.currentDate, tlSystem_CE) + ")"; //use the more scientific CE label for now
 }
 
 function initTimelines()
@@ -2452,6 +2462,7 @@ const TLDateFormat = Object.freeze({
     CE: "ce",
     MA: "megaannum",
     HOL: "holocene",
+    CONT: "continuous",
     MIDRTH: "middleearth"
 });
 
@@ -2790,14 +2801,45 @@ class TimelineDate
      * @returns {Number} 1, 2, 3 for 1AD, 2AD, 3AD; 0, -1, -2 for 1BC 2BC, 3BC
      */
     get continuousValue()
-    {
-        if(this.date >= 0)
+    {            
+        return TimelineDate.continuousDate(this.date);
+    }
+
+    static continuousDate(integerDate)
+    { 
+        if(integerDate >= 0)
         {
-            return Number(this.date);
+            return Number(integerDate);
         }
         else
         {
-            return Number(this.date + 1.0);
+            return Number(integerDate) + 1.0;
+        }
+
+    }
+    
+
+    /**
+     * Compares a continuous Date to this Date to determine the on-screen offset for bubble elements
+     * @param {number} continuousDate the continuous value to compare to this Date, typically _currentDate_ on the Timeline 
+     * @returns {number} the offset, in years (fractional values allowed)
+     */
+    continuousDateOffset(continuousDate)
+    {
+        //remember date or dateInt do not take the value 0
+        let offset = this.date - continuousDate;
+
+        if(this.date * continuousDate > 0) //both values are positive or both negative
+        {
+            return offset;
+        }
+        else if(this.date > 0) //the current date must be negative and before this.date
+        {
+            return offset - 1.0; //subtract 1 to account for the skipping of 0 AD
+        }
+        else
+        {
+            return offset + 1.0; //reverse situation
         }
     }
 
@@ -2976,6 +3018,28 @@ class TimelineDate
         outstr = formattedNumberEN;
         return outstr;
     }
+
+    static dateStringContinuous(dateNumber)
+    {
+        var outstr = "";
+        var formatOptions = {
+            notation: "standard",
+            minimumFractionDigits: 2, 
+            maximumFractionDigits: 2 
+        };
+
+        if(Math.abs(dateNumber) > 10000)
+        {
+            formatOptions.notation = "scientific";
+            //formatOptions.notation = "compact";
+        }
+
+        var formattedNumberEN = new Intl.NumberFormat('en-US', formatOptions).format(dateNumber);
+
+        outstr = formattedNumberEN;
+        return outstr;
+
+    }
     
 
     /**
@@ -3016,6 +3080,11 @@ class TimelineDate
         else if(TimelineDate.currentDateFormat==TLDateFormat.HOL)
         {
             return TimelineDate.dateStringNew(dateNumber, tlSystem_HOL);
+        }
+        else if(TimelineDate.currentDateFormat==TLDateFormat.CONT)
+        {
+            //return String(dateNumber);
+            return TimelineDate.dateStringContinuous(dateNumber);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.MIDRTH)
         {
@@ -3099,7 +3168,7 @@ class TimelineDate
 
     /**
      * 
-     * @param {number} dateNumber the input date in internal number (Gregorian) i.e. [-1, 0) is 1 BC; (0, 1] is 1 AD, 0 is undefined
+     * @param {number} dateNumber the input date in internal number (Gregorian) i.e. [-1, 0) is 1 BC; (0, 1] is 1 AD, 0 is now allowed but becomes 1 BC
      * @param {TimelineDateSystem} tlDateSystem the date system we want to display the output in
      * @returns {string} the string representation of the input date, in the supplied format
      */
@@ -3111,6 +3180,8 @@ class TimelineDate
         {
             //should never happen: dateRound not return 0
             throw new error("0 is not a valid input to convert to Gregorian year");
+           // console.warn("0 is not a valid input to convert to Gregorian year");
+            //dateRounded = -1;
         }
 
         str = tlDateSystem.dateToString(dateRounded);
@@ -3438,8 +3509,8 @@ function RefreshPersonPanel()
        //var aliveListHTML = selectedTimeline.personlist.PersonsAliveStringHTML(selectedTimeline.currentYear);
         //personPanel.innerHTML = aliveListHTML;
 
-        personPanel.appendChild(selectedTimeline.personlist.CurrentYearReport(selectedTimeline.currentYear));
-        personPanel.appendChild(selectedTimeline.specieslist.CurrentYearReport(selectedTimeline.currentYear));
+        personPanel.appendChild(selectedTimeline.personlist.CurrentYearReport(selectedTimeline.currentDate));
+        personPanel.appendChild(selectedTimeline.specieslist.CurrentYearReport(selectedTimeline.currentDate));
     }
 
 }
@@ -3806,7 +3877,7 @@ function timelineMouseDown(event, timelineIndex)
 
     var targetTimeline = getTimeline(timelineIndex);
     mouseDownY = event.pageY;
-    targetTimeline.oldCurrentYear=targetTimeline.currentYear;
+    targetTimeline.oldCurrentDate=targetTimeline.currentDate;
 
     //cancel any existing animation
     if(animID!=null)
@@ -3855,12 +3926,12 @@ function timelineMouseUp(timelineIndex)
 function DragTimeline(dragAmount, timelineIndex)
 {
     var targetTimeline = getTimeline(timelineIndex);
-    var dragScale = targetTimeline.currentScale / 500.0; //scale the dragging speed with the timeline scale
+    var dragScale = targetTimeline.currentScale / DRAG_SCALE_FACTOR; //scale the dragging speed with the timeline scale
 
     var draggedYearsAmount = dragScale * dragAmount;
     console.log("Dragged " + draggedYearsAmount + " years");
 
-    targetTimeline.SetCurrentYear(targetTimeline.oldCurrentYear - draggedYearsAmount);
+    targetTimeline.SetCurrentYear(targetTimeline.oldCurrentDate - draggedYearsAmount);
 
 
   //  console.log("Curent year: " + currentYear);
@@ -3872,7 +3943,7 @@ function FinishDrag(timelineIndex)
 {
     var targetTimeline = getTimeline(timelineIndex);
 
-    targetTimeline.oldCurrentYear = targetTimeline.currentYear;
+    targetTimeline.oldCurrentDate = targetTimeline.currentDate;
     isDragging = false;
 }
 
@@ -3880,14 +3951,22 @@ function FinishDrag(timelineIndex)
 //TODO
 // 'current year' info window - link to wikipedia info
 
-function onEventClick(timelineIndex, eventIndex, startDate) //event handler for eventBubble DOM element
+/**
+ * 
+ * @param {number} timelineIndex 
+ * @param {number} eventIndex 
+ * @param {number} eventStartDate this will be from the event Date being clicked on, needs to be converted to internal continuous format
+ */
+function onEventClick(timelineIndex, eventIndex, eventStartDate) //event handler for eventBubble DOM element
 {
     console.log("Event clicked, timeline " + timelineIndex);
     var targetTimeline = getTimeline(timelineIndex);
 
     //SetCurrentYear(this.getAttribute("startDate"));
     targetTimeline.selectEvent(eventIndex);
-    ZoomToDate(startDate, timelineIndex);
+
+    let targetDate = TimelineDate.continuousDate(eventStartDate);
+    ZoomToDate(targetDate, timelineIndex);
 }
 
 

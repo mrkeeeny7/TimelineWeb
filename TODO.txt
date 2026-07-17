@@ -186,7 +186,8 @@ NEXT----------------
 ===> UI - handle overlapping labels better, reorganize layout so right column labels are visible
 === overlapping labels (same date) --> chain under a multi-bubble object (mouseover/click to see separate entries)
 
-== spacing on timeline is broken around 1BC / 1 AD (2 year gap instead of 1 year gap)
+== spacing on timeline is broken around 1BC / 1 AD (2 year gap instead of 1 year gap)--
+		- still broken - current date line does not match
 == add in year markers at maximum zoom
 
 
