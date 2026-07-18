@@ -71,8 +71,9 @@ class PersonData
     deathDate;
 
 
+    //TODO make this an array of TimelineDates ? or at least enforce whther continuous or integer
     /**
-     * @type {number[]}
+     * @type {TimelineDate[]}
      * array of dates corresponding to the time this person was a 'ruler', if any
      */
     ruled;
@@ -164,7 +165,7 @@ class PersonData
                 }
                 else
                 {
-                    this.ruled[i] = new TimelineDate(personDataJSObj.ruled[i]).date;
+                    this.ruled[i] = new TimelineDate(personDataJSObj.ruled[i]);
                 }
             }
         }
@@ -227,7 +228,7 @@ class PersonData
             //read next pair of values from the array
             start = this.ruled[i++];
             end = this.ruled[i++]; //should be undefined if we run past the end of the array
-            if(start <= yearInt && (end >= yearInt || end == undefined))
+            if(start.date <= yearInt && (end == undefined || end.date >= yearInt ))
             {
                 //person did rule in current year
                 return true;
@@ -289,11 +290,12 @@ class PersonData
 
                 if(end==undefined)
                 {
-                    end = TimelineDate.PresentDay(); //TODO, should really just put PRESENTDAY in the data
+                    end = TimelineDate.PresentDayDate(); //TODO, should really just put PRESENTDAY in the data
+                    //TODO also this static constructor is not great, uses number --> string --> TimelineDate constructors
                 }
-
-                let ruledstr = TimelineDate.dateString(start) + " to " + TimelineDate.dateString(end) 
-                    + " (" + Number(end-start) + " years).";
+                let ruleLengthStr = TimelineDate.timespanString(start.yearDifference(end));
+                let ruledstr = start.makeString() + " to " + end.makeString()
+                    + " (" + ruleLengthStr + " years).";
 
                 ruledPara.appendChild(TimelineHelper.BoldBlock(lineBegin));
                 ruledPara.appendChild(document.createTextNode(ruledstr));
@@ -475,12 +477,12 @@ class PersonListSorted {
 
     /**
      * 
-     * @param {number} date as as the usual floating point date format
+     * @param {number} continuousDate as as the usual floating point date format
      * @returns {PersonData[]}  list of persons alive in the given year
      */
-    PersonsAliveList(date)
+    PersonsAliveList(continuousDate)
     {
-        var yearInt = TimelineDate.dateRound(date); //date rounded to whole-year
+        var yearInt = TimelineDate.integerDate(continuousDate); //date rounded to whole-year
         var alivelist = new Array();
         for(let i = 0; i<this.theList.length; i++)
         {
@@ -530,15 +532,15 @@ class PersonListSorted {
      * Replacement for PersonsAliveStringHTML: Will produce a report of persons alive or current species, etc.
      * depending on current date and zoom level
      * 
-     * @param {number} date 
+     * @param {number} dateContinuous 
      * @returns {HTMLElement} the formatted block containing the report
      */
-    CurrentYearReport(date)
+    CurrentYearReport(dateContinuous)
     {
         //create an HTML element with a formatted list
 
-        var alivelist = this.PersonsAliveList(date);
-        var yearstr = TimelineDate.dateString(date);
+        var alivelist = this.PersonsAliveList(dateContinuous);
+        var yearstr = TimelineDate.dateString(dateContinuous);
 
         var reportElement = document.createElement("div");
 
@@ -557,7 +559,7 @@ class PersonListSorted {
 
         for(let i=0; i<alivelist.length; i++)
         {
-            var personElement = this.PersonHTMLElement(alivelist[i], date);
+            var personElement = this.PersonHTMLElement(alivelist[i], dateContinuous);
             reportElement.appendChild(personElement);
             reportElement.appendChild(document.createElement("br")); // add a line break
         }
@@ -573,7 +575,7 @@ class PersonListSorted {
      */
     PersonStringHTML(person, dateNumber)
     {           
-        var yearInt = TimelineDate.dateRound(dateNumber); //the current date in whole-years
+        var yearInt = TimelineDate.integerDate(dateNumber); //the current date in whole-years
 
         var textline="";
         if(person.birthDate.date != undefined)
@@ -619,7 +621,7 @@ class PersonListSorted {
     {           
         var personElement = document.createElement("span");
 
-        var yearInt = TimelineDate.dateRound(dateNumber); //the current date in whole-years
+        var yearInt = TimelineDate.integerDate(dateNumber); //the current date in whole-years
 
         var textline="";
         if(person.birthDate.date != undefined)
@@ -2761,8 +2763,6 @@ class TimelineDate
     dateFormatOriginal;
     isApprox;
 
- 
-
     /**
      * @type {string}
      */
@@ -2786,6 +2786,27 @@ class TimelineDate
         
     }
 
+    /**
+     * Quasi constructor 
+     * TODO this is a bit redundant/awkward, constructors should be reversed so the default takes a number
+     * @param {number} dateContinuous 
+     * @returns {TimelineDate}
+     */
+    static NewDateFromNumber(dateContinuous)
+    {
+        let dateStr = TimelineDate.dateString(dateContinuous);
+        return new TimelineDate(dateStr);
+    }
+
+    /**
+     * 
+     * @returns {TimelineDate} a TimelineDate object representing the present year
+     */
+    static PresentDayDate()
+    {
+        return this.NewDateFromNumber(TimelineDate.PresentDay());
+    }
+
     get isDefined()
     {
         return this.date != undefined;
@@ -2798,6 +2819,9 @@ class TimelineDate
     /**
      * Used for purposes of positioning elements on the timeline
      * Could be called getPosition or similar
+     * Techincally this represents the end-value or _b_ of the bracket (_a_,_b_] that represents the integer year.
+     * e.g. (0, 1] represents 1 AD or 1.0 
+     * and (-1, 0] represents 1 BC or 0.0 
      * @returns {Number} 1, 2, 3 for 1AD, 2AD, 3AD; 0, -1, -2 for 1BC 2BC, 3BC
      */
     get continuousValue()
@@ -2816,6 +2840,18 @@ class TimelineDate
             return Number(integerDate) + 1.0;
         }
 
+    }
+
+    static integerDate(continuousDate)
+    {
+        if(continuousDate <= 0)
+        {
+            return this.dateRound(continuousDate - 1);
+        }
+        else
+        {
+            return this.dateRound(continuousDate);
+        }
     }
     
 
@@ -2856,7 +2892,7 @@ class TimelineDate
         }
 
 
-        var str = TimelineDate.dateString(this.date);
+        var str = TimelineDate.dateString(this.continuousValue);
         if(this.isApprox)
         {
             str = "c. " + str;
@@ -2871,7 +2907,7 @@ class TimelineDate
      */
     yearDifference(otherYear)
     {
-        return this.yearDifference(this.date, otherYear.date);
+        return TimelineDate.yearDifference(this.date, otherYear.date);
     }
 
 
@@ -3051,48 +3087,48 @@ class TimelineDate
      * NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
      * All dates in the range (0, 1] count as 1 AD
      * 
-     * @param {number} dateNumber the input date as number (expects floating point value)
+     * @param {number} dateContinuous the input date as number (expects floating point value)
      * @returns {string} the usual string format of this date (e.g. Ma, AD or BC)
      */
-    static dateString(dateNumber)
+    static dateString(dateContinuous)
     {
         //if(currentScale > MEGA_ANNUM_THRESHOLD)
-        if(Math.abs(Number(dateNumber)) > MEGA_ANNUM_THRESHOLD)
+        if(Math.abs(Number(dateContinuous)) > MEGA_ANNUM_THRESHOLD)
         {
-            return TimelineDate.dateStringMegaAnnum(dateNumber);
+            return TimelineDate.dateStringMegaAnnum(dateContinuous);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.CLASSIC)
         {
-            return TimelineDate.dateStringClassic(dateNumber);
+            return TimelineDate.dateStringClassic(dateContinuous);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.CLASSIC_HOL)
         {
-            return TimelineDate.dateStringHolocene_Classic(dateNumber);
+            return TimelineDate.dateStringHolocene_Classic(dateContinuous);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.GREG)
         {
-            return TimelineDate.dateStringNew(dateNumber, tlSystem_GREG);
+            return TimelineDate.dateStringNew(dateContinuous, tlSystem_GREG);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.CE)
         {
-            return TimelineDate.dateStringNew(dateNumber, tlSystem_CE);
+            return TimelineDate.dateStringNew(dateContinuous, tlSystem_CE);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.HOL)
         {
-            return TimelineDate.dateStringNew(dateNumber, tlSystem_HOL);
+            return TimelineDate.dateStringNew(dateContinuous, tlSystem_HOL);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.CONT)
         {
             //return String(dateNumber);
-            return TimelineDate.dateStringContinuous(dateNumber);
+            return TimelineDate.dateStringContinuous(dateContinuous);
         }
         else if(TimelineDate.currentDateFormat==TLDateFormat.MIDRTH)
         {
-            return TimelineDate.dateStringNew(dateNumber, tlSystem_MIDDLEEARTH);
+            return TimelineDate.dateStringNew(dateContinuous, tlSystem_MIDDLEEARTH);
         }
 
         //by default just return the input as a string
-        return String(dateNumber);
+        return String(dateContinuous);
     }
 
     /**
@@ -3148,17 +3184,17 @@ class TimelineDate
 
         if(date <= 0)
         {
-            str = -TimelineDate.dateRound(date)+ " BC (classic)"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
+            str = -TimelineDate.integerDate(date)+ " BC (classic)"; //so -0.1, -1 becomes '1 BC'. NB exactly '0' will return '0 BC'; only dates in the range [-1, 0) count as 1 BC
             //str = tlEra_BC.dateToString(TimelineDate.dateRound(date)); 
         }
         else if(date < 1000)
         {
-           str = TimelineDate.dateRound(date) + " AD (classic)"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
+           str = TimelineDate.integerDate(date) + " AD (classic)"; //so 0.1, 0.5, 1 becomes '1 AD'. All dates in the range (0, 1] count as 1 AD
            //str = tlEra_AD.dateToString(TimelineDate.dateRound(date));
         }
         else
         {
-           str = TimelineDate.dateRound(date) + " (classic)"; //so 1000 becomes '1000'
+           str = TimelineDate.integerDate(date) + " (classic)"; //so 1000 becomes '1000'
            //str = tlEra_AD_post1000.dateToString(TimelineDate.dateRound(date));
         }
 
@@ -3174,7 +3210,7 @@ class TimelineDate
      */
     static dateStringNew(dateNumber, tlDateSystem)
     {      
-        var dateRounded = TimelineDate.dateRound(Number(dateNumber));
+        var dateRounded = TimelineDate.integerDate(Number(dateNumber));
         var str;
         if(dateRounded == 0)
         {
@@ -3216,12 +3252,12 @@ class TimelineDate
         if(date_num_gregorian >= 0)
         {
             //1 AD (1) becomes 10,001 HE
-            return 10000 + TimelineDate.dateRound(date_num_gregorian);
+            return 10000 + TimelineDate.integerDate(date_num_gregorian);
         }
         else
         {
             //1 BC (-1) becomes 10,000 HE
-            return 10001 + TimelineDate.dateRound(date_num_gregorian);
+            return 10001 + TimelineDate.integerDate(date_num_gregorian);
         }
 
     }
@@ -3404,11 +3440,11 @@ function UpdateInfoPanel()
         var dateText = "";
         if(tlEvent.endDate.date != tlEvent.bubbleDate.date)
         {
-            dateText = TimelineDate.dateString(tlEvent.bubbleDate.date) + " - " + TimelineDate.dateString(tlEvent.endDate.date);
+            dateText = TimelineDate.dateString(tlEvent.bubbleDate.continuousValue) + " - " + TimelineDate.dateString(tlEvent.endDate.continuousValue);
         }
         else
         {
-            dateText = TimelineDate.dateString(tlEvent.bubbleDate.date);
+            dateText = TimelineDate.dateString(tlEvent.bubbleDate.continuousValue);
         }
 
         var locationText = "";
